@@ -1,0 +1,177 @@
+@import url('fonts/fonts.css');
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr min(800px, 100%) 1fr;
+    min-height: 100vh;
+    font-family:"Josefin Sans";
+    font-size: 16px;
+    background-color: #F1E7B0; 
+    background-image: linear-gradient(to top, #ffffff, #F1E7B0);
+}
+
+header {       
+    grid-row: 1;
+    grid-column: 2;
+    background-color: #98f8ee;
+}
+
+main {
+    grid-column: 2;
+    max-width: 1200px;
+    padding: 1rem 0;    
+}
+
+h1 {
+    color: #009d8e;
+    font-family:"Merriweather";
+    font-size:2rem;
+    font-weight:bold;
+    text-align:center;
+}
+
+main {
+    grid-row:2;
+    bacKground-color: #e5fdfc;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+form > fieldset, fieldset#billing_address, fieldSet#delivery_address {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+form > fieldset#addressFields {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+fieldset#billing_address, fieldset#delivery_address {
+    flex: 1;
+    min-width: 300px;
+}
+
+fieldset#delivery_address {
+    display: none;
+}
+
+legend:not(fieldset#billing_address > div > legend) {
+    display: block;
+    width: 100%;
+    width: calc(100% + 1rem);
+    box-sizing:border-box;
+    margin: -1rem -1rem 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background-color: #FBCA1B;
+}
+
+fieldset#billing_address div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  
+    height: 24px;
+    margin-left: -2rem;
+    margin-top: -1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background-color: #FBCA1B;    
+}
+
+label:not([for="deliver_to_billing_address"]) {
+    width:100%;
+    padding: 0.25rem;
+}
+
+
+fieldset#billing_card_options {
+    display: flex;
+    flex-flow: column wrap;
+    align-content:space-around;
+    height: 6rem;
+    max-width: 350px;
+}
+
+fieldset#billing_card_options div {
+    display: flex;
+    align-items: center;
+    /* width: 150px; */
+    margin-bottom: 0.5rem;
+}
+
+fieldset#billing_card_options input {
+    margin-right: 0.75rem;
+}
+
+label[for="billing_card_cvv"] {
+    margin-left: 13px;
+}
+
+input:not(input.credit_card_type), input:not(input#deliver_to_billing_address) {
+    max-width: 350px;
+    height: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+
+input#deliver_to_billing_address {
+    height:fit-content;
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+label[for="deliver_to_billing_address"] {
+    height: fit-content;
+    font-size: 0.75rem;
+}
+
+input::placeholder {
+    color:rgb(100, 100, 100);
+}
+
+select, input[type="submit"] {
+    max-width: 350px;
+    height: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    margin-left: 1rem;
+    color: #ffffff;
+    background-color: #009d8e;
+}
+
+input[type="submit"] {   
+    color: #009d8e;
+    font-weight: bold;
+    background-color:#42ffec;
+}
+
+#billing_card_cvv {
+    max-width: 50px;
+}
+
+footer {
+    grid-row: 3;
+    grid-column: 2;
+    max-width: 1200px;
+}
+
+footer > * {
+    padding: 0.5rem;
+    line-height: 1.25rem;
+    background-color: #98f8ee;
+}
+
+footer address {
+    font-size: 0.85rem;
+}

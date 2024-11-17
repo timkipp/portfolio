@@ -1,0 +1,19 @@
+# System files
+Thumbs.db
+.DS_Store
+
+# Log files
+*.log
+*.tmp
+
+# Cache folders
+cache/
+
+# Node.js dependencies
+node_modules/
+
+# PHP Composer vendor folder
+vendor/
+
+# Ignore environment config files
+.env

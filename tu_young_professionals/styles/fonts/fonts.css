@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Amstelvar';
+    src: url('Amstelvar Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Amstelvar';
+    src: url('Amstelvar Roman.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro Demi.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro Light Italic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir Next LT Pro Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}

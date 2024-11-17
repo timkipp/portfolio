@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML Tables</title>
+	
+	<style>
+		body {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+			font-size: 16px%;
+		}
+		main {
+			width: 85%;
+			margin-left: auto;
+			margin-right: auto;
+			}
+		
+		table {
+			border-color: #655952;
+			border-width: medium;
+			border-style: solid;
+		}
+		
+		caption {
+			margin: 1.5rem 0rem 0.5rem;
+			color: #655952;
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+		
+		tr:hover td {
+			color: white;
+			background-color: #6699ad;
+		}
+		
+		th, td {
+			padding: 0.5rem;  /* RELATIVE SIZE */
+			border: thin solid #655952;
+		}
+		
+		th {
+			color: #BEE9E8;
+			font-size: 1.25rem; /* RELATIVE SIZE */
+			background-color: #1B4965;
+			background-color: #1B4965;
+		}
+		td {
+			color: #1B4965;
+			font-weight: bolder;
+			background-color: #dff1f5;
+			text-align:  right;
+		}
+		
+		div.special_day {
+			position: absolute;
+			text-align: center;
+		}
+		
+		td span {
+			width: 150px; /* ABSOLUTE SIZE */
+			display: block;
+			font-size: 0.85rem;
+			text-align: center;
+		}
+		
+		table#multiplication {
+			width: 100%;  /* RELATIVE SIZE */
+		}
+		
+		table#calendar {
+			width: 1200px; /* ABSOLUTE SIZE */
+			border-collapse: collapse;
+		}
+		
+		table#calendar caption {
+			color: #4CA84F;
+		}
+		
+		table#calendar th {
+			width: 14%; /* RELATIVE SIZE but effect is negated due to the fixed size of the table */
+			color: #A0E65C;
+			background-color: #1B4965;
+		}
+		
+		td[colspan] {
+			background-color: #A0E65C;
+		}
+		
+		table#calendar td {
+			height: 100px;  /* ABSOLUTE SIZE */
+			vertical-align: top;
+			color: #5FC463;
+			background-color: #E9F5F8;
+		}
+		
+		table#calendar tr:hover td {
+			color: #A0E65C;
+			background-color: #6699ad;
+		}	
+	</style>
+
+</head>
+
+<body>
+	<main>
+		<table id="multiplication">
+			<caption>Multiplicate Table</caption>
+			<tr>
+				<th>&#215;</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>10</th>
+				<th>11</th>
+				<th>12</th>			
+			</tr>
+			<tr>
+				<th>1</th>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>			
+			</tr>
+			<tr>
+				<th>2</th>
+				<td>1</td>
+				<td>4</td>
+				<td>6</td>
+				<td>8</td>
+				<td>10</td>
+				<td>12</td>
+				<td>14</td>
+				<td>16</td>
+				<td>18</td>
+				<td>20</td>
+				<td>22</td>
+				<td>24</td>			
+			</tr>
+			<tr>
+				<th>3</th>
+				<td>3</td>
+				<td>6</td>
+				<td>9</td>
+				<td>12</td>
+				<td>15</td>
+				<td>18</td>
+				<td>21</td>
+				<td>24</td>
+				<td>27</td>
+				<td>30</td>
+				<td>33</td>
+				<td>36</td>			
+			</tr>
+			<tr>
+				<th>4</th>
+				<td>4</td>
+				<td>8</td>
+				<td>12</td>
+				<td>16</td>
+				<td>20</td>
+				<td>24</td>
+				<td>28</td>
+				<td>32</td>
+				<td>36</td>
+				<td>40</td>
+				<td>44</td>
+				<td>48</td>			
+			</tr>
+			<tr>
+				<th>5</th>
+				<td>5</td>
+				<td>10</td>
+				<td>15</td>
+				<td>20</td>
+				<td>25</td>
+				<td>30</td>
+				<td>35</td>
+				<td>40</td>
+				<td>45</td>
+				<td>50</td>
+				<td>55</td>
+				<td>60</td>
+			</tr>
+			<tr>
+				<th>5</th>
+				<td>5</td>
+				<td>10</td>
+				<td>15</td>
+				<td>20</td>
+				<td>25</td>
+				<td>30</td>
+				<td>35</td>
+				<td>40</td>
+				<td>45</td>
+				<td>50</td>
+				<td>55</td>
+				<td>60</td>
+			</tr>
+			<tr>
+				<th>6</th>
+				<td>6</td>
+				<td>12</td>
+				<td>18</td>
+				<td>24</td>
+				<td>30</td>
+				<td>36</td>
+				<td>42</td>
+				<td>48</td>
+				<td>54</td>
+				<td>60</td>
+				<td>66</td>
+				<td>72</td>
+			</tr>
+			<tr>
+				<th>7</th>
+				<td>7</td>
+				<td>14</td>
+				<td>21</td>
+				<td>28</td>
+				<td>35</td>
+				<td>42</td>
+				<td>49</td>
+				<td>56</td>
+				<td>63</td>
+				<td>70</td>
+				<td>77</td>
+				<td>84</td>
+			</tr>
+			<tr>
+				<th>8</th>
+				<td>8</td>
+				<td>16</td>
+				<td>24</td>
+				<td>32</td>
+				<td>40</td>
+				<td>48</td>
+				<td>56</td>
+				<td>64</td>
+				<td>72</td>
+				<td>80</td>
+				<td>88</td>
+				<td>96</td>
+			</tr>
+			<tr>
+				<th>9</th>
+				<td>9</td>
+				<td>18</td>
+				<td>27</td>
+				<td>36</td>
+				<td>45</td>
+				<td>54</td>
+				<td>63</td>
+				<td>72</td>
+				<td>81</td>
+				<td>90</td>
+				<td>99</td>
+				<td>108</td>
+			</tr>
+			<tr>
+				<th>10</th>
+				<td>10</td>
+				<td>20</td>
+				<td>30</td>
+				<td>40</td>
+				<td>50</td>
+				<td>60</td>
+				<td>70</td>
+				<td>80</td>
+				<td>90</td>
+				<td>100</td>
+				<td>110</td>
+				<td>120</td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td>11</td>
+				<td>22</td>
+				<td>33</td>
+				<td>44</td>
+				<td>55</td>
+				<td>66</td>
+				<td>77</td>
+				<td>88</td>
+				<td>99</td>
+				<td>110</td>
+				<td>121</td>
+				<td>132</td>
+			</tr>
+			<tr>
+				<th>12</th>
+				<td>12</td>
+				<td>24</td>
+				<td>36</td>
+				<td>48</td>
+				<td>60</td>
+				<td>72</td>
+				<td>84</td>
+				<td>96</td>
+				<td>108</td>
+				<td>120</td>
+				<td>132</td>
+				<td>144</td>
+			</tr>
+		</table>
+		
+	  <table id="calendar">
+			<caption>
+				MARCH 2022
+			</caption>
+			<tr>
+				<th>Sunday</th>
+				<th>Monday</th>
+				<th>Tuesday</th>
+				<th>Wednesday</th>
+				<th>Thursday</th>
+				<th>Friday</th>
+				<th>Saturday</th>
+			</tr>
+			<tr>
+				<td colspan="2"></td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td><div class="special_day"><img src="images/daylight_savings.png" alt="Clock springing forward for Daylight Savings " width="75px"><br><span>Daylight Savings Begins</span></div>13</td>
+				<td>14</td>
+				<td>15</td>
+				<td>16</td>
+				<td><div class="special_day"><img src="images/four_leaf_clover_flat.png" alt="shamrock" width="75px"><br><span>St. Patrick's Day</span></div>17</td>
+				<td>18</td>
+				<td>19</td>
+			</tr>
+			<tr>
+				<td><div class="special_day"><img src="images/tulip.png" alt="flower" width="75px"><span>Spring Equinox</span></div>20<br></td>
+				<td>21</td>
+				<td>22</td>
+				<td>23</td>
+				<td>24</td>
+				<td>25</td>
+				<td>26</td>
+			</tr>
+		  <tr>
+				<td>27</td>
+				<td>28</td>
+				<td>29</td>
+				<td>30</td>
+				<td>31</td>
+				<td colspan="2"></td>
+			</tr>
+		</table>
+	</main>
+</body>
+</html>
+
+<!-- ABSOLUTE/RELATIVE SIZES IN STYLE PROPERTIES -->
+<!-- ABSOLUTE SIZES use fixed units such as 'px' for pixels, 'pt' for points, 'cm' for centimeters. Elements styled with ABSOLUTE SIZES will not change size when the viewing window is resized -->
+<!-- RELATIVE SIZES use fixed units such as '%' for percentages, 'em' for ems (the width of a font's 'M'), or 'rem' for root em. Elements styled with RELATIVE SIZES will change their size according to the value indicated and based on the element's parent (such as height/width) or a default style (such as font size) when the viewing window is resized -->
+
+<!-- HTML PATTERNS -->
+<!-- Tables present repeating patterns due to the rows and columns that make up a table. These rows and columns can be added dynamically using a loop structure in a script to eliminate the repetitive markup that is required to create HTML tables. In cases where the table data is dynamic (such as data retrieved from the user or from a database) the number of rows/columns may not be known initially a loop structure in a script could add the appropriate number of rows/columns required -->

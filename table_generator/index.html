@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="styles/reset.css" type="text/css" rel="stylesheet">
+	<link href="styles/global.css" type="text/css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+	<script src="scripts/main.js" defer></script>
+	<title>Custom Tables</title>
+
+</head>
+<body onresize="resizeTable()">
+	<header>
+
+	</header>
+	
+	<aside>
+		
+	</aside>
+	
+	<main>
+		<hgroup>
+			<h1>Tables <span>or Two</span></h1>
+			<h2>Custom Tables</h2>
+		</hgroup>
+		
+		<section>
+			<form>
+				<legend>Table Specifications</legend>
+				<fieldset>
+					<label for="number_of_rows">Rows</label>
+					<div class="spin-control">
+						<button type="button" id="spindown_rows" class="spin_down" onclick="updateRowsOrColumns(this, document.getElementById('number_of_rows'))">-</button>
+						
+						<input type="number" id="number_of_rows" name="Number of Rows" value="1" onkeyup="updatePreviewTable(Number(this.value), 'rows')">
+						
+						<button type="button" id="spinup_rows" class="spin_up" onClick="updateRowsOrColumns(this, document.getElementById('number_of_rows'))">+</button>
+					</div>
+
+					<label for="number_of_columns">Columns</label>
+					<div class="spin-control">
+						<button type="button" class="spin_down" onclick="updateRowsOrColumns(this, document.getElementById('number_of_columns'))">-</button>
+
+						<input type="number" id="number_of_columns" name="Number of Columns" value="1" onkeyup="updatePreviewTable(Number(this.value), 'columns')">
+						
+						<button type="button" class="spin_up" onClick="updateRowsOrColumns(this, document.getElementById('number_of_columns'))">+</button>
+					</div>
+
+					<label for="table_caption">Caption &nbsp;<span> &nbsp; optional</span></label>
+					<input type="text" id="table_caption" name="Table Caption" >
+							
+				</fieldset>
+
+				<div><button type="button" id="default" onClick="createUserTable()">Create Table</button></div>
+			</form>
+		</section>
+		<section id="preview">
+			<h1>Preview</h1>
+			<table id="preview_table">
+				<tbody>
+					<tr>
+						<td></td>
+					</tr>
+				</tbody>			
+			</table>
+		</section>
+
+		<section id="custom" style="display: none;">
+
+		</section>
+	</main>
+
+	<aside>
+
+	</aside>
+			
+	<footer>
+		
+	</footer>
+
+</body>
+</html>

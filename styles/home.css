@@ -1,0 +1,110 @@
+@import url(fonts/fonts.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F0F0F0;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+h1 {
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    font-family: 'Amasis';
+    font-size: 6rem;
+    text-transform: uppercase;
+    transition: clip-path 1s ease-out;
+}
+
+h1:first-of-type {
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: black;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    animation: wipeLeft 2s forwards; 
+}
+
+h1:last-of-type {
+    justify-content: flex-end;
+    align-items: flex-end;
+    top: 0;
+    right: 0;
+    color: black;
+    text-align: right;
+    vertical-align: bottom;
+    background-color: white;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    animation: wipeRight 2s forwards;
+}
+
+@keyframes wipeLeft {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%);
+    }
+    100% {        
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+}
+
+@keyframes wipeRight {
+    0% {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%);
+    }
+    100% {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%)
+    }
+}
+
+h2 {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    font-family: 'Cavolini';
+    font-size: 3rem;
+    font-weight: bold;  
+}
+
+h2:first-of-type {
+    top: 45%;
+    color: white;
+    transform: rotate(-27deg);
+    animation: scrollWordsLeft 20s linear infinite;
+}
+
+h2:last-of-type {
+    bottom: 45%;
+    color: black;
+    transform: rotate(-27deg);
+    animation: scrollWordsRight 20s linear infinite;
+}
+
+@keyframes scrollWordsLeft {
+    0% {
+        transform: translateX(50vw) translateY(-50vh) rotate(-27deg);
+    }
+    100% {
+        transform: translateX(-50vw) translateY(50vh) rotate(-27deg);
+    }
+}
+
+@keyframes scrollWordsRight {
+    0% {
+        transform: translateX(-50vw) translateY(50vh) rotate(-27deg);
+    }
+    100% {
+        transform: translateX(50vw) translateY(-50vh) rotate(-27deg);
+    }
+}

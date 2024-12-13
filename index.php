@@ -30,9 +30,9 @@ $uri .= $_SERVER['HTTP_HOST'];
 				<li><a href="table_generator/index.html">Tables</a></li>
 				<li><a href="calendar_generator/index.html">Calendar</a></li>
 				<li><a href="travel/index.html">Travel</a></li>			
-				<li><a href="hotel/index.php">Hotel</a></li>
-				<li><a href="store/order.php">Order</a></li>
-				<!-- <li><a href="tu_young_professionals/index.php">TU Young Professionals</a></li> -->
+				<!-- <li><a href="hotel/index.php">Hotel</a></li> -->
+				<!-- <li><a href="store/order.php">Order</a></li>
+				<li><a href="tu_young_professionals/index.php">Contact</a></li> -->
 			</ul>
 		</nav>
 	</header>

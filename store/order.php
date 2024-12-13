@@ -83,11 +83,11 @@
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css"  href="styles/order.css">
     
-    <title>Assignment #2</title>
+    <title>Order Form</title>
 </head>
 <body>
     <header>
-        <h1>ITEC 464: Assignment #2</h1>
+        <h1>Your order</h1>
     </header>
     <main>
         <?php if ($showForm): ?>
@@ -325,6 +325,8 @@
     </main>
     <footer>
         <p>&copy;2024 Tim Kipp</p>
+        <!-- <p>Web Designer</p>
+        <p>Web Developer</p> -->
         <p>ITEC 464: Web Development</p>        
         <address>
             Towson University<br>

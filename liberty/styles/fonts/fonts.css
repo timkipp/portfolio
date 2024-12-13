@@ -1,0 +1,30 @@
+@font-face {
+	font-family: "didact-gothic";
+	src: url("../fonts/DidactGothic-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "diplomata";
+	src: url("../fonts/Diplomata-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "monsieur-la-doulaise";
+	src: url("../fonts/MonsieurLaDoulaise-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "lucida-calligraphy";
+	src: url("../fonts/LCALLIG.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "monotype-corsiva";
+	src: url("../fonts/MTCORSVA.TTF") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}

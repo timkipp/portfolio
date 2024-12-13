@@ -79,7 +79,7 @@ header h1 > span:last-child { /* Kipp */
     text-shadow: -1px -1px 0 #162B38, 1px -1px 0 #34627E, -1px  1px 0 #34627E, 1px  1px 0 #34627E;
 }
 
-nav {
+header nav {
     width: 100%;
     padding-top: 0.5rem;
     padding-bottom: 0.8rem;
@@ -88,27 +88,59 @@ nav {
     border-bottom: solid 3px #BCBA88;
 }
 
-nav ul {
+header nav ul {
     display: flex;
     flex-flow: row wrap;    
     justify-content: space-around;    
 }
 
-nav ul li a {
+header nav ul li a {
     padding: 0 0.5rem;
     color: #156082;
     font-size: clamp(1.75rem, 5vw, 1rem);
 }
 
-nav ul li a:hover {
+header nav ul li a:hover {
     color: #9BBBCA;
 }
 
-nav ul li a:visited {
+header nav ul li a:visited {
     color: #687987;
 }
 
 main {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+}
+
+main h1 {
+    font-family: 'Hammersmith One';
+    font-size: 4rem;
+    font-variant-caps: small-caps;
+}
+
+footer {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+footer > menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+footer > menu > img.color-picker {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+footer > menu img#color-picker-grayscale {    
+    transition: opacity 0.3s ease;
+}
+
+footer > menu img#color-picker-grayscale:hover {
+    opacity: 0;
+    cursor: pointer;    
 }

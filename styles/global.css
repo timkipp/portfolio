@@ -109,6 +109,56 @@ nav ul li a:visited {
 }
 
 main {
+    position: relative;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+    color:#525252;
+}
+
+main h1 {
+    position: absolute;
+    left: -6.5rem;
+    color: #34627E;
+    font-family: 'Hammersmith One';
+    font-size: 6rem;
+    font-variant-caps: small-caps;
+    writing-mode: vertical-rl;
+    letter-spacing: 1.5rem;
+}
+
+main h2 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: solid 1px rgb(100, 100, 100);    
+}
+
+footer {
+    grid-row: 3 / 4;
+    grid-column: 1 / 4;
+}
+
+footer > menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+footer > menu > img.color-picker {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+footer > menu img#color-picker-grayscale {    
+    transition: opacity 0.3s ease;
+}
+
+footer > menu img#color-picker-grayscale:hover {
+    opacity: 0;
+    cursor: pointer;    
+}
+
+footer > dialog {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }

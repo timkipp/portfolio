@@ -37,7 +37,58 @@ $uri .= $_SERVER['HTTP_HOST'];
 		</nav>
 	</header>
 	<main>
-
+		<h1>Résumé</h1>
+        <section id="summary">
+            <h2>Summary</h2>
+            <p>Enthusiastic Information Technology major passionate about programming, graphic design, and web development. Eager to apply my design and coding skills in a collaborative team environment and learn from my peers to expand my skillset.</p>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <h3>Towson University</h3>
+                    <ul>
+                        <li>Bachelor of Sciece, Information Technology</li>
+                        <li><em>Graduation</em>May 2025</li>
+                        <li>GPA: 3.8</li>
+                        <li>Dean's List: Fall 2023, Spring 2024</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Harford Community College</h3>
+                    <ul>
+                        <li>Associate in Applied Sciences, Computer Information Systems</li>
+                        <li>Certificate, Computer Information Systems Programming</li>
+                        <li>Graduated 2023</li>
+                        <li>GPA: 3.8</li>
+                        <li>Dean's List: Spring 2022</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section id="relevant-experience">
+            <h2>Relevant Experience</h2>
+            <ul>
+                <li><h3>Responsive Statue of Liberty Web Page</h3> (<em>Harford Community College</em>)
+                    <p>Developed a responsive informational web page about the Statue of Liberty to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes.</p>
+                </li>
+                <li>
+                    <h3>Interactive Calendar</h3> (<em>Harford Community College</em>)
+                    <p>Developed a dynamic web page using HTML5, CSS3, and JavaScript to generate a monthly calendar. Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.</p>
+                </li>
+                <li>
+                    <h3>Flight Lookup Simulator</h3> (<em>Harford Community College</em>)
+                    <p>Developed a mockup of a flight lookup web page using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.</p>
+                </li>
+                <li>
+                    <h3>WordPress Plugin</h3> (<em>Towson University</em>)
+                    <p>Developed a WordPress plugin using HTML and PHP/MySQL to collect information from the user, store that information in a database, send a confirmation email, and retrieve and display that information at a later time. Implemented server-side validation and secured data transmission using POST method and input sanitization techniques.</p>
+               </li>
+            </ul>
+        </section>
+        <section id="professional-experience">
+            <h2>Professional Experience</h2>
+        </section>
 	</main>
 	<footer>
 		<menu>			

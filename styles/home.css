@@ -1,110 +1,171 @@
 @import url(fonts/fonts.css);
 
+:root {
+    --light-color: #aff0f0;
+    --dark-color: #3E3D32;
+}
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #F0F0F0;
+    align-items: flex-end;
+    position: relative;
+    background-color: #FFEAD2;
+    background-color: #F7FFE1;
+}
+
+
+nav {
+    position: absolute;
+    top: 6%;
+    right: 1%;
+    margin-top: 0.25rem;
+    color: white;
+    font-size: clamp(0.75rem, 1vw, 6vw);
+    font-family: 'Poppins';
+    z-index: 2;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav > ul > li:not(nav > ul > li:last-of-type) {
+    margin-right: 2rem;
+}
+
+nav > ul > li > a {
+    color: white;
+}
+
+nav > ul > li > a:hover {
+    color:#aff0f0;
+}
+
+nav > ul > li > a:visited {
+    color:darkgray;
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
     width: 100%;
-    height: 100vh;
-    /* overflow: hidden; */
+    min-height: 100vh;
 }
 
-h1 {
+hgroup {
     display: flex;
+    flex-direction: column;
     position: absolute;
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    padding: 3rem;
-    font-family: 'Amasis';
-    font-size: 6rem;
+    height: 45%;
+    font-family: 'Bebas Neue Regular';
+    font-size: clamp(2.5rem, 6.25vw, 10rem);
     text-transform: uppercase;
     transition: clip-path 1s ease-out;
 }
 
-h1:first-of-type {
-    top: 0;
-    left: 0;
-    color: white;
-    background-color: black;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    animation: wipeLeft 2s forwards; 
+@media (max-height: 261px) {
+    hgroup {
+        font-size: 2rem;
+    }
 }
 
-h1:last-of-type {
+hgroup:first-of-type {
+    top: 5%;
+    left: 0;
+    padding: 0.5rem;
+    color: var(--light-color);
+    text-align: left;
+    background-color: var(--dark-color);    
+    animation: wipeDown 2s forwards;
+}
+
+hgroup:first-of-type h1:last-child {
+    font-family: 'Al Fresco';
+    text-transform: none;
+}
+
+hgroup:last-of-type {
     justify-content: flex-end;
     align-items: flex-end;
-    top: 0;
-    right: 0;
-    color: black;
-    text-align: right;
-    vertical-align: bottom;
-    background-color: white;
-    clip-path: polygon(100% 0, 100% 100%, 0 100%);
-    animation: wipeRight 2s forwards;
+    bottom: 5%;
+    right: 0%;
+    padding: 0.5rem;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    transform: translateY(112%);
+    animation: wipeUp 2s 2s forwards;
 }
 
-@keyframes wipeLeft {
-    0% {
-        clip-path: polygon(0 0, 0 0, 0 100%);
-    }
-    100% {        
-        clip-path: polygon(0 0, 100% 0, 0 100%);
-    }
+hgroup:last-of-type h1:last-child {
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: none;
 }
 
-@keyframes wipeRight {
-    0% {
-        clip-path: polygon(100% 0, 100% 0, 100% 100%);
-    }
-    100% {
-        clip-path: polygon(100% 0, 100% 100%, 0 100%)
-    }
-}
-
-h2 {
-    display: flex;
-    justify-content: space-between;
+main > h1 {
+    opacity: 0;
     position: absolute;
-    width: 100%;
-    font-family: 'Cavolini';
-    font-size: 3rem;
-    font-weight: bold;  
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    font-family: 'Amasis';
+    font-size: clamp(1.75rem, 7.5vw, 12rem);
+    line-height: clamp(2rem, 10vw, 16rem);
+    white-space: nowrap;
+    transform: translate(-50%, -60%);
+    animation: fadeIn 2s 4s forwards;
 }
 
-h2:first-of-type {
-    top: 45%;
-    color: white;
-    transform: rotate(-27deg);
-    animation: scrollWordsLeft 20s linear infinite;
+main span {
+    display: inline-block;
 }
 
-h2:last-of-type {
-    bottom: 45%;
-    color: black;
-    transform: rotate(-27deg);
-    animation: scrollWordsRight 20s linear infinite;
+main span::first-letter{
+    font-size: clamp(2.25rem, 8.75vw, 14rem);
+    vertical-align: -7.5%;
 }
 
-@keyframes scrollWordsLeft {
+main > h1:first-of-type {
+    color: var(--dark-color);
+}
+
+main > h1:last-of-type {
+    color: var(--light-color);
+    clip-path: inset(0% 0% 40% 0%);
+}
+
+
+@keyframes wipeDown {
     0% {
-        transform: translateX(50vw) translateY(-50vh) rotate(-27deg);
+        transform: translateY(-112%);
     }
     100% {
-        transform: translateX(-50vw) translateY(50vh) rotate(-27deg);
+        transform: translateY(0);
     }
 }
 
-@keyframes scrollWordsRight {
+@keyframes wipeUp {
     0% {
-        transform: translateX(-50vw) translateY(50vh) rotate(-27deg);
+        transform: translateY(100%);
     }
     100% {
-        transform: translateX(50vw) translateY(-50vh) rotate(-27deg);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

@@ -1,36 +1,13 @@
-window.addEventListener('resize', updateRotation);
-window.addEventListener('load', updateRotation);
+window.onload = function() {
+    const element = document.querySelector("hgroup:last-of-type h1:last-child");
 
-function updateRotation() {
-    // Calculate the angle based on the viewport width and height
-    const angle = Math.atan(window.innerHeight / window.innerWidth) * (180 / Math.PI);
+    function handleViewportChange(event) {
+        const newText = event.matches ? "<Dev>" : "<Development>";
+        element.textContent = newText;
+    }
 
-    // Apply the rotation to the h2 elements
-    document.querySelectorAll('h2').forEach(h2 => {
-        // Adjusting the keyframes by setting inline styles for transform
-        const keyframes = `
-            @keyframes scrollWordsLeft {
-                0% {
-                    transform: translateX(50vw) translateY(-50vh) rotate(${angle}deg);
-                }
-                100% {
-                    transform: translateX(-50vw) translateY(50vh) rotate(${angle}deg);
-                }
-            }
+    const mediaQuery = window.matchMedia("(max-width: 320px)");
+    mediaQuery.addEventListener("change", handleViewportChange);
 
-            @keyframes scrollWordsRight {
-                0% {
-                    transform: translateX(-50vw) translateY(50vh) rotate(${angle}deg);
-                }
-                100% {
-                    transform: translateX(50vw) translateY(-50vh) rotate(${angle}deg);
-                }
-            }
-        `;
-
-        // Inject the dynamically calculated keyframes into the document's style
-        const style = document.createElement('style');
-        style.innerHTML = keyframes;
-        document.head.appendChild(style);
-    });
-}
+    handleViewportChange(mediaQuery);
+};

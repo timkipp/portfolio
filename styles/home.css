@@ -5,21 +5,31 @@
     --dark-color: #3E3D32;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    display: grid;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-columns: 100%;
     position: relative;
-    background-color: #FFEAD2;
+    height: 100%;
     background-color: #F7FFE1;
 }
 
+header, footer {
+    opacity: 0;
+    animation: fadeIn 2s 4s forwards;
+}
+
+header {
+    justify-self: end;
+    align-self: center;
+}
 
 nav {
-    position: absolute;
-    top: 6%;
-    right: 1%;
+    grid-row: 1;    
     margin-top: 0.25rem;
     color: white;
     font-size: clamp(0.75rem, 1vw, 6vw);
@@ -32,40 +42,89 @@ nav > ul {
     justify-content: space-around;
 }
 
-nav > ul > li:not(nav > ul > li:last-of-type) {
+nav > ul > li {
+    margin-left: 2rem;
     margin-right: 2rem;
+    color: var(--dark-color);
 }
 
-nav > ul > li > a {
-    color: white;
+ a {
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    aspect-ratio: 1;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 10%;
+    transition: color 0.2s ease-in-out, background-color 0.1s ease-in-out;
 }
 
-nav > ul > li > a:hover {
-    color:#aff0f0;
-}
-
-nav > ul > li > a:visited {
+/* nav > ul > li > a:visited {
     color:darkgray;
+} */
+
+a:hover {
+    background-color: var(--dark-color);
+}
+
+header a:hover {
+    color: greenyellow;
+}
+
+footer a:hover {
+    color: #CB2660;
+}
+
+/* Define the CSS property to animate */
+@property --fill {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+a::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: -3px;
+    border-radius: inherit;
+    --fill: 0deg;
+    transition: --fill 0.4s ease-in-out;
+}
+
+header a::after {
+    background: conic-gradient(greenyellow var(--fill), transparent var(--fill));
+}
+
+footer a::after {
+    background: conic-gradient(#CB2660 var(--fill), transparent var(--fill));
+}
+
+a:hover::after {
+    --fill: 360deg; /* Animate the full rotation */
+}
+
+a:not(:hover) {
+    /* Delay the removal of the background and the return to the original text color until the un-outlining completes */
+    transition: background-color 0.4s ease-in-out 0.4s, color 0.4s ease-in-out 0.4s;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    grid-row: 2;
     position: relative;
     text-align: center;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
 }
 
 hgroup {
     display: flex;
     flex-direction: column;
-    position: absolute;
     box-sizing: border-box;
     width: 100%;
-    height: 45%;
+    height: 50%;
+    padding: 1.924vh 1.46875vw;
     font-family: 'Bebas Neue Regular';
     font-size: clamp(2.5rem, 6.25vw, 10rem);
     text-transform: uppercase;
@@ -79,9 +138,7 @@ hgroup {
 }
 
 hgroup:first-of-type {
-    top: 5%;
     left: 0;
-    padding: 0.5rem;
     color: var(--light-color);
     text-align: left;
     background-color: var(--dark-color);    
@@ -89,6 +146,7 @@ hgroup:first-of-type {
 }
 
 hgroup:first-of-type h1:last-child {
+    color: greenyellow;
     font-family: 'Al Fresco';
     text-transform: none;
 }
@@ -96,9 +154,7 @@ hgroup:first-of-type h1:last-child {
 hgroup:last-of-type {
     justify-content: flex-end;
     align-items: flex-end;
-    bottom: 5%;
     right: 0%;
-    padding: 0.5rem;
     color: var(--dark-color);
     background-color: var(--light-color);
     transform: translateY(112%);
@@ -106,6 +162,7 @@ hgroup:last-of-type {
 }
 
 hgroup:last-of-type h1:last-child {
+    color: #CB2660;
     font-family: 'Courier New', Courier, monospace;
     text-transform: none;
 }
@@ -142,6 +199,13 @@ main > h1:last-of-type {
     clip-path: inset(0% 0% 40% 0%);
 }
 
+footer {
+    grid-row: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FEFCFD;
+}
 
 @keyframes wipeDown {
     0% {

@@ -10,9 +10,6 @@
 </head>
 <body>    
     <header>
-        
-    </header>
-    <main>        
         <nav>
             <ul>
                 <li><a href="about.html">About</a></li>                
@@ -20,6 +17,8 @@
                 <li><a href="work.html">Web Pages</a></li>
             </ul>
         </nav>
+    </header>
+    <main>                
         <hgroup>
             <h1>Front End</h1>
             <h1>~ Design ~</h1>            
@@ -33,5 +32,14 @@
             <h1>&lt;Development&gt;</h1>            
         </hgroup>
     </main>
+    <footer>
+        <nav>
+            <ul>
+                <!-- <li>&copy; 2025</li> -->
+                <li><a href="https://www.linkedin.com/in/tim-kipp-91461b2?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BCFGGAJyWT%2BeBuK9%2FzJx1tw%3D%3D">LinkedIn</a></li>
+                <li><a href="mailto:me@timothyscottkipp.com">Email</a></li>            
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>

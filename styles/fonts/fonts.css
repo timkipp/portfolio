@@ -1,0 +1,313 @@
+/* ------------ AMASIS ----------- */
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Medium Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amasis';
+    src: url('Amasis/Amasis MT Pro Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ------------ AL FRESCO ----------- */
+@font-face {
+    font-family: 'Al Fresco';
+    src: url('Al Fresco/Al Fresco.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Regular';
+    src: url('Bebas Neue Regular/Bebas Neue Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ------------ CAVIAR DREAMS ----------- */
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url('Caviar Dreams/CaviarDreams_Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url('Caviar Dreams/CaviarDreams_Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url('Caviar Dreams/CaviarDreams_Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url('Caviar Dreams/CaviarDreams_BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+/* ------------ CAVOLINI ----------- */
+@font-face {
+    font-family: 'Cavolini';
+    src: url('Cavolini/Cavolini Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cavolini';
+    src: url('Cavolini/Cavolini Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ------------ HAMMERSMITH ONE ----------- */
+@font-face {
+    font-family: 'Hammersmith One';
+    src: url('Hammersmith One/Hammersmith One.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ------------ LATO ----------- */
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Black Italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Bold Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Hairline Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Hairline.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Light Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ---------- POPPINS ---------- */
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Thin.ttf') format('truetype');
+    font-weight: 100; /* Thin */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-ThinItalic.ttf') format('truetype');
+    font-weight: 100; /* Thin Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200; /* Extra Light */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200; /* Extra Light Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-LightItalic.ttf') format('truetype');
+    font-weight: 300; /* Light Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal; /* Regular */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-MediumItalic.ttf') format('truetype');
+    font-weight: 500; /* Medium Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* Semi Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600; /* Semi Bold Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold; /* Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: bold; /* Bold Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800; /* Extra Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800; /* Extra Bold Italic */
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Black.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-BlackItalic.ttf') format('truetype');
+    font-weight: 900; /* Black Italic */
+    font-style: italic;
+  } 

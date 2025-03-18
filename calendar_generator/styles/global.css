@@ -1,0 +1,84 @@
+@import url(../styles/reset.css);
+@import url(../styles/layout.css);
+@import url(../styles/user_input.css);
+
+/* TYPEFACES
+font-family: 'Andada Pro', serif;
+font-family: 'Baloo Thambi 2', san-serif;
+font-family: 'Lemonada', cursive;
+*/
+
+html {
+	font-size: 1vw;
+    font-family: 'Baloo Thambi 2', san-serif;
+}
+
+header {
+    color: #1E626B;
+    background-color: #10CCBC;
+    font-size: 2rem;
+}
+
+header h1 {
+    padding: 1rem;
+    font-size: 6rem;
+}
+
+aside.page_content:first-of-type {
+    background-color:#F6EB52;
+}
+
+section.page_content:first-of-type {
+
+}
+
+section.page_content:last-of-type {
+    font-family: 'Andada Pro', serif;;
+}
+
+aside.page_content:last-of-type {
+    background-color:#F6EB52;
+}
+
+table#custom_calendar {
+    width: 95%;
+    margin: 1rem auto;
+    background-color: #C1F3FA;
+    border: 2px solid #2E93A1;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-collapse: separate;
+}
+
+table#custom_calendar th {
+    height: 2rem;
+    width: 14.28571428571429%;
+    padding: 0.25rem;
+    vertical-align: middle;
+    background-color: #46DDF2;
+    border: 1px solid #2E93A1;
+}
+
+table#custom_calendar td {
+    height: 6rem;
+    width: 14.28571428571429%;
+    padding: 0.25rem;
+    text-align: right;
+    vertical-align: top;
+    border: 1px solid #2E93A1;
+}
+
+table#custom_calendar td:hover {
+    color: white;
+    background-color: #10CCBC;
+    border: 1px solid #1E626B;
+}
+table#custom_calendar td:last-of-type {
+    border-right: 1.5px solid #2E93A1;
+}
+
+footer {
+    color: white;
+    height: 100vh;
+    background-color: #FD588D;
+}

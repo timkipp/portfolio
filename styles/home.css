@@ -1,0 +1,264 @@
+@import url(fonts/fonts.css);
+
+:root {
+    --light-color: #aff0f0;
+    --dark-color: #3E3D32;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 12.5% 75% 12.5%;
+    grid-template-columns: 100%;
+    gap: clamp(0.35rem, 1.2336vh, 1.5vh);
+    position: relative;
+    height: 100%;
+    /* background: linear-gradient(to bottom, #F7FFE1, #FEFAFC); */
+    background-color: #F9F8E9;
+}
+
+@media (min-height: 1200px) {
+    body {
+        grid-template-rows: 7.5% 85% 7.5%;
+    }
+}
+
+header, footer {
+    opacity: 0;
+    animation: fadeIn 2s 4s forwards;
+}
+
+header {
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* background-color: #F7FFE1; */
+}
+
+nav {    
+    color: white;
+    font-family: 'Poppins';
+    z-index: 2;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav > ul > li {
+    margin: 0 clamp(0.25rem, 1.25vw, 2rem);
+    color: var(--dark-color);
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: clamp(0.05rem, 0.185vh, 0.15rem) 0.5rem;
+    box-sizing: border-box;
+    aspect-ratio: 1;
+    font-size: clamp(1rem, 0.9375vw, 1.5rem);
+    color: var(--dark-color);
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: color 0.2s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+a > span {
+    display: none;
+}
+
+a > svg {
+    fill: var(--dark-color);
+}
+
+a:hover {
+    background-color: var(--dark-color);
+}
+
+header a:hover, header a svg:hover {
+    color: greenyellow;
+    fill: greenyellow
+}
+
+footer a:hover, footer a svg:hover {
+    color: #CB2660;
+    fill: #CB2660;
+}
+
+@property --fill {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+a::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: -3px;
+    border-radius: inherit;
+    --fill: 0deg;
+    transition: --fill 0.4s ease-in-out;
+}
+
+@media (min-width: 480px) {
+    a {
+        display: inline;
+        border-radius: 10%;
+    }
+    
+    a > svg {
+        display: none;
+    }
+    a > span {
+        display: inline;
+    }
+}
+
+header a::after {
+    background: conic-gradient(greenyellow var(--fill), transparent var(--fill));
+}
+
+footer a::after {
+    background: conic-gradient(#CB2660 var(--fill), transparent var(--fill));
+}
+
+a:hover::after {
+    --fill: 360deg;
+}
+
+a:not(:hover) {
+    transition: background-color 0.4s ease-in-out 0.4s, color 0.4s ease-in-out 0.4s;
+}
+
+main {
+    grid-row: 2;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+hgroup {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    padding: 1.924vh 1.46875vw;
+    font-family: 'Bebas Neue Regular';
+    font-size: clamp(2.5rem, 6.25vw, 10rem);
+    text-transform: uppercase;
+    transition: clip-path 1s ease-out;
+}
+
+@media (max-height: 261px) {
+    hgroup {
+        font-size: 2rem;
+    }
+}
+
+hgroup:first-of-type {
+    left: 0;
+    color: var(--light-color);
+    text-align: left;
+    background-color: var(--dark-color);    
+    animation: wipeDown 2s forwards;
+}
+
+hgroup:first-of-type h1:last-child {
+    color: greenyellow;
+    font-family: 'Al Fresco';
+    text-transform: none;
+}
+
+hgroup:last-of-type {
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 0%;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    transform: translateY(112%);
+    animation: wipeUp 2s 2s forwards;
+}
+
+hgroup:last-of-type h1:last-child {
+    color: #CB2660;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: none;
+}
+
+main > h1 {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    font-family: 'Amasis';
+    font-size: clamp(1.75rem, 7.5vw, 12rem);
+    line-height: clamp(2rem, 10vw, 16rem);
+    white-space: nowrap;
+    transform: translate(-50%, -60%);
+    animation: fadeIn 2s 4s forwards;
+}
+
+main span {
+    display: inline-block;
+}
+
+main span::first-letter{
+    font-size: clamp(2.25rem, 8.75vw, 14rem);
+    vertical-align: -7.5%;
+}
+
+main > h1:first-of-type {
+    color: var(--dark-color);
+}
+
+main > h1:last-of-type {
+    color: var(--light-color);
+    clip-path: inset(0% 0% 40% 0%);
+}
+
+footer {
+    grid-row: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* background-color: #FEFAFC; */
+}
+
+@keyframes wipeDown {
+    0% {
+        transform: translateY(-112%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes wipeUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

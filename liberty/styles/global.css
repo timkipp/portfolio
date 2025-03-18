@@ -1,0 +1,325 @@
+@charset "utf-8";
+@import url(fonts/fonts.css);
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr min(1200px, 100%) 1fr;
+	overflow-x: hidden;
+    background-color: #d7ebe1;
+}
+
+header {
+	grid-row: 1;
+	grid-column: 1 / 4;
+	z-index: 1;
+	background-color: #7898B6;
+	background-image: url(../images/rays_clouds_banner2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+@media (max-width: 771px) {
+	header {
+		background-size: cover;
+	}
+}
+
+header h1 {
+	display: flex;
+	flex-direction: column;
+	justify-content:last baseline;
+	color: #2F5457;
+}
+
+header h1 em {
+	margin-left: clamp(120px, 20%, 3840px);
+	font-family: monsieur-la-doulaise;
+	font-size: clamp(60px, 6vw, 140px);
+	font-weight: bold;
+}
+
+@media (min-width: 3800px) {
+	header h1 em {
+		margin-left: 30%;
+	}
+}
+
+@media (min-width: 6000px) {
+	header h1 em {
+		margin-left: 35%;
+	}
+}
+
+header h1 span {
+	font-family: diplomata;
+	font-size: clamp(31px, 4vw, 72px);
+	text-align: center;
+	text-shadow: 1px 1px 2px #d7ebe1,  
+				-1px -1px 2px #d7ebe1,  
+				1px -1px 2px #d7ebe1,  
+				-1px 1px 2px #d7ebe1;
+	line-height: 0.65;
+}
+
+main {
+	grid-row: 2;
+	grid-column: 2;
+	display: flex;
+	flex-wrap: wrap;
+    z-index: 0;
+	padding-top: 1rem;
+	font-family: didact-gothic;
+    font-size: clamp(16px, 0.75vmax, 20px);
+    background-color: white;
+    border-right-style: solid;
+    border-right-color: #ebd7e1;
+    border-left-color: #ebd7e1;
+    border-left-style: solid;
+}
+
+@media (max-width: 1200px) {
+	main {		
+		background-image: url("../images/statue_of_liberty_no_bkgd.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position-y: 25%;
+	}
+
+	main > * {
+		background-color: rgba(255, 255, 255, 0.75);
+	}
+
+	img#statue {
+		display: none;
+	}
+}
+
+main h1, footer h1 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.5rem;
+	color: #27474A;
+	font-family: diplomata;
+	font-size: 1vmax;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 900;
+}
+
+main p {
+	margin-bottom: 1rem;
+	text-align: justify;
+	line-height: 1.5rem;
+}
+
+
+article {
+	box-sizing: border-box;
+	flex-basis: 50%;
+	flex-grow: 1;
+	padding: 0 1rem;
+}
+
+@media (max-width: 490px) {
+	main p {
+		text-align: left;
+	}
+}
+
+@media (max-width: 644px) {
+	main article#mother p {
+		text-align: left;
+	}
+	main aside ul {
+		column-count: 1;
+	}
+}
+
+article img {
+    -webkit-box-shadow: 5px 5px 5px 0 #727272;
+    box-shadow: 5px 5px 5px 0 #727272;
+}
+
+img#arm_and_torch {
+	margin-right: 1.25rem;
+	float: left;
+}
+
+img#liberty_skyline {
+	margin-right: 1rem;
+}
+
+strong {
+	font-weight: 900;
+}
+
+img#emma_lazarus {
+	float: right;
+	margin-left: 1rem;	
+}
+
+main article pre {
+	float: left;
+	width: 100%;
+	margin-bottom: 1rem;
+	padding-left: 2rem;
+    font-family: lucida-calligraphy;
+	font-size: 0.95rem;
+    font-style: normal;
+    font-weight: 400;
+	line-height: 1.7rem;
+	text-align: center;
+}
+
+@media (max-width: 503px) {
+	main article {
+		padding: 0 0.75rem;
+	}
+	main article pre {
+		padding-left: 0;
+		font-size: 0.9rem;
+	}
+}
+
+img#ellis_island {
+	float: right;
+	height: auto;    
+	width: auto;
+	min-width: 400px;
+	max-width: 50%;
+	max-height: 100%;
+	margin-left: 1rem;
+	margin-bottom: 0.25rem;
+}
+
+@media (max-width: 486px) {	
+	img#ellis_island {
+		float: none;
+		margin-left: 0;	
+	}
+}
+
+@media (max-width: 676px) {
+	img#ellis_island {
+		width: 400px;
+	}
+}
+
+img#immigrants {
+	clear: both;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+main aside {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    clear: both;
+	font-family: didact-gothic;
+    background-color: #ebd7e1;
+    background-color: #EAFEFB;
+    border-top: medium solid #4a2a27;
+}
+
+main aside h1 {
+	font-family: Georgia, Garamond, Times New Roman;
+}
+
+main aside ul {
+	margin-left: 1.25rem;
+	margin-right: 1.25rem;
+	line-height: 1.5rem;
+	list-style-type: disc;
+	list-style-position: inside;
+	column-count: 2;
+	column-gap: 40px;
+}
+
+main aside ul li {
+	margin-bottom: 0.5rem;
+}
+
+img#statue {
+	position: absolute;
+	top: -1292px;
+	right: -550px;
+	float: left;
+}
+
+footer {
+	grid-row: 3;
+	grid-column: 1 / 4;
+	display: grid;
+	grid-template-columns: 1fr min(1200px, 100%) 1fr;
+	background: rgb(39,71,74);
+	background: -webkit-linear-gradient(left, rgba(39,71,74,1) 0%, rgba(124,145,138,1) 75%, rgba(154, 182, 170, 1) 100%);
+	background: -o-linear-gradient(left, rgba(39,71,74,1) 0%, rgba(124,145,138,1) 75%, rgba(154, 182, 170, 1) 100%);
+	background: linear-gradient(180deg, rgba(39,71,74,1) 0%, rgba(124,145,138,1) 75%, rgba(154, 182, 170, 1) 100%); 
+}
+
+footer nav {
+	margin: 3rem 0 4rem;
+	grid-column: 2;
+}
+
+footer h1 {
+	margin-left: 2rem;
+	color: #C4D1C8;
+}
+
+footer ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 2rem;
+	margin: 2rem 4rem;    
+	font-family: didact-gothic;
+	font-size: 1rem;
+}
+
+footer ul li {
+	flex-basis: 20%;
+	box-sizing: border-box;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 2rem;
+	white-space: nowrap;
+}
+
+@media (max-width: 1207px) {
+	footer ul li {
+		flex-basis: 45%;		
+	}
+}
+
+@media (max-width: 792px) {
+	footer ul {
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		gap: 1rem;
+	}
+	footer ul li {
+		flex-basis: 100%;	
+	}
+}
+
+footer ul li a:link {
+	color: #EAFEFB;
+	font-weight: bold;
+}
+
+footer ul li a:visited {
+	color: #EBD7E1;
+	font-weight: bold;
+}
+
+footer ul li a:hover {
+	color: #27474A;
+	font-weight: bold;
+}
+
+footer ul li a:active {
+	color: #C4D1C8;
+}

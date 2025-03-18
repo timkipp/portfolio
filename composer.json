@@ -1,0 +1,15 @@
+{
+    "name": "timkipp/portfolio",
+    "description": "My web development portfolio",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Kipp"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "*"
+    }
+}

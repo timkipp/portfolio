@@ -38,10 +38,10 @@ $uri .= $_SERVER['HTTP_HOST'];
             <h2>Education</h2>
             <ul>
                 <li>
-                    <span>Towson University, Baltimore, MD</span><span><em>Graduating </em>May 2025</span>
+                    <span>Towson University, Baltimore, MD</span><span><em>Graduated </em>May 2025</span>
                     <ul>
                         <li><span class="degree">Bachelor of Sciece, Information Technology</span><span class="grade">GPA: 3.8</span></li>                        
-                        <li class="achievements">Dean's List: Fall 2023, Spring 2024</li>
+                        <li class="achievements">Dean's List: Fall 2023, Spring 2024, Fall 2024</li>
                     </ul>
                 </li>
                 <li>

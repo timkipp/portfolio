@@ -72,6 +72,7 @@ main {
     grid-row: 2;
     grid-column: 3;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -93,13 +94,13 @@ main hgroup {
     font-size: clamp(16px, 2vw, 51px);
 }
 
-.logo-stack h1 {
+#landing .logo-stack h1 {
     width: 100%;
 }
 
 .logo-stack h1:first-of-type {
     color: #e26d5a;
-    font-variation-settings: 'wght' 700, 'wdth' 200;
+    font-variation-settings: 'wght' 700;
     font-size: clamp(120px, 8vw, 256px);
     text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);    
 }
@@ -209,6 +210,21 @@ main hgroup {
 
 #titles .title-2 {
     color: #4ca1af;
+}
+
+#projects {
+    width: 100%;
+    height: 100%;
+    background-color: #4ca1af;
+}
+
+#projects h1 {
+    display: flex;
+    justify-content: space-between;
+    color: #e26d5a;
+    font-size: clamp(60px, 4vw, 128px);
+    text-align: justify;
+    text-shadow: 0.075em 0.075em 9px rgba(0,0,0,0.5);
 }
 
 @media (min-width: 480px) {

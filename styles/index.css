@@ -1,7 +1,7 @@
 body {
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
-    grid-template-columns: 0.75fr 1fr 1.5fr 1fr 0.75fr;
+    grid-template-columns: 0.75fr 1fr 1.75fr 1fr 0.75fr;
     width: 100vw;
     height: 100vh;
     font-family: "seitu-variable", sans-serif;
@@ -11,12 +11,15 @@ body {
 header, footer {
     grid-column: 2 / 5;    
     display: flex;
+    position: sticky;
+    z-index: 100;
 }
 
 header {
     grid-row: 1;
     justify-content: flex-end;
     align-items: flex-end;
+    top: 0;
     padding-bottom: 0.75em;
     background-color: #e26d5a;
 }
@@ -25,6 +28,7 @@ footer {
     grid-row: 3;
     justify-content: flex-start;
     align-items: flex-start;
+    bottom: 0;
     background-color: #e26d5a;
 }
 
@@ -74,6 +78,31 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+main section {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+main section > hgroup {
+    width: 100%;
+}
+
+main::-webkit-scrollbar {
+    display: none;
 }
 
 aside:last-of-type {
@@ -90,25 +119,27 @@ main hgroup {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    max-width: 100%;
     font-variation-settings: 'wght' 300;
     font-size: clamp(16px, 2vw, 51px);
 }
 
-#landing .logo-stack h1 {
+.logo-stack h1 {
     width: 100%;
 }
 
-.logo-stack h1:first-of-type {
+.logo-stack h1:nth-of-type(1) {
     color: #e26d5a;
     font-variation-settings: 'wght' 700;
-    font-size: clamp(120px, 8vw, 256px);
+    font-size: clamp(120px, 10vw, 256px);
     text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);    
 }
 
 .word {
   display: flex;
   justify-content: space-between;
-  width: max-content;
+  width: 100%;
+  max-width: 100%;
 }
 
 #design {
@@ -215,7 +246,7 @@ main hgroup {
 #projects {
     width: 100%;
     height: 100%;
-    background-color: #4ca1af;
+    /* background-color: #4ca1af; */
 }
 
 #projects h1 {
@@ -247,12 +278,58 @@ main hgroup {
     }
 }
 
+/* For tablets, portrait and landscape orientations */
+@media (min-width: 600px) and (max-width: 1280px) {
+    nav ul li a {
+        font-size: 24px;
+    }
+
+    #titles h3 {
+        flex-wrap: wrap;
+    }
+
+    #titles #vertical-bar {
+        margin: 0 1em;
+    }
+
+    #titles #vertical-bar span:nth-of-type(4) {
+        display: none;
+    }
+}
+
+/* for tablets in portrait orientation */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+    nav ul li a {
+        font-size: 24px;
+    }
+
+    /* main {
+        grid-column: 2 / 5;
+    } */
+
+    main {
+        transform: scale(1.5);
+    }
+}
+
+/* For phones, portrait orientation */
 @media (max-width: 480px) {
-    header {    
+    body {
+        grid-template-columns: 0.15fr 1.5fr 1.7fr 1.5fr 0.15fr;
+        column-gap: 0.75rem;
+    }
+
+    header, footer {    
         grid-column: 1 / 6;
     }
-    footer {    
-        grid-column: 1 / 6;
+    
+    /* aside {
+        display: none;
+    } */
+
+    main {
+        grid-column: 2 / 5;
+        margin: 0.25rem 0;
     }
 
     #name {
@@ -262,6 +339,10 @@ main hgroup {
     #name::before,
     #name::after {
         box-shadow: 10px 5px 9px rgba(0, 0, 0, 0.75);
+    }
+
+    #titles {
+        margin-top: 2.5px;
     }
 
     #titles h3  {
@@ -293,7 +374,12 @@ main hgroup {
     }
 }
 
-@media (max-height: 375px) and (orientation: landscape) {    
+/* For phones, landscapet orientation */
+@media (max-height: 374px) and (orientation: landscape) {    
+    body {
+        grid-template-columns: 0.15fr 1fr 2.5fr 1fr 0.15fr;
+    }
+    
     header nav {
         margin-bottom: -5px;
     }
@@ -310,8 +396,8 @@ main hgroup {
         font-size: 10px;
     }
 
-    .logo-stack h1:first-of-type {
-        font-size: 48px;
+    #web {
+        font-size: 60px;
         text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);
     }
 

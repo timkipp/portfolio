@@ -4,6 +4,7 @@ body {
     grid-template-columns: 0.75fr 1fr 1.75fr 1fr 0.75fr;
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     font-family: "seitu-variable", sans-serif;
     background-color: #ffffeb;
 }
@@ -79,6 +80,7 @@ main {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    overflow-x: visible;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -91,10 +93,12 @@ main section {
     width: 100%;
     height: 100%;
     max-width: 100%;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    scroll-snap-align: start;
+    overflow-x: visible;
+    scroll-snap-align: start;    
 }
 
 main section > hgroup {
@@ -113,26 +117,33 @@ aside:last-of-type {
 
 main hgroup {
     margin: 0 auto;
+    overflow-x: visible;
 }
 
-.logo-stack {
+#logo-stack {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     max-width: 100%;
+    overflow: visible;
     font-variation-settings: 'wght' 300;
     font-size: clamp(16px, 2vw, 51px);
 }
 
-.logo-stack h1 {
+#logo-stack h1 {
     width: 100%;
 }
 
-.logo-stack h1:nth-of-type(1) {
-    color: #e26d5a;
+#web {
+    overflow-x: visible;
     font-variation-settings: 'wght' 700;
     font-size: clamp(120px, 10vw, 256px);
-    text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);    
+    /* text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5); */
+    background-color: black;
+    color: transparent;
+    text-shadow: 0px 4px 3px #e26d5a;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .word {
@@ -156,38 +167,18 @@ main hgroup {
 
 #name {
     position: relative;
-    margin: 10px 0;
+    margin: 10px 0px;
     padding-top: 10px;
     padding-bottom: 20px;
+    color: #714F50;
     font-variation-settings: 'wght' 600;
     font-size: clamp(24px, 3.75vw, 96px);
-    text-shadow: 0.1em 0.1em 0.09em rgba(0,0,0,0.5);
-    border-top-width: clamp(1px, 0.2vw, 3px);
+    border-top-width: 5px;
     border-top-style: solid;
     border-top-color: #e26d5a;
-
-    border-bottom-width: clamp(1px, 0.2vw, 3px);
+    border-bottom-width: 5px;
     border-bottom-style: solid;
     border-bottom-color: #e26d5a;
-}
-
-#name::before,
-#name::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #e26d5a;
-  box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.75);
-}
-
-#name::before {
-    top: 0;
-}
-
-#name::after {
-    bottom: 0;
 }
 
 #name h2 {
@@ -196,12 +187,16 @@ main hgroup {
     
 }
 
-#name .first-name {
-    color: #4ca1af;    
+#name h2 span:nth-of-type(2)  {
+    font-family: "Praise", cursive;
+    position: relative;
+    top: 0.12em;
 }
 
-#name .last-name {
-    color: #f2bc71;
+#name h2 span:nth-of-type(6)  {
+    position: relative;
+    top: 0.12em;
+    font-family: "Praise", cursive;
 }
 
 #titles {
@@ -236,7 +231,7 @@ main hgroup {
 
 #titles .delimiter {
     color: #e26d5a;
-    text-shadow: 0.45em 0.45em 0.27em rgba(0, 0, 0, 0.5);
+    /* text-shadow: 0.45em 0.45em 0.27em rgba(0, 0, 0, 0.5); */
 }
 
 #titles .title-2 {
@@ -252,64 +247,18 @@ main hgroup {
 #projects h1 {
     display: flex;
     justify-content: space-between;
-    color: #e26d5a;
     font-size: clamp(60px, 4vw, 128px);
     text-align: justify;
-    text-shadow: 0.075em 0.075em 9px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    background-color: black;
+    color: transparent;
+    text-shadow: 0px 4px 3px #e26d5a;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-@media (min-width: 480px) {
-    nav ul li a {
-        display: inline;
-    }
+#projects h2 {
     
-    nav ul li a > svg {
-        display: none;
-    }
-    nav ul li a > span {
-        display: inline;
-    }
-
-    nav ul li a:hover,
-    nav ul li a:focus {
-        border-top:2px solid #ffffeb;
-        border-bottom:3px solid #ffffeb;
-        cursor: pointer;
-    }
-}
-
-/* For tablets, portrait and landscape orientations */
-@media (min-width: 600px) and (max-width: 1280px) {
-    nav ul li a {
-        font-size: 24px;
-    }
-
-    #titles h3 {
-        flex-wrap: wrap;
-    }
-
-    #titles #vertical-bar {
-        margin: 0 1em;
-    }
-
-    #titles #vertical-bar span:nth-of-type(4) {
-        display: none;
-    }
-}
-
-/* for tablets in portrait orientation */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-    nav ul li a {
-        font-size: 24px;
-    }
-
-    /* main {
-        grid-column: 2 / 5;
-    } */
-
-    main {
-        transform: scale(1.5);
-    }
 }
 
 /* For phones, portrait orientation */
@@ -322,10 +271,6 @@ main hgroup {
     header, footer {    
         grid-column: 1 / 6;
     }
-    
-    /* aside {
-        display: none;
-    } */
 
     main {
         grid-column: 2 / 5;
@@ -334,11 +279,7 @@ main hgroup {
 
     #name {
         padding-top: 20px;
-    }
-
-    #name::before,
-    #name::after {
-        box-shadow: 10px 5px 9px rgba(0, 0, 0, 0.75);
+        -webkit-text-stroke: 0.5px #412F30;
     }
 
     #titles {
@@ -374,10 +315,10 @@ main hgroup {
     }
 }
 
-/* For phones, landscapet orientation */
-@media (max-height: 374px) and (orientation: landscape) {    
+/* For phones, landscape orientation */
+@media (max-height: 375px) and (orientation: landscape) {    
     body {
-        grid-template-columns: 0.15fr 1fr 2.5fr 1fr 0.15fr;
+        grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
     }
     
     header nav {
@@ -392,34 +333,29 @@ main hgroup {
         font-size: 15px;
     }
 
-    .logo-stack {        
-        font-size: 10px;
+    #logo-stack {        
+        font-size: clamp(10px, 1.5vw, 18px);
     }
 
     #web {
-        font-size: 60px;
+        font-size: clamp(24px, 10vw, 60px);
         text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);
+        color: transparent;
+        text-shadow: 0px 3px 3px #e26d5a;
+        -webkit-background-clip: text;
+        background-clip: text;
     }
 
     #name {        
         margin: 5px 0;
-        padding: 10px 0;
-        
-        font-size: clamp(20px, 3vw, 72px);
-        
-        text-shadow: 0.1em 0.1em 0.09em rgba(0,0,0,0.5);
-        
-        border-top-width: 0.5px;
-        border-bottom-width: 0.5px;
-    }
-
-    #name::before,
-    #name::after {
-        box-shadow: 5px 3px 6px rgba(0, 0, 0, 0.75);
+        padding: 10px 0;        
+        font-size: clamp(20px, 3vw, 72px);        
+        border-top-width: 2px;
+        border-bottom-width: 2px;
     }
 
     #titles {        
-        margin: 7.5px 0;
+        margin: 2.5px 0;
         font-size: 16px;
     }
 
@@ -452,13 +388,75 @@ main hgroup {
     }
 }
 
-@keyframes zoomInOut {
-  0% {
-    transform: scale(1500); /* super zoomed in */
-    transform-origin: center center; /* zoom from center */
-  }
-  100% {
-    transform: scale(1); /* normal size */
-    transform-origin: center center;
-  }
+/* For devices larger than phones or phones in landscape orientation */
+@media (min-width: 480px) {
+    nav ul li a {
+        display: inline;
+    }
+    
+    nav ul li a > svg {
+        display: none;
+    }
+    nav ul li a > span {
+        display: inline;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+        border-top:2px solid #ffffeb;
+        border-bottom:3px solid #ffffeb;
+        cursor: pointer;
+    }
+}
+
+/* For tablets, portrait and landscape orientations */
+@media (min-width: 600px) and (max-width: 1280px) {
+    nav ul li a {
+        font-size: 24px;
+    }
+
+    #name h2 {
+        padding-top: 5px;
+    }
+
+    #titles h3 {
+        flex-wrap: wrap;
+    }
+
+    #titles #vertical-bar {
+        margin: 0 1em;
+    }
+
+    #titles #vertical-bar span:nth-of-type(4) {
+        display: none;
+    }
+}
+
+/* for tablets in portrait orientation */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+    nav ul li a {
+        font-size: 24px;
+    }
+
+    /* main {
+        grid-column: 2 / 5;
+    } */
+
+    main {
+        transform: scale(1.5);
+    }
+
+    #name h2 {
+        padding-top: 10px;
+    }
+}
+
+@media (min-width: 1025px) and (orientation: portrait) {
+    nav ul li a {
+        font-size: 24px;
+    }
+
+    main {
+        transform: scale(1.5);
+    } 
 }

@@ -14,12 +14,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy files via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+        uses: appleboy/scp-action@v0.1.6
         with:
-          server: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          protocol: sftp
-          local-dir: ./
-          remote-dir: /home/timkipp/timothyscottkipp.com
+          source: "./"
+          target: "/home/timkipp/timothyscottkipp.com"

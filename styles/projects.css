@@ -43,7 +43,7 @@
     display: block;
     position: relative;
     width: 100%;
-    padding: 1rem;
+    padding: 0 1rem;
     color:#4ca1af;
     font-size: clamp(1.5rem, 3vw, 4.5rem);
     text-align: center;
@@ -145,8 +145,7 @@
     backface-visibility: hidden;
     padding: 1rem;
     color:#e26d5a; 
-    font-size: clamp(1rem, 0.0335vw, 1.75rem);
-    /* font-size: calc(0.0335vw + 0.8929rem); */
+    font-size: clamp(1rem, 1.094vw, 2.25rem);
     line-height: 2.5rem;
     text-align: justify;
     background-color: #ffffeb;

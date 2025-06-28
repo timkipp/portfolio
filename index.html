@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-    <link href="styles/reset.css" type="text/css" rel="stylesheet">
-    <link href="styles/index.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.css" type="text/css">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    <link rel="stylesheet" href="styles/landing.css" type="text/css">
+    <link rel="stylesheet" href="styles/projects.css" type="text/css">
+    <link rel="stylesheet" href="styles/media_queries.css">
     <link rel="stylesheet" href="https://use.typekit.net/tuf8jvb.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +17,12 @@
     <title>Portfolio</title>
 </head>
 
-<body>
-    
+<body class="loading">
+    <div id="corner-1" class="corner top-corner"></div>
+
     <header>
-        <nav id="nav-bar">
+        <h1 id="section-title" data-state="">Welcome</h1>
+        <nav>
             <ul>
                 <li>
                     <a data-text="About" href="about.html">
@@ -32,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-text="Sites" href="work.html" title="View samples of my work">
+                    <a data-text="Sites" href="#projects" title="View samples of my work">
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-app-window"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 4a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm-12.99 3l-.127 .007a1 1 0 0 0 .117 1.993l.127 -.007a1 1 0 0 0 -.117 -1.993zm3 0l-.127 .007a1 1 0 0 0 .117 1.993l.127 -.007a1 1 0 0 0 -.117 -1.993z" /><title>Websites I've designed</title></svg>
                         <span>Projects</span>
                     </a>
@@ -41,6 +46,8 @@
         </nav>
     </header>
     
+    <div id="corner-2" class="corner top-corner"></div>
+
     <aside>
 
     </aside>
@@ -152,26 +159,62 @@
                 </h3>
             </hgroup>
         </section>
-        <section id="projects">
-            <h1>
-                <span>P</span>
-                <span>r</span>
-                <span>o</span>
-                <span>j</span>
-                <span>e</span>
-                <span>c</span>
-                <span>t</span>
-                <span>s</span>
-            </h1>
-            <h2><a href="liberty/index.html">Liberty</a></h2>
-            <h2><a href="travel/index.html">Travel</a></h2>
-            <h2><a href="">Pirates</a></h2>
+        <section id="projects">            
+            <main>
+                <div id="project-1" class="project-card">
+                    <h2><a href="liberty/index.html" data-text="Liberty">Liberty</a></h2>
+                    <div class="figure-card" tabindex="0" role="button" aria-pressed="false">
+                        <figure>
+                            <img src="images/liberty_webpage_screenshot_1920x1080.png" alt="screenshot of Statue of Liberty project web page">
+                            <figcaption>Developed a responsive informational web page about the Statue of Liberty to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <!-- <div id="project-2" class="project-card">
+                    <h2><a href="table_generator/index.html" data-text="Tables">Tables</a></h2>
+                    <div class="figure-card">
+                        <figure>
+                            <img src="images/tables_webpage_screenshot_1920x1080.png" alt="screenshot of table generator project web page">
+                            <figcaption>></figcaption>
+                        </figure>
+                    </div>
+                </div> -->
+                <div id="project-3" class="project-card">
+                    <h2><a href="calendar_generator/index.html" data-text="Calendar">Calendar</a></h2>
+                    <div class="figure-card" tabindex="1" role="button" aria-pressed="false">
+                        <figure>
+                            <img src="images/calendar_webpage_screenshot_1920x1080.png" alt="screenshot of calendar project web page">
+                            <figcaption>Developed a dynamic web page using HTML5, CSS3, and JavaScript to generate a monthly calendar. Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div id="project-4" class="project-card">
+                    <h2><a href="travel/index.html" data-text="Travel">Travel</a></h2>
+                    <div class="figure-card" tabindex="2" role="button" aria-pressed="false">
+                        <figure>
+                            <img src="images/travel_webpage_screenshot_1920x1080.png" alt="screenshot of travel project web page">
+                            <figcaption>Developed a mockup of a flight lookup web page using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div id="project-5" class="project-card">
+                    <h2><a href="https://pirate-game-chi.vercel.app" target="_blank" rel="noopener noreferrer" data-text="Pirates">Game</a></h2>
+                    <div class="figure-card" tabindex="3" role="button" aria-pressed="false">
+                        <figure>
+                            <img src="images/pirates_webpage_screenshot_1920x1080.png" alt="screenshot of pirates game project web page">
+                            <figcaption>Collaborated with a small team to build a pirate-themed, card-drawing roguelike game using the MERN stack. Personally contributed to setting up and managing the MongoDB database, designing Mongoose schemas and models, and creating modular Express route files. Implemented account creation and login functionality, developed the interactive Run Screen, and added custom CSS to improve the game’s UI/UX.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </main>
         </section>
     </main>
     
     <aside>
         
     </aside>
+
+    <div id="corner-3" class="corner bottom-corner"></div>
 
     <footer>
         <nav>
@@ -191,6 +234,8 @@
             </ul>
         </nav>
     </footer>
+
+    <div id="corner-4" class="corner bottom-corner"></div>
 
 </body>
 </html>

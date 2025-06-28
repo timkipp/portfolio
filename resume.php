@@ -14,7 +14,7 @@ $uri .= $_SERVER['HTTP_HOST'];
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="styles/reset.css" type="text/css" rel="stylesheet">
-    <link href="styles/global.css" type="text/css" rel="stylesheet">
+    <link href="styles/resume.css" type="text/css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<script src="scripts/index.js" defer></script>
 	<title>Portfolio</title>
@@ -48,7 +48,7 @@ $uri .= $_SERVER['HTTP_HOST'];
                     <span>Harford Community College, Bel Air, MD</span><span>Graduated 2023</span>
                     <ul>
                         <li><span class="degree">Associate in Applied Sciences, Computer Information Systems</span><span class="grade">GPA: 3.8</span>
-                        <br<span>Certificate, Computer Information Systems Programming</span></li>
+                        <br><span>Certificate, Computer Information Systems Programming</span></li>
                         <li>Dean's List: Spring 2022</li>
                     </ul>
                 </li>

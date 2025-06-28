@@ -1,0 +1,154 @@
+#projects {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100%;
+}
+
+#projects main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.25rem;
+    width: 100%;
+}
+
+#projects main .project-card {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+#projects main .project-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+#projects main .project-card:nth-child(3) {
+    border-top: 3px solid #f2bc71;
+    /* border-bottom: 3px solid #f2bc71; */
+}
+
+#projects main .project-card:nth-child(4) {
+    border-top: 3px solid #f2bc71;
+    /* border-bottom: 3px solid #f2bc71; */
+}
+
+#projects main .project-card h2 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#projects main .project-card h2 a {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    color:#4ca1af;
+    font-size: clamp(1.5rem, 3vw, 4.5rem);
+    text-align: center;
+    text-decoration: none;
+    writing-mode: vertical-rl;
+    filter: drop-shadow(8px -8px 4px rgba(0, 0, 0, 1));
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+#projects main .project-card:nth-child(odd) h2 a {
+    transform: rotate(180deg);
+}
+
+#projects main .project-card h2 a::before,
+#projects main .project-card h2 a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #4ca1af;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.4s ease;
+}
+
+#projects main .project-card h2 a::before {
+    left: 0;
+}
+
+#projects main .project-card h2 a::after {
+    right: 0;
+}
+
+#projects main .project-card h2 a:hover::before,
+#projects main .project-card h2 a:hover::after {
+    transform: scaleY(1);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+#projects main .project-card .figure-card {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: transparent;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+#projects main .project-card .figure-card figure {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+#projects main .project-card .figure-card.flipped figure {
+    transform: rotateY(180deg);
+}
+
+#projects main .project-card .figure-card figure > * {
+    position: absolute;
+    border: 3px solid #e26d5a;
+    border-radius: 1em;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.75);
+    pointer-events: auto;
+}
+
+#projects main .project-card .figure-card figure img {
+    width: 90%;
+    height: 90%;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    object-fit: cover;
+}
+
+#projects main .project-card .figure-card figure figcaption {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    z-index: 2;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    padding: 1rem;
+    color:#e26d5a; 
+    font-size: clamp(1rem, 0.0335vw, 1.75rem);
+    /* font-size: calc(0.0335vw + 0.8929rem); */
+    line-height: 2.5rem;
+    text-align: justify;
+    background-color: #ffffeb;
+    transform: rotateY(180deg);
+}

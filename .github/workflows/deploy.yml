@@ -1,0 +1,25 @@
+name: Deploy Website via SFTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy files via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: sftp
+          local-dir: ./
+          remote-dir: /home/timkipp/timothyscottkipp.com

@@ -1,0 +1,101 @@
+#about-me header h1 {
+    color: #412F30;
+    color: #FFFFEB;
+    color: #F8E3BB;
+    color: #A4C4B7;
+}
+
+#about-me header h2 {
+    color: #412F30;
+    color: #FFFFEB;
+    color: #F8E3BB;
+}
+
+#about-me header h1 {
+    font-size: 8rem;
+    text-align: center;
+}
+
+#about-me header h2 {
+    font-family: "Praise";
+    font-size: 4rem;
+    /* text-align: right; */
+    text-align: center;
+}
+
+#about-me main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#about-me main .value-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#about-me main .value-panel img {
+    width: 90%;
+}
+
+#about-me main #curiosity {
+    grid-column: 1;
+}
+
+#about-me main #curiosity h3 {
+    /* font-family: "Hachi Maru Pop"; */
+    /* font-family: "Luckiest Guy"; */
+    /* font-family: "Schoolbell"; */
+    font-family: "Margarine";
+    color: #f2bc71;
+    font-size: 6rem;
+    text-align: center;
+}
+
+#about-me main #creativity h3 {
+    color: #e26d5a;
+    font-family: "Fascinate Inline";
+    font-family: "Spirax";
+    font-family: "Princess Sofia";
+    font-family: "Barrio";
+    font-family: "Syncopate";
+    font-size: 6rem;
+    text-align: center;
+}
+
+#about-me main #compassion h3 {
+    color: #4ca1af;
+    font-family: "La Belle Aurore";
+    font-family: "The Girl Next Door";
+    font-family: "Corinthia";
+    font-family: "Charmonman";
+    font-family: "Clicker Script";
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#about-me main #creativity {
+    grid-column: 2;
+}
+
+#about-me main #compassion {
+    grid-column: 3;
+}
+
+#about-me main .value-panel p {
+    padding: 1rem;
+    color: #F8E3BB;
+    font-size: 1.5rem;
+    text-align: justify;
+    line-height: 2rem;
+}
+
+#about-me main #curiosity p em {
+    color: #f2bc71;
+}
+#about-me main #creativity p em {
+    color: #e26d5a;
+}
+#about-me main #compassion p em {
+    color: #4ca1af;
+}

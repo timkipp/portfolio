@@ -25,12 +25,10 @@
 
 #projects main .project-card:nth-child(3) {
     border-top: 3px solid #f2bc71;
-    /* border-bottom: 3px solid #f2bc71; */
 }
 
 #projects main .project-card:nth-child(4) {
     border-top: 3px solid #f2bc71;
-    /* border-bottom: 3px solid #f2bc71; */
 }
 
 #projects main .project-card h2 {
@@ -146,7 +144,7 @@
     padding: 1rem;
     color:#e26d5a; 
     font-size: clamp(1rem, 1.094vw, 2.25rem);
-    line-height: 2.5rem;
+    line-height: clamp(1.25rem, 3vh, 3.75rem);
     text-align: justify;
     background-color: #ffffeb;
     transform: rotateY(180deg);

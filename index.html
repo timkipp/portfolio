@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/reset.css" type="text/css">
-    <link rel="stylesheet" href="styles/layout.css" type="text/css">
-    <link rel="stylesheet" href="styles/landing.css" type="text/css">
-    <link rel="stylesheet" href="styles/projects.css" type="text/css">
-    <link rel="stylesheet" href="styles/media_queries.css">
+
+    <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/tuf8jvb.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Praise&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Clicker+Script&family=Corinthia:wght@400;700&family=Darumadrop+One&family=Fascinate+Inline&family=Hachi+Maru+Pop&family=La+Belle+Aurore&family=Luckiest+Guy&family=Margarine&family=Merienda:wght@300..900&family=Princess+Sofia&family=Schoolbell&family=Spirax&family=Syncopate:wght@400;700&family=The+Girl+Next+Door&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="styles/reset.css" type="text/css">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    
+    <!-- Section Styles -->
+    
+    <link rel="stylesheet" href="styles/landing.css" type="text/css">
+    <link rel="stylesheet" href="styles/about_me.css" type="text/css">
+    <link rel="stylesheet" href="styles/projects.css" type="text/css">
+    <link rel="stylesheet" href="styles/email.css" type="text/css">
+    
+    <!-- Mediq Queries -->
+    <link rel="stylesheet" href="styles/media_queries.css">    
+    
+    <!-- Scripts -->
     <script src="/scripts/index.js" defer></script>
-    <title>Portfolio</title>
 </head>
 
 <body class="loading">
+    <!-- <div id="bg"></div> -->
+
     <div id="corner-1" class="corner top-corner"></div>
 
     <header>
@@ -159,6 +175,31 @@
                 </h3>
             </hgroup>
         </section>
+
+        <section id="about-me">
+            <header>
+                <h1>Designing & Developing</h1>
+                <h2>with<!-- <span>Curiosity</span>, <span>Creativity</span>, & <span>Compassion</span> --></h2>
+            </header>            
+            <main>
+                <div id="curiosity" class="value-panel">
+                    <h3>Curiosity</h3>
+                    <p><em>Curiosity</em> drives me to <em>ask questions</em>, <em>explore</em> new technologies, and never stop <em>learning</em>. It's the engine behind every bug I debug, every tutorial I take, and every challenge I embrace with a “<em>what if?</em>” mindset.</p>
+                    <img src="images/curiosity_lighter_silhouette.png" alt="Profile silhouette of a man with a question mark inside his head, surrounded by a circle of icons that symbolize ideas, objects, subjects that have stimulated man's curiosity (icons are Earth, an atom, a scroll with quill pen, a rocket ship, a book, a magnifying glass, a lightening cloud, a compass, and two interlocking gears)">
+                </div>
+                <div id="creativity" class="value-panel">
+                    <h3>Creativity</h3>
+                    <p><em>Creativity</em> is where <em>logic</em> and <em>imagination</em> meet. Whether sketching UI ideas or solving problems in code, I bring an <em>artistic sensibility</em> to everything I build — always striving to make digital experiences both <em>intuitive</em> and <em>beautiful</em>.</p>
+                    <img src="images/light_bulb.png" alt="Light bulb">
+                </div>
+                <div id="compassion" class="value-panel">
+                    <h3>Compassion</h3>
+                    <p>Technology should be <em>inclusive</em>, <em>accessible</em>, and <em>empowering</em>. <em>Compassion</em> guides how I design with <em>empathy</em>, communicate with users, and seek out work that supports <em>social responsibility</em> and positive impact.</p>
+                    <img src="images/compassion.png" alt="Compassion">
+                </div>
+            </main>
+        </section>
+
         <section id="projects">            
             <main>
                 <div id="project-1" class="project-card">
@@ -170,15 +211,6 @@
                         </figure>
                     </div>
                 </div>
-                <!-- <div id="project-2" class="project-card">
-                    <h2><a href="table_generator/index.html" data-text="Tables">Tables</a></h2>
-                    <div class="figure-card">
-                        <figure>
-                            <img src="images/tables_webpage_screenshot_1920x1080.png" alt="screenshot of table generator project web page">
-                            <figcaption>></figcaption>
-                        </figure>
-                    </div>
-                </div> -->
                 <div id="project-3" class="project-card">
                     <h2><a href="calendar_generator/index.html" data-text="Calendar">Calendar</a></h2>
                     <div class="figure-card" tabindex="1" role="button" aria-pressed="false">
@@ -209,8 +241,21 @@
             </main>
         </section>
 
-        <section id="about-me">
+        <section id="email">
+            <form id="contact-form" novalidate>
+                <h2>Tell me about yourself!</h2>
 
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
     
@@ -230,7 +275,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-text="Email" href="email.php" title="Email me">
+                    <a data-text="Email" href="#email" title="Email me">
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" /><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" /><title>Send an email to me</title></svg>
                         <span>Email</span>
                     </a>

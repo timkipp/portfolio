@@ -3,19 +3,20 @@
     body {
         grid-template-columns: 0.15fr 1.5fr 1.7fr 1.5fr 0.15fr;
         column-gap: 0.75rem;
-        /* background-color: gray; */
+        background-color: gray;
     }
 
-    body > header, body > footer {    
+    body>header,
+    body>footer {
         grid-column: 1 / 6;
     }
 
-    body > main {
+    body>main {
         grid-column: 2 / 5;
         margin: 0.25rem 0;
     }
 
-    body > main section#landing {
+    body>main section#landing {
         width: calc(100% * (1.75 / 1));
     }
 
@@ -28,7 +29,7 @@
         margin-top: 2.5px;
     }
 
-    #landing #titles h3  {
+    #landing #titles h3 {
         flex-direction: column;
     }
 
@@ -39,11 +40,11 @@
     #landing #titles h3:first-of-type div {
         justify-content: flex-start;
     }
-    
+
     #landing #titles h3:first-of-type div span {
         margin-right: 0.15em;
     }
-    
+
     #landing #titles h3:last-of-type div {
         justify-content: flex-end;
     }
@@ -64,56 +65,56 @@
 /* For phones, landscape orientation */
 @media (max-height: 375px) and (orientation: landscape) {
     body {
-        grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;        
+        grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
     }
-    
-    /* #corner-1 {
-        background-color: hotpink;
-    } */
 
-    body > header > h1 {
+    #corner-1 {
+        background-color: hotpink;
+    }
+
+    body>header>h1 {
         font-size: clamp(1.75rem, 6vw, 3.75rem);
     }
 
-    body > header nav {
+    body>header nav {
         margin-bottom: -5px;
     }
 
-    body > footer nav {
+    body>footer nav {
         margin-top: 5px;
     }
 
-    nav ul li a {        
+    nav ul li a {
         font-size: 0.938rem;
     }
 
-    #landing #logo-stack {        
+    #landing #logo-stack {
         font-size: clamp(0.625rem, 1.5vw, 1.125rem);
     }
 
     #landing #web {
         font-size: clamp(1.5rem, 10vw, 3.75rem);
-        text-shadow: 0.1em 0.1em 9px rgba(0,0,0,0.5);
+        text-shadow: 0.1em 0.1em 9px rgba(0, 0, 0, 0.5);
         color: transparent;
         text-shadow: 0px 3px 3px #e26d5a;
         -webkit-background-clip: text;
         background-clip: text;
     }
 
-    #landing #name {        
+    #landing #name {
         margin: 5px 0;
-        padding: 10px 0;        
-        font-size: clamp(1.25rem, 3vw, 4.5rem);        
+        padding: 10px 0;
+        font-size: clamp(1.25rem, 3vw, 4.5rem);
         border-top-width: 2px;
         border-bottom-width: 2px;
     }
 
-    #landing #titles {        
+    #landing #titles {
         margin: 2.5px 0;
         font-size: 1rem;
     }
 
-    #landing #titles h3  {
+    #landing #titles h3 {
         flex-direction: column;
     }
 
@@ -124,11 +125,11 @@
     #landing #titles h3:first-of-type div {
         justify-content: flex-start;
     }
-    
+
     #landing #titles h3:first-of-type div span {
         margin-right: 0.15em;
     }
-    
+
     #landing #titles h3:last-of-type div {
         justify-content: flex-end;
     }
@@ -143,24 +144,24 @@
 
     #projects h1 {
         font-size: clamp(2.25rem, 2vw, 4.5rem);
-    
+
     }
 }
 
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
-    /* #corner-2 {
+    #corner-2 {
         background-color: chartreuse;
-    } */
+    }
 
-    body > main section#landing {
+    body>main section#landing {
         width: calc(100% * (1.75 / 4));
     }
 
     nav ul li a {
         display: inline-block;
     }
-    
+
     nav ul li a::before,
     nav ul li a::after {
         content: "";
@@ -185,19 +186,20 @@
         transform: scaleX(1);
     }
 
-    nav ul li a > svg {
+    nav ul li a>svg {
         display: none;
     }
-    nav ul li a > span {
+
+    nav ul li a>span {
         display: inline;
     }
 }
 
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
-    /* #corner-3 {
+    #corner-3 {
         background-color: orange;
-    } */
+    }
 
     nav ul li a {
         font-size: 1.5rem;
@@ -210,10 +212,9 @@
     #landing {
         width: calc(100% * (1.75 / 3));
     }
-    
+
     #landing #titles h3 {
         flex-direction: row;
-        /* flex-wrap: wrap; */
     }
 
     #landing #titles #vertical-bar {
@@ -223,20 +224,62 @@
     #landing #titles #vertical-bar span:nth-of-type(4) {
         display: none;
     }
+
+    #about-me>header h1 {
+        font-size: clamp(2.25rem, 4vw, 7rem);
+    }
+
+    #about-me>header h2 {
+        font-size: clamp(1.25rem, 2vw, 3rem);
+        text-align: center;
+    }
+
+    #about-me>main .value-panel h3 {
+        font-size: clamp(1.5rem, 2.75vw, 5rem);
+        line-height: clamp(2rem, 3.75vw, 6rem);
+    }
+
+    #about-me>main .value-panel p {
+        margin-top: 0.5rem;
+        font-size: clamp(1rem, 0.75vw, 1.25rem);
+        line-height: 1.5;
+    }
+
+    #about-me>main #compassion h3 {
+        font-size: clamp(2rem, 3.75vw, 6rem);
+    }
+
+    #about-me>main #compassion p em.value-word {
+        font-size: 1.5em;
+        line-height: 1.25;
+    }
+
+    #about-me>main .value-panel img {
+        width: 60%;
+    }
 }
 
 /* for tablets in portrait orientation */
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-    /* #corner-4 {
-        background-color: purple;
-    } */
-    nav ul li a {
-        font-size: 1.5rem;
+    body {
+        grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr;
     }
 
-    /* main {
-        grid-column: 2 / 5;
-    } */
+    #corner-4 {
+        background-color: purple;
+    }
+
+    body>header nav {
+        margin-bottom: -0.5rem;
+    }
+
+    body>footer nav {
+        margin-top: -0.25rem;
+    }
+
+    body nav ul li a {
+        font-size: 1.5rem;
+    }
 
     #landing {
         transform: scale(1.5);
@@ -246,7 +289,7 @@
         padding-top: 10px;
     }
 
-    #landing #titles h3  {
+    #landing #titles h3 {
         flex-direction: column;
     }
 
@@ -257,11 +300,11 @@
     #landing #titles h3:first-of-type div {
         justify-content: flex-start;
     }
-    
+
     #landing #titles h3:first-of-type div span {
         margin-right: 0.15em;
     }
-    
+
     #landing #titles h3:last-of-type div {
         justify-content: flex-end;
     }
@@ -269,23 +312,86 @@
     #landing #titles h3:last-of-type div span {
         margin-left: 0.15em;
     }
-    
+
     #landing #titles .delimiter {
         display: none;
     }
+
+    #about-me>header h1 {
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: clamp(3.5rem, 6.5vw, 10rem);
+        line-height: clamp(4.5rem, 7.5vw, 12rem);
+    }
+
+    #about-me>header h1 div {
+        width: 100%;
+    }
+
+    #about-me>header h1 div:first-of-type span:last-of-type {
+        display: none;
+    }
+
+    #about-me>header h2 {
+        margin: 1rem 0;
+        color: #F8E3BB;
+        font-family: "Praise";
+        font-size: clamp(3rem, 4vw, 7rem);
+        text-align: center;
+    }
+
+    #about-me>main .value-panel {
+        min-width: 0;
+    }
+
+    #about-me>main .value-panel h3 {
+        font-size: clamp(2.125rem, 3.9375vw, 6.25rem);
+        line-height: clamp(2.5rem, 4.375vw, 7rem);
+    }
+
+    #about-me>main .value-panel p {
+        margin-top: 1rem;
+        font-size: clamp(1.125rem, 1.05vw, 1.625rem);
+        line-height: 1.5;
+    }
+
+    #about-me>main #creativity h3 {
+        font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
+    }
+
+    #about-me>main #compassion h3 {
+        font-size: clamp(2.75rem, 5vw, 7.5rem);
+    }
+
+    #about-me>main .value-panel p {
+        margin-bottom: 2rem;
+    }
+
+    #about-me>main .value-panel img {
+        width: 90%;
+    }
+
+    #about-me>main #creativity img {
+        width: 90%;
+    }
+
+    /* #projects main {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: none;
+    } */
 }
 
 /* Large Screens in Portrait Orientation */
 @media (min-width: 1025px) and (orientation: portrait) {
-    /* aside:first-of-type {
+    aside:first-of-type {
         background-color: yellow;
-    } */
+    }
 
     nav ul li a {
         font-size: 1.5rem;
     }
 
-    body > main {
+    body>main {
         transform: scale(1.5);
-    } 
+    }
 }

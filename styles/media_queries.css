@@ -3,7 +3,7 @@
     body {
         grid-template-columns: 0.15fr 1.5fr 1.7fr 1.5fr 0.15fr;
         column-gap: 0.75rem;
-        background-color: gray;
+        /* background-color: gray; */
     }
 
     body>header,
@@ -68,9 +68,9 @@
         grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
     }
 
-    #corner-1 {
+    /* #corner-1 {
         background-color: hotpink;
-    }
+    } */
 
     body>header>h1 {
         font-size: clamp(1.75rem, 6vw, 3.75rem);
@@ -150,9 +150,9 @@
 
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
-    #corner-2 {
+    /* #corner-2 {
         background-color: chartreuse;
-    }
+    } */
 
     body>main section#landing {
         width: calc(100% * (1.75 / 4));
@@ -197,9 +197,9 @@
 
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
-    #corner-3 {
+    /* #corner-3 {
         background-color: orange;
-    }
+    } */
 
     nav ul li a {
         font-size: 1.5rem;
@@ -265,9 +265,9 @@
         grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr;
     }
 
-    #corner-4 {
+    /* #corner-4 {
         background-color: purple;
-    }
+    } */
 
     body>header nav {
         margin-bottom: -0.5rem;
@@ -383,9 +383,9 @@
 
 /* Large Screens in Portrait Orientation */
 @media (min-width: 1025px) and (orientation: portrait) {
-    aside:first-of-type {
+    /* aside:first-of-type {
         background-color: yellow;
-    }
+    } */
 
     nav ul li a {
         font-size: 1.5rem;

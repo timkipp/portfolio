@@ -1,9 +1,8 @@
 const body = document.querySelector("body");
 const asides = document.querySelectorAll("aside");
 const sectionTitle = document.getElementById("section-title");
-// const sections = ["landing", "about-me", "projects", "resume", "email"];
 const sections = [
-    { id: "landing", color: "#412F30" },
+    { id: "home", color: "#412F30" },
     { id: "about-me", color: "#FFFFEB" },
     { id: "projects", color: "#412F30" },
     { id: "resume", color: "#412F30" },
@@ -14,9 +13,8 @@ const options = {
     rootMargin: "0px 0px -30% 0px", // triggers when 50% of section is visible
     threshold: 0.6,
 };
-let backgroundColor = "";
-let useLightBackgroundColor = false;
-let hasLoaded = false; // <-- New flag
+let hasLoaded = false;
+let currentCard = 0;
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -25,42 +23,27 @@ const observer = new IntersectionObserver((entries) => {
 
             const updateTitle = () => {
                 switch (targetId) {
-                    case "landing":
-                        sectionTitle.textContent = "Welcome";
-                        useLightBackgroundColor = false;
+                    case "home":
+                        sectionTitle.textContent = "Welcome";                        
                         break;
                     case "about-me":
                         sectionTitle.textContent = "About Me";
-                        useLightBackgroundColor = true;
                         break;
                     case "projects":
-                        sectionTitle.textContent = "My Projects";
-                        useLightBackgroundColor = false;
+                        sectionTitle.textContent = "My Projects";                        
                         break;
                     case "resume":
-                        sectionTitle.textContent = "My Resume";
-                        useLightBackgroundColor = false;
+                        sectionTitle.textContent = "My Resume";                        
                         break;
                     case "email":
-                        sectionTitle.textContent = "Email Me";
-                        useLightBackgroundColor = false;
+                        sectionTitle.textContent = "Email Me";                        
                         break;
                     default:
                         sectionTitle.textContent = "";
                 }
-
-                // if (useLightBackgroundColor) {
-                //     backgroundColor = "#FFFFEB";
-                // } else {
-                //     backgroundColor = "#412F30";
-                // }
-
-                // asides.forEach((aside) => {
-                //     aside.style.backgroundColor = backgroundColor;
-                // });
             };
 
-            if (!hasLoaded && targetId === "landing") {
+            if (!hasLoaded && targetId === "home") {
                 // First load: just set text with no animation
                 sectionTitle.textContent = "Welcome";
                 sectionTitle.setAttribute("data-state", "visible");
@@ -83,11 +66,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, options);
 
-// Observe all sections
-// sections.forEach((id) => {
-//     const section = document.getElementById(id);
-//     if (section) observer.observe(section);
-// });
 sections.forEach(({ id }) => {
     const section = document.getElementById(id);
     if (section) observer.observe(section);
@@ -113,106 +91,129 @@ function setRealVH() {
 // Initial call
 setRealVH();
 
-// Update on resize or orientation change
-window.addEventListener("resize", setRealVH);
-window.addEventListener("orientationchange", setRealVH);
-window.addEventListener("load", () => {
-    if (window.location.hash !== "#landing") {
-        // Change the URL hash without adding a history entry:
-        history.replaceState(null, null, "#landing");
+const projectCards = Array.from(document.querySelectorAll('.project-card'));
+const projectImages = Array.from(document.querySelectorAll("#projects main .project-card img"));
+let positionStack = [
+  { top: "50px", left: "50px", z: 10 },
+  { top: "15px", left: "15px", z: 8 },
+  { top: "-20px", left: "-20px", z: 6 },
+  { top: "-55px", left: "-55px", z: 4 }
+];
 
-        // Or scroll to top if you prefer:
-        // window.scrollTo(0, 0);
+// Handlers for flip mode
+function flipCardOnClick(e) {
+    this.classList.toggle("flipped");
+    this.setAttribute("aria-pressed", this.classList.contains("flipped"));
+}
+
+function flipCardOnKeydown(e) {
+    if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        this.classList.toggle("flipped");
+        this.setAttribute("aria-pressed", this.classList.contains("flipped"));
+    }
+}
+
+// Show only the active card, hide others
+function rotateCards() {
+    projectImages.push(projectImages.shift()); // Reorder the array
+    projectCards.push(projectCards.shift());   // If needed for "active" card logic
+
+    projectCards.forEach((card, i) => {
+        const isActive = i === 0;
+        card.classList.toggle("active", isActive);
+
+        // Reset flip state
+        if (isActive) {
+            card.classList.remove("flipped");
+            card.setAttribute("aria-pressed", "false");
+
+            // toggleDescription(card.querySelector("figcaption"));
+        }
+
+        // Apply image position
+        const img = projectImages[i];
+        const pos = positionStack[i];
+        img.style.top = pos.top;
+        img.style.left = pos.left;
+        img.style.zIndex = pos.z;
+    });
+}
+
+// Add flip mode listeners
+function enableFlipMode() {
+    console.log("Enabling 'Flip' Mode");
+    projectCards.forEach(card => {
+        card.addEventListener("click", flipCardOnClick);
+        card.addEventListener("keydown", flipCardOnKeydown);
+    });
+    // Remove rotate listeners if any
+    projectCards.forEach(card => {
+        card.removeEventListener("click", rotateCards);
+    });    
+}
+
+// Add rotate mode listeners
+function enableRotateMode() {
+    console.log("Enabling 'Rotate' Mode");
+    // Remove flip listeners first
+    projectCards.forEach(card => {
+        card.removeEventListener("click", flipCardOnClick);
+        card.removeEventListener("keydown", flipCardOnKeydown);
+    });
+    // Add rotate listener
+    projectCards.forEach(card => {
+        card.addEventListener("click", rotateCards);
+    });
+}
+
+// Initially enable flip mode (or whatever your default is)
+enableFlipMode();
+
+function updateInteractionMode() {
+  if (
+    window.innerWidth >= 600 &&
+    window.innerWidth < 1024 &&
+    window.matchMedia("(orientation: portrait)").matches
+  ) {
+    enableRotateMode();
+  } else {
+    enableFlipMode();
+  }
+}
+
+// Run on load
+updateInteractionMode();
+
+// Run on resize
+window.addEventListener("resize", updateInteractionMode);
+window.addEventListener("DOMContentLoaded", () => {
+    const activeCard = document.querySelector("#projects .project-card.active");
+    if (activeCard) {
+        const figcaption = activeCard.querySelector("figcaption");
+        figcaption.style.height = figcaption.scrollHeight + "px";
     }
 });
 
-document.querySelectorAll(".figure-card").forEach((card) => {
-    const isHoverable = window.matchMedia(
-        "(hover: hover) and (pointer: fine)"
-    ).matches;
+function toggleDescription(activeFigcaption) {
+    document.querySelectorAll("#projects figcaption").forEach(figcaption => {
+        figcaption.style.transition = "height 0.5s ease";
+        figcaption.style.overflow = "hidden";
 
-    if (isHoverable) {
-        // Simulate hover effect using JS
-        card.addEventListener("mouseenter", () => {
-            if (!card.classList.contains("flipped")) {
-                card.classList.add("flipped");
-                card.setAttribute("aria-pressed", "true");
-            }
-        });
+        if (figcaption === activeFigcaption) {
+            // Expand
+            figcaption.style.height = figcaption.scrollHeight + "px";
 
-        card.addEventListener("mouseleave", () => {
-            if (card.classList.contains("flipped")) {
-                card.classList.remove("flipped");
-                card.setAttribute("aria-pressed", "false");
-            }
-        });
-    } else {
-        // Mobile/touch behavior: click toggles flip
-        card.addEventListener("click", () => {
-            card.classList.toggle("flipped");
-            card.setAttribute(
-                "aria-pressed",
-                card.classList.contains("flipped")
-            );
-        });
-
-        card.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                card.classList.toggle("flipped");
-                card.setAttribute(
-                    "aria-pressed",
-                    card.classList.contains("flipped")
-                );
-            }
-        });
-    }
-});
-
-// function hexToRgb(hex) {
-//     const bigint = parseInt(hex.replace("#", ""), 16);
-//     return {
-//         r: (bigint >> 16) & 255,
-//         g: (bigint >> 8) & 255,
-//         b: bigint & 255,
-//     };
-// }
-
-// function interpolateColor(c1, c2, factor) {
-//     return `rgb(${Math.round(c1.r + factor * (c2.r - c1.r))}, ${Math.round(
-//         c1.g + factor * (c2.g - c1.g)
-//     )}, ${Math.round(c1.b + factor * (c2.b - c1.b))})`;
-// }
-
-// function easeInOutQuad(t) {
-//     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-// }
-
-// const main = document.querySelector("body > main");
-
-// main.addEventListener("scroll", () => {
-//     const scrollY = main.scrollTop + main.clientHeight / 2;
-
-//     for (let i = 0; i < sections.length - 1; i++) {
-//         const currentSection = document.getElementById(sections[i].id);
-//         const nextSection = document.getElementById(sections[i + 1].id);
-//         if (!currentSection || !nextSection) continue;
-
-//         const currentTop = currentSection.offsetTop - main.offsetTop;
-//         const nextTop = nextSection.offsetTop - main.offsetTop;
-
-//         if (scrollY >= currentTop && scrollY < nextTop) {
-//             const progress = (scrollY - currentTop) / (nextTop - currentTop);
-//             const color1 = hexToRgb(sections[i].color);
-//             const color2 = hexToRgb(sections[i + 1].color);
-//             //   const blended = interpolateColor(color1, color2, progress);
-//             const easedProgress = easeInOutQuad(progress);
-//             const blended = interpolateColor(color1, color2, easedProgress);
-//             document.body.style.backgroundColor = blended;
-//             return;
-//         }
-//     }
-
-//     // Fallback to last section color
-//     document.body.style.backgroundColor = sections[sections.length - 1].color;
-// });
+            // Optional: reset to auto after transition
+            figcaption.addEventListener("transitionend", function handler() {
+                figcaption.style.height = "auto";
+                figcaption.removeEventListener("transitionend", handler);
+            });
+        } else {
+            // Collapse
+            figcaption.style.height = figcaption.scrollHeight + "px"; // Set current height first
+            void figcaption.offsetHeight; // Force reflow
+            figcaption.style.height = "0px";
+        }
+    });
+}

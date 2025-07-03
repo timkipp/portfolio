@@ -1,55 +1,131 @@
-@import url(fonts/fonts.css);
-@import url(header_footer.css);
-@import url(hero.css);
-@import url(about.css);
-@import url(animations.css);
-
-
-:root {
-    --light-color: #aff0f0;
-    /* --light-color: #61C2E9; */
-    /* --light-color: #00ABF1; */
-    /* --dark-color: #3E3D32; */
-    --dark-color: #102E42;
+body>main section#home {
+    width: calc(100% * (1.75 / 3.75));
+    max-width: 100%;
 }
 
-@media (pointer: coarse) {
-    * {
-      touch-action: none;
-    }
-  }
-
-html {
-    height: 100%;
+body>main section>hgroup {
+    width: 100%;
 }
 
-body {
-    display: grid;
-    grid-template-rows: 12.5% 75% 12.5%;
-    grid-template-columns: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #F9F8E9;
+body>main::-webkit-scrollbar {
+    display: none;
 }
 
-@media (min-height: 1200px) {
-    body {
-        grid-template-rows: 7.5% 85% 7.5%;
-    }
+body>main hgroup {
+    margin: 0 auto;
+    overflow-x: visible;
 }
 
-main {
-    grid-row: 2;
+#home #logo-stack {
     display: flex;
-    width: 300vw;
-    height: 100%;
-    overflow-x: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+    overflow: visible;
+    font-variation-settings: 'wght' 300;
+    font-size: clamp(1rem, 2vw, 3.875rem);
 }
 
-section {
-    width: 100vw;
-    height: 100%;
-    position: relative;    
+#home #logo-stack h1 {
+    width: 100%;
+}
+
+#home #web {
+    overflow-x: visible;
+    font-variation-settings: 'wght' 700;
+    font-size: clamp(7.5rem, 10vw, 16rem);
+    background-color: black;
+    color: transparent;
+    text-shadow: 0px 4px 3px #e26d5a;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+#home .word {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+}
+
+#home #design {
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #f2bc71;
+}
+
+#home #development {
+    align-items: flex-end;
+    margin-top: clamp(-75px, -3vw, -15px);
+    color: #4ca1af;
+}
+
+#home #name {
+    position: relative;
+    margin: 10px 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: #714F50;
+    color: #ffffeb;
+    font-variation-settings: 'wght' 600;
+    font-size: clamp(1.5rem, 3.75vw, 6rem);
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: #e26d5a;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #e26d5a;
+}
+
+#home #name h2 {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#home #name h2 span:nth-of-type(2),
+#name h2 span:nth-of-type(6) {
+    position: relative;
+    top: 0.12em;
+    font-family: "Praise", cursive;
+}
+
+#home #titles {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-variation-settings: 'wght' 400;
+    font-size: clamp(20px, 1.25vw, 32px);
+}
+
+#home #titles h3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#home #titles h3:first-of-type,
+#titles h3:last-of-type {
+    width: 100%;
+}
+
+#home #titles h3:first-of-type div,
+#titles h3:last-of-type div {
+    width: 100%;
+}
+
+#home #titles h3 div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#home #titles .title-1 {
+    color: #f2bc71;
+}
+
+#home #titles .delimiter {
+    color: #e26d5a;
+}
+
+#home #titles .title-2 {
+    color: #4ca1af;
 }

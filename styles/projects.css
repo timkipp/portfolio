@@ -7,7 +7,7 @@
 
 #projects main {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     row-gap: 0.25rem;
     width: 100%;
@@ -15,7 +15,7 @@
 
 #projects main .project-card {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -42,7 +42,7 @@
     position: relative;
     width: 100%;
     padding: 0 1rem;
-    color:#4ca1af;
+    color: #4ca1af;
     font-size: clamp(1.5rem, 3vw, 4.5rem);
     text-align: center;
     text-decoration: none;
@@ -82,15 +82,6 @@
     transform: scaleY(1);
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0;
-  }
-  to {
-    background-position: 100%;
-  }
-}
-
 #projects main .project-card .figure-card {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -101,7 +92,7 @@
 
 #projects main .project-card .figure-card figure {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     position: relative;
     width: 100%;
@@ -112,37 +103,39 @@
     transform-style: preserve-3d;
 }
 
-#projects main .project-card .figure-card.flipped figure {
+#projects main .project-card.flipped .figure-card figure {
     transform: rotateY(180deg);
 }
 
-#projects main .project-card .figure-card figure > * {
+#projects main .project-card .figure-card figure>* {
     position: absolute;
+    width: 90%;
+    height: 90%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border: 3px solid #e26d5a;
     border-radius: 1em;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.75);
     pointer-events: auto;
+    transition: border-width 0.3s ease;
 }
 
 #projects main .project-card .figure-card figure img {
-    width: 90%;
-    height: 90%;
     z-index: 1;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     object-fit: cover;
+}
+
+#projects main .project-card .figure-card figure>*:hover,
+#projects main .project-card .figure-card.flipped figure>* {
+    border: 8px solid #e26d5a;
 }
 
 #projects main .project-card .figure-card figure figcaption {
     display: flex;
     align-items: center;
-    width: 90%;
-    height: 90%;
     z-index: 2;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     padding: 1rem;
-    color:#e26d5a; 
+    color: #e26d5a;
     font-size: clamp(1rem, 1.094vw, 2.25rem);
     line-height: clamp(1.25rem, 3vh, 3.75rem);
     text-align: justify;

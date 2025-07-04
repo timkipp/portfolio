@@ -176,9 +176,9 @@
         grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
     }
 
-    #corner-1 {
+    /* #corner-1 {
         background-color: hotpink;
-    }
+    } */
 
     body>header>h1 {
         font-size: clamp(1.75rem, 6vw, 3.75rem);
@@ -258,9 +258,9 @@
 
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
-    #corner-2 {
+    /* #corner-2 {
         background-color: chartreuse;
-    }
+    } */
 
     body>main section#home {
         width: calc(100% * (1.75 / 4));
@@ -305,9 +305,9 @@
 
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
-    #corner-3 {
+    /* #corner-3 {
         background-color: orange;
-    }
+    } */
 
     body>header h1 {
         padding-bottom: 0.25rem;

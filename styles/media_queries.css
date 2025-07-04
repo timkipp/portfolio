@@ -3,12 +3,18 @@
     body {
         grid-template-columns: 0.15fr 1.5fr 1.7fr 1.5fr 0.15fr;
         column-gap: 0.75rem;
-        background-color: gray;
+        /* background-color: gray; */
     }
 
     body>header,
     body>footer {
         grid-column: 1 / 6;
+    }
+
+    body>header h1 {
+        font-size: clamp(1.5rem, 1.5vw, 3rem);
+        color: #ffffeb;
+        text-shadow: none;
     }
 
     body>main {
@@ -18,6 +24,10 @@
 
     body>main section#home {
         width: calc(100% * (1.75 / 1));
+    }
+
+    nav ul li+li {
+        margin-left: 1rem;
     }
 
     #home #name {
@@ -57,6 +67,104 @@
         display: none;
     }
 
+    #about-me {
+        flex: 1 1 auto;
+        height: 100%;
+    }
+
+    #about-me>header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #about-me>header h1 {
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: clamp(1.5rem, 4vw, 5rem);
+        line-height: clamp(1.75rem, 5vw, 6rem);
+        font-variation-settings: 'wght' 300;
+    }
+
+    #about-me>header h1 div {
+        width: 100%;
+    }
+
+    #about-me>header h1 div:first-of-type span:last-of-type {
+        display: none;
+    }
+
+    #about-me>header h2 {
+        color: #F8E3BB;
+        font-family: "Praise";
+        font-size: clamp(1.25rem, 1.75vw, 3.25rem);
+        text-align: center;
+    }
+
+    #about-me>main {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    #about-me>main::-webkit-scrollbar {
+        display: none;
+    }
+
+    #about-me>main .value-panel {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+    }
+
+    #about-me>main .value-panel h3 {
+        font-size: clamp(1.25rem, 2.25vw, 3.25rem);
+        text-align: center !important;
+        line-height: 1.25;
+    }
+
+    #about-me>main .value-panel p {
+        margin-top: 0.5rem;
+        font-size: clamp(1rem, 1.25vw, 1.25rem);
+        line-height: clamp(1.15rem, 1.4vw, 1.4rem);
+        text-align: left;
+        text-align-last: auto !important;
+    }
+
+    #about-me>main #creativity h3 {
+        font-weight: bold;
+    }
+
+    #about-me>main #compassion h3 {
+        font-size: clamp(1.75rem, 3vw, 4.25rem);
+    }
+
+    #about-me>main .value-panel p {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    #about-me>main #compassion p em.value-word {
+        font-size: 1.5em;
+    }
+
+    #about-me>main .value-panel img {
+        width: 40%;
+        margin-top: revert;
+    }
+
+    #about-me>main #creativity img {
+        width: 30%;
+    }
+
+    #about-me>main #compassion img {
+        width: 35%;
+    }
+
     #projects h1 {
         font-size: clamp(2.25rem, 2vw, 4.5rem);
     }
@@ -68,9 +176,9 @@
         grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
     }
 
-    /* #corner-1 {
+    #corner-1 {
         background-color: hotpink;
-    } */
+    }
 
     body>header>h1 {
         font-size: clamp(1.75rem, 6vw, 3.75rem);
@@ -150,9 +258,9 @@
 
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
-    /* #corner-2 {
+    #corner-2 {
         background-color: chartreuse;
-    } */
+    }
 
     body>main section#home {
         width: calc(100% * (1.75 / 4));
@@ -197,9 +305,9 @@
 
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
-    /* #corner-3 {
+    #corner-3 {
         background-color: orange;
-    } */
+    }
 
     body>header h1 {
         padding-bottom: 0.25rem;

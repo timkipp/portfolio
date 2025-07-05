@@ -3,7 +3,7 @@ const asides = document.querySelectorAll("aside");
 const sectionTitle = document.getElementById("section-title");
 const sections = [
     { id: "home", color: "#412F30" },
-    { id: "about-me", color: "#FFFFEB" },
+    { id: "about", color: "#FFFFEB" },
     { id: "projects", color: "#412F30" },
     { id: "resume", color: "#412F30" },
     { id: "email", color: "#FFFFEB" },
@@ -26,7 +26,7 @@ const observer = new IntersectionObserver((entries) => {
                     case "home":
                         sectionTitle.textContent = "Welcome";                        
                         break;
-                    case "about-me":
+                    case "about":
                         sectionTitle.textContent = "About Me";
                         break;
                     case "projects":
@@ -70,6 +70,7 @@ sections.forEach(({ id }) => {
     const section = document.getElementById(id);
     if (section) observer.observe(section);
 });
+
 
 if (document.readyState === "complete") {
     document.body.classList.remove("loading");
@@ -217,3 +218,51 @@ function toggleDescription(activeFigcaption) {
         }
     });
 }
+
+const aboutMain = document.querySelector('#about > main');
+const bodyMain = document.querySelector('body > main');
+const panels = [...document.querySelectorAll('#about > main .value-panel')];
+
+let lastPanelInView = false;
+
+// 1. Observe LAST panel to know when it’s in view
+const lastPanelObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    lastPanelInView = entry.isIntersecting && entry.intersectionRatio >= 0.9;
+  });
+}, {
+  root: aboutMain,
+  threshold: 0.9
+});
+
+lastPanelObserver.observe(panels[panels.length - 1]);
+
+// 2. Allow scrolling inside aboutMain unless at bottom and last panel not in view
+
+// -- WHEEL (Desktop)
+aboutMain.addEventListener('wheel', (e) => {
+  const atBottom = Math.ceil(aboutMain.scrollTop + aboutMain.clientHeight) >= aboutMain.scrollHeight;
+  if (e.deltaY > 0 && atBottom && !lastPanelInView) {
+    // Trying to scroll down past the last panel before it's fully in view
+    e.preventDefault();
+  }
+}, { passive: false });
+
+// -- TOUCH (Mobile)
+let startY = 0;
+
+aboutMain.addEventListener('touchstart', (e) => {
+  startY = e.touches[0].clientY;
+}, { passive: true });
+
+aboutMain.addEventListener('touchmove', (e) => {
+  const currentY = e.touches[0].clientY;
+  const deltaY = startY - currentY;
+
+  const atBottom = Math.ceil(aboutMain.scrollTop + aboutMain.clientHeight) >= aboutMain.scrollHeight;
+
+  if (deltaY > 0 && atBottom && !lastPanelInView) {
+    // Trying to scroll down past inner container before seeing all panels
+    e.preventDefault();
+  }
+}, { passive: false });

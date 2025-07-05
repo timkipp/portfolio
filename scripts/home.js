@@ -40,7 +40,7 @@ about.addEventListener('click', function (e) {
 
     alert("'about' clicked!");
 
-    const aboutSection = document.getElementById('about-me');
+    const aboutSection = document.getElementById('about');
     const scrollPosition = aboutSection.offsetLeft;
 
     document.querySelector('main').scrollTo({

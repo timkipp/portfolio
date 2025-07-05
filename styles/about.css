@@ -1,168 +1,116 @@
-#about-me {
+#about>header h1 {
     display: flex;
+    color: #A4C4B7;
+    font-size: clamp(2.5rem, 5vw, 8rem);
+    font-variation-settings: 'wght' 200;
+    text-align: center;
 }
 
-#about-me hgroup {
+#about>header h1 div {
     display: flex;
-    flex-direction: row;
-    writing-mode: sideways-lr;
-    background: linear-gradient(0deg, var(--dark-color), var(--light-color));
+    justify-content: space-between;
+    width: 50%;
 }
 
-#about-me hgroup h1 {
-    height: 50%;
-    font-family: 'Poppins';
-    font-size: clamp(2rem, 5.25vw, 9rem);
-    text-transform: lowercase;
+#about>header h2 {
+    color: #F8E3BB;
+    font-family: "Praise";
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+    text-align: center;
 }
 
-#about-me hgroup h1 span {
-    writing-mode: sideways-lr;
-    padding: 0.25em 0.25em;
+#about>main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: clamp(2rem, 2.5vw, 4rem);
 }
 
-#about-me hgroup h1:first-child {
+#about>main .value-panel {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: var(--light-color);
-}
-
-#about-me hgroup h1:first-child span {
+    flex-direction: column;
+    align-items: center;
     height: 100%;
+}
+
+#about>main .value-panel h3 {
+    width: 100%;
+    font-size: clamp(2rem, 3.75vw, 6rem);
+    line-height: clamp(2.5rem, 4.375vw, 7rem);
+}
+
+#about>main .value-panel p {
+    margin-top: 1rem;
+    color: #F8E3BB;
+    font-size: clamp(1rem, 0.9375vw, 1.5rem);
+    text-align: justify;
+    line-height: 1.5;
+}
+
+#about>main .value-panel img {
+    width: 80%;
+    margin-top: auto;
+}
+
+#about>main #curiosity h3 {
+    font-family: "Margarine";
+    color: #f2bc71;
+    text-align: left;
+}
+
+#about>main #creativity h3 {
+    color: #e26d5a;
+    font-family: "Syncopate";
+    text-align: center;
+}
+
+#about>main #compassion h3 {
+    color: #4ca1af;
+    font-family: "Clicker Script";
+    font-size: clamp(2.5rem, 4.375vw, 7rem);
+    font-weight: bold;
     text-align: right;
 }
 
-#about-me hgroup h1:last-child {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: var(--dark-color);
+#about>main #curiosity p {
+    text-align-last: left;
 }
 
-#about-me .panel {
-    flex: 1;
-    height: 100%;
-    perspective: 1000px;
-    background: linear-gradient(305deg, var(--dark-color), var(--light-color));
-    position: relative;
-}
-  
-#about-me .panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: conic-gradient(transparent var(--fill), transparent var(--fill));
-    z-index: 1;
-    transition: --fill 0.4s ease-in-out, opacity 6s;
-} 
-
-#about-me .panel:first-of-type:hover::before {
-    --fill: 360deg;
-    background: conic-gradient(yellowgreen var(--fill), transparent var(--fill));
-}
-  
-#about-me .panel:nth-of-type(2):hover::before {
-    --fill: 360deg;
-    background: conic-gradient(#CB2660 var(--fill), transparent var(--fill));
-}
-  
-#about-me .panel:last-of-type:hover::before {
-    --fill: 360deg;
-    background: conic-gradient(orange var(--fill), transparent var(--fill));
+#about>main #creativity p {
+    text-align-last: center;
 }
 
-#about-me .panel:hover::before {
-    --fill: 360deg;
-    opacity: 0;
-}
-  
-#about-me .panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out 0.4s;
-}
-  
-#about-me .panel:first-of-type::after {
-    background: linear-gradient(125deg, yellowgreen, #F3FFE1);
-}
-  
-#about-me .panel:nth-of-type(2)::after {
-    background: linear-gradient(125deg, #CB2660, #FAE6ED);
-  }
-  
-#about-me .panel:last-of-type::after {
-    background: linear-gradient(125deg, orange, #FFEDCD);
-}
-  
-#about-me .panel:hover::after {
-    opacity: 1;
-}
-  
-#about-me .panel-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-  
-#about-me .panel:hover .panel-inner {    
-    transform: rotateY(180deg);
-}
-  
-#about-me > .panel h2, #about-me > .panel p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 95%;
-    height: 95%;
-    box-sizing: border-box;
-    padding: 1rem;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 20px;  
-}
-  
-#about-me .panel h2 {
-    font-family: 'Lato';
-    font-size: clamp(2rem, 5.75vw, 6rem);
-    font-style: italic;
-    font-weight: 300;  
-    color: var(--light-color);
-    background-color: var(--dark-color);
-    background: linear-gradient(125deg, var(--dark-color), var(--light-color));
-}
-  
-#about-me .panel p {
-    font-family: "Amasis";
-    font-size: clamp(0.5rem, 2.5vw, 2rem);
-    transform: rotateY(180deg);
+#about>main #compassion p {
+    text-align-last: right;
 }
 
-#about-me .panel:first-of-type p {
-    color: var(--dark-color);
-    background: linear-gradient(305deg, yellowgreen, #F3FFE1);
+#about>main #curiosity p em {
+    color: #f2bc71;
 }
 
-#about-me .panel:nth-of-type(2) p {
-    color: var(--dark-color);
-    background: linear-gradient(305deg, #CB2660, #FAE6ED);
+#about>main #creativity p em {
+    color: #e26d5a;
 }
 
-#about-me .panel:last-of-type p {
-    color: var(--dark-color);
-    background: linear-gradient(305deg, orange, #FFEDCD);
+#about>main #compassion p em {
+    color: #4ca1af;
+}
+
+#about>main #curiosity p em.value-word {
+    color: #f2bc71;
+    font-family: "Margarine"
+}
+
+#about>main #creativity p em.value-word {
+    color: #e26d5a;
+    font-family: "Syncopate";
+    font-weight: bold;
+}
+
+#about>main #compassion p em.value-word {
+    color: #4ca1af;
+    font-family: "Clicker Script";
+    font-size: 1.25em;
+    font-weight: bold;
+    vertical-align: middle;
+    line-height: 1.25;
 }

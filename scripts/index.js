@@ -219,50 +219,116 @@ function toggleDescription(activeFigcaption) {
     });
 }
 
-const aboutMain = document.querySelector('#about > main');
-const bodyMain = document.querySelector('body > main');
-const panels = [...document.querySelectorAll('#about > main .value-panel')];
+// /* FOR HANDLING SCROLL ISSUES */
+// const aboutSection = document.querySelector('#about');
+// const aboutMain = document.querySelector('#about > main');
+// const panels = document.querySelectorAll('#about > main > .value-panel');
+// const bodyMain = document.querySelector('body > main');
 
-let lastPanelInView = false;
+// let isInsideAbout = false;
+// const viewedPanels = new Set();
 
-// 1. Observe LAST panel to know when it’s in view
-const lastPanelObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    lastPanelInView = entry.isIntersecting && entry.intersectionRatio >= 0.9;
-  });
-}, {
-  root: aboutMain,
-  threshold: 0.9
-});
+// // Disable body scroll
+// function disableBodyScroll() {
+//   bodyMain.style.overflow = 'hidden';
+// }
 
-lastPanelObserver.observe(panels[panels.length - 1]);
+// // Enable body scroll
+// function enableBodyScroll() {
+//   bodyMain.style.overflow = '';
+// }
 
-// 2. Allow scrolling inside aboutMain unless at bottom and last panel not in view
+// // === ABOUT OBSERVER ===
+// const aboutObserver = new IntersectionObserver(([entry]) => {
+//   const ratio = entry.intersectionRatio;
+//   console.log(`#about intersectionRatio: ${ratio}`);
 
-// -- WHEEL (Desktop)
-aboutMain.addEventListener('wheel', (e) => {
-  const atBottom = Math.ceil(aboutMain.scrollTop + aboutMain.clientHeight) >= aboutMain.scrollHeight;
-  if (e.deltaY > 0 && atBottom && !lastPanelInView) {
-    // Trying to scroll down past the last panel before it's fully in view
-    e.preventDefault();
-  }
-}, { passive: false });
+//   if (entry.isIntersecting && ratio > 0.7 && !isInsideAbout) {
+//     isInsideAbout = true;
+//     viewedPanels.clear();
+//     console.log("#about section entered ('isInsideAbout': true). Clearing viewed panels.");
+    
+//     // Lock scroll inside about
+//     aboutMain.style.overscrollBehavior = 'contain';
+//     disableBodyScroll();
+//   } else if (!entry.isIntersecting && isInsideAbout) {
+//     isInsideAbout = false;
+//     console.log("#about section exited ('isInsideAbout': false).");
+    
+//     // Re-enable body scroll
+//     aboutMain.style.overscrollBehavior = '';
+//     enableBodyScroll();
+//   }
+// }, {
+//   root: bodyMain,
+//   threshold: [0, 0.2, 0.7, 1.0]
+// });
 
-// -- TOUCH (Mobile)
-let startY = 0;
+// // === PANEL OBSERVER ===
+// const panelsObserver = new IntersectionObserver((entries) => {
+//   if (!isInsideAbout) return;
 
-aboutMain.addEventListener('touchstart', (e) => {
-  startY = e.touches[0].clientY;
-}, { passive: true });
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       const panelId = entry.target.id;
+//       const ratio = entry.intersectionRatio;
 
-aboutMain.addEventListener('touchmove', (e) => {
-  const currentY = e.touches[0].clientY;
-  const deltaY = startY - currentY;
+//       if (!viewedPanels.has(panelId)) {
+//         viewedPanels.add(panelId);
+//         console.log(`${panelId} entered (ratio: ${ratio}) and added to set. Number of panels viewed is ${viewedPanels.size}.`);
 
-  const atBottom = Math.ceil(aboutMain.scrollTop + aboutMain.clientHeight) >= aboutMain.scrollHeight;
+//         if (viewedPanels.size === panels.length) {
+//           console.log("✅ All div.value-panels viewed. Unlocking scroll.");
+          
+//           // Unlock scrolling
+//           aboutMain.style.overscrollBehavior = 'auto';
+//           enableBodyScroll();
 
-  if (deltaY > 0 && atBottom && !lastPanelInView) {
-    // Trying to scroll down past inner container before seeing all panels
-    e.preventDefault();
-  }
-}, { passive: false });
+//           // Optional: scroll to bottom to nudge toward next section
+//           aboutMain.scrollTop = aboutMain.scrollHeight;
+//         }
+//       }
+//     }
+//   });
+// }, {
+//   root: aboutMain,
+//   threshold: 0.2
+// });
+
+// // Observe about section and panels
+// aboutObserver.observe(aboutSection);
+// panels.forEach(panel => panelsObserver.observe(panel));
+
+// // === OPTIONAL: Scroll Logging (throttled) ===
+// let lastLogTime = 0;
+// const throttleDelay = 200;
+// aboutMain.addEventListener('scroll', () => {
+//   const now = Date.now();
+//   if (now - lastLogTime < throttleDelay) return;
+//   lastLogTime = now;
+
+//   console.log(`aboutMain scrollTop: ${aboutMain.scrollTop}, scrollHeight: ${aboutMain.scrollHeight}, clientHeight: ${aboutMain.clientHeight}`);
+// });
+
+// // === iOS TOUCH SCROLL TRAP FIX ===
+// aboutMain.addEventListener('touchstart', (e) => {
+//   aboutMain._startY = e.touches[0].clientY;
+// }, { passive: true });
+
+// aboutMain.addEventListener('touchmove', (e) => {
+//   if (!isInsideAbout) return;
+
+//   const scrollTop = aboutMain.scrollTop;
+//   const scrollHeight = aboutMain.scrollHeight;
+//   const clientHeight = aboutMain.clientHeight;
+//   const currentY = e.touches[0].clientY;
+//   const deltaY = currentY - aboutMain._startY;
+
+//   const isAtTop = scrollTop === 0;
+//   const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+//   // Prevent scrolling out of bounds
+//   if ((isAtTop && deltaY > 0) || (isAtBottom && deltaY < 0)) {
+//     e.preventDefault();
+//   }
+// }, { passive: false });

@@ -6,7 +6,7 @@
     }
 
     #corner-1 {
-        background-color: hotpink !important;
+        background-color: hotpink !important; /* DEBUG */
     }
 
     body>header,

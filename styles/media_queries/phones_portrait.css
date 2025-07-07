@@ -3,7 +3,7 @@
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
         column-gap: 0.25rem;
-        /* background-color: gray; */
+        /* background-color: gray ;  DEBUG */
     }
 
     body>header,
@@ -21,6 +21,7 @@
         grid-column: 2 / 5;
         margin: 0.25rem 0;
     }
+    
 
     body>main section#home {
         width: calc(100% * (1.75 / 1));

@@ -1,7 +1,7 @@
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
     #corner-2 {
-        background-color: chartreuse;
+        /* background-color: chartreuse;  DEBUG */
     }
 
     body>main section#home {

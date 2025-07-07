@@ -1,7 +1,7 @@
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
     #corner-3 {
-        background-color: orange;
+        /* background-color: orange; DEBUG */
     }
 
     body>header h1 {
@@ -27,7 +27,7 @@
         padding-top: 5px;
     }
 
-    #home {
+    #home{
         width: calc(100% * (1.75 / 3));
     }
 

@@ -5,18 +5,19 @@
     }
 
     #corner-4 {
-        /* background-color: purple;  DEBUG */
+        /* DEBUG */
+/* background-color: purple; */
     }
 
-    body>header {
+    body > header {
         font-size: clamp(3.75rem, 4vw, 8rem);
     }
 
-    body>header nav {
+    body > header nav {
         margin-right: 0.75rem;
     }
 
-    body>footer nav {
+    body > footer nav {
         margin-top: 0.25rem;
     }
 
@@ -25,14 +26,14 @@
         font-size: 1.5rem;
     }
 
-    nav ul li a>svg {
+    nav ul li a > svg {
         display: inline;
         width: 2.25rem;
         height: 2.25rem;
         vertical-align: text-bottom;
     }
 
-    nav ul li a>span {
+    nav ul li a > span {
         display: none;
     }
 
@@ -72,61 +73,61 @@
         display: none;
     }
 
-    #about>header h1 {
+    #about > header h1 {
         flex-direction: column;
         justify-content: space-between;
         font-size: clamp(3.5rem, 6.5vw, 10rem);
         line-height: clamp(4.5rem, 7.5vw, 12rem);
     }
 
-    #about>header h1 div {
+    #about > header h1 div {
         width: 100%;
     }
 
-    #about>header h1 div:first-of-type span:last-of-type {
+    #about > header h1 div:first-of-type span:last-of-type {
         display: none;
     }
 
-    #about>header h2 {
+    #about > header h2 {
         margin: 1rem 0;
-        color: #F8E3BB;
+        color: #f8e3bb;
         font-family: "Praise";
         font-size: clamp(3rem, 4vw, 7rem);
         text-align: center;
     }
 
-    #about>main .value-panel {
+    #about > main .value-panel {
         min-width: 0;
     }
 
-    #about>main .value-panel h3 {
+    #about > main .value-panel h3 {
         font-size: clamp(2.125rem, 3.9375vw, 6.25rem);
         line-height: clamp(2.5rem, 4.375vw, 7rem);
     }
 
-    #about>main .value-panel p {
+    #about > main .value-panel p {
         margin-top: 1rem;
         font-size: clamp(1.125rem, 1.05vw, 1.625rem);
         line-height: 1.5;
     }
 
-    #about>main #creativity h3 {
+    #about > main #creativity h3 {
         font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
     }
 
-    #about>main #compassion h3 {
+    #about > main #compassion h3 {
         font-size: clamp(2.75rem, 5vw, 7.5rem);
     }
 
-    #about>main .value-panel p {
+    #about > main .value-panel p {
         margin-bottom: 2rem;
     }
 
-    #about>main .value-panel img {
+    #about > main .value-panel img {
         width: 90%;
     }
 
-    #about>main #creativity img {
+    #about > main #creativity img {
         width: 90%;
     }
 
@@ -230,7 +231,7 @@
         transform: none;
     }
 
-    #projects main .project-card .figure-card figure>* {
+    #projects main .project-card .figure-card figure > * {
         position: revert;
         width: revert;
         height: revert;

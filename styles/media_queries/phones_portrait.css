@@ -3,37 +3,38 @@
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
         column-gap: 0.25rem;
-        /* background-color: gray ;  DEBUG */
+
+        /* DEBUG */
+/* background-color: gray; */
     }
 
-    body>header,
-    body>footer {
+    body > header,
+    body > footer {
         grid-column: 1 / 6;
     }
 
-    body>header h1 {
+    body > header h1 {
         font-size: clamp(1.5rem, 1.5vw, 3rem);
         color: #ffffeb;
         text-shadow: none;
     }
 
-    body>main {
+    body > main {
         grid-column: 2 / 5;
         margin: 0.25rem 0;
     }
-    
 
-    body>main section#home {
+    body > main section#home {
         width: calc(100% * (1.75 / 1));
     }
 
-    nav ul li+li {
+    nav ul li + li {
         margin-left: 1rem;
     }
 
     #home #name {
         padding-top: 20px;
-        -webkit-text-stroke: 0.5px #412F30;
+        -webkit-text-stroke: 0.5px #412f30;
     }
 
     #home #titles {
@@ -76,37 +77,37 @@
         min-height: 100%;
     }
 
-    #about>header {
+    #about > header {
         position: sticky;
         top: 0;
         z-index: 10;
     }
 
-    #about>header h1 {
+    #about > header h1 {
         flex-direction: column;
         justify-content: space-between;
         font-size: clamp(1.5rem, 6cqh, 5rem);
         line-height: clamp(1.75rem, 7cqh, 6.5rem);
 
-        font-variation-settings: 'wght' 300;
+        font-variation-settings: "wght" 300;
     }
 
-    #about>header h1 div {
+    #about > header h1 div {
         width: 100%;
     }
 
-    #about>header h1 div:first-of-type span:last-of-type {
+    #about > header h1 div:first-of-type span:last-of-type {
         display: none;
     }
 
-    #about>header h2 {
-        color: #F8E3BB;
+    #about > header h2 {
+        color: #f8e3bb;
         font-family: "Praise";
         font-size: clamp(1.25rem, 6cqh, 3.25rem);
         text-align: center;
     }
 
-    #about>main {
+    #about > main {
         /* TEST */
         height: 100%;
 
@@ -121,28 +122,28 @@
         overscroll-behavior: auto;
     }
 
-    #about>main::-webkit-scrollbar {
+    #about > main::-webkit-scrollbar {
         display: none;
     }
 
-    #about>main .value-panel {
+    #about > main .value-panel {
         flex: 0 0 100%;
         height: 100%;
         scroll-snap-align: start;
     }
 
-    #about>main .value-panel h3 {
+    #about > main .value-panel h3 {
         font-size: clamp(1.25rem, 6cqh, 3.25rem);
         text-align: center !important;
         line-height: 1.25;
     }
 
-    #about>main .value-panel h3,
-    #about>main .value-panel p {
+    #about > main .value-panel h3,
+    #about > main .value-panel p {
         flex-shrink: 0;
     }
 
-    #about>main .value-panel p {
+    #about > main .value-panel p {
         margin-top: 0.5rem;
         font-size: clamp(1rem, 3.75cqh, 1.25rem);
         line-height: clamp(1.4rem, 6cqh, 1.8rem);
@@ -151,30 +152,30 @@
         /* text-wrap: pretty; */
     }
 
-    #about>main .value-panel p {
+    #about > main .value-panel p {
         margin-top: 0;
         margin-bottom: 0.5rem;
     }
 
-    #about>main #creativity h3 {
+    #about > main #creativity h3 {
         font-weight: bold;
     }
 
-    #about>main #compassion h3 {
+    #about > main #compassion h3 {
         font-size: clamp(1.75rem, 3vw, 4.25rem);
     }
 
-    #about>main #compassion p em.value-word {
+    #about > main #compassion p em.value-word {
         font-size: 1.5em;
     }
 
-    #about>main .value-panel img {
+    #about > main .value-panel img {
         max-height: 27.5cqh;
         margin: auto 0;
         object-fit: contain;
     }
 
-    #about>main #compassion img {
+    #about > main #compassion img {
         height: 25cqh;
     }
 

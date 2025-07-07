@@ -1,14 +1,15 @@
 /* Large Screens in Portrait Orientation */
 @media (min-width: 1025px) and (orientation: portrait) {
-    /* aside:first-of-type {
-        background-color: yellow;
-    } */
+    aside:first-of-type {
+        /* DEBUG */
+/* background-color: yellow; */
+    }
 
     nav ul li a {
         font-size: 1.5rem;
     }
 
-    body>main {
+    body > main {
         transform: scale(1.5);
     }
 }

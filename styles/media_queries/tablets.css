@@ -1,14 +1,15 @@
 /* For tablets, portrait and landscape orientations */
 @media (min-width: 600px) and (max-width: 1280px) {
     #corner-3 {
-        /* background-color: orange; DEBUG */
+        /* DEBUG */
+/* background-color: orange; */
     }
 
-    body>header h1 {
+    body > header h1 {
         padding-bottom: 0.25rem;
     }
 
-    nav ul li+li {
+    nav ul li + li {
         margin-left: 1.5rem;
     }
 
@@ -19,7 +20,7 @@
         font-size: clamp(2cqh, 1.5rem, 6cqh);
     }
 
-    body>footer nav {
+    body > footer nav {
         margin-top: 0.25rem;
     }
 
@@ -27,7 +28,7 @@
         padding-top: 5px;
     }
 
-    #home{
+    #home {
         width: calc(100% * (1.75 / 3));
     }
 
@@ -43,36 +44,36 @@
         display: none;
     }
 
-    #about>header h1 {
+    #about > header h1 {
         font-size: clamp(2.25rem, 4vw, 7rem);
     }
 
-    #about>header h2 {
+    #about > header h2 {
         font-size: clamp(1.25rem, 2vw, 3rem);
         text-align: center;
     }
 
-    #about>main .value-panel h3 {
+    #about > main .value-panel h3 {
         font-size: clamp(1.5rem, 2.75vw, 5rem);
         line-height: clamp(2rem, 3.75vw, 6rem);
     }
 
-    #about>main .value-panel p {
+    #about > main .value-panel p {
         margin-top: 0.5rem;
         font-size: clamp(1rem, 0.75vw, 1.25rem);
         line-height: 1.5;
     }
 
-    #about>main #compassion h3 {
+    #about > main #compassion h3 {
         font-size: clamp(2rem, 3.75vw, 6rem);
     }
 
-    #about>main #compassion p em.value-word {
+    #about > main #compassion p em.value-word {
         font-size: 1.5em;
         line-height: 1.25;
     }
 
-    #about>main .value-panel img {
+    #about > main .value-panel img {
         width: 60%;
     }
 }

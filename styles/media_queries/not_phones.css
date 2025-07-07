@@ -1,10 +1,11 @@
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
     #corner-2 {
-        /* background-color: chartreuse;  DEBUG */
+        /* DEBUG */
+/* background-color: chartreuse; */
     }
 
-    body>main section#home {
+    body > main section#home {
         width: calc(100% * (1.75 / 4));
     }
 
@@ -36,11 +37,11 @@
         transform: scaleX(1);
     }
 
-    nav ul li a>svg {
+    nav ul li a > svg {
         display: none;
     }
 
-    nav ul li a>span {
+    nav ul li a > span {
         display: inline;
     }
 }

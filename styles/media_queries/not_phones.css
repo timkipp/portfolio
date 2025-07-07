@@ -1,0 +1,46 @@
+/* For devices larger than phones or phones in landscape orientation */
+@media (min-width: 480px) {
+    #corner-2 {
+        background-color: chartreuse;
+    }
+
+    body>main section#home {
+        width: calc(100% * (1.75 / 4));
+    }
+
+    nav ul li a {
+        display: inline-block;
+    }
+
+    nav ul li a::before,
+    nav ul li a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ffffeb;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    nav ul li a::after {
+        top: auto;
+        bottom: -5px;
+    }
+
+    nav ul li a:hover::before,
+    nav ul li a:hover::after {
+        transform: scaleX(1);
+    }
+
+    nav ul li a>svg {
+        display: none;
+    }
+
+    nav ul li a>span {
+        display: inline;
+    }
+}

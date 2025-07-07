@@ -22,20 +22,6 @@ body:not(.loading) {
     transition: opacity 1s ease;
 }
 
-.corner {
-    background-color: #A4C4B7;
-    background-color: #ffffeb;
-    background-color: #412F30;
-}
-
-/* .top-corner {
-    background-color: #4ca1af;
-}
-
-.bottom-corner {
-    background-color: #f2bc71;
-} */
-
 #corner-1 {
     grid-row: 1;
     grid-column: 1;

@@ -1,0 +1,289 @@
+/* for tablets in portrait orientation */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+    body {
+        grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr;
+    }
+
+    #corner-4 {
+        background-color: purple;
+    }
+
+    body>header {
+        font-size: clamp(3.75rem, 4vw, 8rem);
+    }
+
+    body>header nav {
+        margin-right: 0.75rem;
+    }
+
+    body>footer nav {
+        margin-top: 0.25rem;
+    }
+
+    body nav ul li a {
+        padding-bottom: 0;
+        font-size: 1.5rem;
+    }
+
+    nav ul li a>svg {
+        display: inline;
+        width: 2.25rem;
+        height: 2.25rem;
+        vertical-align: text-bottom;
+    }
+
+    nav ul li a>span {
+        display: none;
+    }
+
+    #home {
+        transform: scale(1.5);
+    }
+
+    #home #name h2 {
+        padding-top: 10px;
+    }
+
+    #home #titles h3 {
+        flex-direction: column;
+    }
+
+    #home #titles h3:last-of-type {
+        align-items: flex-end;
+    }
+
+    #home #titles h3:first-of-type div {
+        justify-content: flex-start;
+    }
+
+    #home #titles h3:first-of-type div span {
+        margin-right: 0.15em;
+    }
+
+    #home #titles h3:last-of-type div {
+        justify-content: flex-end;
+    }
+
+    #home #titles h3:last-of-type div span {
+        margin-left: 0.15em;
+    }
+
+    #home #titles .delimiter {
+        display: none;
+    }
+
+    #about>header h1 {
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: clamp(3.5rem, 6.5vw, 10rem);
+        line-height: clamp(4.5rem, 7.5vw, 12rem);
+    }
+
+    #about>header h1 div {
+        width: 100%;
+    }
+
+    #about>header h1 div:first-of-type span:last-of-type {
+        display: none;
+    }
+
+    #about>header h2 {
+        margin: 1rem 0;
+        color: #F8E3BB;
+        font-family: "Praise";
+        font-size: clamp(3rem, 4vw, 7rem);
+        text-align: center;
+    }
+
+    #about>main .value-panel {
+        min-width: 0;
+    }
+
+    #about>main .value-panel h3 {
+        font-size: clamp(2.125rem, 3.9375vw, 6.25rem);
+        line-height: clamp(2.5rem, 4.375vw, 7rem);
+    }
+
+    #about>main .value-panel p {
+        margin-top: 1rem;
+        font-size: clamp(1.125rem, 1.05vw, 1.625rem);
+        line-height: 1.5;
+    }
+
+    #about>main #creativity h3 {
+        font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
+    }
+
+    #about>main #compassion h3 {
+        font-size: clamp(2.75rem, 5vw, 7.5rem);
+    }
+
+    #about>main .value-panel p {
+        margin-bottom: 2rem;
+    }
+
+    #about>main .value-panel img {
+        width: 90%;
+    }
+
+    #about>main #creativity img {
+        width: 90%;
+    }
+
+    #projects {
+        display: revert;
+        width: 100%;
+        min-height: revert;
+    }
+
+    #projects main {
+        display: revert;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    #projects main .project-card {
+        display: revert;
+        position: absolute;
+        height: 100%;
+    }
+
+    #projects main .project-card:nth-child(3) {
+        border-top: none;
+    }
+
+    #projects main .project-card:nth-child(4) {
+        border-top: none;
+    }
+
+    #projects main .project-card:not(.active) h2,
+    #projects main .project-card:not(.active) .figure-card figure figcaption {
+        opacity: 0;
+    }
+
+    /* To override default style */
+    #projects main .project-card:nth-child(even) {
+        flex-direction: column;
+    }
+
+    #projects main .project-card h2 {
+        display: revert;
+        height: revert;
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+        text-align: center;
+    }
+
+    #projects main .project-card h2 a {
+        display: inline-block;
+        width: revert;
+        padding: 0.5rem 0;
+        font-size: 5rem;
+        letter-spacing: 2rem;
+        writing-mode: revert;
+    }
+
+    #projects main .project-card:nth-child(odd) h2 a {
+        transform: none;
+    }
+
+    #projects main .project-card h2 a::before,
+    #projects main .project-card h2 a::after {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    #projects main .project-card h2 a::after {
+        top: auto;
+        bottom: -5px;
+    }
+
+    #projects main .project-card h2 a:hover::before,
+    #projects main .project-card h2 a:hover::after {
+        transform: scaleX(1);
+    }
+
+    #projects main .project-card .figure-card {
+        width: revert;
+        height: 80%;
+        aspect-ratio: revert;
+        perspective: revert;
+    }
+
+    #projects main .project-card .figure-card figure {
+        display: revert;
+        position: revert;
+        width: revert;
+        height: 100%;
+        transform: none;
+        transition: none;
+        transform-style: unset;
+    }
+
+    #projects main .project-card .figure-card.flipped figure {
+        transform: none;
+    }
+
+    #projects main .project-card .figure-card figure>* {
+        position: revert;
+        width: revert;
+        height: revert;
+        -webkit-backface-visibility: revert;
+        backface-visibility: revert;
+        transition: border-width 0.3s ease;
+    }
+
+    #projects main .project-card .figure-card figure img {
+        z-index: revert;
+        object-fit: revert;
+        width: 85%;
+        height: auto;
+        transition: top 0.5s ease, left 0.5s ease, z-index 0.5s ease;
+    }
+
+    #projects main #project-1 img {
+        position: relative;
+        top: 50px;
+        left: 50px;
+        z-index: 10;
+    }
+
+    #projects main #project-2 img {
+        position: relative;
+        top: 15px;
+        left: 15px;
+        z-index: 8;
+    }
+
+    #projects main #project-3 img {
+        position: relative;
+        top: -20px;
+        left: -20px;
+        z-index: 6;
+    }
+
+    #projects main #project-4 img {
+        position: relative;
+        top: -55px;
+        left: -55px;
+        z-index: 4;
+    }
+
+    #projects main .project-card .figure-card figure figcaption {
+        display: revert;
+        position: relative;
+        z-index: revert;
+        width: 100%;
+        margin: 6rem auto 0 auto;
+        color: #f2bc71;
+        font-size: 1.5rem;
+        background-color: revert;
+        transform: none;
+    }
+}

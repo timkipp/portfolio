@@ -28,7 +28,12 @@
     <link rel="stylesheet" href="styles/email.css" type="text/css">
 
     <!-- Mediq Queries -->
-    <link rel="stylesheet" href="styles/media_queries.css?v=2">
+    <link rel="stylesheet" href="styles/media_queries/phones_portrait.css">
+    <link rel="stylesheet" href="styles/media_queries/phones_landscape.css">
+    <link rel="stylesheet" href="styles/media_queries/not_phones.css">
+    <link rel="stylesheet" href="styles/media_queries/tablets.css">
+    <link rel="stylesheet" href="styles/media_queries/tablets_portrait.css">
+    <link rel="stylesheet" href="styles/media_queries/tall_screens.css">
 
     <!-- Scripts -->
     <script src="/scripts/index.js" defer></script>
@@ -227,7 +232,12 @@
                         <span>g</span>
                     </div>
                 </h1>
-                <h2>with</h2>
+                <h2>
+                    <span>w</span>
+                    <span>i</span>
+                    <span>t</span>
+                    <span>h</span>
+                </h2>
             </header>
             <main>
                 <div id="curiosity" class="value-panel">
@@ -399,8 +409,12 @@
 
     <div id="corner-4" class="corner bottom-corner"></div>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script> -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <script>
+        console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
+    </script>
+
 </body>
 
 </html>

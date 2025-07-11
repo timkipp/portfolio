@@ -1,13 +1,13 @@
 /* For phones, landscape orientation */
-@media (max-height: 376px) and (orientation: landscape) {
+@media (max-height: 430px) and (orientation: landscape) {
     body {
         grid-template-rows: 0.65fr 6.5fr 0.65fr;
-        grid-template-columns: 0.15fr 1fr 1.75fr 1fr 0.15fr;
+        grid-template-columns: 0.1fr 1.15fr 2.5fr 1.15fr 0.1fr;
     }
 
     #corner-1 {
         /* DEBUG */
-/* background-color: hotpink !important; */
+        /* background-color: hotpink !important; */
     }
 
     body > header,
@@ -35,7 +35,6 @@
     }
 
     nav ul li a {
-        /* font-size: 0.938rem; */
         font-size: clamp(0.75rem, 40cqh, 1.125rem);
         padding-top: 0.25rem;
         padding-bottom: 0.25rem;
@@ -45,6 +44,35 @@
         font-size: clamp(0.625rem, 1.5vw, 1.125rem);
     }
 
+    svg.slide-arrow {
+        display: block;
+        flex: 0 0 auto;
+        position: fixed;
+        top: 45%;
+        z-index: 10;
+        width: 2.5rem;
+        height: auto;
+        visibility: hidden;
+        fill: #ffffeb;
+        fill: #f2bc71;
+        /* fill: #4ca1af; */
+        transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+    }
+
+    .icon-tabler-circle-chevron-left {
+        left: 1cqw;
+    }
+
+    .icon-tabler-circle-chevron-right {
+        right: 1cqw;
+    }
+
+    svg.slide-arrow.visible {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.4s ease;
+    }
+
     #home #web {
         font-size: clamp(1.5rem, 10vw, 3.75rem);
         text-shadow: 0.1em 0.1em 9px rgba(0, 0, 0, 0.5);
@@ -52,6 +80,12 @@
         text-shadow: 0px 3px 3px #e26d5a;
         -webkit-background-clip: text;
         background-clip: text;
+    }
+
+    #home #development {
+        align-items: flex-end;
+        margin-top: clamp(-75px, -2vw, -15px);
+        color: #4ca1af;
     }
 
     #home #name {
@@ -109,8 +143,8 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        margin: 1cqh 0;
-        font-size: clamp(1.5rem, 6cqh, 5rem);
+        margin: 3cqh 0;
+        font-size: clamp(1.5rem, 12cqh, 5rem);
     }
 
     #about > header h1 {
@@ -134,6 +168,8 @@
     }
 
     #about > main {
+        container-type: size;
+        container-name: about-main;
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
@@ -151,6 +187,7 @@
     }
 
     #about > main .value-panel {
+        flex: 0 0 100%;
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-template-rows: auto 1fr;
@@ -164,19 +201,19 @@
         grid-row: 1;
         align-self: start;
         width: revert;
-        font-size: clamp(1.25rem, 6cqh, 3.25rem);
+        font-size: clamp(1.25rem, 13cqh, 3.25rem);
+        /* line-height: clamp(1.5rem, 18cqh, 3.5rem); */ /* This style possibly has no effect.*/
         text-align: center !important;
-        line-height: 1.25;
     }
 
     #about > main .value-panel p {
         grid-row: 2;
         grid-column: 1;
-        align-self: stretch;
+        align-self: center;
         margin-top: 0;
-        margin-bottom: 0.5rem;
-        font-size: clamp(1rem, 3.75cqh, 1.25rem);
-        line-height: clamp(1.4rem, 6cqh, 1.8rem);
+        margin-bottom: 0;
+        font-size: clamp(1.125rem, 8cqh, 2rem);
+        line-height: clamp(1.25rem, 10.5cqh, 2.25rem);
         text-align: left;
         text-align-last: auto !important;
         /* text-wrap: balance; */
@@ -198,14 +235,92 @@
     }
 
     #about > main #compassion h3 {
-        font-size: clamp(1.75rem, 3vw, 4.25rem);
+        font-size: clamp(1.25rem, 16cqh, 3.25rem);
     }
 
     #about > main #compassion p em.value-word {
         font-size: 1.5em;
     }
 
-    #projects h1 {
-        font-size: clamp(2.25rem, 2vw, 4.5rem);
+    #projects {
+        display: revert;
+    }
+
+    #projects > main {
+        container-type: size;
+        container-name: projects-main;
+        display: flex;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    #projects > main::-webkit-scrollbar {
+        display: none;
+    }
+
+    #projects > main > .project-card {
+        flex: 0 0 100%;
+        justify-content: center;
+        align-items: revert;
+        width: 100%;
+        scroll-snap-align: start;
+    }
+
+    #projects > main > .project-card:nth-child(even) {
+        flex-direction: row;
+    }
+
+    #projects > main > .project-card:nth-child(3),
+    #projects > main > .project-card:nth-child(4) {
+        border-top: none;
+    }
+
+    #projects > main > .project-card-clone {
+        display: flex;
+        flex: 0 0 auto;
+    }
+
+    #projects > main > .project-card h2 a {
+        display: inline-block;
+        width: revert;
+        padding: 0.5rem 0.75;
+        font-size: clamp(1.75rem, 5cqh, 3rem);
+        letter-spacing: 0.25em;
+        border-width: 0 1.5px 0;
+        transform: rotate(180deg);
+    }
+
+    #projects > main .project-card h2 a::before,
+    #projects > main .project-card h2 a::after {
+        width: 1.5px;
+    }
+
+    #projects > main > .project-card > .figure-card {
+        width: 70%;
+        aspect-ratio: revert;
+        position: relative;
+    }
+
+    #projects > main > .project-card .figure-card figure > *:hover,
+    #projects > main > .project-card .figure-card.flipped figure > * {
+        border: 5px solid #e26d5a;
+    }
+
+    #projects > main > .project-card .figure-card figure img {
+        height: 90cqh;
+        width: auto;
+    }
+
+    #projects > main > .project-card .figure-card figure figcaption {
+        padding: 0.5rem;
+        width: revert;
+        font-size: clamp(0.875rem, 6cqh, 3rem);
+        line-height: clamp(1rem, 7cqh, 4rem);
     }
 }

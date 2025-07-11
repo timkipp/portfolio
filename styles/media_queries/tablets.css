@@ -1,8 +1,8 @@
 /* For tablets, portrait and landscape orientations */
-@media (min-width: 600px) and (max-width: 1280px) {
+@media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) {
     #corner-3 {
         /* DEBUG */
-/* background-color: orange; */
+        /* background-color: orange; */
     }
 
     body > header h1 {
@@ -34,6 +34,7 @@
 
     #home #titles h3 {
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     #home #titles #vertical-bar {

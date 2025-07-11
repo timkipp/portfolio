@@ -14,7 +14,7 @@ const options = {
     threshold: 0.6,
 };
 let hasLoaded = false;
-let currentCard = 0;
+let displaySlideArrows = false;
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -24,22 +24,28 @@ const observer = new IntersectionObserver((entries) => {
             const updateTitle = () => {
                 switch (targetId) {
                     case "home":
-                        sectionTitle.textContent = "Welcome";                        
+                        sectionTitle.textContent = "Welcome";
+                        displaySlideArrows = false;
                         break;
                     case "about":
                         sectionTitle.textContent = "About Me";
+                        displaySlideArrows = false;
                         break;
                     case "projects":
-                        sectionTitle.textContent = "My Projects";                        
+                        sectionTitle.textContent = "My Projects";
+                        displaySlideArrows = true;
                         break;
                     case "resume":
-                        sectionTitle.textContent = "My Resume";                        
+                        sectionTitle.textContent = "My Resume";
+                        displaySlideArrows = false;
                         break;
                     case "email":
-                        sectionTitle.textContent = "Email Me";                        
+                        sectionTitle.textContent = "Email Me";
+                        displaySlideArrows = false;
                         break;
                     default:
                         sectionTitle.textContent = "";
+                        displaySlideArrows = false;
                 }
             };
 
@@ -58,6 +64,16 @@ const observer = new IntersectionObserver((entries) => {
             setTimeout(() => {
                 updateTitle();
 
+                if (displaySlideArrows) {
+                    document.querySelectorAll("svg.slide-arrow").forEach((arrow) => {
+                        arrow.classList.add("visible");
+                    });
+                } else {
+                    document.querySelectorAll("svg.slide-arrow").forEach((arrow) => {
+                        arrow.classList.remove("visible");
+                    });
+                }
+
                 requestAnimationFrame(() => {
                     sectionTitle.setAttribute("data-state", "visible");
                 });
@@ -70,7 +86,6 @@ sections.forEach(({ id }) => {
     const section = document.getElementById(id);
     if (section) observer.observe(section);
 });
-
 
 if (document.readyState === "complete") {
     document.body.classList.remove("loading");
@@ -92,13 +107,13 @@ function setRealVH() {
 // Initial call
 setRealVH();
 
-const projectCards = Array.from(document.querySelectorAll('.project-card'));
 const projectImages = Array.from(document.querySelectorAll("#projects main .project-card img"));
+let projectCards = Array.from(document.querySelectorAll(".project-card"));
 let positionStack = [
-  { top: "50px", left: "50px", z: 10 },
-  { top: "15px", left: "15px", z: 8 },
-  { top: "-20px", left: "-20px", z: 6 },
-  { top: "-55px", left: "-55px", z: 4 }
+    { top: "50px", left: "50px", z: 10 },
+    { top: "15px", left: "15px", z: 8 },
+    { top: "-20px", left: "-20px", z: 6 },
+    { top: "-55px", left: "-55px", z: 4 },
 ];
 
 // Handlers for flip mode
@@ -118,7 +133,7 @@ function flipCardOnKeydown(e) {
 // Show only the active card, hide others
 function rotateCards() {
     projectImages.push(projectImages.shift()); // Reorder the array
-    projectCards.push(projectCards.shift());   // If needed for "active" card logic
+    projectCards.push(projectCards.shift()); // If needed for "active" card logic
 
     projectCards.forEach((card, i) => {
         const isActive = i === 0;
@@ -144,26 +159,26 @@ function rotateCards() {
 // Add flip mode listeners
 function enableFlipMode() {
     console.log("Enabling 'Flip' Mode");
-    projectCards.forEach(card => {
+    projectCards.forEach((card) => {
         card.addEventListener("click", flipCardOnClick);
         card.addEventListener("keydown", flipCardOnKeydown);
     });
     // Remove rotate listeners if any
-    projectCards.forEach(card => {
+    projectCards.forEach((card) => {
         card.removeEventListener("click", rotateCards);
-    });    
+    });
 }
 
 // Add rotate mode listeners
 function enableRotateMode() {
     console.log("Enabling 'Rotate' Mode");
     // Remove flip listeners first
-    projectCards.forEach(card => {
+    projectCards.forEach((card) => {
         card.removeEventListener("click", flipCardOnClick);
         card.removeEventListener("keydown", flipCardOnKeydown);
     });
     // Add rotate listener
-    projectCards.forEach(card => {
+    projectCards.forEach((card) => {
         card.addEventListener("click", rotateCards);
     });
 }
@@ -172,15 +187,11 @@ function enableRotateMode() {
 enableFlipMode();
 
 function updateInteractionMode() {
-  if (
-    window.innerWidth >= 600 &&
-    window.innerWidth < 1024 &&
-    window.matchMedia("(orientation: portrait)").matches
-  ) {
-    enableRotateMode();
-  } else {
-    enableFlipMode();
-  }
+    if (window.innerWidth >= 600 && window.innerWidth < 1024 && window.matchMedia("(orientation: portrait)").matches) {
+        enableRotateMode();
+    } else {
+        enableFlipMode();
+    }
 }
 
 // Run on load
@@ -197,7 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function toggleDescription(activeFigcaption) {
-    document.querySelectorAll("#projects figcaption").forEach(figcaption => {
+    document.querySelectorAll("#projects figcaption").forEach((figcaption) => {
         figcaption.style.transition = "height 0.5s ease";
         figcaption.style.overflow = "hidden";
 
@@ -218,6 +229,148 @@ function toggleDescription(activeFigcaption) {
         }
     });
 }
+
+const projectsMain = document.querySelector("#projects > main");
+const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
+const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
+
+// Clone first and last cards
+const firstCardClone = projectCards[0].cloneNode(true);
+const lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
+
+console.log(firstCardClone);
+console.log(lastCardClone);
+
+[firstCardClone, lastCardClone].forEach((cardClone) => {
+    cardClone.removeAttribute("id");
+    cardClone.setAttribute("aria-hidden", "true");
+    cardClone.style.pointerEvents = "none";
+    cardClone.classList.add("project-card-clone");
+});
+
+// Insert clones
+projectsMain.appendChild(firstCardClone);
+projectsMain.insertBefore(lastCardClone, projectCards[0]);
+
+// Refresh list to include clones
+projectCards = Array.from(projectsMain.querySelectorAll(".project-card"));
+
+// Recalculate cardWidth after clones are inserted and layout updated
+let cardWidth = 0;
+console.log("Card width after clones inserted:", cardWidth);
+
+// Set initial scroll position to the first real card (index 1 because of prepended lastClone)
+requestAnimationFrame(() => {
+    setTimeout(() => {
+        cardWidth = projectCards[0].offsetWidth;
+        console.log("Card width:", cardWidth);
+
+        projectsMain.scrollLeft = cardWidth;
+        console.log("scrollLeft after set:", projectsMain.scrollLeft);
+
+        setTimeout(() => {
+            console.log("scrollLeft after 100ms:", projectsMain.scrollLeft);
+            projectsMain.scrollLeft = cardWidth; // force again if needed
+        }, 100);
+    }, 50);
+});
+
+let isTransitioning = false;
+
+function scrollToProjectCard(index, smooth = true) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    projectsMain.scrollTo({
+        left: cardWidth * index,
+        behavior: smooth ? "smooth" : "auto",
+    });
+
+    if (smooth) {
+        // Listen for scroll stop
+        let lastScrollLeft = projectsMain.scrollLeft;
+        const checkScrollEnd = () => {
+            const currentScrollLeft = projectsMain.scrollLeft;
+            if (currentScrollLeft === lastScrollLeft) {
+                // Scroll stopped
+                projectsMain.removeEventListener("scroll", onScroll);
+                isTransitioning = false;
+                checkAndResetPosition();
+            } else {
+                lastScrollLeft = currentScrollLeft;
+                // Check again after a short delay
+                setTimeout(checkScrollEnd, 50);
+            }
+        };
+        const onScroll = () => {
+            // No-op; just to trigger event
+        };
+        projectsMain.addEventListener("scroll", onScroll);
+        setTimeout(checkScrollEnd, 50);
+    } else {
+        isTransitioning = false;
+        checkAndResetPosition();
+    }
+}
+
+function checkAndResetPosition() {
+    console.log("Checking and Resetting the Position");
+    const maxIndex = projectCards.length - 1;
+    const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+
+    if (scrollIndex === 0) {
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
+        });
+    } else if (scrollIndex === maxIndex) {
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth;
+        });
+    }
+}
+
+function getCurrentCardIndex() {
+    let curIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+    console.log("Getting the Current Index: " + curIndex);
+    return curIndex;
+}
+
+leftSlideArrow.addEventListener("click", () => {
+    console.log("Left Arrow Clicked");
+    let currentIndex = getCurrentCardIndex();
+    scrollToProjectCard(currentIndex - 1);
+});
+
+rightSlideArrow.addEventListener("click", () => {
+    console.log("Right Arrow Clicked");
+    let currentIndex = getCurrentCardIndex();
+    scrollToProjectCard(currentIndex + 1);
+});
+
+projectsMain.addEventListener("scroll", () => {
+    if (isTransitioning) return;
+
+    const maxIndex = projectCards.length - 1;
+    const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+
+    if (scrollIndex === 0) {
+        isTransitioning = true;
+        projectsMain.style.scrollBehavior = "auto";
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
+            projectsMain.style.scrollBehavior = "";
+            isTransitioning = false;
+        });
+    } else if (scrollIndex === maxIndex) {
+        isTransitioning = true;
+        projectsMain.style.scrollBehavior = "auto";
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth;
+            projectsMain.style.scrollBehavior = "";
+            isTransitioning = false;
+        });
+    }
+});
 
 // /* FOR HANDLING SCROLL ISSUES */
 // const aboutSection = document.querySelector('#about');
@@ -247,14 +400,14 @@ function toggleDescription(activeFigcaption) {
 //     isInsideAbout = true;
 //     viewedPanels.clear();
 //     console.log("#about section entered ('isInsideAbout': true). Clearing viewed panels.");
-    
+
 //     // Lock scroll inside about
 //     aboutMain.style.overscrollBehavior = 'contain';
 //     disableBodyScroll();
 //   } else if (!entry.isIntersecting && isInsideAbout) {
 //     isInsideAbout = false;
 //     console.log("#about section exited ('isInsideAbout': false).");
-    
+
 //     // Re-enable body scroll
 //     aboutMain.style.overscrollBehavior = '';
 //     enableBodyScroll();
@@ -279,7 +432,7 @@ function toggleDescription(activeFigcaption) {
 
 //         if (viewedPanels.size === panels.length) {
 //           console.log("✅ All div.value-panels viewed. Unlocking scroll.");
-          
+
 //           // Unlock scrolling
 //           aboutMain.style.overscrollBehavior = 'auto';
 //           enableBodyScroll();

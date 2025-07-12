@@ -138,6 +138,8 @@
     }
 
     #projects main {
+        container-type: size;
+        container-name: projects-main;
         display: revert;
         width: 100%;
         height: 100%;
@@ -185,7 +187,7 @@
         writing-mode: revert;
     }
 
-    #projects main .project-card:nth-child(odd) h2 a {
+    #projects main .project-card:nth-child(even) h2 a {
         transform: none;
     }
 

@@ -19,15 +19,15 @@
     align-items: center;
 }
 
-#projects > main .project-card:nth-child(even) {
+#projects > main .project-card:nth-child(odd) {
     flex-direction: row-reverse;
 }
 
-#projects > main .project-card:nth-child(3) {
+#projects > main .project-card:nth-child(4) {
     border-top: 3px solid #f2bc71;
 }
 
-#projects > main .project-card:nth-child(4) {
+#projects > main .project-card:nth-child(5) {
     border-top: 3px solid #f2bc71;
 }
 
@@ -42,7 +42,6 @@
 }
 
 #projects > main .project-card h2 a {
-    display: block;
     position: relative;
     width: 100%;
     padding: 0 1rem;
@@ -52,38 +51,43 @@
     text-decoration: none;
     writing-mode: vertical-rl;
     filter: drop-shadow(8px -8px 4px rgba(0, 0, 0, 1));
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
 }
 
-#projects > main .project-card:nth-child(odd) h2 a {
+#projects > main .project-card:nth-child(even) h2 a {
     transform: rotate(180deg);
 }
 
-#projects > main .project-card h2 a::before,
-#projects > main .project-card h2 a::after {
+.project-card h2 a::before,
+.project-card h2 a::after {
     content: "";
     position: absolute;
     top: 0;
-    height: 100%;
     width: 3px;
-    background: #4ca1af;
+    height: 100%;
+    background-color: currentColor;
     transform-origin: top;
-    transform: scaleY(0);
     transition: transform 0.4s ease;
 }
 
-#projects > main .project-card h2 a::before {
-    left: 0;
+/* Top border (visually right side, hidden by default) */
+.project-card h2 a::before {
+    right: 0; /* right side of vertical text */
+    transform: scaleY(0);
 }
 
-#projects > main .project-card h2 a::after {
-    right: 0;
-}
-
-#projects > main .project-card h2 a:hover::before,
-#projects > main .project-card h2 a:hover::after {
+/* Bottom border (visually left side, shown by default) */
+.project-card h2 a::after {
+    left: 0; /* left side of vertical text */
     transform: scaleY(1);
+}
+
+/* On hover: top border draws in, bottom border erases out */
+.project-card h2 a:hover::before {
+    transform: scaleY(1);
+}
+
+.project-card h2 a:hover::after {
+    transform: scaleY(0);
 }
 
 #projects > main .project-card .figure-card {
@@ -117,11 +121,35 @@
     height: 90%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border: 3px solid #e26d5a;
+    border: 4px solid #e26d5a;
     border-radius: 1em;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.75);
     pointer-events: auto;
-    transition: border-width 0.3s ease;
+    /* transition: border-width 0.3s ease; */
+}
+
+@property --opacity {
+    syntax: "<number>";
+    initial-value: 0.5;
+    inherits: false;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes opacityChange {
+    to {
+        --opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
 }
 
 #projects > main .project-card .figure-card figure img {
@@ -130,8 +158,13 @@
 }
 
 #projects > main .project-card .figure-card figure > *:hover,
-#projects > main .project-card .figure-card.flipped figure > * {
-    border: 8px solid #e26d5a;
+#projects > main .project-card.flipped .figure-card figure > * {
+    --border-size: 4px;
+    border: var(--border-size) dotted transparent;
+    background-image: linear-gradient(to right, #ffffeb, #ffffeb), /* conic-gradient(from var(--angle), #e26d5a 0deg 90deg, #f2bc71 90deg 180deg, #4ca1af 180deg 270deg, #a4c4b7 270deg 360deg); */ conic-gradient(from var(--angle), #e26d5a 0deg, #e9b56c 45deg, #f2bc71 90deg, #a7c49c 135deg, #4ca1af 180deg, #89c2b8 225deg, #a4c4b7 270deg, #d49a8b 315deg, #e26d5a 360deg);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: rotate 4s linear infinite;
 }
 
 #projects > main .project-card .figure-card figure figcaption {
@@ -145,4 +178,9 @@
     text-align: justify;
     background-color: #ffffeb;
     transform: rotateY(180deg);
+}
+
+#projects > main .project-card .figure-card.flipped figure > figcaption {
+    --opacity: 1;
+    /* other styles here */
 }

@@ -19,6 +19,35 @@
         text-shadow: none;
     }
 
+    svg.slide-arrow {
+        display: block;
+        flex: 0 0 auto;
+        position: fixed;
+        top: 52.5%;
+        z-index: 10;
+        width: 2.5rem;
+        height: auto;
+        opacity: 0;
+        fill: #ffffeb;
+        fill: #f2bc71;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+    }
+
+    .icon-tabler-circle-chevron-left {
+        left: 1cqw;
+    }
+
+    .icon-tabler-circle-chevron-right {
+        right: 1cqw;
+    }
+
+    svg.slide-arrow.visible {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        pointer-events: all;
+    }
+
     body > main {
         grid-column: 2 / 5;
         margin: 0.25rem 0;
@@ -108,9 +137,7 @@
     }
 
     #about > main {
-        /* TEST */
         height: 100%;
-
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
@@ -218,7 +245,7 @@
         scroll-snap-align: start;
     }
 
-    #projects > main > .project-card:nth-child(even) {
+    #projects > main > .project-card:nth-child(odd) {
         flex-direction: column;
     }
 
@@ -239,46 +266,62 @@
         width: 100%;
     }
     #projects > main > .project-card h2 a {
-        display: inline-block;
         width: revert;
         padding: 0.25em 0;
-        font-size: clamp(1.75rem, 5cqh, 3rem);
-        letter-spacing: 0.25em;
+        font-size: clamp(1.75rem, 10cqh, 3rem);
+        letter-spacing: 5cqw;
         writing-mode: revert;
-        border-width: 0 1.5px 0;
+        filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 1));
         transform: revert;
+    }
+
+    #projects > main .project-card:nth-child(even) h2 a {
+        transform: revert;
+    }
+
+    #projects > main .project-card:nth-child(4) {
+        border-top: none;
+    }
+
+    #projects > main .project-card:nth-child(5) {
+        border-top: none;
     }
 
     #projects > main .project-card h2 a::before,
     #projects > main .project-card h2 a::after {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        transform-origin: left;
-        transform: scaleX(0);
-        transition: transform 0.4s ease;
-    }
-
-    #projects main .project-card h2 a::after {
         top: auto;
-        bottom: -5px;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        transform-origin: right;
+        transform: scaleX();
     }
 
-    #projects main .project-card h2 a:hover::before,
-    #projects main .project-card h2 a:hover::after {
+    #projects main .project-card h2 a::before {
+        top: 0;
+        bottom: auto;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    #projects main .project-card h2 a:hover::before {
         transform: scaleX(1);
     }
 
+    #projects main .project-card h2 a:hover::after {
+        transform: scaleX(0);
+    }
+
     #projects > main > .project-card > .figure-card {
-        height: 50cqh;
+        container-type: size;
+        container-name: figure-card;
+        height: 60cqh;
         aspect-ratio: revert;
         position: relative;
     }
 
-    #projects > main > .project-card .figure-card figure > *:hover,
-    #projects > main > .project-card .figure-card.flipped figure > * {
-        border: 5px solid #e26d5a;
+    #projects > main .project-card .figure-card figure > * {
+        height: revert;
     }
 
     #projects > main > .project-card .figure-card figure img {

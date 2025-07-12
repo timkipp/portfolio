@@ -108,6 +108,8 @@ function setRealVH() {
 setRealVH();
 
 const projectImages = Array.from(document.querySelectorAll("#projects main .project-card img"));
+const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
+const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
 let projectCards = Array.from(document.querySelectorAll(".project-card"));
 let positionStack = [
     { top: "50px", left: "50px", z: 10 },
@@ -118,6 +120,8 @@ let positionStack = [
 
 // Handlers for flip mode
 function flipCardOnClick(e) {
+    leftSlideArrow.classList.toggle("visible");
+    rightSlideArrow.classList.toggle("visible");
     this.classList.toggle("flipped");
     this.setAttribute("aria-pressed", this.classList.contains("flipped"));
 }
@@ -125,6 +129,8 @@ function flipCardOnClick(e) {
 function flipCardOnKeydown(e) {
     if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
+        leftSlideArrow.classList.toggle("visible");
+        rightSlideArrow.classList.toggle("visible");
         this.classList.toggle("flipped");
         this.setAttribute("aria-pressed", this.classList.contains("flipped"));
     }
@@ -231,8 +237,6 @@ function toggleDescription(activeFigcaption) {
 }
 
 const projectsMain = document.querySelector("#projects > main");
-const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
-const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
 
 // Clone first and last cards
 const firstCardClone = projectCards[0].cloneNode(true);
@@ -372,116 +376,130 @@ projectsMain.addEventListener("scroll", () => {
     }
 });
 
-// /* FOR HANDLING SCROLL ISSUES */
-// const aboutSection = document.querySelector('#about');
-// const aboutMain = document.querySelector('#about > main');
-// const panels = document.querySelectorAll('#about > main > .value-panel');
-// const bodyMain = document.querySelector('body > main');
+/* FOR HANDLING SCROLL ISSUES */
+// const aboutSection = document.querySelector("#about");
+// const aboutMain = document.querySelector("#about > main");
+// const panels = document.querySelectorAll("#about > main > .value-panel");
+// const bodyMain = document.querySelector("body > main");
 
 // let isInsideAbout = false;
 // const viewedPanels = new Set();
 
 // // Disable body scroll
 // function disableBodyScroll() {
-//   bodyMain.style.overflow = 'hidden';
+//     bodyMain.style.overflow = "hidden";
 // }
 
 // // Enable body scroll
 // function enableBodyScroll() {
-//   bodyMain.style.overflow = '';
+//     bodyMain.style.overflow = "";
 // }
 
 // // === ABOUT OBSERVER ===
-// const aboutObserver = new IntersectionObserver(([entry]) => {
-//   const ratio = entry.intersectionRatio;
-//   console.log(`#about intersectionRatio: ${ratio}`);
+// const aboutObserver = new IntersectionObserver(
+//     ([entry]) => {
+//         const ratio = entry.intersectionRatio;
+//         console.log(`#about intersectionRatio: ${ratio}`);
 
-//   if (entry.isIntersecting && ratio > 0.7 && !isInsideAbout) {
-//     isInsideAbout = true;
-//     viewedPanels.clear();
-//     console.log("#about section entered ('isInsideAbout': true). Clearing viewed panels.");
+//         if (entry.isIntersecting && ratio > 0.7 && !isInsideAbout) {
+//             isInsideAbout = true;
+//             viewedPanels.clear();
+//             console.log("#about section entered ('isInsideAbout': true). Clearing viewed panels.");
 
-//     // Lock scroll inside about
-//     aboutMain.style.overscrollBehavior = 'contain';
-//     disableBodyScroll();
-//   } else if (!entry.isIntersecting && isInsideAbout) {
-//     isInsideAbout = false;
-//     console.log("#about section exited ('isInsideAbout': false).");
+//             // Lock scroll inside about
+//             aboutMain.style.overscrollBehavior = "contain";
+//             disableBodyScroll();
+//         } else if (!entry.isIntersecting && isInsideAbout) {
+//             isInsideAbout = false;
+//             console.log("#about section exited ('isInsideAbout': false).");
 
-//     // Re-enable body scroll
-//     aboutMain.style.overscrollBehavior = '';
-//     enableBodyScroll();
-//   }
-// }, {
-//   root: bodyMain,
-//   threshold: [0, 0.2, 0.7, 1.0]
-// });
+//             // Re-enable body scroll
+//             aboutMain.style.overscrollBehavior = "";
+//             enableBodyScroll();
+//         }
+//     },
+//     {
+//         root: bodyMain,
+//         threshold: [0, 0.2, 0.7, 1.0],
+//     }
+// );
 
 // // === PANEL OBSERVER ===
-// const panelsObserver = new IntersectionObserver((entries) => {
-//   if (!isInsideAbout) return;
+// const panelsObserver = new IntersectionObserver(
+//     (entries) => {
+//         if (!isInsideAbout) return;
 
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       const panelId = entry.target.id;
-//       const ratio = entry.intersectionRatio;
+//         entries.forEach((entry) => {
+//             if (entry.isIntersecting) {
+//                 const panelId = entry.target.id;
+//                 const ratio = entry.intersectionRatio;
 
-//       if (!viewedPanels.has(panelId)) {
-//         viewedPanels.add(panelId);
-//         console.log(`${panelId} entered (ratio: ${ratio}) and added to set. Number of panels viewed is ${viewedPanels.size}.`);
+//                 if (!viewedPanels.has(panelId)) {
+//                     viewedPanels.add(panelId);
+//                     console.log(`${panelId} entered (ratio: ${ratio}) and added to set. Number of panels viewed is ${viewedPanels.size}.`);
 
-//         if (viewedPanels.size === panels.length) {
-//           console.log("✅ All div.value-panels viewed. Unlocking scroll.");
+//                     if (viewedPanels.size === panels.length) {
+//                         console.log("✅ All div.value-panels viewed. Unlocking scroll.");
 
-//           // Unlock scrolling
-//           aboutMain.style.overscrollBehavior = 'auto';
-//           enableBodyScroll();
+//                         // Unlock scrolling
+//                         aboutMain.style.overscrollBehavior = "auto";
+//                         enableBodyScroll();
 
-//           // Optional: scroll to bottom to nudge toward next section
-//           aboutMain.scrollTop = aboutMain.scrollHeight;
-//         }
-//       }
+//                         // Optional: scroll to bottom to nudge toward next section
+//                         aboutMain.scrollTop = aboutMain.scrollHeight;
+//                     }
+//                 }
+//             }
+//         });
+//     },
+//     {
+//         root: aboutMain,
+//         threshold: 0.2,
 //     }
-//   });
-// }, {
-//   root: aboutMain,
-//   threshold: 0.2
-// });
+// );
 
 // // Observe about section and panels
 // aboutObserver.observe(aboutSection);
-// panels.forEach(panel => panelsObserver.observe(panel));
+// panels.forEach((panel) => panelsObserver.observe(panel));
 
 // // === OPTIONAL: Scroll Logging (throttled) ===
 // let lastLogTime = 0;
 // const throttleDelay = 200;
-// aboutMain.addEventListener('scroll', () => {
-//   const now = Date.now();
-//   if (now - lastLogTime < throttleDelay) return;
-//   lastLogTime = now;
+// aboutMain.addEventListener("scroll", () => {
+//     const now = Date.now();
+//     if (now - lastLogTime < throttleDelay) return;
+//     lastLogTime = now;
 
-//   console.log(`aboutMain scrollTop: ${aboutMain.scrollTop}, scrollHeight: ${aboutMain.scrollHeight}, clientHeight: ${aboutMain.clientHeight}`);
+//     console.log(`aboutMain scrollTop: ${aboutMain.scrollTop}, scrollHeight: ${aboutMain.scrollHeight}, clientHeight: ${aboutMain.clientHeight}`);
 // });
 
 // // === iOS TOUCH SCROLL TRAP FIX ===
-// aboutMain.addEventListener('touchstart', (e) => {
-//   aboutMain._startY = e.touches[0].clientY;
-// }, { passive: true });
+// aboutMain.addEventListener(
+//     "touchstart",
+//     (e) => {
+//         aboutMain._startY = e.touches[0].clientY;
+//     },
+//     { passive: true }
+// );
 
-// aboutMain.addEventListener('touchmove', (e) => {
-//   if (!isInsideAbout) return;
+// aboutMain.addEventListener(
+//     "touchmove",
+//     (e) => {
+//         if (!isInsideAbout) return;
 
-//   const scrollTop = aboutMain.scrollTop;
-//   const scrollHeight = aboutMain.scrollHeight;
-//   const clientHeight = aboutMain.clientHeight;
-//   const currentY = e.touches[0].clientY;
-//   const deltaY = currentY - aboutMain._startY;
+//         const scrollTop = aboutMain.scrollTop;
+//         const scrollHeight = aboutMain.scrollHeight;
+//         const clientHeight = aboutMain.clientHeight;
+//         const currentY = e.touches[0].clientY;
+//         const deltaY = currentY - aboutMain._startY;
 
-//   const isAtTop = scrollTop === 0;
-//   const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+//         const isAtTop = scrollTop === 0;
+//         const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
 
-//   // Prevent scrolling out of bounds
-//   if ((isAtTop && deltaY > 0) || (isAtBottom && deltaY < 0)) {
-//     e.preventDefault();
-//   }
-// }, { passive: false });
+//         // Prevent scrolling out of bounds
+//         if ((isAtTop && deltaY > 0) || (isAtBottom && deltaY < 0)) {
+//             e.preventDefault();
+//         }
+//     },
+//     { passive: false }
+// );

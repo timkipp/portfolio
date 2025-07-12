@@ -55,7 +55,6 @@
         visibility: hidden;
         fill: #ffffeb;
         fill: #f2bc71;
-        /* fill: #4ca1af; */
         transition: opacity 0.4s ease, visibility 0s linear 0.4s;
     }
 

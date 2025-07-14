@@ -3,9 +3,11 @@
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
         column-gap: 0.25rem;
+    }
 
+    aside:last-of-type {
         /* DEBUG */
-        /* background-color: gray; */
+        /* background-color: blue; */
     }
 
     body > header,
@@ -275,40 +277,40 @@
         transform: revert;
     }
 
-    #projects > main .project-card:nth-child(even) h2 a {
+    #projects > main > .project-card:nth-child(even) h2 a {
         transform: revert;
     }
 
-    #projects > main .project-card:nth-child(4) {
+    #projects > main > .project-card:nth-child(4) {
         border-top: none;
     }
 
-    #projects > main .project-card:nth-child(5) {
+    #projects > main > .project-card:nth-child(5) {
         border-top: none;
     }
 
-    #projects > main .project-card h2 a::before,
-    #projects > main .project-card h2 a::after {
+    #projects > main > .project-card h2 a::before,
+    #projects > main > .project-card h2 a::after {
         top: auto;
         bottom: 0;
         height: 2px;
         width: 100%;
         transform-origin: right;
-        transform: scaleX();
+        transform: scaleX(1);
     }
 
-    #projects main .project-card h2 a::before {
+    #projects > main > .project-card h2 a::before {
         top: 0;
         bottom: auto;
         transform: scaleX(0);
         transform-origin: left;
     }
 
-    #projects main .project-card h2 a:hover::before {
+    #projects > main > .project-card h2 a:hover::before {
         transform: scaleX(1);
     }
 
-    #projects main .project-card h2 a:hover::after {
+    #projects > main > .project-card h2 a:hover::after {
         transform: scaleX(0);
     }
 
@@ -320,7 +322,7 @@
         position: relative;
     }
 
-    #projects > main .project-card .figure-card figure > * {
+    #projects > main > .project-card .figure-card figure > * {
         height: revert;
     }
 

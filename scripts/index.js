@@ -107,10 +107,11 @@ function setRealVH() {
 // Initial call
 setRealVH();
 
-const projectImages = Array.from(document.querySelectorAll("#projects main .project-card img"));
+const figureItems = Array.from(document.querySelectorAll("#projects main .project-card:not(.project-card-clone) figure > *"));
+const projectImages = Array.from(document.querySelectorAll("#projects main .project-card:not(.project-card-clone) img"));
 const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
 const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
-let projectCards = Array.from(document.querySelectorAll(".project-card"));
+let projectCards = Array.from(document.querySelectorAll(".project-card:not(.project-card-clone)"));
 let positionStack = [
     { top: "50px", left: "50px", z: 10 },
     { top: "15px", left: "15px", z: 8 },
@@ -122,8 +123,8 @@ let positionStack = [
 function flipCardOnClick(e) {
     leftSlideArrow.classList.toggle("visible");
     rightSlideArrow.classList.toggle("visible");
-    this.classList.toggle("flipped");
-    this.setAttribute("aria-pressed", this.classList.contains("flipped"));
+    this.parentElement.parentElement.classList.toggle("flipped");
+    this.parentElement.parentElement.setAttribute("aria-pressed", this.classList.contains("flipped"));
 }
 
 function flipCardOnKeydown(e) {
@@ -131,15 +132,22 @@ function flipCardOnKeydown(e) {
         e.preventDefault();
         leftSlideArrow.classList.toggle("visible");
         rightSlideArrow.classList.toggle("visible");
-        this.classList.toggle("flipped");
-        this.setAttribute("aria-pressed", this.classList.contains("flipped"));
+        this.parentElement.parentElement.parentElement.classList.toggle("flipped");
+        this.parentElement.parentElement.parentElement.setAttribute("aria-pressed", this.classList.contains("flipped"));
     }
 }
 
 // Show only the active card, hide others
-function rotateCards() {
-    projectImages.push(projectImages.shift()); // Reorder the array
-    projectCards.push(projectCards.shift()); // If needed for "active" card logic
+function rotateCards(e) {
+    clickedImage = e.currentTarget;
+    targetIndex = projectImages.indexOf(clickedImage);
+
+    targetIndex = targetIndex === 0 ? 1 : targetIndex;
+
+    for (let i = 0; i < targetIndex; i++) {
+        projectImages.push(projectImages.shift()); // Reorder the array
+        projectCards.push(projectCards.shift()); // If needed for "active" card logic
+    }
 
     projectCards.forEach((card, i) => {
         const isActive = i === 0;
@@ -156,6 +164,7 @@ function rotateCards() {
         // Apply image position
         const img = projectImages[i];
         const pos = positionStack[i];
+        // card.style.zIndex = pos.z;
         img.style.top = pos.top;
         img.style.left = pos.left;
         img.style.zIndex = pos.z;
@@ -164,33 +173,29 @@ function rotateCards() {
 
 // Add flip mode listeners
 function enableFlipMode() {
-    console.log("Enabling 'Flip' Mode");
-    projectCards.forEach((card) => {
-        card.addEventListener("click", flipCardOnClick);
-        card.addEventListener("keydown", flipCardOnKeydown);
+    figureItems.forEach((item) => {
+        item.addEventListener("click", flipCardOnClick);
+        item.addEventListener("keydown", flipCardOnKeydown);
     });
     // Remove rotate listeners if any
-    projectCards.forEach((card) => {
-        card.removeEventListener("click", rotateCards);
+    figureItems.forEach((item) => {
+        item.removeEventListener("click", rotateCards);
     });
 }
 
 // Add rotate mode listeners
 function enableRotateMode() {
-    console.log("Enabling 'Rotate' Mode");
     // Remove flip listeners first
-    projectCards.forEach((card) => {
-        card.removeEventListener("click", flipCardOnClick);
-        card.removeEventListener("keydown", flipCardOnKeydown);
+    projectImages.forEach((image) => {
+        image.removeEventListener("click", flipCardOnClick);
+        image.removeEventListener("keydown", flipCardOnKeydown);
     });
     // Add rotate listener
-    projectCards.forEach((card) => {
-        card.addEventListener("click", rotateCards);
+    projectImages.forEach((image) => {
+        image.addEventListener("click", rotateCards);
+        image.setAttribute("title", "");
     });
 }
-
-// Initially enable flip mode (or whatever your default is)
-enableFlipMode();
 
 function updateInteractionMode() {
     if (window.innerWidth >= 600 && window.innerWidth < 1024 && window.matchMedia("(orientation: portrait)").matches) {
@@ -242,9 +247,6 @@ const projectsMain = document.querySelector("#projects > main");
 const firstCardClone = projectCards[0].cloneNode(true);
 const lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
 
-console.log(firstCardClone);
-console.log(lastCardClone);
-
 [firstCardClone, lastCardClone].forEach((cardClone) => {
     cardClone.removeAttribute("id");
     cardClone.setAttribute("aria-hidden", "true");
@@ -257,23 +259,19 @@ projectsMain.appendChild(firstCardClone);
 projectsMain.insertBefore(lastCardClone, projectCards[0]);
 
 // Refresh list to include clones
-projectCards = Array.from(projectsMain.querySelectorAll(".project-card"));
+projectCardsWithClones = Array.from(projectsMain.querySelectorAll(".project-card"));
 
 // Recalculate cardWidth after clones are inserted and layout updated
 let cardWidth = 0;
-console.log("Card width after clones inserted:", cardWidth);
 
 // Set initial scroll position to the first real card (index 1 because of prepended lastClone)
 requestAnimationFrame(() => {
     setTimeout(() => {
-        cardWidth = projectCards[0].offsetWidth;
-        console.log("Card width:", cardWidth);
+        cardWidth = projectCardsWithClones[0].offsetWidth;
 
         projectsMain.scrollLeft = cardWidth;
-        console.log("scrollLeft after set:", projectsMain.scrollLeft);
 
         setTimeout(() => {
-            console.log("scrollLeft after 100ms:", projectsMain.scrollLeft);
             projectsMain.scrollLeft = cardWidth; // force again if needed
         }, 100);
     }, 50);
@@ -318,8 +316,7 @@ function scrollToProjectCard(index, smooth = true) {
 }
 
 function checkAndResetPosition() {
-    console.log("Checking and Resetting the Position");
-    const maxIndex = projectCards.length - 1;
+    const maxIndex = projectCardsWithClones.length - 1;
     const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
 
     if (scrollIndex === 0) {
@@ -335,18 +332,15 @@ function checkAndResetPosition() {
 
 function getCurrentCardIndex() {
     let curIndex = Math.round(projectsMain.scrollLeft / cardWidth);
-    console.log("Getting the Current Index: " + curIndex);
     return curIndex;
 }
 
 leftSlideArrow.addEventListener("click", () => {
-    console.log("Left Arrow Clicked");
     let currentIndex = getCurrentCardIndex();
     scrollToProjectCard(currentIndex - 1);
 });
 
 rightSlideArrow.addEventListener("click", () => {
-    console.log("Right Arrow Clicked");
     let currentIndex = getCurrentCardIndex();
     scrollToProjectCard(currentIndex + 1);
 });
@@ -354,7 +348,7 @@ rightSlideArrow.addEventListener("click", () => {
 projectsMain.addEventListener("scroll", () => {
     if (isTransitioning) return;
 
-    const maxIndex = projectCards.length - 1;
+    const maxIndex = projectCardsWithClones.length - 1;
     const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
 
     if (scrollIndex === 0) {

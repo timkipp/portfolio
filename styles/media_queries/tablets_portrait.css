@@ -137,7 +137,7 @@
         min-height: revert;
     }
 
-    #projects main {
+    #projects > main {
         container-type: size;
         container-name: projects-main;
         display: revert;
@@ -146,82 +146,102 @@
         position: relative;
     }
 
-    #projects main .project-card {
+    #projects > main > .project-card:not(.project-card-clone) {
         display: revert;
         position: absolute;
         height: 100%;
     }
 
-    #projects main .project-card:nth-child(3) {
+    #projects > main > .project-card:nth-child(4) {
         border-top: none;
     }
 
-    #projects main .project-card:nth-child(4) {
+    #projects > main > .project-card:nth-child(5) {
         border-top: none;
-    }
-
-    #projects main .project-card:not(.active) h2,
-    #projects main .project-card:not(.active) .figure-card figure figcaption {
-        opacity: 0;
     }
 
     /* To override default style */
-    #projects main .project-card:nth-child(even) {
+    #projects > main > .project-card:nth-child(even) {
         flex-direction: column;
     }
 
-    #projects main .project-card h2 {
+    #projects > main > .project-card:not(.active) h2,
+    #projects > main > .project-card:not(.active) .figure-card figure figcaption {
+        opacity: 0;
+    }
+
+    #project-1 a {
+        z-index: 10;
+    }
+    #project-2 a {
+        z-index: 8;
+    }
+    #project-3 a {
+        z-index: 6;
+    }
+    #project-4 a {
+        z-index: 4;
+    }
+
+    #projects > main > .project-card h2 {
         display: revert;
         height: revert;
-        padding-top: 3rem;
-        padding-bottom: 6rem;
+        padding-top: 1.25rem;
+        padding-bottom: 5rem;
         text-align: center;
     }
 
-    #projects main .project-card h2 a {
+    #projects > main > .project-card h2 a {
         display: inline-block;
         width: revert;
         padding: 0.5rem 0;
-        font-size: 5rem;
+        font-variation-settings: "wght" 300;
+        /* font-size: clamp(3rem, 7.38cqh, 5rem); */
+        font-size: 80px;
         letter-spacing: 2rem;
         writing-mode: revert;
     }
 
-    #projects main .project-card:nth-child(even) h2 a {
+    #projects > main > .project-card:nth-child(even) h2 a {
         transform: none;
     }
 
-    #projects main .project-card h2 a::before,
-    #projects main .project-card h2 a::after {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        transform-origin: left;
-        transform: scaleX(0);
-        transition: transform 0.4s ease;
-    }
-
-    #projects main .project-card h2 a::after {
+    #projects > main > .project-card h2 a::before,
+    #projects > main > .project-card h2 a::after {
         top: auto;
-        bottom: -5px;
-    }
-
-    #projects main .project-card h2 a:hover::before,
-    #projects main .project-card h2 a:hover::after {
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        transform-origin: right;
         transform: scaleX(1);
     }
 
-    #projects main .project-card .figure-card {
+    #projects > main > .project-card h2 a::before {
+        top: 0;
+        bottom: auto;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    #projects > main > .project-card h2 a:hover::before {
+        transform: scaleX(1);
+    }
+
+    #projects > main > .project-card h2 a:hover::after {
+        transform: scaleX(0);
+    }
+
+    #projects > main > .project-card .figure-card {
+        position: revert;
         width: revert;
         height: 80%;
         aspect-ratio: revert;
         perspective: revert;
     }
 
-    #projects main .project-card .figure-card figure {
+    #projects > main > .project-card .figure-card figure {
         display: revert;
-        position: revert;
+        /* position: revert; */
         width: revert;
         height: 100%;
         transform: none;
@@ -229,11 +249,11 @@
         transform-style: unset;
     }
 
-    #projects main .project-card .figure-card.flipped figure {
+    #projects > main > .project-card .figure-card.flipped figure {
         transform: none;
     }
 
-    #projects main .project-card .figure-card figure > * {
+    #projects > main > .project-card .figure-card figure > * {
         position: revert;
         width: revert;
         height: revert;
@@ -242,51 +262,56 @@
         transition: border-width 0.3s ease;
     }
 
-    #projects main .project-card .figure-card figure img {
+    #projects > main > .project-card .figure-card figure img {
         z-index: revert;
         object-fit: revert;
-        width: 85%;
+        width: 80%;
         height: auto;
         transition: top 0.5s ease, left 0.5s ease, z-index 0.5s ease;
     }
 
-    #projects main #project-1 img {
+    #projects > main #project-1 img {
         position: relative;
         top: 50px;
         left: 50px;
         z-index: 10;
     }
 
-    #projects main #project-2 img {
+    #projects > main #project-2 img {
         position: relative;
         top: 15px;
         left: 15px;
         z-index: 8;
     }
 
-    #projects main #project-3 img {
+    #projects > main #project-3 img {
         position: relative;
         top: -20px;
         left: -20px;
         z-index: 6;
     }
 
-    #projects main #project-4 img {
+    #projects > main #project-4 img {
         position: relative;
         top: -55px;
         left: -55px;
         z-index: 4;
     }
 
-    #projects main .project-card .figure-card figure figcaption {
+    #projects > main > .project-card .figure-card figure figcaption {
         display: revert;
         position: relative;
         z-index: revert;
-        width: 100%;
-        margin: 6rem auto 0 auto;
+        width: 95%;
+        margin-top: 5rem; /* auto 0 auto;*/
         color: #f2bc71;
         font-size: 1.5rem;
+        /* font-size: clamp(1rem, 2.25cqh, 2rem); */
         background-color: revert;
         transform: none;
+    }
+
+    #projects > main .project-card .figure-card svg {
+        display: none;
     }
 }

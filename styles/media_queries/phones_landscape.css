@@ -7,7 +7,7 @@
 
     #corner-1 {
         /* DEBUG */
-/* background-color: hotpink !important; */
+        background-color: hotpink !important;
     }
 
     body > header,
@@ -265,15 +265,16 @@
 
     #projects > main > .project-card {
         flex: 0 0 100%;
+        flex-direction: row;
         justify-content: center;
         align-items: revert;
         width: 100%;
         scroll-snap-align: start;
     }
 
-    #projects > main > .project-card:nth-child(even) {
+    /* #projects > main > .project-card:nth-child(even) {
         flex-direction: row;
-    }
+    } */
 
     #projects > main > .project-card:nth-child(3),
     #projects > main > .project-card:nth-child(4) {

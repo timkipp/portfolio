@@ -7,7 +7,7 @@
 
     aside:last-of-type {
         /* DEBUG */
-        /* background-color: blue; */
+background-color: blue;
     }
 
     body > header,

@@ -2,14 +2,14 @@
 @media (min-width: 1025px) and (orientation: portrait) {
     aside:first-of-type {
         /* DEBUG */
-        /* background-color: yellow; */
+        background-color: yellow;
     }
 
     nav ul li a {
         font-size: 1.5rem;
     }
 
-    body > main {
+    /* body > main {
         transform: scale(1.5);
-    }
+    } */
 }

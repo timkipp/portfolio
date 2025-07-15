@@ -2,7 +2,7 @@
 @media (min-width: 480px) {
     #corner-2 {
         /* DEBUG */
-        /* background-color: chartreuse; */
+background-color: chartreuse;
     }
 
     body > main section#home {

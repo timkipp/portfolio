@@ -218,6 +218,28 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+function checkWrap() {
+    const h1 = document.querySelector("#about > header > h1");
+    const divs = h1.querySelectorAll("div");
+
+    // Compare the offsetTop values
+    if (divs[0].offsetTop !== divs[1].offsetTop) {
+        h1.classList.add("wrapped");
+    } else {
+        h1.classList.remove("wrapped");
+    }
+}
+
+// Run on page load
+window.addEventListener("load", checkWrap);
+
+// Run on resize
+window.addEventListener("resize", () => {
+    // Debounce to avoid flooding during resize
+    clearTimeout(window.wrapTimeout);
+    window.wrapTimeout = setTimeout(checkWrap, 100);
+});
+
 function toggleDescription(activeFigcaption) {
     document.querySelectorAll("#projects figcaption").forEach((figcaption) => {
         figcaption.style.transition = "height 0.5s ease";

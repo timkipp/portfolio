@@ -204,3 +204,15 @@
 #projects > main .project-card .figure-card.flipped svg {
     opacity: 0;
 }
+
+#projects img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at bottom right, #fff 40%, transparent 41%);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}

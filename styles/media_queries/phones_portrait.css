@@ -2,17 +2,18 @@
 @media (max-width: 480px) {
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
-        column-gap: 0.25rem;
+        /* column-gap: 0.25rem; */
     }
 
     aside:last-of-type {
         /* DEBUG */
-background-color: blue;
+        /* background-color: blue; */
     }
 
     body > header,
     body > footer {
         grid-column: 1 / 6;
+        border-radius: revert;
     }
 
     body > header h1 {
@@ -52,7 +53,7 @@ background-color: blue;
 
     body > main {
         grid-column: 2 / 5;
-        margin: 0.25rem 0;
+        /* margin: 0.25rem 0; */
     }
 
     body > main section#home {
@@ -338,5 +339,12 @@ background-color: blue;
         width: revert;
         font-size: clamp(0.875rem, 6cqh, 3rem);
         line-height: clamp(1rem, 7cqh, 4rem);
+    }
+
+    #projects > main .project-card .figure-card svg {
+        right: 2cqw;
+        bottom: 6cqh;
+        width: 10cqw !important;
+        padding: 0.25cqw;
     }
 }

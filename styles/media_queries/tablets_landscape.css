@@ -2,7 +2,7 @@
 @media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) {
     #corner-3 {
         /* DEBUG */
-        background-color: orange;
+        /* background-color: orange; */
     }
 
     body > header h1 {
@@ -77,5 +77,21 @@
 
     #about > main .value-panel img {
         width: 60%;
+    }
+
+    #projects > main > .project-card .figure-card figure figcaption {
+        padding: 0.5rem;
+    }
+
+    #projects > main .project-card .figure-card svg {
+        bottom: 0.5cqh;
+        width: 3cqw !important;
+        padding: 0.25cqw;
+    }
+    #projects > main .project-card:nth-child(even) .figure-card svg {
+        left: 1cqw;
+    }
+    #projects > main .project-card:nth-child(odd) .figure-card svg {
+        right: 1cqw;
     }
 }

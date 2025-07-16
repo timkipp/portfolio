@@ -7,12 +7,13 @@
 
     #corner-1 {
         /* DEBUG */
-        background-color: hotpink !important;
+        /* background-color: hotpink !important; */
     }
 
     body > header,
     body > footer {
         container: size;
+        border-radius: revert;
     }
 
     body > header > h1 {
@@ -322,5 +323,12 @@
         width: revert;
         font-size: clamp(0.875rem, 6cqh, 3rem);
         line-height: clamp(1rem, 7cqh, 4rem);
+    }
+
+    #projects > main .project-card .figure-card svg {
+        right: 4cqw;
+        bottom: 1cqh;
+        width: 5cqw !important;
+        padding: 0.25cqw;
     }
 }

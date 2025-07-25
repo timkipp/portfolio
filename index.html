@@ -25,24 +25,22 @@
         <link rel="stylesheet" href="styles/email.css" type="text/css" />
 
         <!-- Mediq Queries -->
+        <link rel="stylesheet" href="styles/media_queries/not_phones.css" />
         <link rel="stylesheet" href="styles/media_queries/phones_portrait.css" />
         <link rel="stylesheet" href="styles/media_queries/phones_landscape.css?v=2" />
-        <link rel="stylesheet" href="styles/media_queries/not_phones.css" />
         <link rel="stylesheet" href="styles/media_queries/tablets_landscape.css" />
         <link rel="stylesheet" href="styles/media_queries/tablets_portrait.css" />
         <link rel="stylesheet" href="styles/media_queries/tall_screens.css" />
 
         <!-- Scripts -->
-        <script src="/scripts/index.js" defer></script>
+        <script src="/scripts/main.js" type="module" defer></script>
     </head>
 
     <body class="loading">
-        <!-- <div id="bg"></div> -->
-
-        <div id="corner-1" class="corner top-corner"></div>
-
         <header>
-            <h1 id="section-title" data-state="">Welcome</h1>
+            <h1>
+                <span id="section-title" data-state="">Welcome</span>
+            </h1>
             <nav>
                 <ul>
                     <li>
@@ -80,14 +78,12 @@
             </nav>
         </header>
 
-        <div id="corner-2" class="corner top-corner"></div>
-
-        <aside>
+        <div class="sidebar">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-circle-chevron-left slide-arrow">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M17 3.34a10 10 0 0 1 5 8.66c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10a10 10 0 0 1 15 -8.66m-3.293 4.953a1 1 0 0 0 -1.414 0l-3 3a1 1 0 0 0 0 1.414l3 3a1 1 0 0 0 1.414 0l.083 -.094a1 1 0 0 0 -.083 -1.32l-2.292 -2.293l2.292 -2.293a1 1 0 0 0 0 -1.414" />
             </svg>
-        </aside>
+        </div>
 
         <main>
             <section id="home">
@@ -255,7 +251,7 @@
 
             <section id="projects">
                 <main>
-                    <div id="project-1" class="project-card active">
+                    <div id="project-1" class="project-card active" data-index="1">
                         <h2>
                             <a href="liberty/index.html" data-text="Liberty" title="Click link to visit web page">Liberty</a>
                         </h2>
@@ -274,7 +270,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div id="project-2" class="project-card">
+                    <div id="project-2" class="project-card" data-index="2">
                         <h2>
                             <a href="calendar_generator/index.html" data-text="Calendar" title="Click link to visit web page">Calendar</a>
                         </h2>
@@ -293,7 +289,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div id="project-3" class="project-card">
+                    <div id="project-3" class="project-card" data-index="3">
                         <h2>
                             <a href="travel/index.html" data-text="Travel" title="Click link to visit web page">Travel </a>
                         </h2>
@@ -312,7 +308,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div id="project-4" class="project-card">
+                    <div id="project-4" class="project-card" data-index="4">
                         <h2>
                             <a href="https://pirate-game-chi.vercel.app" target="_blank" rel="noopener noreferrer" data-text="Pirates" title="Click link to visit web page">Game</a>
                         </h2>
@@ -332,6 +328,12 @@
                         </div>
                     </div>
                 </main>
+                <div id="carousel-progress">
+                    <span data-index="1" class="progress-indicator current" aria-label="Project-1"></span>
+                    <span data-index="2" class="progress-indicator" aria-label="Project-2"></span>
+                    <span data-index="3" class="progress-indicator" aria-label="Project-3"></span>
+                    <span data-index="4" class="progress-indicator" aria-label="Project-4"></span>
+                </div>
             </section>
 
             <section id="email">
@@ -352,14 +354,12 @@
             </section>
         </main>
 
-        <aside>
+        <div class="sidebar">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-circle-chevron-right slide-arrow">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -20 0c0 -5.523 4.477 -10 10 -10m-.293 6.293a1 1 0 0 0 -1.414 0l-.083 .094a1 1 0 0 0 .083 1.32l2.292 2.293l-2.292 2.293a1 1 0 0 0 1.414 1.414l3 -3a1 1 0 0 0 0 -1.414z" />
             </svg>
-        </aside>
-
-        <div id="corner-3" class="corner bottom-corner"></div>
+        </div>
 
         <footer>
             <nav>
@@ -399,18 +399,24 @@
                     </li>
                 </ul>
             </nav>
+            <div id="debug-media-queries" class="debug">
+                <div id="not-phones">NP</div>
+                <div id="phones-landscape">PL</div>
+                <div id="phones-portrait">PP</div>
+                <div id="tablets-landscape">TL</div>
+                <div id="tablets-portrait">TP</div>
+                <div id="tall-screens">TS</div>
+            </div>
         </footer>
-
-        <div id="corner-4" class="corner bottom-corner"></div>
 
         <!-- <div id="debug-overlay"></div> -->
 
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>
             eruda.init();
-        </script>
+        </script> -->
         <script>
-            console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
+            // console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
 
             // let property = "";
 

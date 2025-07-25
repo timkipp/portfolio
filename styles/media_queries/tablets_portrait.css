@@ -1,35 +1,17 @@
 /* for tablets in portrait orientation */
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
     body {
-        grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr;
+        /* grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr; */
     }
 
-    #corner-4 {
-        /* DEBUG */
-background-color: purple;
-    }
-
-    body > header {
-        font-size: clamp(3.75rem, 4vw, 8rem);
-    }
-
-    body > header nav {
-        margin-right: 0.75rem;
-    }
-
-    body > footer nav {
-        margin-top: 0.25rem;
-    }
-
-    body nav ul li a {
-        padding-bottom: 0;
-        font-size: 1.5rem;
+    .debug #tablets-portrait {
+        display: flex;
+        color: white;
+        background-color: purple;
     }
 
     nav ul li a > svg {
         display: inline;
-        width: 2.25rem;
-        height: 2.25rem;
         vertical-align: text-bottom;
     }
 
@@ -38,11 +20,8 @@ background-color: purple;
     }
 
     #home {
-        transform: scale(1.5);
-    }
-
-    #home #name h2 {
-        padding-top: 10px;
+        padding-left: clamp(1em, 3.5cqw, 3em);
+        padding-right: clamp(1em, 3.5cqw, 3em);
     }
 
     #home #titles h3 {
@@ -51,6 +30,7 @@ background-color: purple;
 
     #home #titles h3:last-of-type {
         align-items: flex-end;
+        row-gap: clamp(0.5em, 1.5cqh, 1em);
     }
 
     #home #titles h3:first-of-type div {
@@ -58,7 +38,7 @@ background-color: purple;
     }
 
     #home #titles h3:first-of-type div span {
-        margin-right: 0.15em;
+        margin-right: clamp(0.25em, 1.5cqw, 1em);
     }
 
     #home #titles h3:last-of-type div {
@@ -66,7 +46,7 @@ background-color: purple;
     }
 
     #home #titles h3:last-of-type div span {
-        margin-left: 0.15em;
+        margin-right: clamp(0.25em, 1.5cqw, 2em);
     }
 
     #home #titles .delimiter {
@@ -196,8 +176,8 @@ background-color: purple;
         width: revert;
         padding: 0.5rem 0;
         font-variation-settings: "wght" 300;
-        /* font-size: clamp(3rem, 7.38cqh, 5rem); */
-        font-size: 80px;
+        font-size: clamp(3rem, 7.38cqh, 5rem);
+        /* font-size: 80px; */
         letter-spacing: 2rem;
         writing-mode: revert;
     }
@@ -303,12 +283,15 @@ background-color: purple;
         position: relative;
         z-index: revert;
         width: 95%;
+        height: auto;
         margin-top: 5rem; /* auto 0 auto;*/
         color: #f2bc71;
         font-size: 1.5rem;
         /* font-size: clamp(1rem, 2.25cqh, 2rem); */
         background-color: revert;
+        interpolate-size: allow-keywords;
         transform: none;
+        transition: height 5s ease;
     }
 
     #projects > main .project-card .figure-card svg {

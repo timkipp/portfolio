@@ -1,48 +1,8 @@
 /* For tablets in landscape orientations */
-@media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) {
-    #corner-3 {
-        /* DEBUG */
-        /* background-color: orange; */
-    }
-
-    body > header h1 {
-        padding-bottom: 0.25rem;
-    }
-
-    nav ul li + li {
-        margin-left: 1.5rem;
-    }
-
-    nav ul li a {
-        padding-bottom: 0.25rem;
-        font-size: 1.5rem;
-
-        font-size: clamp(2cqh, 1.5rem, 6cqh);
-    }
-
-    body > footer nav {
-        margin-top: 0.25rem;
-    }
-
-    #home #name h2 {
-        padding-top: 5px;
-    }
-
-    #home {
-        width: calc(100% * (1.75 / 3));
-    }
-
-    #home #titles h3 {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    #home #titles #vertical-bar {
-        margin: 0 1em;
-    }
-
-    #home #titles #vertical-bar span:nth-of-type(4) {
-        display: none;
+@media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) and (orientation: landscape) {
+    .debug #tablets-landscape {
+        display: flex;
+        background-color: orange;
     }
 
     /* #about > header h1 {
@@ -93,5 +53,73 @@
     }
     #projects > main .project-card:nth-child(odd) .figure-card svg {
         right: 1cqw;
+    }
+
+    @container projects (max-wdith: 780) {
+    }
+
+    @container projects (min-height: 650px) {
+        #projects > main .project-card {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #projects > main .project-card:nth-child(odd) {
+            flex-direction: column;
+        }
+
+        #projects > main .project-card:nth-child(4),
+        #projects > main .project-card:nth-child(5) {
+            flex-direction: column-reverse;
+        }
+
+        #projects > main .project-card h2 {
+            height: revert;
+            margin-bottom: clamp(1rem, 3cqh, 2rem);
+        }
+
+        #projects > main .project-card:nth-child(4) h2,
+        #projects > main .project-card:nth-child(5) h2 {
+            margin-bottom: 0;
+            margin-top: clamp(1rem, 3cqh, 2rem);
+        }
+
+        #projects > main .project-card h2 a {
+            padding-top: clamp(1rem, 1cqh, 2rem);
+            padding-bottom: clamp(1rem, 1cqh, 2rem);
+            padding-left: 0;
+            padding-right: 0;
+            font-size: clamp(2rem, min(6cqw, 4.7cqh), 4rem);
+            writing-mode: revert;
+        }
+
+        #projects > main .project-card:nth-child(even) h2 a {
+            transform: rotate(0deg);
+        }
+
+        #projects > main > .project-card h2 a::before,
+        #projects > main > .project-card h2 a::after {
+            top: auto;
+            bottom: 0;
+            height: 2px;
+            width: 100%;
+            transform-origin: right;
+            transform: scaleX(1);
+        }
+
+        #projects > main > .project-card h2 a::before {
+            top: 0;
+            bottom: auto;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        #projects > main > .project-card h2 a:hover::before {
+            transform: scaleX(1);
+        }
+
+        #projects > main > .project-card h2 a:hover::after {
+            transform: scaleX(0);
+        }
     }
 }

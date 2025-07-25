@@ -1,13 +1,13 @@
 /* For devices larger than phones or phones in landscape orientation */
 @media (min-width: 480px) {
-    #corner-2 {
-        /* DEBUG */
-background-color: chartreuse;
+    .debug #not-phones {
+        display: flex;
+        background-color: chartreuse;
     }
 
-    body > main section#home {
+    /* body > main section#home {
         width: calc(100% * (1.75 / 4));
-    }
+    } */
 
     nav ul li a {
         display: inline-block;
@@ -17,19 +17,28 @@ background-color: chartreuse;
     nav ul li a::after {
         content: "";
         position: absolute;
-        top: 0;
+        top: 5px;
         left: 0;
         width: 100%;
         height: 3px;
-        background: #ffffeb;
         transform-origin: left;
         transform: scaleX(0);
         transition: transform 0.4s ease;
     }
 
+    header nav ul li a::before,
+    header nav ul li a::after {
+        background: #ffffeb;
+    }
+
+    footer nav ul li a::before,
+    footer nav ul li a::after {
+        background: #412f30;
+    }
+
     nav ul li a::after {
         top: auto;
-        bottom: -5px;
+        bottom: 0;
     }
 
     nav ul li a:hover::before,

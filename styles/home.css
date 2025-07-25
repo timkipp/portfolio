@@ -1,17 +1,19 @@
-body>main section#home {
-    width: calc(100% * (1.75 / 3.75));
-    max-width: 100%;
+body > main #home {
+    container-type: size;
+    container-name: home;
+    width: 100%;
+    max-width: 900px;
 }
 
-body>main section>hgroup {
+body > main section > hgroup {
     width: 100%;
 }
 
-body>main::-webkit-scrollbar {
+body > main::-webkit-scrollbar {
     display: none;
 }
 
-body>main hgroup {
+body > main hgroup {
     margin: 0 auto;
     overflow-x: visible;
 }
@@ -22,8 +24,8 @@ body>main hgroup {
     align-items: stretch;
     max-width: 100%;
     overflow: visible;
-    font-variation-settings: 'wght' 300;
-    font-size: clamp(1rem, 2vw, 3.875rem);
+    font-variation-settings: "wght" 300;
+    font-size: clamp(1rem, min(5.94cqw, 4.88cqh), 3.875rem);
 }
 
 #home #logo-stack h1 {
@@ -32,10 +34,12 @@ body>main hgroup {
 
 #home #web {
     overflow-x: visible;
-    font-variation-settings: 'wght' 700;
-    font-size: clamp(7.5rem, 10vw, 16rem);
+    margin-top: -2rem;
+    font-variation-settings: "wght" 700;
+    font-size: clamp(7.5rem, 29.698cqw, 16rem);
     background-color: black;
     color: transparent;
+    line-height: 0.875;
     text-shadow: 0px 4px 3px #e26d5a;
     -webkit-background-clip: text;
     background-clip: text;
@@ -56,7 +60,7 @@ body>main hgroup {
 
 #home #development {
     align-items: flex-end;
-    margin-top: clamp(-75px, -3vw, -15px);
+    margin-top: clamp(-1.5lh, -3.5lh, -1.2lh);
     color: #4ca1af;
 }
 
@@ -65,10 +69,10 @@ body>main hgroup {
     margin: 10px 0px;
     padding-top: 10px;
     padding-bottom: 20px;
-    color: #714F50;
+    color: #714f50;
     color: #ffffeb;
-    font-variation-settings: 'wght' 600;
-    font-size: clamp(1.5rem, 3.75vw, 6rem);
+    font-variation-settings: "wght" 600;
+    font-size: clamp(1.5rem, 10.67cqmin, 6rem);
     border-top-width: 5px;
     border-top-style: solid;
     border-top-color: #e26d5a;
@@ -80,7 +84,6 @@ body>main hgroup {
 #home #name h2 {
     display: flex;
     justify-content: space-between;
-
 }
 
 #home #name h2 span:nth-of-type(2),
@@ -93,9 +96,9 @@ body>main hgroup {
 #home #titles {
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
-    font-variation-settings: 'wght' 400;
-    font-size: clamp(20px, 1.25vw, 32px);
+    margin-top: clamp(0.25rem, 1cqh, 2rem);
+    font-variation-settings: "wght" 400;
+    font-size: clamp(1.25rem, 3.56cqmin, 2rem);
 }
 
 #home #titles h3 {
@@ -124,6 +127,11 @@ body>main hgroup {
 
 #home #titles .delimiter {
     color: #e26d5a;
+}
+
+#home #titles .delimiter:nth-child(4) {
+    margin-left: clamp(1em, 5cqw, 5em);
+    margin-right: clamp(1em, 5cqw, 5em);
 }
 
 #home #titles .title-2 {

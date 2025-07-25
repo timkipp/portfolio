@@ -1,67 +1,71 @@
 /* For phones, portrait orientation */
-@media (max-width: 480px) {
+@media (max-width: 599px) {
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
-        /* column-gap: 0.25rem; */
     }
 
-    aside:last-of-type {
-        /* DEBUG */
-        /* background-color: blue; */
+    .debug #phones-portrait {
+        display: flex;
+        background-color: aqua;
     }
-
     body > header,
     body > footer {
-        grid-column: 1 / 6;
         border-radius: revert;
     }
 
-    body > header h1 {
-        font-size: clamp(1.5rem, 1.5vw, 3rem);
+    body > header > h1 {
+        flex-basis: revert;
+        min-width: 19ch;
+        padding: 0 0;
+    }
+
+    body > header > h1 > span {
         color: #ffffeb;
+        font-size: clamp(1.5rem, 5cqw, 3rem);
+        letter-spacing: 0.1em;
         text-shadow: none;
     }
 
-    svg.slide-arrow {
+    nav ul li + li {
+        margin-left: 1rem;
+    }
+
+    nav ul li a svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sidebar svg.slide-arrow {
         display: block;
-        flex: 0 0 auto;
         position: fixed;
-        top: 52.5%;
+        top: 47.5cqh;
         z-index: 10;
         width: 2.5rem;
         height: auto;
         opacity: 0;
-        fill: #ffffeb;
         fill: #f2bc71;
         transition: opacity 0.5s ease;
         pointer-events: none;
     }
 
-    .icon-tabler-circle-chevron-left {
+    .sidebar svg.icon-tabler-circle-chevron-left {
         left: 1cqw;
     }
 
-    .icon-tabler-circle-chevron-right {
-        right: 1cqw;
+    .sidebar svg.icon-tabler-circle-chevron-right {
+        /* right: 1cqw; */
+        right: 5px;
     }
 
-    svg.slide-arrow.visible {
+    .sidebar svg.slide-arrow.visible {
         opacity: 1;
         transition: opacity 0.5s ease;
         pointer-events: all;
     }
 
-    body > main {
-        grid-column: 2 / 5;
-        /* margin: 0.25rem 0; */
-    }
-
-    body > main section#home {
-        width: calc(100% * (1.75 / 1));
-    }
-
-    nav ul li + li {
-        margin-left: 1rem;
+    body > main > #home {
+        padding-left: clamp(0.25em, 2cqw, 3em);
+        padding-right: clamp(0.25em, 2cqw, 3em);
     }
 
     #home #name {
@@ -242,8 +246,9 @@
     #projects > main > .project-card {
         flex: 0 0 100%;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        row-gap: 1.5em;
         width: 100%;
         scroll-snap-align: start;
     }
@@ -267,6 +272,7 @@
         align-items: revert;
         height: revert;
         width: 100%;
+        margin-top: clamp(1em, 5cqb, 2em);
     }
     #projects > main > .project-card h2 a {
         width: revert;
@@ -318,7 +324,8 @@
     #projects > main > .project-card > .figure-card {
         container-type: size;
         container-name: figure-card;
-        height: 60cqh;
+        width: 95%;
+        height: 50%;
         aspect-ratio: revert;
         position: relative;
     }
@@ -328,10 +335,8 @@
     }
 
     #projects > main > .project-card .figure-card figure img {
-        /* height: 90cqh;
-        width: auto; */
         height: auto;
-        width: 90cqw;
+        /* width: 120cqw; */
     }
 
     #projects > main > .project-card .figure-card figure figcaption {
@@ -339,12 +344,17 @@
         width: revert;
         font-size: clamp(0.875rem, 6cqh, 3rem);
         line-height: clamp(1rem, 7cqh, 4rem);
+        text-align: left;
     }
 
     #projects > main .project-card .figure-card svg {
-        right: 2cqw;
-        bottom: 6cqh;
-        width: 10cqw !important;
+        right: 2.5cqw;
+        bottom: 2.5cqh;
+        width: 42px;
         padding: 0.25cqw;
+    }
+
+    #projects > #carousel-progress {
+        display: flex;
     }
 }

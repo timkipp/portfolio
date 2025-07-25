@@ -5,9 +5,9 @@
         grid-template-columns: 0.1fr 1.15fr 2.5fr 1.15fr 0.1fr;
     }
 
-    #corner-1 {
-        /* DEBUG */
-        /* background-color: hotpink !important; */
+    .debug #phones-landscape {
+        display: flex;
+        background-color: hotpink;
     }
 
     body > header,
@@ -16,7 +16,7 @@
         border-radius: revert;
     }
 
-    body > header > h1 {
+    body > header h1 {
         font-size: clamp(1.75rem, 6cqh, 3.75rem);
         color: #ffffeb;
         text-shadow: 0px 4px 3px black;

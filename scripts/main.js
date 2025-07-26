@@ -1,7 +1,7 @@
 import { initializeDebugging } from "./debug.js";
 import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
 import { setProjectsInteraction } from "./interaction.js";
-import { projectsMain, triggerProjectCarousel } from "./project_carousel.js";
+// import { projectsMain, triggerProjectCarousel } from "./project_carousel.js";
 
 // debugger;
 

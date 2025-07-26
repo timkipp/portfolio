@@ -1,38 +1,79 @@
+import { delay } from "./debug.js";
+import { projectCards } from "./image_rotation.js";
+
+export const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
+export const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
+
 const projectsMain = document.querySelector("#projects > main");
-
-// Clone first and last cards
-const firstCardClone = projectCards[0].cloneNode(true);
-const lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
-
-[firstCardClone, lastCardClone].forEach((cardClone) => {
-    cardClone.removeAttribute("id");
-    cardClone.setAttribute("aria-hidden", "true");
-    cardClone.style.pointerEvents = "none";
-    cardClone.classList.add("project-card-clone");
-});
-
-// Insert clones
-projectsMain.appendChild(firstCardClone);
-projectsMain.insertBefore(lastCardClone, projectCards[0]);
-
-// Refresh list to include clones
-const projectCardsWithClones = Array.from(projectsMain.querySelectorAll(".project-card"));
-
-// Recalculate cardWidth after clones are inserted and layout updated
 let cardWidth = 0;
 
-// Set initial scroll position to the first real card (index 1 because of prepended lastClone)
-requestAnimationFrame(() => {
-    setTimeout(() => {
-        cardWidth = projectCardsWithClones[0].offsetWidth;
+export function initializeProjectCarousel() {
+    // Clone first and last cards
+    const firstCardClone = projectCards[0].cloneNode(true);
+    const lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
 
-        projectsMain.scrollLeft = cardWidth;
+    [firstCardClone, lastCardClone].forEach((cardClone) => {
+        cardClone.removeAttribute("id");
+        cardClone.setAttribute("aria-hidden", "true");
+        cardClone.style.pointerEvents = "none";
+        cardClone.classList.add("project-card-clone");
+    });
 
+    // Insert clones
+    projectsMain.appendChild(firstCardClone);
+    projectsMain.insertBefore(lastCardClone, projectCards[0]);
+
+    // Refresh list to include clones
+    const projectCardsWithClones = Array.from(projectsMain.querySelectorAll(".project-card"));
+
+    // Set initial scroll position to the first real card (index 1 because of prepended lastClone)
+    requestAnimationFrame(() => {
         setTimeout(() => {
-            projectsMain.scrollLeft = cardWidth; // force again if needed
-        }, 100);
-    }, 50);
-});
+            cardWidth = projectCardsWithClones[0].offsetWidth;
+
+            projectsMain.scrollLeft = cardWidth;
+
+            setTimeout(() => {
+                projectsMain.scrollLeft = cardWidth; // force again if needed
+            }, 100);
+        }, 50);
+    });
+
+    leftSlideArrow.addEventListener("click", () => {
+        let currentIndex = getCurrentCardIndex();
+        scrollToProjectCard(currentIndex - 1);
+    });
+
+    rightSlideArrow.addEventListener("click", () => {
+        let currentIndex = getCurrentCardIndex();
+        scrollToProjectCard(currentIndex + 1);
+    });
+
+    projectsMain.addEventListener("scroll", () => {
+        if (isTransitioning) return;
+
+        const maxIndex = projectCardsWithClones.length - 1;
+        const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+
+        if (scrollIndex === 0) {
+            isTransitioning = true;
+            projectsMain.style.scrollBehavior = "auto";
+            requestAnimationFrame(() => {
+                projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
+                projectsMain.style.scrollBehavior = "";
+                isTransitioning = false;
+            });
+        } else if (scrollIndex === maxIndex) {
+            isTransitioning = true;
+            projectsMain.style.scrollBehavior = "auto";
+            requestAnimationFrame(() => {
+                projectsMain.scrollLeft = cardWidth;
+                projectsMain.style.scrollBehavior = "";
+                isTransitioning = false;
+            });
+        }
+    });
+}
 
 let isTransitioning = false;
 
@@ -91,41 +132,6 @@ function getCurrentCardIndex() {
     let curIndex = Math.round(projectsMain.scrollLeft / cardWidth);
     return curIndex;
 }
-
-leftSlideArrow.addEventListener("click", () => {
-    let currentIndex = getCurrentCardIndex();
-    scrollToProjectCard(currentIndex - 1);
-});
-
-rightSlideArrow.addEventListener("click", () => {
-    let currentIndex = getCurrentCardIndex();
-    scrollToProjectCard(currentIndex + 1);
-});
-
-projectsMain.addEventListener("scroll", () => {
-    if (isTransitioning) return;
-
-    const maxIndex = projectCardsWithClones.length - 1;
-    const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
-
-    if (scrollIndex === 0) {
-        isTransitioning = true;
-        projectsMain.style.scrollBehavior = "auto";
-        requestAnimationFrame(() => {
-            projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
-            projectsMain.style.scrollBehavior = "";
-            isTransitioning = false;
-        });
-    } else if (scrollIndex === maxIndex) {
-        isTransitioning = true;
-        projectsMain.style.scrollBehavior = "auto";
-        requestAnimationFrame(() => {
-            projectsMain.scrollLeft = cardWidth;
-            projectsMain.style.scrollBehavior = "";
-            isTransitioning = false;
-        });
-    }
-});
 
 // import { delay } from "./debug.js";
 // import { projectCards } from "./image_rotation.js";

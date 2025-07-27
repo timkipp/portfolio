@@ -1,11 +1,16 @@
 import { delay } from "./debug.js";
 import { projectCards } from "./image_rotation.js";
 
-export const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
-export const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
+export const leftSideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
+export const rightSideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
 
 const projectsMain = document.querySelector("#projects > main");
+const progressIndicators = Array.from(document.querySelectorAll(".progress-indicator"));
+let currentProgressIndicator;
+let projectCardsWithClones = [];
 let cardWidth = 0;
+let isTransitioning = false;
+let progressIndicatorIsClicked = false;
 
 export function initializeProjectCarousel() {
     // Clone first and last cards
@@ -24,7 +29,7 @@ export function initializeProjectCarousel() {
     projectsMain.insertBefore(lastCardClone, projectCards[0]);
 
     // Refresh list to include clones
-    const projectCardsWithClones = Array.from(projectsMain.querySelectorAll(".project-card"));
+    projectCardsWithClones = Array.from(projectsMain.querySelectorAll(".project-card"));
 
     // Set initial scroll position to the first real card (index 1 because of prepended lastClone)
     requestAnimationFrame(() => {
@@ -39,43 +44,53 @@ export function initializeProjectCarousel() {
         }, 50);
     });
 
-    leftSlideArrow.addEventListener("click", () => {
+    leftSideArrow.addEventListener("click", () => {
+        console.log("Left Scroll Button clicked");
         let currentIndex = getCurrentCardIndex();
         scrollToProjectCard(currentIndex - 1);
     });
 
-    rightSlideArrow.addEventListener("click", () => {
+    rightSideArrow.addEventListener("click", () => {
+        console.log("Right Scroll Button clicked");
         let currentIndex = getCurrentCardIndex();
         scrollToProjectCard(currentIndex + 1);
     });
 
-    projectsMain.addEventListener("scroll", () => {
-        if (isTransitioning) return;
-
-        const maxIndex = projectCardsWithClones.length - 1;
-        const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
-
-        if (scrollIndex === 0) {
-            isTransitioning = true;
-            projectsMain.style.scrollBehavior = "auto";
-            requestAnimationFrame(() => {
-                projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
-                projectsMain.style.scrollBehavior = "";
-                isTransitioning = false;
-            });
-        } else if (scrollIndex === maxIndex) {
-            isTransitioning = true;
-            projectsMain.style.scrollBehavior = "auto";
-            requestAnimationFrame(() => {
-                projectsMain.scrollLeft = cardWidth;
-                projectsMain.style.scrollBehavior = "";
-                isTransitioning = false;
-            });
-        }
+    currentProgressIndicator = progressIndicators[0];
+    progressIndicators.forEach((indicator, indicatorIndex) => {
+        indicator.addEventListener("click", syncProjectCarousel);
     });
+
+    projectsMain.addEventListener("scroll", triggerProjectCarousel);
 }
 
-let isTransitioning = false;
+function triggerProjectCarousel() {
+    if (isTransitioning) return;
+
+    const lastCardIndex = projectCardsWithClones.length - 1;
+    const cardIndex = getCurrentCardIndex();
+    const indicatorIndex = getCurrentIndicatorIndex();
+
+    syncProjectCarousel(indicatorIndex);
+
+    if (cardIndex === 0) {
+        isTransitioning = true;
+        projectsMain.style.scrollBehavior = "auto";
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth * (lastCardIndex - 1);
+            projectsMain.style.scrollBehavior = "";
+            isTransitioning = false;
+        });
+    } else if (cardIndex === lastCardIndex) {
+        isTransitioning = true;
+        projectsMain.style.scrollBehavior = "auto";
+        requestAnimationFrame(() => {
+            projectsMain.scrollLeft = cardWidth;
+            projectsMain.style.scrollBehavior = "";
+            isTransitioning = false;
+        });
+    }
+}
 
 function scrollToProjectCard(index, smooth = true) {
     if (isTransitioning) return;
@@ -95,6 +110,11 @@ function scrollToProjectCard(index, smooth = true) {
                 // Scroll stopped
                 projectsMain.removeEventListener("scroll", onScroll);
                 isTransitioning = false;
+
+                const indicatorIndex = getCurrentIndicatorIndex();
+                if (!progressIndicatorIsClicked) {
+                    syncProjectCarousel(indicatorIndex);
+                }
                 checkAndResetPosition();
             } else {
                 lastScrollLeft = currentScrollLeft;
@@ -109,35 +129,200 @@ function scrollToProjectCard(index, smooth = true) {
         setTimeout(checkScrollEnd, 50);
     } else {
         isTransitioning = false;
+
+        const indicatorIndex = getCurrentIndicatorIndex();
+        if (!progressIndicatorIsClicked) {
+            syncProjectCarousel(indicatorIndex);
+        }
+
         checkAndResetPosition();
     }
 }
 
-function checkAndResetPosition() {
-    const maxIndex = projectCardsWithClones.length - 1;
-    const scrollIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+// function syncProjectCarousel(indicatorIndex) {
+//     if (this instanceof Element) {
+//         progressIndicatorClicked = true;
 
-    if (scrollIndex === 0) {
-        requestAnimationFrame(() => {
-            projectsMain.scrollLeft = cardWidth * (maxIndex - 1);
+//         const targetProgressIndicator = this;
+//         currentProgressIndicator.classList.remove("current");
+//         targetProgressIndicator.classList.add("current");
+
+//         const currentCardIndex = getCurrentCardIndex();
+//         const lastCardIndex = progressIndicators.length;
+//         const targetCardIndex = indicatorIndex + 1;
+
+//         console.log('\n⭐ PROGRESS INDICATOR CLICKED <span data-index="' + targetProgressIndicator.dataset.index + '" > clicked');
+//         console.log("Last Card Index: ", lastCardIndex);
+
+//         if (targetCardIndex === currentCardIndex) {
+//             console.log("Clicked on the current project; no action taken.");
+//             return;
+//         }
+
+//         // Default direction and click count
+//         let direction = "right";
+//         let clickCount = 1;
+
+//         if (currentCardIndex === 1 && targetCardIndex === lastCardIndex) {
+//             console.log("1️⃣✔️ First condition met: Wrap backward from first to last 🔁");
+//             direction = "left";
+//         } else if (currentCardIndex === lastCardIndex && targetCardIndex === 1) {
+//             console.log("2️⃣✔️ Second condition met: Wrap forward from last to first 🔁");
+//             direction = "right";
+//         } else if (currentCardIndex === lastCardIndex && targetCardIndex < currentCardIndex) {
+//             // NEW CONDITION: wrap forward from last to earlier card (but not all the way to first)
+//             console.log("3️⃣ ✔️ Third condition met: Wrap forward from last to earlier card 🔁");
+//             direction = "right";
+//             clickCount = targetCardIndex;
+//         } else if (targetCardIndex > currentCardIndex) {
+//             console.log("4️⃣✔️ Fourth condition met: Move forward normally ⏭️");
+//             clickCount = targetCardIndex - currentCardIndex;
+//         } else if (targetCardIndex < currentCardIndex) {
+//             console.log("5️⃣✔️ Fifth condition met: Move backward normally ⏮️");
+//             direction = "left";
+//             clickCount = currentCardIndex - targetCardIndex;
+//         } else {
+//             console.log("No conditions met");
+//         }
+
+//         console.log("🖱️ Click Count:", clickCount);
+//         console.log("🧭 Direction:", direction);
+
+//         const clickEvent = new MouseEvent("click");
+//         for (let i = 0; i < clickCount; i++) {
+//             if (direction === "left") {
+//                 leftSideArrow.dispatchEvent(clickEvent);
+//             } else {
+//                 rightSideArrow.dispatchEvent(clickEvent);
+//             }
+//         }
+
+//         progressIndicatorClicked = false;
+//     } else {
+//         progressIndicators.forEach((indicator, i) => {
+//             const isNewCurrentIndicator = i === indicatorIndex;
+//             indicator.classList.toggle("current", isNewCurrentIndicator);
+
+//             if (isNewCurrentIndicator) {
+//                 currentProgressIndicator = indicator;
+//             }
+//         });
+//     }
+// }
+
+// ChatGPT Suggestion
+
+function syncProjectCarousel(indicatorIndex) {
+    if (this instanceof Element) {
+        progressIndicatorIsClicked = true;
+
+        const clickedProgressIndicator = this;
+        const indicatorClickedIndex = progressIndicators.indexOf(clickedProgressIndicator);
+        currentProgressIndicator.classList.remove("current");
+        clickedProgressIndicator.classList.add("current");
+
+        // const indicatorClickedIndex = targertProgressIndicator.dataset.index;
+        const currentCardIndex = getCurrentCardIndex();
+        const lastCardIndex = progressIndicators.length;
+        const targetCardIndex = indicatorClickedIndex + 1;
+
+        console.log("\nProgress Indicator " + clickedProgressIndicator.dataset.index + " clicked");
+        // console.log("Last Card Index: ", lastCardIndex);
+
+        if (targetCardIndex === currentCardIndex) {
+            console.log("Clicked on the current project; no action taken.");
+            return;
+        }
+
+        let clickCount = 1;
+
+        // console.log("🖱️ Click Count:", clickCount);
+
+        const clickEvent = new MouseEvent("click");
+        for (let i = 0; i < clickCount; i++) {
+            scrollToProjectCard(targetCardIndex);
+        }
+
+        const activeProjectCard = document.querySelector("div.active");
+        const activeProjectIndex = activeProjectCard.dataset.index;
+
+        const activeProgressIndicator = document.querySelector("span.current");
+        const activeIndicatorIndex = activeProgressIndicator.dataset.index;
+
+        // console.log("Active Project: " + activeProjectIndex);
+        // console.log("Active Progress Indicator: ", activeIndicatorIndex);
+
+        const projectsSynced = activeProjectIndex == activeIndicatorIndex;
+        const indicatorsSynced = activeIndicatorIndex == indicatorClickedIndex;
+        const carouselSynced = projectsSynced && indicatorsSynced;
+
+        // if (carouselSynced) {
+        //     console.log("✅ Carousel Synced!");
+        // } else {
+        //     if (!projectsSynced) {
+        //         console.log("❌ Active project does not match the progress indicator that was clicked.");
+        //     }
+        //     if (!indicatorsSynced) {
+        //         console.log("❌ Active progress indicator does not match the progress indicator that was clicked.");
+        //     }
+        // }
+
+        progressIndicatorIsClicked = false;
+    } else {
+        progressIndicators.forEach((indicator, i) => {
+            const isNewCurrentIndicator = i === indicatorIndex;
+            indicator.classList.toggle("current", isNewCurrentIndicator);
+
+            if (isNewCurrentIndicator) {
+                currentProgressIndicator = indicator;
+            }
         });
-    } else if (scrollIndex === maxIndex) {
+    }
+}
+
+//
+
+function checkAndResetPosition() {
+    console.log("'checkAndResetPosition' called");
+    const lastCardIndex = projectCardsWithClones.length - 1;
+    const cardIndex = getCurrentCardIndex();
+
+    if (cardIndex === 0) {
         requestAnimationFrame(() => {
+            console.log("Clone Card! Scrolling to original last card now...");
+            projectsMain.scrollLeft = cardWidth * (lastCardIndex - 1);
+        });
+    } else if (cardIndex === lastCardIndex) {
+        requestAnimationFrame(() => {
+            console.log("Clone card! Scrolling to original first card now...");
             projectsMain.scrollLeft = cardWidth;
         });
     }
 }
 
 function getCurrentCardIndex() {
-    let curIndex = Math.round(projectsMain.scrollLeft / cardWidth);
-    return curIndex;
+    let cardIndex = Math.round(projectsMain.scrollLeft / cardWidth);
+    return cardIndex;
+}
+
+function getCurrentIndicatorIndex() {
+    const cardIndex = getCurrentCardIndex();
+    let indicatorIndex = cardIndex - 1;
+
+    if (indicatorIndex < 0) {
+        indicatorIndex = progressIndicators.length - 1;
+    } else if (indicatorIndex >= progressIndicators.length) {
+        indicatorIndex = 0;
+    }
+
+    return indicatorIndex;
 }
 
 // import { delay } from "./debug.js";
 // import { projectCards } from "./image_rotation.js";
 
-// export const leftSlideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
-// export const rightSlideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
+// export const leftSideArrow = document.querySelector(".icon-tabler-circle-chevron-left");
+// export const rightSideArrow = document.querySelector(".icon-tabler-circle-chevron-right");
 // export const projectsMain = document.querySelector("#projects > main");
 
 // const progressIndicators = document.querySelectorAll(".progress-indicator");
@@ -173,13 +358,13 @@ function getCurrentCardIndex() {
 //         projectsMain.scrollLeft = cardWidth;
 //     }, 50);
 
-//     leftSlideArrow.addEventListener("click", () => {
+//     leftSideArrow.addEventListener("click", () => {
 //         console.log("⬅️ Left side arrow clicked!");
 //         let currentIndex = getVisibleCardIndex();
 //         scrollToProjectCard(currentIndex - 1);
 //     });
 
-//     rightSlideArrow.addEventListener("click", () => {
+//     rightSideArrow.addEventListener("click", () => {
 //         console.log("➡️ Right side arrow clicked!");
 //         let currentIndex = getVisibleCardIndex();
 //         scrollToProjectCard(currentIndex + 1);
@@ -233,9 +418,9 @@ function getCurrentCardIndex() {
 //             const clickEvent = new MouseEvent("click");
 //             for (let i = 0; i < clickCount; i++) {
 //                 if (direction === "left") {
-//                     leftSlideArrow.dispatchEvent(clickEvent);
+//                     leftSideArrow.dispatchEvent(clickEvent);
 //                 } else {
-//                     rightSlideArrow.dispatchEvent(clickEvent);
+//                     rightSideArrow.dispatchEvent(clickEvent);
 //                 }
 //                 await delay(300);
 //             }

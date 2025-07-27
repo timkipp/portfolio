@@ -7,16 +7,10 @@ export function setRealVH() {
 
 export function initializeSectionObserver() {
     const sectionTitle = document.getElementById("section-title");
-    const sections = [
-        { id: "home", color: "#412F30" },
-        { id: "about", color: "#FFFFEB" },
-        { id: "projects", color: "#412F30" },
-        { id: "resume", color: "#412F30" },
-        { id: "email", color: "#FFFFEB" },
-    ];
+    const sections = [{ id: "home" }, { id: "about" }, { id: "projects" }, { id: "resume" }, { id: "email" }];
     const options = {
         root: null,
-        rootMargin: "0px 0px -30% 0px", // triggers when 50% of section is visible
+        rootMargin: "0px 0px -30% 0px", // triggers when 30% of section is visible
         threshold: 0.6,
     };
     let hasLoaded = false;

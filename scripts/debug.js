@@ -1,5 +1,5 @@
 export function initializeDebugging() {
-    console.clear();
+    // console.clear();
 }
 
 export function delay(ms) {

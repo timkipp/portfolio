@@ -16,7 +16,11 @@
         border-radius: revert;
     }
 
-    body > header h1 {
+    body > header > h1 {
+        box-shadow: -7px -7px 8px rgba(255, 255, 255, 0.6), inset 4px 4px 0 rgba(255, 255, 255, 0.3), inset -4px 0px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    body > header > h1 > span {
         font-size: clamp(1.75rem, 6cqh, 3.75rem);
         color: #ffffeb;
         text-shadow: 0px 4px 3px black;
@@ -26,23 +30,19 @@
     }
 
     body > header nav {
-        margin-top: revert;
-        margin-bottom: -5px;
+        padding-top: clamp(0.25em, 2.5cqb, 1.5em);
+        box-shadow: -6px -6px 8px rgba(255, 255, 255, 0.6), inset 3px 3px 0 rgba(255, 255, 255, 0.3), inset -3px 0px 0 rgba(0, 0, 0, 0.2);
     }
 
     body > footer nav {
-        margin-top: 5px;
-        margin-bottom: revert;
+        padding-bottom: clamp(0.25em, 2.5cqb, 1.5em);
+        box-shadow: inset 3px -3px 0 rgba(255, 255, 255, 0.3), inset -3px 0px 0 rgba(0, 0, 0, 0.2);
     }
 
     nav ul li a {
         font-size: clamp(0.75rem, 40cqh, 1.125rem);
         padding-top: 0.25rem;
         padding-bottom: 0.25rem;
-    }
-
-    #home #logo-stack {
-        font-size: clamp(0.625rem, 1.5vw, 1.125rem);
     }
 
     svg.slide-arrow {
@@ -73,10 +73,22 @@
         transition: opacity 0.4s ease;
     }
 
+    body > main > #home {
+        max-width: 300px;
+        padding: 0;
+    }
+
+    #home #logo-stack {
+        font-size: clamp(0.625rem, 5cqh, 1.125rem);
+    }
+
     #home #web {
-        font-size: clamp(1.5rem, 10vw, 3.75rem);
+        margin-top: clamp(-15px, -8cqh, -10px);
+        padding-top: 0;
+        font-size: clamp(1.5rem, 30cqh, 6rem);
         text-shadow: 0.1em 0.1em 9px rgba(0, 0, 0, 0.5);
         color: transparent;
+        line-height: 1;
         text-shadow: 0px 3px 3px #e26d5a;
         -webkit-background-clip: text;
         background-clip: text;
@@ -84,21 +96,22 @@
 
     #home #development {
         align-items: flex-end;
-        margin-top: clamp(-75px, -2vw, -15px);
         color: #4ca1af;
+        margin-top: clamp(-1lh, -2lh, -1.2lh);
     }
 
     #home #name {
         margin: 5px 0;
-        padding: 10px 0;
-        font-size: clamp(1.25rem, 3vw, 4.5rem);
+        padding-top: clamp(5px, 1cqh, 10px);
+        padding-bottom: clamp(5px, 1cqh, 10px);
+        font-size: clamp(1.25rem, 10cqh, 4.5rem);
         border-top-width: 2px;
         border-bottom-width: 2px;
     }
 
     #home #titles {
-        margin: 2.5px 0;
-        font-size: 1rem;
+        margin: 0 0;
+        font-size: clamp(1rem, 6.5cqh, 2rem);
     }
 
     #home #titles h3 {

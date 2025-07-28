@@ -229,15 +229,16 @@
     border: 2px solid #f2bc71;
     border-radius: 50%;
     cursor: pointer;
-    transition: border-width 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 
-#projects #carousel-progress .progress-indicator:hover {
-    border-width: clamp(12px, 2.5cqw, 24px);
+#projects #carousel-progress .progress-indicator:not(.current):hover {
+    background-color: #f2bc71;
 }
 
 #projects #carousel-progress .progress-indicator.current {
     background-color: #4ca1af;
+    pointer-events: none;
 }
 
 /* @container projects (max-height: 960px) {

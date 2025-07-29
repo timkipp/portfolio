@@ -204,6 +204,7 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-template-rows: auto 1fr;
+        align-items: start;
         height: 100%;
         width: 100%;
         scroll-snap-align: start;
@@ -214,8 +215,7 @@
         grid-row: 1;
         align-self: start;
         width: revert;
-        font-size: clamp(1.25rem, 13cqh, 3.25rem);
-        /* line-height: clamp(1.5rem, 18cqh, 3.5rem); */ /* This style possibly has no effect.*/
+        font-size: clamp(1.25rem, 18cqh, 3.25rem);
         text-align: center !important;
     }
 
@@ -226,10 +226,9 @@
         margin-top: 0;
         margin-bottom: 0;
         font-size: clamp(1.125rem, 8cqh, 2rem);
-        line-height: clamp(1.25rem, 10.5cqh, 2.25rem);
+        line-height: clamp(1.25rem, 10.5cqh, 10rem);
         text-align: left;
         text-align-last: auto !important;
-        /* text-wrap: balance; */
     }
 
     #about > main .value-panel img {
@@ -245,14 +244,6 @@
 
     #about > main #creativity h3 {
         font-weight: bold;
-    }
-
-    #about > main #compassion h3 {
-        font-size: clamp(1.25rem, 16cqh, 3.25rem);
-    }
-
-    #about > main #compassion p em.value-word {
-        font-size: 1.5em;
     }
 
     #projects {
@@ -285,10 +276,6 @@
         width: 100%;
         scroll-snap-align: start;
     }
-
-    /* #projects > main > .project-card:nth-child(even) {
-        flex-direction: row;
-    } */
 
     #projects > main > .project-card:nth-child(3),
     #projects > main > .project-card:nth-child(4) {

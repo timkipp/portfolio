@@ -1,5 +1,5 @@
 /* For phones, portrait orientation */
-@media (max-width: 599px) {
+@media (max-width: 599px) and (orientation: portrait) {
     body {
         grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr;
     }

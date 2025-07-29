@@ -112,20 +112,20 @@
 
 #about > main #curiosity p em.value-word {
     color: #f2bc71;
-    font-family: "Margarine";
+    /* font-family: "Margarine"; */
 }
 
 #about > main #creativity p em.value-word {
     color: #e26d5a;
-    font-family: "Syncopate";
+    /* font-family: "Syncopate"; */
     font-weight: bold;
 }
 
 #about > main #compassion p em.value-word {
     color: #4ca1af;
-    font-family: "Clicker Script";
-    font-size: 1.25em;
+    /* font-family: "Clicker Script"; */
+    /* font-size: 1.25em; */
     font-weight: bold;
-    vertical-align: middle;
-    line-height: 1.25;
+    /* vertical-align: middle; */
+    /* line-height: 1.25; */
 }

@@ -1,300 +1,315 @@
 /* for tablets in portrait orientation */
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-    body {
-        /* grid-template-columns: 0.5fr 1.25fr 3fr 1.25fr 0.5fr; */
-    }
-
     .debug #tablets-portrait {
         display: flex;
         color: white;
         background-color: purple;
     }
 
-    nav ul li a > svg {
-        display: inline;
-        vertical-align: text-bottom;
-    }
+    body {
+        nav ul li a {
+            & > svg {
+                display: inline;
+                vertical-align: text-bottom;
+            }
 
-    nav ul li a > span {
-        display: none;
+            & > span {
+                display: none;
+            }
+        }
     }
 
     #home {
         padding-left: clamp(1em, 3.5cqw, 3em);
         padding-right: clamp(1em, 3.5cqw, 3em);
+
+        & #titles h3 {
+            flex-direction: column;
+
+            &:last-of-type {
+                align-items: flex-end;
+                row-gap: clamp(0.5em, 1.5cqh, 1em);
+            }
+
+            &:first-of-type div {
+                justify-content: flex-start;
+            }
+
+            &:first-of-type div span {
+                margin-right: clamp(0.25em, 1.5cqw, 1em);
+            }
+
+            &:last-of-type div {
+                justify-content: flex-end;
+            }
+
+            &:last-of-type div span {
+                margin-right: clamp(0.25em, 1.5cqw, 2em);
+            }
+        }
+
+        & #titles .delimiter {
+            display: none;
+        }
     }
 
-    #home #titles h3 {
-        flex-direction: column;
-    }
+    #about {
+        & > header {
+            & h1 {
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: clamp(3.5rem, 6.5vw, 10rem);
+                line-height: clamp(4.5rem, 7.5vw, 12rem);
 
-    #home #titles h3:last-of-type {
-        align-items: flex-end;
-        row-gap: clamp(0.5em, 1.5cqh, 1em);
-    }
+                & div {
+                    width: 100%;
+                }
 
-    #home #titles h3:first-of-type div {
-        justify-content: flex-start;
-    }
+                & div:first-of-type span:last-of-type {
+                    display: none;
+                }
+            }
 
-    #home #titles h3:first-of-type div span {
-        margin-right: clamp(0.25em, 1.5cqw, 1em);
-    }
+            & h2 {
+                margin: 1rem 0;
+                color: #f8e3bb;
+                font-family: "Praise";
+                font-size: clamp(3rem, 4vw, 7rem);
+                text-align: center;
+            }
+        }
 
-    #home #titles h3:last-of-type div {
-        justify-content: flex-end;
-    }
+        & > main {
+            & .value-panel {
+                min-width: 0;
 
-    #home #titles h3:last-of-type div span {
-        margin-right: clamp(0.25em, 1.5cqw, 2em);
-    }
+                & h3 {
+                    font-size: clamp(2.125rem, 3.9375vw, 6.25rem);
+                    line-height: clamp(2.5rem, 4.375vw, 7rem);
+                }
 
-    #home #titles .delimiter {
-        display: none;
-    }
+                & p {
+                    margin-top: 1rem;
+                    margin-bottom: 2rem;
+                    font-size: clamp(1.125rem, 1.05vw, 1.625rem);
+                    line-height: 1.5;
+                }
 
-    #about > header h1 {
-        flex-direction: column;
-        justify-content: space-between;
-        font-size: clamp(3.5rem, 6.5vw, 10rem);
-        line-height: clamp(4.5rem, 7.5vw, 12rem);
-    }
+                & img {
+                    width: 90%;
+                }
+            }
 
-    #about > header h1 div {
-        width: 100%;
-    }
+            & #creativity h3 {
+                font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
+            }
 
-    #about > header h1 div:first-of-type span:last-of-type {
-        display: none;
-    }
+            & #compassion h3 {
+                font-size: clamp(2.75rem, 5vw, 7.5rem);
+            }
 
-    #about > header h2 {
-        margin: 1rem 0;
-        color: #f8e3bb;
-        font-family: "Praise";
-        font-size: clamp(3rem, 4vw, 7rem);
-        text-align: center;
-    }
-
-    #about > main .value-panel {
-        min-width: 0;
-    }
-
-    #about > main .value-panel h3 {
-        font-size: clamp(2.125rem, 3.9375vw, 6.25rem);
-        line-height: clamp(2.5rem, 4.375vw, 7rem);
-    }
-
-    #about > main .value-panel p {
-        margin-top: 1rem;
-        font-size: clamp(1.125rem, 1.05vw, 1.625rem);
-        line-height: 1.5;
-    }
-
-    #about > main #creativity h3 {
-        font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
-    }
-
-    #about > main #compassion h3 {
-        font-size: clamp(2.75rem, 5vw, 7.5rem);
-    }
-
-    #about > main .value-panel p {
-        margin-bottom: 2rem;
-    }
-
-    #about > main .value-panel img {
-        width: 90%;
-    }
-
-    #about > main #creativity img {
-        width: 90%;
+            & #creativity img {
+                width: 90%;
+            }
+        }
     }
 
     #projects {
         display: revert;
         width: 100%;
         min-height: revert;
-    }
 
-    #projects > main {
-        container-type: size;
-        container-name: projects-main;
-        display: revert;
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+        & > main {
+            container-type: size;
+            container-name: projects-main;
+            display: revert;
+            width: 100%;
+            height: 100%;
+            position: relative;
 
-    #projects > main > .project-card:not(.project-card-clone) {
-        display: revert;
-        position: absolute;
-        height: 100%;
-    }
+            & > .project-card {
+                &:not(.project-card-clone) {
+                    display: revert;
+                    position: absolute;
+                    height: 100%;
+                }
 
-    #projects > main > .project-card:nth-child(4) {
-        border-top: none;
-    }
+                &:nth-child(4) {
+                    border-top: none;
+                }
 
-    #projects > main > .project-card:nth-child(5) {
-        border-top: none;
-    }
+                &:nth-child(5) {
+                    border-top: none;
+                }
 
-    /* To override default style */
-    #projects > main > .project-card:nth-child(even) {
-        flex-direction: column;
-    }
+                /* To override default style */
+                &:nth-child(even) {
+                    flex-direction: column;
+                }
 
-    #projects > main > .project-card:not(.active) h2,
-    #projects > main > .project-card:not(.active) .figure-card figure figcaption {
-        opacity: 0;
-    }
+                &:not(.active) h2,
+                &:not(.active) .figure-card figure figcaption {
+                    opacity: 0;
+                }
 
-    #project-1 a {
-        z-index: 10;
-    }
-    #project-2 a {
-        z-index: 8;
-    }
-    #project-3 a {
-        z-index: 6;
-    }
-    #project-4 a {
-        z-index: 4;
-    }
+                & h2 {
+                    display: revert;
+                    height: revert;
+                    padding-top: 1.25rem;
+                    padding-bottom: 5rem;
+                    text-align: center;
 
-    #projects > main > .project-card h2 {
-        display: revert;
-        height: revert;
-        padding-top: 1.25rem;
-        padding-bottom: 5rem;
-        text-align: center;
-    }
+                    & a {
+                        display: inline-block;
+                        width: revert;
+                        padding: 0.5rem 0;
+                        font-variation-settings: "wght" 300;
+                        font-size: clamp(3rem, 7.38cqh, 5rem);
+                        /* font-size: 80px; */
+                        letter-spacing: 2rem;
+                        writing-mode: revert;
 
-    #projects > main > .project-card h2 a {
-        display: inline-block;
-        width: revert;
-        padding: 0.5rem 0;
-        font-variation-settings: "wght" 300;
-        font-size: clamp(3rem, 7.38cqh, 5rem);
-        /* font-size: 80px; */
-        letter-spacing: 2rem;
-        writing-mode: revert;
-    }
+                        &::before,
+                        &::after {
+                            top: auto;
+                            bottom: 0;
+                            height: 2px;
+                            width: 100%;
+                            transform-origin: right;
+                            transform: scaleX(1);
+                        }
 
-    #projects > main > .project-card:nth-child(even) h2 a {
-        transform: none;
-    }
+                        &::before {
+                            top: 0;
+                            bottom: auto;
+                            transform: scaleX(0);
+                            transform-origin: left;
+                        }
 
-    #projects > main > .project-card h2 a::before,
-    #projects > main > .project-card h2 a::after {
-        top: auto;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        transform-origin: right;
-        transform: scaleX(1);
-    }
+                        &:hover {
+                            &::before {
+                                transform: scaleX(1);
+                            }
 
-    #projects > main > .project-card h2 a::before {
-        top: 0;
-        bottom: auto;
-        transform: scaleX(0);
-        transform-origin: left;
-    }
+                            &::after {
+                                transform: scaleX(0);
+                            }
+                        }
+                    }
+                }
 
-    #projects > main > .project-card h2 a:hover::before {
-        transform: scaleX(1);
-    }
+                &:nth-child(even) h2 a {
+                    transform: none;
+                }
 
-    #projects > main > .project-card h2 a:hover::after {
-        transform: scaleX(0);
-    }
+                & .figure-card {
+                    position: revert;
+                    width: revert;
+                    height: 80%;
+                    aspect-ratio: revert;
+                    perspective: revert;
 
-    #projects > main > .project-card .figure-card {
-        position: revert;
-        width: revert;
-        height: 80%;
-        aspect-ratio: revert;
-        perspective: revert;
-    }
+                    & figure {
+                        display: revert;
+                        /* position: revert; */
+                        width: revert;
+                        height: 100%;
+                        transform: none;
+                        transition: none;
+                        transform-style: unset;
 
-    #projects > main > .project-card .figure-card figure {
-        display: revert;
-        /* position: revert; */
-        width: revert;
-        height: 100%;
-        transform: none;
-        transition: none;
-        transform-style: unset;
-    }
+                        & > * {
+                            position: revert;
+                            width: revert;
+                            height: revert;
+                            -webkit-backface-visibility: revert;
+                            backface-visibility: revert;
+                            transition: border-width 0.3s ease;
+                        }
 
-    #projects > main > .project-card .figure-card.flipped figure {
-        transform: none;
-    }
+                        & img {
+                            z-index: revert;
+                            object-fit: revert;
+                            width: 80%;
+                            height: auto;
+                            transition: top 0.5s ease, left 0.5s ease, z-index 0.5s ease;
+                        }
 
-    #projects > main > .project-card .figure-card figure > * {
-        position: revert;
-        width: revert;
-        height: revert;
-        -webkit-backface-visibility: revert;
-        backface-visibility: revert;
-        transition: border-width 0.3s ease;
-    }
+                        & figcaption {
+                            display: revert;
+                            position: relative;
+                            z-index: revert;
+                            width: 95%;
+                            height: auto;
+                            margin-top: 5rem; /* auto 0 auto;*/
+                            color: #f2bc71;
+                            font-size: 1.5rem;
+                            /* font-size: clamp(1rem, 2.25cqh, 2rem); */
+                            background-color: revert;
+                            interpolate-size: allow-keywords;
+                            transform: none;
+                            transition: height 5s ease;
+                        }
+                    }
 
-    #projects > main > .project-card .figure-card figure img {
-        z-index: revert;
-        object-fit: revert;
-        width: 80%;
-        height: auto;
-        transition: top 0.5s ease, left 0.5s ease, z-index 0.5s ease;
-    }
+                    &.flipped figure {
+                        transform: none;
+                    }
 
-    #projects > main #project-1 img {
-        position: relative;
-        top: 50px;
-        left: 50px;
-        z-index: 10;
-    }
+                    & svg {
+                        display: none;
+                    }
+                }
+            }
+        }
 
-    #projects > main #project-2 img {
-        position: relative;
-        top: 15px;
-        left: 15px;
-        z-index: 8;
-    }
+        #project-1 {
+            & a {
+                z-index: 10;
+            }
 
-    #projects > main #project-3 img {
-        position: relative;
-        top: -20px;
-        left: -20px;
-        z-index: 6;
-    }
+            & img {
+                position: relative;
+                top: 50px;
+                left: 50px;
+                z-index: 10;
+            }
+        }
+        #project-2 {
+            & a {
+                z-index: 8;
+            }
 
-    #projects > main #project-4 img {
-        position: relative;
-        top: -55px;
-        left: -55px;
-        z-index: 4;
-    }
+            & img {
+                position: relative;
+                top: 15px;
+                left: 15px;
+                z-index: 8;
+            }
+        }
+        #project-3 {
+            & a {
+                z-index: 6;
+            }
 
-    #projects > main > .project-card .figure-card figure figcaption {
-        display: revert;
-        position: relative;
-        z-index: revert;
-        width: 95%;
-        height: auto;
-        margin-top: 5rem; /* auto 0 auto;*/
-        color: #f2bc71;
-        font-size: 1.5rem;
-        /* font-size: clamp(1rem, 2.25cqh, 2rem); */
-        background-color: revert;
-        interpolate-size: allow-keywords;
-        transform: none;
-        transition: height 5s ease;
-    }
+            & img {
+                position: relative;
+                top: -20px;
+                left: -20px;
+                z-index: 6;
+            }
+        }
+        #project-4 {
+            & a {
+                z-index: 4;
+            }
 
-    #projects > main .project-card .figure-card svg {
-        display: none;
+            & img {
+                position: relative;
+                top: -55px;
+                left: -55px;
+                z-index: 4;
+            }
+        }
     }
 }

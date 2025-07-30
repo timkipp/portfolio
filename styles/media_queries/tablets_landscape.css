@@ -5,121 +5,109 @@
         background-color: orange;
     }
 
-    /* #about > header h1 {
-        font-size: clamp(2.25rem, 4vw, 7rem);
-        font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
-    } */
+    #about > main {
+        & .value-panel p {
+            margin-top: 0.5rem;
+            font-size: clamp(1rem, 0.75vw, 1.25rem);
+            line-height: 1.5;
+        }
 
-    /* #about > header h2 {
-        font-size: clamp(1.25rem, 2vw, 3rem);
-        text-align: center;
-    } */
+        & #compassion p em.value-word {
+            font-size: 1.5em;
+            line-height: 1.25;
+        }
 
-    /* #about > main .value-panel h3 {
-        font-size: clamp(1.5rem, 2.75vw, 5rem);
-        line-height: clamp(2rem, 3.75vw, 6rem);
-    } */
-
-    #about > main .value-panel p {
-        margin-top: 0.5rem;
-        font-size: clamp(1rem, 0.75vw, 1.25rem);
-        line-height: 1.5;
+        & .value-panel img {
+            width: 60%;
+        }
     }
 
-    /* #about > main #compassion h3 {
-        font-size: clamp(2rem, 3.75vw, 6rem);
-    } */
+    #projects > main {
+        & > .project-card {
+            & .figure-card {
+                & figure figcaption {
+                    padding: 0.5rem;
+                }
 
-    #about > main #compassion p em.value-word {
-        font-size: 1.5em;
-        line-height: 1.25;
-    }
-
-    #about > main .value-panel img {
-        width: 60%;
-    }
-
-    #projects > main > .project-card .figure-card figure figcaption {
-        padding: 0.5rem;
-    }
-
-    #projects > main .project-card .figure-card svg {
-        bottom: 0.5cqh;
-        width: 3cqw !important;
-        padding: 0.25cqw;
-    }
-    #projects > main .project-card:nth-child(even) .figure-card svg {
-        left: 1cqw;
-    }
-    #projects > main .project-card:nth-child(odd) .figure-card svg {
-        right: 1cqw;
+                & svg {
+                    bottom: 0.5cqh;
+                    width: 3cqw !important;
+                    padding: 0.25cqw;
+                }
+            }
+            &:nth-child(even) .figure-card svg {
+                left: 1cqw;
+            }
+            &:nth-child(odd) .figure-card svg {
+                right: 1cqw;
+            }
+        }
     }
 
     @container projects (max-wdith: 780) {
     }
 
     @container projects (min-height: 650px) {
-        #projects > main .project-card {
+        #projects > main > .project-card {
             flex-direction: column;
             justify-content: center;
-        }
 
-        #projects > main .project-card:nth-child(odd) {
-            flex-direction: column;
-        }
+            &:nth-child(odd) {
+                flex-direction: column;
+            }
 
-        #projects > main .project-card:nth-child(4),
-        #projects > main .project-card:nth-child(5) {
-            flex-direction: column-reverse;
-        }
+            &:nth-child(4),
+            &:nth-child(5) {
+                flex-direction: column-reverse;
 
-        #projects > main .project-card h2 {
-            height: revert;
-            margin-bottom: clamp(1rem, 3cqh, 2rem);
-        }
+                & h2,
+                & h2 {
+                    margin-bottom: 0;
+                    margin-top: clamp(1rem, 3cqh, 2rem);
+                }
+            }
 
-        #projects > main .project-card:nth-child(4) h2,
-        #projects > main .project-card:nth-child(5) h2 {
-            margin-bottom: 0;
-            margin-top: clamp(1rem, 3cqh, 2rem);
-        }
+            & h2 {
+                height: revert;
+                margin-bottom: clamp(1rem, 3cqh, 2rem);
 
-        #projects > main .project-card h2 a {
-            padding-top: clamp(1rem, 1cqh, 2rem);
-            padding-bottom: clamp(1rem, 1cqh, 2rem);
-            padding-left: 0;
-            padding-right: 0;
-            font-size: clamp(2rem, min(6cqw, 4.7cqh), 4rem);
-            writing-mode: revert;
-        }
+                & a {
+                    padding: clamp(1rem, 1cqh, 2rem) 0;
+                    font-size: clamp(2rem, min(6cqw, 4.7cqh), 4rem);
+                    writing-mode: revert;
 
-        #projects > main .project-card:nth-child(even) h2 a {
-            transform: rotate(0deg);
-        }
+                    &::before,
+                    &::after {
+                        top: auto;
+                        bottom: 0;
+                        height: 2px;
+                        width: 100%;
+                        transform-origin: right;
+                        transform: scaleX(1);
+                    }
 
-        #projects > main > .project-card h2 a::before,
-        #projects > main > .project-card h2 a::after {
-            top: auto;
-            bottom: 0;
-            height: 2px;
-            width: 100%;
-            transform-origin: right;
-            transform: scaleX(1);
-        }
+                    &::before {
+                        top: 0;
+                        bottom: auto;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                    }
 
-        #projects > main > .project-card h2 a::before {
-            top: 0;
-            bottom: auto;
-            transform: scaleX(0);
-            transform-origin: left;
-        }
+                    &:hover {
+                        &::before {
+                            transform: scaleX(1);
+                        }
 
-        #projects > main > .project-card h2 a:hover::before {
-            transform: scaleX(1);
-        }
+                        &::after {
+                            transform: scaleX(0);
+                        }
+                    }
+                }
+            }
 
-        #projects > main > .project-card h2 a:hover::after {
-            transform: scaleX(0);
+            &:nth-child(even) h2 a {
+                transform: rotate(0deg);
+            }
         }
     }
 }

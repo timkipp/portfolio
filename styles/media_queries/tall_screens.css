@@ -9,12 +9,15 @@
         flex-direction: column;
         justify-content: center;
 
-        &:nth-child(even) {
+        &:nth-child(odd) {
             flex-direction: column;
 
             & h2 a {
                 transform: rotate(0deg);
             }
+        }
+        &:nth-child(even) {
+            flex-direction: column;
         }
 
         &:nth-child(3),
@@ -148,10 +151,10 @@
                                 }
                             }
                         }
-                    }
 
-                    &:nth-child(even) h2 a {
-                        transform: none;
+                        &:nth-child(even) h2 a {
+                            transform: none;
+                        }
                     }
 
                     & .figure-card {

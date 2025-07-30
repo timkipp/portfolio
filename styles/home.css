@@ -1,139 +1,131 @@
-body > main #home {
+#home {
     container-type: size;
     container-name: home;
     width: 100%;
     max-width: 900px;
-}
 
-body > main section > hgroup {
-    width: 100%;
-}
+    & > hgroup {
+        width: 100%;
+        margin: 0 auto;
+        overflow-x: visible;
+    }
 
-body > main::-webkit-scrollbar {
-    display: none;
-}
+    & #logo-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 100%;
+        overflow: visible;
+        font-variation-settings: "wght" 300;
+        font-size: clamp(1rem, min(5.94cqw, 4.88cqh), 3.875rem);
 
-body > main hgroup {
-    margin: 0 auto;
-    overflow-x: visible;
-}
+        & h1 {
+            width: 100%;
+        }
 
-#home #logo-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 100%;
-    overflow: visible;
-    font-variation-settings: "wght" 300;
-    font-size: clamp(1rem, min(5.94cqw, 4.88cqh), 3.875rem);
-}
+        & .word {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+        }
 
-#home #logo-stack h1 {
-    width: 100%;
-}
+        & #web {
+            overflow-x: visible;
+            margin-top: -2rem;
+            font-variation-settings: "wght" 700;
+            font-size: clamp(7.5rem, 29.698cqw, 16rem);
+            background-color: black;
+            color: transparent;
+            line-height: 0.875;
+            text-shadow: 0px 4px 3px #e26d5a;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
 
-#home #web {
-    overflow-x: visible;
-    margin-top: -2rem;
-    font-variation-settings: "wght" 700;
-    font-size: clamp(7.5rem, 29.698cqw, 16rem);
-    background-color: black;
-    color: transparent;
-    line-height: 0.875;
-    text-shadow: 0px 4px 3px #e26d5a;
-    -webkit-background-clip: text;
-    background-clip: text;
-}
+        & #design {
+            justify-content: space-between;
+            align-items: flex-start;
+            color: #f2bc71;
+        }
 
-#home .word {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 100%;
-}
+        & #development {
+            align-items: flex-end;
+            margin-top: clamp(-1.5lh, -3.5lh, -1.2lh);
+            color: #4ca1af;
+        }
+    }
 
-#home #design {
-    justify-content: space-between;
-    align-items: flex-start;
-    color: #f2bc71;
-}
+    & #name {
+        position: relative;
+        margin: 10px 0px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: #ffffeb;
+        font-variation-settings: "wght" 600;
+        font-size: clamp(1.5rem, 10.67cqmin, 6rem);
+        border-top-width: 5px;
+        border-top-style: solid;
+        border-top-color: #e26d5a;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: #e26d5a;
 
-#home #development {
-    align-items: flex-end;
-    margin-top: clamp(-1.5lh, -3.5lh, -1.2lh);
-    color: #4ca1af;
-}
+        & h2 {
+            display: flex;
+            justify-content: space-between;
 
-#home #name {
-    position: relative;
-    margin: 10px 0px;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    color: #714f50;
-    color: #ffffeb;
-    font-variation-settings: "wght" 600;
-    font-size: clamp(1.5rem, 10.67cqmin, 6rem);
-    border-top-width: 5px;
-    border-top-style: solid;
-    border-top-color: #e26d5a;
-    border-bottom-width: 5px;
-    border-bottom-style: solid;
-    border-bottom-color: #e26d5a;
-}
+            & span:nth-of-type(2),
+            & span:nth-of-type(6) {
+                position: relative;
+                top: 0.12em;
+                font-family: "Praise", cursive;
+            }
+        }
+    }
 
-#home #name h2 {
-    display: flex;
-    justify-content: space-between;
-}
+    & #titles {
+        display: flex;
+        justify-content: space-between;
+        margin-top: clamp(0.25rem, 1cqh, 2rem);
+        font-variation-settings: "wght" 400;
+        font-size: clamp(1.25rem, 3.56cqmin, 2rem);
 
-#home #name h2 span:nth-of-type(2),
-#name h2 span:nth-of-type(6) {
-    position: relative;
-    top: 0.12em;
-    font-family: "Praise", cursive;
-}
+        & h3 {
+            display: flex;
+            justify-content: space-between;
 
-#home #titles {
-    display: flex;
-    justify-content: space-between;
-    margin-top: clamp(0.25rem, 1cqh, 2rem);
-    font-variation-settings: "wght" 400;
-    font-size: clamp(1.25rem, 3.56cqmin, 2rem);
-}
+            &:first-of-type,
+            &:last-of-type {
+                width: 100%;
+            }
 
-#home #titles h3 {
-    display: flex;
-    justify-content: space-between;
-}
+            &:first-of-type div,
+            &:last-of-type div {
+                width: 100%;
+            }
 
-#home #titles h3:first-of-type,
-#titles h3:last-of-type {
-    width: 100%;
-}
+            & div {
+                display: flex;
+                justify-content: space-between;
 
-#home #titles h3:first-of-type div,
-#titles h3:last-of-type div {
-    width: 100%;
-}
+                & .title-1 {
+                    color: #f2bc71;
+                }
 
-#home #titles h3 div {
-    display: flex;
-    justify-content: space-between;
-}
+                & .delimiter {
+                    color: #e26d5a;
+                }
 
-#home #titles .title-1 {
-    color: #f2bc71;
-}
+                & .delimiter:nth-child(4) {
+                    margin-left: clamp(1em, 5cqw, 5em);
+                    margin-right: clamp(1em, 5cqw, 5em);
+                }
 
-#home #titles .delimiter {
-    color: #e26d5a;
-}
-
-#home #titles .delimiter:nth-child(4) {
-    margin-left: clamp(1em, 5cqw, 5em);
-    margin-right: clamp(1em, 5cqw, 5em);
-}
-
-#home #titles .title-2 {
-    color: #4ca1af;
+                & .title-2 {
+                    color: #4ca1af;
+                }
+            }
+        }
+    }
 }

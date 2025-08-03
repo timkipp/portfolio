@@ -64,11 +64,11 @@ export function initializeSectionObserver() {
                     updateTitle();
 
                     if (displaySlideArrows) {
-                        document.querySelectorAll("svg.slide-arrow").forEach((arrow) => {
+                        document.querySelectorAll("svg.side-arrow").forEach((arrow) => {
                             arrow.classList.add("visible");
                         });
                     } else {
-                        document.querySelectorAll("svg.slide-arrow").forEach((arrow) => {
+                        document.querySelectorAll("svg.side-arrow").forEach((arrow) => {
                             arrow.classList.remove("visible");
                         });
                     }

@@ -1,131 +1,129 @@
 #about {
     container-type: size;
     container-name: about;
-}
 
-#about > header h1 {
-    display: flex;
-    flex-wrap: wrap;
-    color: #a4c4b7;
-    font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
-    font-variation-settings: "wght" 200;
-    text-align: center;
-}
+    & > header {
+        & h1 {
+            display: flex;
+            flex-wrap: wrap;
+            color: var(--opal-color);
+            font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
+            font-variation-settings: "wght" 200;
+            text-align: center;
 
-#about > header h1 div {
-    display: flex;
-    justify-content: space-between;
-    flex: 1 1 50%;
-}
+            & div {
+                display: flex;
+                justify-content: space-between;
+                flex: 1 1 50%;
+            }
 
-#about > header h1.wrapped div:first-child span:last-child {
-    display: none;
-}
+            &.wrapped div:first-child span:last-child {
+                display: none;
+            }
+        }
 
-#about > header h2 {
-    color: #f8e3bb;
-    font-family: "Praise";
-    font-size: clamp(1.5rem, min(10cqw, 8cqh), 4rem);
-    text-align: center;
-}
+        & h2 {
+            color: #f8e3bb;
+            font-family: Praise;
+            font-size: clamp(1.5rem, min(10cqw, 8cqh), 4rem);
+            text-align: center;
+        }
+    }
 
-#about > main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: clamp(2rem, 2.5vw, 4rem);
-}
+    & > main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: clamp(2rem, 2.5vw, 4rem);
 
-#about > main .value-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
+        & .value-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
 
-#about > main .value-panel h3 {
-    width: 100%;
-    font-size: clamp(2rem, min(6.5cqw, 5.5cqh), 6rem);
-    line-height: clamp(2.5rem, min(5.69cqw, 5.31cqh), 7rem);
-}
+            & h3 {
+                width: 100%;
+                font-size: clamp(2rem, min(6.5cqw, 5.5cqh), 6rem);
+                line-height: clamp(2.5rem, min(5.69cqw, 5.31cqh), 7rem);
+            }
 
-#about > main #compassion h3 {
-    font-size: clamp(2.5rem, min(5.5cqw, 5.15cqh), 8rem);
-    /* line-height: clamp(2.5rem, min(5.69cqw, 5.31cqh), 7rem); */
-}
+            & p {
+                margin-top: 1rem;
+                color: #f8e3bb;
+                font-size: clamp(1rem, 0.9375vw, 1.5rem);
+                text-align: justify;
+                line-height: 1.5;
+            }
 
-#about > main .value-panel p {
-    margin-top: 1rem;
-    color: #f8e3bb;
-    font-size: clamp(1rem, 0.9375vw, 1.5rem);
-    text-align: justify;
-    line-height: 1.5;
-}
+            & img {
+                width: 80%;
+                margin: auto 0;
+            }
+        }
 
-#about > main .value-panel img {
-    width: 80%;
-    margin: auto 0;
-}
+        & #curiosity {
+            & h3 {
+                font-family: Margarine;
+                color: var(--curiosity-color);
+                text-align: left;
+            }
 
-#about > main #curiosity h3 {
-    font-family: "Margarine";
-    color: #f2bc71;
-    text-align: left;
-}
+            & p {
+                text-align-last: left;
 
-#about > main #creativity h3 {
-    color: #e26d5a;
-    font-family: "Syncopate";
-    text-align: center;
-}
+                & em {
+                    color: var(--curiosity-color);
 
-#about > main #compassion h3 {
-    color: #4ca1af;
-    font-family: "Clicker Script";
-    font-size: clamp(2.5rem, 4.375vw, 7rem);
-    font-weight: bold;
-    text-align: right;
-}
+                    &.value-word {
+                        color: var(--curiosity-color);
+                        /* font-family: "Margarine"; */
+                    }
+                }
+            }
+        }
 
-#about > main #curiosity p {
-    text-align-last: left;
-}
+        & #creativity {
+            & h3 {
+                color: var(--creativity-color);
+                font-family: Syncopate;
+                text-align: center;
+            }
 
-#about > main #creativity p {
-    text-align-last: center;
-}
+            & p {
+                text-align-last: center;
 
-#about > main #compassion p {
-    text-align-last: right;
-}
+                & em {
+                    color: var(--creativity-color);
 
-#about > main #curiosity p em {
-    color: #f2bc71;
-}
+                    &.value-word {
+                        color: var(--creativity-color);
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
 
-#about > main #creativity p em {
-    color: #e26d5a;
-}
+        & #compassion {
+            & h3 {
+                color: var(--compassion-color);
+                font-size: clamp(2.5rem, min(5.5cqw, 5.15cqh), 8rem);
+                font-family: "Clicker Script";
+                font-weight: bold;
+                text-align: right;
+            }
 
-#about > main #compassion p em {
-    color: #4ca1af;
-}
+            & p {
+                text-align-last: right;
 
-#about > main #curiosity p em.value-word {
-    color: #f2bc71;
-    /* font-family: "Margarine"; */
-}
+                & em {
+                    color: var(--compassion-color);
 
-#about > main #creativity p em.value-word {
-    color: #e26d5a;
-    /* font-family: "Syncopate"; */
-    font-weight: bold;
-}
-
-#about > main #compassion p em.value-word {
-    color: #4ca1af;
-    /* font-family: "Clicker Script"; */
-    /* font-size: 1.25em; */
-    font-weight: bold;
-    /* vertical-align: middle; */
-    /* line-height: 1.25; */
+                    & .value-word {
+                        color: var(--compassion-color);
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }

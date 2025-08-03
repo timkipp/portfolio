@@ -25,8 +25,8 @@ export function enableProjectImageRotation() {
 }
 
 export function reorderProjects(e) {
-    clickedImage = e.currentTarget;
-    targetIndex = projectImages.indexOf(clickedImage);
+    const clickedImage = e.currentTarget;
+    let targetIndex = projectImages.indexOf(clickedImage);
 
     targetIndex = targetIndex === 0 ? 1 : targetIndex;
 

@@ -61,7 +61,7 @@
                     position: relative;
                     width: 100%;
                     padding: 0 1rem;
-                    color: var(--compassion-color);
+                    color: var(--empathy-color);
                     font-size: clamp(1.5rem, 3vw, 4.5rem);
                     letter-spacing: 1cqi;
                     text-align: center;
@@ -175,7 +175,7 @@
                     --border-size: 5px;
 
                     border: var(--border-size) dotted transparent;
-                    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--compassion-color) 180deg, #89c2b8 225deg, var(--opal-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
+                    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--opal-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
                     background-origin: border-box;
                     background-clip: padding-box, border-box;
                     animation: rotate 4s linear infinite;
@@ -194,7 +194,7 @@
                     height: auto;
                     width: 54px;
                     padding: 0.25cqw;
-                    stroke: var(--compassion-color);
+                    stroke: var(--empathy-color);
                     background-color: rgb(255 255 255);
                     border: 10px solid var(--dark-background);
                     border-radius: 50%;
@@ -237,7 +237,7 @@
             }
 
             &.current {
-                background-color: var(--compassion-color);
+                background-color: var(--empathy-color);
                 pointer-events: none;
             }
         }

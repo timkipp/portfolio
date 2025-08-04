@@ -45,7 +45,7 @@
     position: relative;
     width: 100%;
     padding: 0 1rem;
-    color: var(--compassion-color);
+    color: var(--empathy-color);
     font-size: clamp(1.5rem, 3vw, 4.5rem);
     text-align: center;
     text-decoration: none;
@@ -164,7 +164,7 @@
     --border-size: 4px;
     border: var(--border-size) dotted transparent;
     background-image: linear-gradient(to right, var(--light-background), var(--light-background)),
-        /* conic-gradient(from var(--angle), var(--creativity-color) 0deg 90deg, var(--curiosity-color) 90deg 180deg, var(--compassion-color) 180deg 270deg, var(--opal-color) 270deg 360deg); */ conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--compassion-color) 180deg, #89c2b8 225deg, var(--opal-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
+        /* conic-gradient(from var(--angle), var(--creativity-color) 0deg 90deg, var(--curiosity-color) 90deg 180deg, var(--empathy-color) 180deg 270deg, var(--opal-color) 270deg 360deg); */ conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--opal-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     animation: rotate 4s linear infinite;
@@ -195,7 +195,7 @@
     width: 5cqw !important;
     box-sizing: content-box;
     padding: 1.5cqw;
-    stroke: var(--compassion-color);
+    stroke: var(--empathy-color);
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 50%;
     pointer-events: none;

@@ -52,7 +52,7 @@
         & #development {
             align-items: flex-end;
             margin-top: clamp(-1.5lh, -3.5lh, -1.2lh);
-            color: var(--compassion-color);
+            color: var(--empathy-color);
         }
     }
 
@@ -123,7 +123,7 @@
                 }
 
                 & .title-2 {
-                    color: var(--compassion-color);
+                    color: var(--empathy-color);
                 }
             }
         }

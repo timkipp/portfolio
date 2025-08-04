@@ -7,6 +7,7 @@
             display: flex;
             background-color: aqua;
         }
+
         & > header,
         & > footer {
             border-radius: revert;
@@ -196,7 +197,7 @@
                         font-weight: bold;
                     }
 
-                    & #compassion {
+                    & #empathy {
                         & h3 {
                             font-size: clamp(1.75rem, 3vw, 4.25rem);
                         }

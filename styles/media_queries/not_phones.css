@@ -47,14 +47,14 @@
         & header {
             & nav ul li a::before,
             & nav ul li a::after {
-                background: var(--light-background);
+                background-color: var(--light-background-color);
             }
         }
 
         & footer {
             & nav ul li a::before,
             & nav ul li a::after {
-                background: var(--dark-background);
+                background-color: var(--dark-background);
             }
         }
     }

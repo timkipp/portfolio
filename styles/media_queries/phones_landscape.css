@@ -94,7 +94,7 @@
 
             & #development {
                 align-items: flex-end;
-                color: var(--compassion-color);
+                color: var(--empathy-color);
                 margin-top: clamp(-1lh, -2lh, -1.2lh);
             }
         }

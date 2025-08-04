@@ -7,6 +7,8 @@
             display: flex;
             flex-wrap: wrap;
             color: var(--opal-color);
+            color: var(--light-background);
+            font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
             font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
             font-variation-settings: "wght" 200;
             text-align: center;
@@ -32,7 +34,7 @@
 
     & > main {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         column-gap: clamp(2rem, 2.5vw, 4rem);
 
         & .value-panel {
@@ -45,6 +47,7 @@
                 width: 100%;
                 font-size: clamp(2rem, min(6.5cqw, 5.5cqh), 6rem);
                 line-height: clamp(2.5rem, min(5.69cqw, 5.31cqh), 7rem);
+                text-align: center;
             }
 
             & p {
@@ -53,24 +56,47 @@
                 font-size: clamp(1rem, 0.9375vw, 1.5rem);
                 text-align: justify;
                 line-height: 1.5;
+
+                & .value-word {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
             }
 
             & img {
-                width: 80%;
-                margin: auto 0;
+                width: 90%;
+                margin-top: auto;
+            }
+        }
+
+        & #purpose {
+            & h3 {
+                font-family: Impact;
+                /* font-family: Boldonse; */
+                font-family: "Nothing You Could Do";
+                font-weight: bold;
+                color: var(--purpose-color);
+            }
+
+            & p {
+                & em {
+                    color: var(--purpose-color);
+                }
+            }
+
+            & img {
+                /* width: 100%; */
             }
         }
 
         & #curiosity {
             & h3 {
                 font-family: Margarine;
+                font-family: Schoolbell;
                 color: var(--curiosity-color);
-                text-align: left;
             }
 
             & p {
-                text-align-last: left;
-
                 & em {
                     color: var(--curiosity-color);
 
@@ -85,13 +111,15 @@
         & #creativity {
             & h3 {
                 color: var(--creativity-color);
-                font-family: Syncopate;
-                text-align: center;
+                /* font-family: Syncopate; */
+                font-family: Griffy;
+                font-family: "Bigelow Rules";
+                font-family: "Fontdiner Swanky";
+                font-family: "Henny Penny";
+                font-family: "Fredericka the Great";
             }
 
             & p {
-                text-align-last: center;
-
                 & em {
                     color: var(--creativity-color);
 
@@ -103,23 +131,23 @@
             }
         }
 
-        & #compassion {
+        & #empathy {
             & h3 {
-                color: var(--compassion-color);
+                color: var(--empathy-color);
                 font-size: clamp(2.5rem, min(5.5cqw, 5.15cqh), 8rem);
                 font-family: "Clicker Script";
+                /* font-family: "Italianno";
+                font-family: "MonteCarlo";
+                font-family: "Mea Culpa"; */
                 font-weight: bold;
-                text-align: right;
             }
 
             & p {
-                text-align-last: right;
-
                 & em {
-                    color: var(--compassion-color);
+                    color: var(--empathy-color);
 
                     & .value-word {
-                        color: var(--compassion-color);
+                        color: var(--empathy-color);
                         font-weight: bold;
                     }
                 }

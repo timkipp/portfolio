@@ -6,8 +6,7 @@
         & h1 {
             display: flex;
             flex-wrap: wrap;
-            color: var(--opal-color);
-            color: var(--light-background);
+            color: var(--french-vanilla-color);
             font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
             font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
             font-variation-settings: "wght" 200;
@@ -52,10 +51,11 @@
 
             & p {
                 margin-top: 1rem;
-                color: #f8e3bb;
+                color: var(--french-vanilla-color);
                 font-size: clamp(1rem, 0.9375vw, 1.5rem);
                 text-align: justify;
                 line-height: 1.5;
+                hyphens: manual;
 
                 & .value-word {
                     font-weight: bold;

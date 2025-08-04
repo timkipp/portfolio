@@ -46,21 +46,21 @@
             fill: var(--curiosity-color);
             transition: opacity 0.5s ease;
             pointer-events: none;
-        }
 
-        & .sidebar svg.icon-tabler-circle-chevron-left {
-            left: 1cqw;
-        }
+            &.icon-tabler-circle-chevron-left {
+                left: 1cqw;
+            }
 
-        & .sidebar svg.icon-tabler-circle-chevron-right {
-            /* right: 1cqw; */
-            right: 5px;
-        }
+            &.icon-tabler-circle-chevron-right {
+                /* right: 1cqw; */
+                right: 5px;
+            }
 
-        & .sidebar svg.side-arrow.visible {
-            opacity: 1;
-            transition: opacity 0.5s ease;
-            pointer-events: all;
+            &.side-arrow.visible {
+                opacity: 1;
+                transition: opacity 0.5s ease;
+                pointer-events: all;
+            }
         }
 
         & > main {

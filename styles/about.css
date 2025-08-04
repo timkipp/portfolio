@@ -8,9 +8,14 @@
             flex-wrap: wrap;
             color: var(--french-vanilla-color);
             font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
-            font-size: clamp(2.5rem, min(12cqw, 10cqh), 8rem);
+            line-height: 1.2;
             font-variation-settings: "wght" 200;
             text-align: center;
+            background: #a4c4b7;
+            background: linear-gradient(to right, #a4c4b7 0%, #f2bc71 45%, #e26d5a 65%, #4ca1af 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
 
             & div {
                 display: flex;
@@ -56,6 +61,7 @@
                 text-align: justify;
                 line-height: 1.5;
                 hyphens: manual;
+                hyphens: auto;
 
                 & .value-word {
                     font-weight: bold;
@@ -71,8 +77,6 @@
 
         & #purpose {
             & h3 {
-                font-family: Impact;
-                /* font-family: Boldonse; */
                 font-family: "Nothing You Could Do";
                 font-weight: bold;
                 color: var(--purpose-color);
@@ -82,10 +86,6 @@
                 & em {
                     color: var(--purpose-color);
                 }
-            }
-
-            & img {
-                /* width: 100%; */
             }
         }
 

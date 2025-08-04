@@ -258,3 +258,14 @@
         width: 1.5cqw;
     }
 } */
+
+#projects > main .project-card .figure-card figure > *:hover,
+#projects > main .project-card .figure-card.flipped figure > * {
+    --border-size: 5px;
+
+    border: var(--border-size) dotted transparent;
+    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--purpose-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: rotate 4s linear infinite;
+}

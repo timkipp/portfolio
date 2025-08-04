@@ -121,8 +121,8 @@
                     & h1 {
                         flex-direction: column;
                         justify-content: space-between;
-                        font-size: clamp(1.5rem, 6cqh, 5rem);
-                        line-height: clamp(1.75rem, 7cqh, 6.5rem);
+                        font-size: clamp(1.25rem, 6cqh, 5rem);
+                        line-height: clamp(1.5rem, 7cqh, 6.5rem);
 
                         font-variation-settings: "wght" 300;
 
@@ -138,7 +138,7 @@
                     & h2 {
                         color: #f8e3bb;
                         font-family: "Praise";
-                        font-size: clamp(1.25rem, 6cqh, 3.25rem);
+                        font-size: clamp(1rem, 5cqh, 3.25rem);
                         text-align: center;
                     }
                 }
@@ -165,7 +165,7 @@
                         scroll-snap-align: start;
 
                         & h3 {
-                            font-size: clamp(1.25rem, 6cqh, 3.25rem);
+                            font-size: clamp(1.25rem, 8cqh, 3.25rem);
                             text-align: center !important;
                             line-height: 1.25;
                         }
@@ -176,7 +176,6 @@
                         }
 
                         & p {
-                            /*margin-top: 0.5rem;*/
                             margin-top: 0;
                             margin-bottom: 0.5rem;
                             font-size: clamp(1rem, 3.75cqh, 1.25rem);
@@ -199,11 +198,7 @@
 
                     & #empathy {
                         & h3 {
-                            font-size: clamp(1.75rem, 3vw, 4.25rem);
-                        }
-
-                        & p em.value-word {
-                            font-size: 1.5em;
+                            font-size: clamp(1.25rem, 10cqh, 3.25rem);
                         }
 
                         & img {

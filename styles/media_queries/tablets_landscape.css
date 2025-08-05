@@ -12,11 +12,6 @@
             line-height: 1.5;
         }
 
-        & #empathy p em.value-word {
-            font-size: 1.5em;
-            line-height: 1.25;
-        }
-
         & .value-panel img {
             width: 60%;
         }

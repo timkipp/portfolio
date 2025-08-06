@@ -363,6 +363,53 @@
                     display: flex;
                 }
             }
+
+            #email {
+                grid-template-columns: 1fr;
+
+                & form {
+                    grid-column: 1;
+                    width: 100%;
+                    padding: 0;
+
+                    & h2 {
+                        grid-column: 1;
+                        margin: clamp(0.75rem, 1cqh, 1rem) 0;
+                        font-size: clamp(1.5rem, 3cqw, 6rem);
+                    }
+
+                    & fieldset {
+                        justify-content: flex-start;
+                        align-items: center;
+                        height: 75%;
+
+                        & label {
+                            width: 90%;
+                            margin-bottom: clamp(1rem, 3cqh, 2rem);
+                            font-size: clamp(0.85rem, 2.5cqw, 1.5rem);
+
+                            &:has(textarea) {
+                                margin-bottom: clamp(0.5rem, 3cqh, 1rem);
+                            }
+
+                            & input,
+                            & textarea {
+                                font-size: clamp(0.85rem, 2.5cqw, 1rem);
+                            }
+
+                            & span {
+                                display: none;
+                            }
+
+                            & button {
+                                width: 100%;
+                                margin-top: clamp(0.25rem, 2cqh, 1rem);
+                                font-size: clamp(1rem, 2cqw, 1.5rem);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

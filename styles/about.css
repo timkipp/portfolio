@@ -11,7 +11,7 @@
             line-height: 1.2;
             font-variation-settings: "wght" 200;
             text-align: center;
-            background: #a4c4b7;
+            background: var(--french-vanilla-color);
             background: linear-gradient(to right, #a4c4b7 0%, #f2bc71 45%, #e26d5a 65%, #4ca1af 100%);
             -webkit-background-clip: text;
             background-clip: text;

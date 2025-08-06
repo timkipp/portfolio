@@ -47,31 +47,35 @@
             padding-bottom: 0.25rem;
         }
 
-        & svg.side-arrow {
-            display: block;
-            flex: 0 0 auto;
-            position: fixed;
-            top: 45%;
-            z-index: 10;
-            width: 2.5rem;
-            height: auto;
-            visibility: hidden;
-            fill: var(--curiosity-color);
-            transition: opacity 0.4s ease, visibility 0s linear 0.4s;
-        }
+        & .sidebar {
+            & svg {
+                &.side-arrow {
+                    display: block;
+                    flex: 0 0 auto;
+                    position: fixed;
+                    top: 45%;
+                    z-index: 10;
+                    width: 2.5rem;
+                    height: auto;
+                    visibility: hidden;
+                    fill: var(--curiosity-color);
+                    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 
-        & .icon-tabler-circle-chevron-left {
-            left: 1cqw;
-        }
+                    &.icon-tabler-circle-chevron-left {
+                        left: 1cqw;
+                    }
 
-        & .icon-tabler-circle-chevron-right {
-            right: 1cqw;
-        }
+                    &.icon-tabler-circle-chevron-right {
+                        right: 1cqw;
+                    }
 
-        & svg.side-arrow.visible {
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.4s ease;
+                    &.side-arrow.visible {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: opacity 0.4s ease;
+                    }
+                }
+            }
         }
     }
 
@@ -157,14 +161,20 @@
             z-index: 10;
             margin: 3cqh 0;
             font-size: clamp(1.5rem, 12cqh, 5rem);
+            background: var(--french-vanilla-color);
+            background: linear-gradient(to right, #a4c4b7 0%, #f2bc71 45%, #e26d5a 65%, #4ca1af 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
 
             & h1 {
                 width: 80cqw;
+                background: none;
             }
 
             & h1,
             & h2 {
-                color: var(--opal-color);
+                color: var(--french-vanilla-color);
                 font-size: inherit !important;
                 font-family: revert;
                 font-variation-settings: "wght" 300;
@@ -222,8 +232,8 @@
                     align-self: center;
                     margin-top: 0;
                     margin-bottom: 0;
-                    font-size: clamp(1.125rem, 8cqh, 2rem);
-                    line-height: clamp(1.25rem, 10.5cqh, 10rem);
+                    font-size: clamp(1rem, 8cqh, 2rem);
+                    line-height: clamp(1.25rem, 10.5cqh, 2.25rem);
                     text-align: left;
                     text-align-last: auto !important;
                 }
@@ -339,6 +349,44 @@
             & > .project-card-clone {
                 display: flex;
                 flex: 0 0 auto;
+            }
+        }
+    }
+
+    #email {
+        grid-template-columns: 1fr;
+
+        & form {
+            grid-column: 1;
+            width: 100%;
+            padding: 0;
+
+            & h2 {
+                grid-column: 1;
+                font-size: clamp(1.5rem, 3cqw, 6rem);
+            }
+
+            & fieldset {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                column-gap: clamp(0.5rem, 2cqw, 2rem);
+                height: 75%;
+
+                & label {
+                    width: clamp(20ch, 40cqw, 275px);
+                    margin-bottom: clamp(1rem, 6cqh, 2rem);
+                    font-size: clamp(0.5rem, 2.5cqw, 1rem);
+                }
+
+                & input,
+                & textarea {
+                    font-size: clamp(0.75rem, 2.5cqw, 1rem);
+                }
+
+                & button {
+                    width: 6em;
+                    font-size: clamp(0.5rem, 2cqw, 1rem);
+                }
             }
         }
     }

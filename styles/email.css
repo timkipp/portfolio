@@ -2,75 +2,79 @@
     container-type: size;
     container-name: email;
     display: grid;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
 
-    & #contact-form {
+    & form {
         grid-column: 2;
+        align-self: start;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 50cqw;
+        height: 100cqh;
         margin: 0 auto;
         padding: clamp(0.5rem, 4cqh, 2rem) clamp(0.5rem, 6cqw, 2rem);
-        color: var(--dark-background);
-        /* background-color: var(--curiosity-color); */
-        /* border: clamp(2px, 4px, 6px) solid var(--creativity-color); */
-        border-radius: 12px;
-        /* box-shadow: 0 6px 12px rgba(226, 109, 90, 0.3); */
 
         & h2 {
+            grid-column: 2;
             color: var(--empathy-color);
-            font-weight: 700;
+            font-weight: 400;
             font-size: clamp(1.5rem, 6cqw, 10rem);
-            margin-bottom: 1rem;
+            margin-top: clamp(1rem, 10cqh, 10rem);
+            margin-bottom: clamp(1rem, 4cqh, 2rem);
             text-align: center;
             white-space: nowrap;
         }
 
-        & label {
-            color: var(--curiosity-color);
-            font-size: clamp(0.75rem, 4cqw, 2rem);
-            margin-bottom: clamp(0.125rem, 4cqh, 0.5rem);
-        }
+        & fieldset {
+            display: flex;
+            flex-direction: column;
 
-        & label:not(label:first-of-type) {
-            margin-top: clamp(1rem, 4cqh, 2rem);
-        }
-
-        & input,
-        & textarea {
-            padding: clamp(0.25rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
-            font-size: clamp(0.75rem, 4cqw, 1.5rem);
-            border: 2px solid var(--creativity-color);
-            border-radius: 8px;
-            background-color: #fff;
-            color: var(--dark-background);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            resize: vertical;
-
-            &:focus {
-                border-color: var(--empathy-color);
-                box-shadow: 0 0 8px var(--empathy-color);
-                outline: none;
+            & label {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin-bottom: clamp(0.75rem, 4cqh, 2rem);
+                color: var(--curiosity-color);
+                font-size: clamp(0.75rem, 4cqw, 2rem);
             }
-        }
 
-        & button {
-            margin-top: clamp(0.5rem, 3cqh, 1rem);
-            padding: clamp(0.5rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
-            color: #fff;
-            font-weight: 700;
-            font-size: clamp(0.75rem, 4cqw, 2rem);
-            background-color: var(--creativity-color);
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            & input,
+            & textarea {
+                margin-top: clamp(0.125rem, 2cqh, 0.5rem);
+                padding: clamp(0.25rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
+                font-size: clamp(0.75rem, 4cqw, 1.5rem);
+                border: 2px solid var(--creativity-color);
+                border-radius: 8px;
+                background-color: #fff;
+                color: var(--dark-background);
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                resize: vertical;
 
-            &:hover,
-            &:focus {
-                background-color: var(--empathy-color);
-                outline: none;
+                &:focus {
+                    border-color: var(--empathy-color);
+                    box-shadow: 0 0 8px var(--empathy-color);
+                    outline: none;
+                }
+            }
+
+            & button {
+                margin-top: clamp(0.5rem, 3cqh, 1rem);
+                padding: clamp(0.5rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
+                color: #fff;
+                font-weight: 700;
+                font-size: clamp(0.75rem, 4cqw, 2rem);
+                background-color: var(--creativity-color);
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover,
+                &:focus {
+                    background-color: var(--empathy-color);
+                    outline: none;
+                }
             }
         }
     }

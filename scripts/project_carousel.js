@@ -75,6 +75,18 @@ export function initializeProjectCarousel() {
     carouselSynced = currentProjectCard.dataset.index === currentProgressIndicator.dataset.index;
 }
 
+export function updateCaptionHeight() {
+    document.querySelectorAll(".figure-card").forEach((card) => {
+        const img = card.querySelector("img");
+        const figcaption = card.querySelector("figcaption");
+        if (img && figcaption) {
+            const rect = img.getBoundingClientRect();
+            figcaption.style.width = rect.width + "px";
+            figcaption.style.height = rect.height + "px";
+        }
+    });
+}
+
 function triggerProjectCarousel() {
     if (isTransitioning) return;
 

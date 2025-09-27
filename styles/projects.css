@@ -139,7 +139,6 @@
                         box-sizing: content-box;
                         border: 5px solid var(--creativity-color);
                         border-radius: 1em;
-                        /* box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.75); */
                         pointer-events: auto;
                         transition: border-radius 0.5s ease;
                     }

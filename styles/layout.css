@@ -41,7 +41,6 @@ body {
     & > header,
     & > footer {
         grid-column: 1 / 6;
-        /* display: flex; */
         z-index: 100;
 
         & > nav {
@@ -83,7 +82,6 @@ body {
                         display: inline-block;
                         position: relative;
                         padding: 0.5rem 0;
-                        /* font-size: clamp(1rem, 2cqw, 2rem); */
                         text-align: center;
                         text-decoration: none;
                         transition: border 0.2s ease;
@@ -130,53 +128,10 @@ body {
         container-type: size;
         container-name: header;
         grid-row: 1;
-        /* justify-content: flex-end;
-        align-items: flex-end; */
         border-bottom: 1cqh solid var(--empathy-color);
-
-        & > h1 {
-            display: flex;
-            flex: 0 0 max-content;
-            justify-content: center;
-            align-items: center;
-            width: min(40%, 80ch);
-            padding-bottom: 0;
-            padding-left: clamp(1em, 1.5cqi, 3em);
-            padding-right: clamp(1em, 1.5cqi, 3em);
-            background-color: var(--creativity-color);
-            border-top-left-radius: 5% 35%;
-            border-top-right-radius: 5% 35%;
-            box-shadow: -10px -10px 8px rgb(255 255 255 / 60%), inset 6px 6px 0 rgb(255 255 255 / 30%), inset -6px 0 0 rgb(0 0 0 / 20%);
-
-            &[data-state="hidden"] {
-                opacity: 0;
-            }
-
-            &[data-state="visible"] {
-                opacity: 1;
-            }
-
-            & > span {
-                min-width: 14ch;
-                padding: 0.5rem 0;
-                color: transparent;
-                font-size: clamp(3rem, 8cqw, 5.5rem);
-                font-variant: small-caps;
-                line-height: 0.75em;
-                letter-spacing: 0.25em;
-                white-space: nowrap;
-                text-align: center;
-                text-shadow: 0 4px 3px var(--light-background);
-                background-color: black;
-                background-clip: text;
-            }
-        }
 
         & nav {
             & ul {
-                /* &:not(:has(li.current-section)) {
-                    align-items: flex-end;
-                } */
                 & li a {
                     color: var(--creativity-color);
 
@@ -193,8 +148,6 @@ body {
         container-type: size;
         container-name: footer;
         grid-row: 3;
-        /* justify-content: flex-start;
-        align-items: flex-start; */
         border-top: 1cqh solid var(--curiosity-color);
         border-bottom-left-radius: 2.5% 40%;
         border-bottom-right-radius: 2.5% 40%;

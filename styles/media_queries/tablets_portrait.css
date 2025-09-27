@@ -8,14 +8,6 @@
 
     body {
         nav ul li a {
-            & > svg {
-                display: inline;
-                vertical-align: text-bottom;
-            }
-
-            & > span {
-                display: none;
-            }
         }
     }
 

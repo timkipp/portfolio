@@ -34,62 +34,47 @@ export function initializeSectionObserver() {
                     linkListItem.classList.add("current-section");
                 }
 
-                const updateTitle = () => {
+                const updateSection = () => {
                     switch (targetId) {
                         case "home":
-                            sectionTitle.textContent = "Welcome";
                             linkIndex = 0;
                             displaySlideArrows = false;
                             hideSidebars = false;
                             break;
                         case "about":
-                            sectionTitle.textContent = "About Me";
                             linkIndex = 1;
                             displaySlideArrows = false;
                             hideSidebars = false;
                             break;
                         case "projects":
-                            sectionTitle.textContent = "My Projects";
                             linkIndex = 2;
                             displaySlideArrows = true;
                             hideSidebars = false;
                             break;
                         case "resume":
-                            sectionTitle.textContent = "My Resume";
                             linkIndex = 3;
                             displaySlideArrows = false;
                             hideSidebars = true;
                             break;
                         case "email":
-                            sectionTitle.textContent = "Email Me";
                             linkIndex = 4;
                             displaySlideArrows = false;
                             hideSidebars = false;
                             break;
                         default:
-                            sectionTitle.textContent = "";
                             displaySlideArrows = false;
                             hideSidebars = false;
                     }
                 };
 
                 if (!hasLoaded && targetId === "home") {
-                    // First load: just set text with no animation
-                    // sectionTitle.textContent = "Welcome";
-                    // sectionTitle.setAttribute("data-state", "visible");
                     hasLoaded = true;
                     return;
                 }
 
-                // Fade out
-                // sectionTitle.setAttribute("data-state", "hidden");
-
                 // Wait for fade-out to finish, then update text and fade back in
                 setTimeout(() => {
-                    // updateTitle();
-
-                    // sectionLinks.forEach((link) => link.classList.remove("current-section"));
-                    // sectionLinks[linkIndex].classList.add("current-section");
+                    updateSection();
 
                     if (displaySlideArrows) {
                         document.querySelectorAll("svg.side-arrow").forEach((arrow) => {

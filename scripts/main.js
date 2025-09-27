@@ -1,15 +1,20 @@
 import { initializeDebugging } from "./debug.js";
 import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
 import { setProjectsInteraction } from "./interaction.js";
+import { updateCaptionHeight } from "./project_carousel.js";
 import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
 
 initializeDebugging();
 
 if (document.readyState === "complete") {
+    // updateCaptionHeight();
+
     document.body.classList.remove("loading");
     void document.body.offsetHeight;
 } else {
     window.addEventListener("load", () => {
+        // updateCaptionHeight();
+
         document.body.classList.remove("loading");
         void document.body.offsetHeight;
     });
@@ -187,6 +192,10 @@ window.addEventListener("resize", () => {
     setProjectsInteraction(currentViewport);
     updateTabDisplayMode(currentViewport);
     setLogoObserver();
+
+    if (currentDevice == DeviceType.PHONE) {
+        updateCaptionHeight();
+    }
 });
 
 window.addEventListener("load", checkWrap);
@@ -200,3 +209,5 @@ setProjectsInteraction(currentViewport);
 initializeResumeTabs();
 
 updateTabDisplayMode(currentViewport);
+
+// updateCaptionHeight();

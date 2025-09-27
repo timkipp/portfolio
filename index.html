@@ -24,6 +24,10 @@
         <!-- 'Empathy' fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Italianno&family=Mea+Culpa&family=MonteCarlo&family=Pompiere&family=Rouge+Script&family=The+Girl+Next+Door&display=swap" rel="stylesheet" />
 
+        <!-- Resume fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Petrona:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
         <!-- Core Styles -->
         <link rel="stylesheet" href="styles/reset.css" type="text/css" />
         <link rel="stylesheet" href="styles/layout.css" type="text/css" />
@@ -33,10 +37,11 @@
         <link rel="stylesheet" href="styles/home.css" type="text/css" />
         <link rel="stylesheet" href="styles/about.css" type="text/css" />
         <link rel="stylesheet" href="styles/projects.css" type="text/css" />
+        <link rel="stylesheet" href="styles/resume.css" type="text/css" />
         <link rel="stylesheet" href="styles/email.css" type="text/css" />
 
         <!-- Mediq Queries -->
-        <link rel="stylesheet" href="styles/media_queries/not_phones.css" />
+        <!-- <link rel="stylesheet" href="styles/media_queries/not_phones.css" /> -->
         <link rel="stylesheet" href="styles/media_queries/phones_portrait.css" />
         <link rel="stylesheet" href="styles/media_queries/phones_landscape.css?v=2" />
         <link rel="stylesheet" href="styles/media_queries/tablets_landscape.css" />
@@ -44,14 +49,14 @@
         <link rel="stylesheet" href="styles/media_queries/tall_screens.css" />
 
         <!-- Scripts -->
-        <script src="/scripts/main.js" type="module" defer></script>
+        <script src="/scripts/main.js" type="module" defer></script>        
     </head>
 
     <body class="loading">
         <header>
-            <h1>
+            <!-- <h1>
                 <span id="section-title" data-state="">Welcome</span>
-            </h1>
+            </h1> -->
             <nav>
                 <ul>
                     <li>
@@ -83,6 +88,18 @@
                                 <title>Websites I've designed</title>
                             </svg>
                             <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-text="Résumé" href="#resume" title="View my résumé">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-file-cv">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-2.5 8a2.5 2.5 0 0 0 -2.5 2.5v3a2.5 2.5 0 1 0 5 0a1 1 0 0 0 -2 0a.5 .5 0 1 1 -1 0v-3a.5 .5 0 1 1 1 0a1 1 0 0 0 2 0a2.5 2.5 0 0 0 -2.5 -2.5m6.743 .03a1 1 0 0 0 -1.213 .727l-.53 2.119l-.53 -2.119a1 1 0 1 0 -1.94 .486l1.5 6c.252 1.01 1.688 1.01 1.94 0l1.5 -6a1 1 0 0 0 -.727 -1.213m-1.244 -7.031l4.001 4.001h-4z"
+                                />
+                                <title>My résumé</title>
+                            </svg>
+                            <span>Résumé</span>
                         </a>
                     </li>
                 </ul>
@@ -245,22 +262,22 @@
                     <div id="purpose" class="value-panel">
                         <h3>Purpose</h3>
                         <p>My journey to find my <em class="value-word">purpose</em> led me back to college, where I dis&shy;covered a <em>passion</em> for <em>design and coding</em>. As a recent IT graduate, I’m eager to bring classroom ex&shy;per&shy;i&shy;ence with <em>modern web tech&shy;nol&shy;o&shy;gies</em> to a workplace where I can <em>con&shy;trib&shy;ute, learn, and grow.</em></p>
-                        <img src="images/purpose.png" alt="An icon symbolizing purpose, such as a flag on a mountain peak or a compass pointing toward a goal" />
+                        <img src="images/about/purpose.png" alt="An icon symbolizing purpose, such as a flag on a mountain peak or a compass pointing toward a goal" />
                     </div>
                     <div id="curiosity" class="value-panel">
                         <h3>Curiosity</h3>
                         <p><em class="value-word">Curiosity</em> drives me to <em>ask ques&shy;tions</em>, <em>explore</em> new tech&shy;nol&shy;o&shy;gies, and never stop <em>learning</em>. It's the engine behind every bug I debug, every tutorial I take, and every challenge I embrace with a “<em>what if?</em>” mindset.</p>
-                        <img src="images/curiosity_lighter_silhouette.png" alt="Profile silhouette of a man with a question mark inside his head, surrounded by a circle of icons that symbolize ideas, objects, subjects that have stimulated man's curiosity (icons are Earth, an atom, a scroll with quill pen, a rocket ship, a book, a magnifying glass, a lightening cloud, a compass, and two interlocking gears)" />
+                        <img src="images/about/curiosity_lighter_silhouette.png" alt="Profile silhouette of a man with a question mark inside his head, surrounded by a circle of icons that symbolize ideas, objects, subjects that have stimulated man's curiosity (icons are Earth, an atom, a scroll with quill pen, a rocket ship, a book, a magnifying glass, a lightening cloud, a compass, and two interlocking gears)" />
                     </div>
                     <div id="creativity" class="value-panel">
                         <h3>Creativity</h3>
                         <p><em class="value-word">Creativity</em> is where <em>logic</em> and <em>imagination</em> meet. Whether sketch&shy;ing UI ideas or solving problems in code, I bring an <em>artistic sensibility</em> to every&shy;thing I build—always striving to make digital ex&shy;per&shy;i&shy;ences both <em>intuitive</em> and <em>beautiful</em>.</p>
-                        <img src="images/light_bulb.png" alt="Light bulb" />
+                        <img src="images/about/light_bulb.png" alt="Light bulb" />
                     </div>
                     <div id="empathy" class="value-panel">
                         <h3>Empathy</h3>
                         <p>Technology should be <em>inclusive</em>, <em>ac&shy;ces&shy;si&shy;ble</em>, and <em>em&shy;pow&shy;er&shy;ing</em>. <em class="value-word">Empathy</em> guides how I design to communicate with users, and seek out work that supports <em>social re&shy;spon&shy;si&shy;bil&shy;i&shy;ty</em> and makes a <em>positive impact</em>.</p>
-                        <img src="images/empathy.png" alt="Empathy" />
+                        <img src="images/about/empathy.png" alt="Empathy" />
                     </div>
                 </main>
             </section>
@@ -273,7 +290,7 @@
                         </h2>
                         <div class="figure-card" tabindex="0" role="button" aria-pressed="false">
                             <figure>
-                                <img src="images/liberty_webpage_screenshot_1920x1080.png" alt="screenshot of Statue of Liberty project web page" title="Click to see a description of the project" />
+                                <img src="images/projects/liberty_webpage_screenshot_1920x1080.png" alt="screenshot of Statue of Liberty project web page" title="Click to see a description of the project" />
                                 <figcaption>Developed a responsive informational web page about the Statue of Liberty to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes.</figcaption>
                             </figure>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mobiledata-off">
@@ -292,7 +309,7 @@
                         </h2>
                         <div class="figure-card" tabindex="1" role="button" aria-pressed="false">
                             <figure>
-                                <img src="images/calendar_webpage_screenshot_1920x1080.png" alt="screenshot of calendar project web page" title="Click to see a description of the project" />
+                                <img src="images/projects/calendar_webpage_screenshot_1920x1080.png" alt="screenshot of calendar project web page" title="Click to see a description of the project" />
                                 <figcaption>Developed a dynamic web page using HTML5, CSS3, and JavaScript to generate a monthly calendar. Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.</figcaption>
                             </figure>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mobiledata-off">
@@ -311,7 +328,7 @@
                         </h2>
                         <div class="figure-card" tabindex="2" role="button" aria-pressed="false">
                             <figure>
-                                <img src="images/travel_webpage_screenshot_1920x1080.png" alt="screenshot of travel project web page" title="Click to see a description of the project" />
+                                <img src="images/projects/travel_webpage_screenshot_1920x1080.png" alt="screenshot of travel project web page" title="Click to see a description of the project" />
                                 <figcaption>Developed a mockup of a flight lookup web page using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.</figcaption>
                             </figure>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mobiledata-off">
@@ -330,7 +347,7 @@
                         </h2>
                         <div class="figure-card" tabindex="3" role="button" aria-pressed="false">
                             <figure>
-                                <img src="images/pirates_webpage_screenshot_1920x1080.png" alt="screenshot of pirates game project web page" title="Click to see a description of the project" />
+                                <img src="images/projects/pirates_webpage_screenshot_1920x1080.png" alt="screenshot of pirates game project web page" title="Click to see a description of the project" />
                                 <figcaption>Collaborated with a small team to build a pirate-themed, card-drawing roguelike game using the MERN stack. Personally contributed to setting up and managing the MongoDB database, designing Mongoose schemas and models, and creating modular Express route files. Implemented account creation and login functionality, developed the interactive Run Screen, and added custom CSS to improve the game’s UI/UX.</figcaption>
                             </figure>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mobiledata-off">
@@ -352,6 +369,291 @@
                 </div>
             </section>
 
+            <section id="resume">                
+                <header>
+                    <nav id="resume-tabs">
+                        <ul>
+                            <li id="summary-tab" class="selected-tab">
+                                <span class="tab-label" hidden>Summary</span>
+                                <span class="tab-icon" aria-hidden="true"><img src="images/resume/navigation/summary.png" alt="resume summary"></span>
+                            </li>
+                            <li id="education-tab">
+                                <span class="tab-label">Eduction</span>
+                                <span class="tab-icon" hidden aria-hidden="true"><img src="images/resume/navigation/education.png" alt="graduation cap and diploma"></span>
+                            </li>
+                            <li id="relevant-experience-tab">
+                                <span class="tab-label">Relevant Experience</span>
+                                <span class="tab-icon" hidden aria-hidden="true"><img src="images/resume/navigation/relevant_experience2.png" alt="web design"></span>
+                            </li>
+                            <li id="professional-experience-tab">
+                                <span class="tab-label">Professional Experience</span>
+                                <span class="tab-icon" hidden aria-hidden="true"><img src="images/resume/navigation/professional-experience.png" alt="briefcase"></span>
+                            </li>
+                        </ul>
+                </nav>
+
+                    <h1 class="display-summary visible">Summary</h1>
+                    <h1 class="display-education">Education</h1>
+                    <h1 class="display-relevant-experience">
+                        <span>Relevant</span>                        
+                        <span>Experience</span>
+                    </h1>
+                    <h1 class="display-professional-experience">
+                        <span>Professional</span>
+                        <span>Experience</span>
+                    </h1>
+                </header>
+                <main id="resume-content">
+                    <section id="summary" class="resume-section visible">
+                        <p>
+                            Recent <span class="curiosity-words highlight-words"><em>Information Technology graduate</em></span> with a strong foundation in <span class="design-words relevant-experience-words"><em>front-end</em></span> and <span class="development-words relevant-experience-words"><em>back-end</em></span> <span class="creativity-words relevant-experience-words"><em>web development</em></span>, including hands-on experience with <span class="web-technology-words html">HTML5</span>, <span class="web-technology-words css">CSS3</span>,
+                            <span class="web-technology-words javascript">JavaScript</span>, <span class="web-technology-words wordpress">WordPress</span>, <span class="web-technology-words php">PHP</span>, <span class="web-technology-words mysql">MySQL</span>, <span class="web-technology-words mongodb">MongoDB</span>, <span class="web-technology-words express">Express</span>,
+                            <span class="web-technology-words react">React</span>, <span class="web-technology-words nodejs">Node.js</span>, and <span class="web-technology-words git">Git</span>. <span class="creativity-words">Creative problem solver</span> who <span class="creativity-words"><em>loves coding</em></span></em>, is <span class="purpose-words"><em>passionate</em></span> about developing aesthetic yet functional <span class="design-words"><em>user interfaces</em></span>, and is motivated by <span class="curiosity-words"><em>curiosity</em></span> and <em><span class="empathy-words">meaningful</span class="empathy-words">, <span class="purpose-words">purpose-driven work</span></em>.
+                        </p>
+                        <div class="web-technology-logos">
+                            <ul class="logos-list">
+                                <li><img src="images/resume/web_technologies/HTML5_logo.png" class="html" data-color="#F16529" loading="eager" alt="HTML5 logo" /></li>
+                                <li><img src="images/resume/web_technologies/CSS_logo_new.png" class="css" data-color="#663399" loading="eager" alt="CSS logo" /></li>
+                                <li><img src="images/resume/web_technologies/JavaScript-logo.png" class="javascript" data-color="#F0DB4F" loading="eager" alt="JavaScript logo" /></li>
+                                <li><img src="images/resume/web_technologies/WordPress_logo.png" class="wordpress" data-color="#21759B" loading="eager" alt="WordPress logo" /></li>
+                                <li><img src="images/resume/web_technologies/PHP_logo.png" class="php" data-color="#777BB3" loading="eager" alt="PHP logo" /></li>
+                                <li><img src="images/resume/web_technologies/MySQL_logo.png" class="mysql" data-color="#409BAC" loading="eager" alt="MySQL logo" /></li>
+                                <li><img src="images/resume/web_technologies/MongoDB_logo.png" class="mongodb" data-color="#1A8534" loading="eager" alt="MongoDB logo" /></li>
+                                <li><img src="images/resume/web_technologies/Expressjs_logo.png" class="express" data-color="#80BD01" loading="eager" alt="Express.js logo" /></li>
+                                <li><img src="images/resume/web_technologies/React_logo.png" class="react" data-color="#61DAFB" loading="eager" alt="React.js logo" /></li>
+                                <li><img src="images/resume/web_technologies/Node_js_logo.png" class="nodejs" data-color="#66A75E" loading="eager" alt="Node.js logo" /></li>
+                                <li><img src="images/resume/web_technologies/Git-logo_with_text.png" class="git" data-color="#F03C2E" loading="eager" alt="GIT logo" /></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="education" class="resume-section">
+                        <ul>
+                            <li class="academics">
+                                <details open>
+                                    <summary class="academic-credential">                                        
+                                        <span class="college"><span class="college-name">Towson University</span><span class="college-location">Towson, MD</span></span>
+                                        <span class="graduation">Graduated Cum Laude, 2025</span>
+                                    </summary>
+                                    
+                                    <ul class="education-details">
+                                        <li class="academic-credential">Bachelor of Science</li>
+                                        <li class="major">Information Technology</li>
+                                        <li class="gpa">GPA: 3.8</li>
+                                        <li class="honors">Dean's List: Fall 2023, 2024; Spring 2024</li>
+                                        <li class="membership">
+                                            Member, Upsilon Pi Epsilon<br>
+                                            <span>International Honor Society for Computing and Information Disciplines</span>
+                                        </li>
+                                    </ul>
+                                </details>
+                                <img class="college-logo" src="images/resume/college_logos/tu_logo.png" alt="Towson University logo"></li>
+                            </li>
+                            <li class="academics">
+                                <details open>
+                                    <summary class="academic-credential">
+                                        <span class="college"><span class="college-name">Harford Community College</span><span class="college-location">Bel Air, MD</span></span>
+                                        <span class="graduation">Graduated 2023</span>
+                                    </summary>
+                                    
+                                    <ul class="education-details">
+                                        <li class="academic-credential">Associate in Applied Sciences</li>
+                                        <li class="major">Computer Information Systems</li>
+                                        <li class="academic-credential">Certificate</li>
+                                        <li class="major">Computer Information Systems Programming</li>
+                                        <li class="gpa">GPA: 3.8</li>
+                                        <li class="honors">Dean's List: Spring 2022</li>                                        
+                                    </ul>
+                                </details>
+                                <img class="college-logo" src="images/resume/college_logos/hcc_logo.png" alt="Harford Community College logo">
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="relevant-experience" class="resume-section">
+                        <ul>
+                            <li class="project">
+                                <details open>
+                                    <summary><span class="project-name">Statue of Liberty Web Page </span><abbr>Liberty</abbr><span>Harford Community College</span></summary>
+                                    <div class="project-details">
+                                        <ul class="web-technologies-used liberty">
+                                            <li><img src="images/resume/web_technologies/HTML5_logo_small.png" class="web-technology-logo" alt="HTML5 logo"></li>
+                                            <li><img src="images/resume/web_technologies/CSS3_logo_small.png" class="web-technology-logo" alt="CSS3 logo"></li>
+                                        </ul>
+                                        <p>
+                                            <img src="images/resume/projects/statue_of_liberty.png" class="project-logo" alt="Statue of Liberty clip art">
+                                            Developed a responsive <a href="liberty/index.html" title="Click to view web page">informational web page about the Statue of Liberty</a> to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes. 
+                                        </p>
+                                    </div>
+                                    
+                                </details>
+                            </li>
+                            <li class="project">
+                                <details open>
+                                    <summary><span class="project-name">Interactive Calendar </span><abbr>Calendar</abbr><span>Harford Community College</span></summary>
+                                    <div class="project-details">
+                                        <ul class="web-technologies-used calendar">
+                                            <li><img src="images/resume/web_technologies/HTML5_logo_small.png" class="web-technology-logo" alt="HTML5 logo"></li>
+                                            <li><img src="images/resume/web_technologies/CSS3_logo_small.png" class="web-technology-logo" alt="CSS3 logo"></li>
+                                            <li><img src="images/resume/web_technologies/JavaScript_shield_logo_small.png" class="web-technology-logo" alt="JavaScript logo"></li>
+                                        </ul>
+                                        <p>
+                                            <img src="images/resume/projects/calendar.png" class="project-logo" alt="monthly calendar clip art">
+                                            Developed a <a href="calendar_generator/index.html" title="Click to view web page">dynamic calendar web page</a> using HTML5, CSS3, and JavaScript to generate a monthly calendar . Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.
+                                        </p>         
+                                    </div>                 
+                                </details>
+                            </li>
+                            <li class="project">
+                                <details open>
+                                    <summary><span class="project-name">Flight Lookup Simulator </span><abbr>Flight</abbr><span>Harford Community College</span></summary>
+                                    <div class="project-details">
+                                        <ul class="web-technologies-used flight">
+                                            <li><img src="images/resume/web_technologies/HTML5_logo_small.png" class="web-technology-logo" alt="HTML5 logo"></li>
+                                            <li><img src="images/resume/web_technologies/CSS3_logo_small.png" class="web-technology-logo" alt="CSS3 logo"></li>
+                                            <li><img src="images/resume/web_technologies/JavaScript_shield_logo_small.png" class="web-technology-logo" alt="JavaScript logo"></li>
+                                        </ul>
+                                        <p>
+                                            <img src="images/resume/projects/airplane.png" class="project-logo" alt="airplane in the sky clip art">
+                                            Developed a mockup of a <a href="travel/index.html" title="Click to view web page">flight lookup web page</a> using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.                                            
+                                        </p>
+                                    </div>
+                                </details>
+                            </li>
+                            <li class="project">
+                                <details open>
+                                    <summary><span class="project-name">WordPress Plugin </span><abbr>WordPress</abbr><span>Towson University</span></summary>
+                                    <div class="project-details">
+                                        <ul class="web-technologies-used wordpress">
+                                            <li><img src="images/resume/web_technologies/WordPress_logo_small.png" class="web-technology-logo" alt="WordPress logo"></li>
+                                            <li><img src="images/resume/web_technologies/php_circle_logo_small.png" class="web-technology-logo" alt="PHP logo"></li>
+                                            <li><img src="images/resume/web_technologies/mysql_circle_logo_small.png" class="web-technology-logo" alt="MySQL logo"></li>
+                                        </ul>
+                                        <p>
+                                            <img src="images/resume/projects/wordpress_plugin.png" class="project-logo" alt="WordPress plugin clip art">
+                                            Developed a WordPress plugin using HTML and PHP/MySQL to collect information from the user, store that information in a database, send a confirmation email, and retrieve and display that information at a later time. Implemented server-side validation and secured data transmission using POST method and input sanitization techniques.                                            
+                                        </p>
+                                    </div>                                    
+                                </details>
+                            </li>
+                            <li class="project">
+                                <details open>
+                                    <summary><span class="project-name">Online Pirate Game </span><abbr>Game</abbr><span>Towson University</span></summary>                                    
+                                    <div class="project-details">
+                                        <ul class="web-technologies-used game">
+                                            <li><img src="images/resume/web_technologies/mongodb_brightgreen_small.png" class="web-technology-logo" alt="MongoDB logo"></li>
+                                            <li><img src="images/resume/web_technologies/expressjs_circle_logo_small.png" class="web-technology-logo" alt="Express.js logo"></li>
+                                            <li><img src="images/resume/web_technologies/React_logo_small.png" class="web-technology-logo" alt="React.js logo"></li>
+                                            <li><img src="images/resume/web_technologies/node_js_hexagon_logo_small.png" class="web-technology-logo" alt="Node.js logo"></li>
+                                            <li><img src="images/resume/web_technologies/Git_logo_without_text_small.png" class="web-technology-logo" alt="GIT logo"></li>
+                                        </ul>
+                                        <p>
+                                            <img src="images/resume/projects/pirate_ship_and_map.png" class="project-logo" alt="pirate ship with skull and crossbones on the main sail and map clip art">
+                                            Collaborated with a small team to build a <a href="https://pirate-game-chi.vercel.app" target="_blank" rel="noopener noreferrer" data-text="Pirates" title="Click link to visit web page">pirate-themed, card-drawing roguelike game</a> using the MERN stack. Personally contributed to setting up and managing the MongoDB database, designing Mongoose schemas and models, and creating modular Express route files. Implemented account creation and login functionality, developed the interactive Run Screen, and added custom CSS to improve the game’s UI/UX. Used Git and GitHub for version control, branch management, and team collaboration to ensure smooth integration of code contributions.                                            
+                                        </p>
+                                    </div>
+                                </details>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <section id="professional-experience" class="resume-section">
+                        <ul>
+                            <li class="job">
+                                <details open>
+                                    <summary class="position">
+                                        <span class="job-title">Recruiting Coordinator</span>
+                                        <span class="employment-dates"><span class="month">March</span><abbr>Mar</abbr> 2016–<span class="month">August</span><abbr>Aug</abbr> 2016</span>
+                                    </summary>                                    
+                                    <ul class="job-details">                                        
+                                        <li class="employer">
+                                            <span class="employer-name">Career Strategies, Inc.</span>
+                                            <span class="employer-location">Los Angeles, CA</span>
+                                        </li>
+                                        <li class="job-duties">
+                                            <ul>
+                                                <li>Assessed resumes for potential job candidates and prescreened/interviewed candidates.</li>
+                                                <li>Proofread and edited candidates’ resumes to enhance content, style, and technical accuracy with industry standards and client expectations.</li>
+                                                <li>Assisted the rollout of new electronic time-keeping process, streamlining procedures and facilitating a seamless transition from paper to a web-based system.</li>
+                                            </ul>
+                                        </li>                                        
+                                    </ul>
+                                </details>
+                                <img class="employer-logo" src="images/resume/employer_logos/career_strategies_inc_logo.png" alt="Towson University logo"></img>
+                            </li>
+                            <li class="job">
+                                <details open>
+                                    <summary class="position">
+                                        <span class="job-title">Customer Service</span>
+                                        <span class="employment-dates"><span class="month">January</span><abbr>Jan</abbr> 2015–<span class="month">August</span><abbr>Aug</abbr> 2015</span>
+                                    </summary>
+                                    <ul class="job-details">
+                                        <li class="employer">
+                                            <span class="employer-name">Semihandmade</span>
+                                            <span class="employer-location">Burbank, CA</span>
+                                        </li>
+                                        <li class="job-duties">
+                                            <ul>
+                                                <li>Assisted customers in store and at trade shows with selecting and ordering custom cabinet fronts designed for Ikea cabinet systems.</li>
+                                                <li>Developed Excel spreadsheet application for automating order invoice generation.</li>
+                                                <li>Prepared bids and contracts for orders procured with clients.</li>
+                                            </ul>
+                                        </li>                                        
+                                    </ul>
+                                </details>
+                                <img class="employer-logo" src="images/resume/employer_logos/semihandmade_logo.png" alt="SemiHandmade logo"></img>
+                            </li>
+                             <li class="job">
+                                <details open>
+                                    <summary class="position">
+                                        <span class="job-title">Rooms Coordinator</span>
+                                        <span class="employment-dates"><abbr>Feb</abbr><span class="month">February</span> 2012–<abbr>Aug</abbr><span class="month">August</span> 2014</span>
+                                    </summary>
+                                    <ul class="job-details">
+                                        <li class="employer">
+                                            <span class="employer-name">Le Méridien<span class="parent-company">A Starwood Hotel</span></span>
+                                            <span class="employer-location">Arlington, VA</span>
+                                        </li>
+                                        <li class="job-duties">
+                                            <ul>
+                                                <li>Consolidated and aggregated data from hotel systems in advanced Excel spreadsheet application; used VBA programming to create a user-friendly interface for reviewing, tracking, and analyzing business and operational data in order to expedite client responses and services, as well as team operations.</li>
+                                                <li>Managed group room blocks for conference services and catering clients.</li>
+                                                <li>Initiated in-house reservation support for a personalized client experience.</li>
+                                                <li>Facilitated general administrative duties in order to maximize opportunities for sales, conference services and catering managers to focus on client interactions and deliver the specialized service essential for maintaining a loyal customer base at a luxury hotel.</li>
+                                            </ul>
+                                        </li>                                        
+                                    </ul>
+                                </details>
+                                <img class="employer-logo" src="images/resume/employer_logos/le_meridien_starwood_logos.png" alt="Lé Meridien Hotel/Starwood Hotels & Resort logo"></img>
+                            </li>
+                            <li class="job">
+                                <details open>
+                                    <summary class="position">
+                                        <span class="job-title">Sales Coordinator</span>
+                                        <span class="employment-dates"><span class="month">January</span><abbr>Jan</abbr> 2008–<span class="month">February</span><abbr>Feb</abbr> 2012</span>
+                                    </summary>
+                                    <ul class="job-details">
+                                        <li class="employer">
+                                            <span class="employer-name">Hotel Palomar<span class="parent-company">A Kimpton Hotel</span></span>
+                                            <span class="employer-location">Washington, DC / Arlington, VA</span>
+                                        </li>                                        
+                                        <li class="job-duties">
+                                            <ul>
+                                                <li>Built custom reporting queries in Market Vision and analyzed data in Excel to support decision-making for DC-area Kimpton hotels.</li>
+                                                <li>Designed and delivered PowerPoint training presentations and promotional materials for sales and catering teams.</li>
+                                                <li>Developed a sales goals dashboard workbook for Directors of Sales and Marketing for calculating quarterly bonuses for sales managers; gave presentation on using the workbook to directors of all DC-area Kimpton Hotels.</li>
+                                                <li>Created and edited sophisticated Word document templates to streamline the drafting of client-ready correspondence and internal communications.</li>
+                                            </ul>
+                                        </li>                                        
+                                    </ul>
+                                </details>
+                                <img class="employer-logo" src="images/resume/employer_logos/kimpton_palomar_logo.png" alt="Hotel Palomar logo"></img>
+                            </li>
+                        </ul>
+                    </section>
+                </main>
+            </section>
+
             <section id="email">
                 <form id="contact-form" novalidate>
                     <h2>Tell me about yourself!</h2>
@@ -370,7 +672,6 @@
                             >Message
                             <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
                         </label>
-                        <br />
                         <label><span>&nbsp;</span><button type="submit">Send</button></label>
                     </fieldset>
                 </form>
@@ -388,17 +689,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a data-text="Résumé" href="documents/TimKipp_Resume.pdf" target="_blank" title="View/download résumé">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-file-cv">
+                        <a data-text="Email" href="#email" title="Email me">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-2.5 8a2.5 2.5 0 0 0 -2.5 2.5v3a2.5 2.5 0 1 0 5 0a1 1 0 0 0 -2 0a.5 .5 0 1 1 -1 0v-3a.5 .5 0 1 1 1 0a1 1 0 0 0 2 0a2.5 2.5 0 0 0 -2.5 -2.5m6.743 .03a1 1 0 0 0 -1.213 .727l-.53 2.119l-.53 -2.119a1 1 0 1 0 -1.94 .486l1.5 6c.252 1.01 1.688 1.01 1.94 0l1.5 -6a1 1 0 0 0 -.727 -1.213m-1.244 -7.031l4.001 4.001h-4z"
-                                />
-                                <title>My résumé</title>
+                                <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+                                <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+                                <title>Send an email to me</title>
                             </svg>
-                            <span>Résumé</span>
+                            <span>Email</span>
                         </a>
-                    </li>
+                    </li>                    
                     <li>
                         <a data-text="LinkedIn" href="https://www.linkedin.com/in/tim-kipp-91461b2/" title="View my LinkedIn profile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin">
@@ -420,17 +720,7 @@
                             <span>GitHub</span>
                         </a>
                     </li>
-                    <li>
-                        <a data-text="Email" href="#email" title="Email me">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
-                                <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
-                                <title>Send an email to me</title>
-                            </svg>
-                            <span>Email</span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </nav>
             <div id="debug-media-queries" class="debug">
@@ -445,13 +735,13 @@
 
         <!-- <div id="debug-overlay"></div> -->
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>
-            // eruda.init();
-        </script> -->
+            eruda.init();
+        </script>
         <script>
             console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
-
+            console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
             // let property = "";
 
             // const aboutMain = document.querySelector("#about > main");

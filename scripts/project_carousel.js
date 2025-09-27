@@ -104,7 +104,6 @@ function triggerProjectCarousel() {
 }
 
 function syncProjectCarousel(indicatorIndex) {
-    console.log("'syncProjectCarousel' called");
     if (this instanceof Element) {
         progressIndicatorIsClicked = true;
 

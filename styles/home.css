@@ -79,6 +79,7 @@
             & span:nth-of-type(6) {
                 position: relative;
                 top: 0.12em;
+                /* color: var(--light-background); */
                 font-family: "Praise", cursive;
             }
         }
@@ -113,18 +114,18 @@
                     color: var(--curiosity-color);
                 }
 
-                & .delimiter {
-                    color: var(--creativity-color);
-                }
-
-                & .delimiter:nth-child(4) {
-                    margin-left: clamp(1em, 5cqw, 5em);
-                    margin-right: clamp(1em, 5cqw, 5em);
-                }
-
                 & .title-2 {
                     color: var(--empathy-color);
                 }
+            }
+
+            & .delimiter {
+                color: var(--creativity-color);
+            }
+
+            & .delimiter:nth-child(4) {
+                margin-left: clamp(1em, 5cqw, 5em);
+                margin-right: clamp(1em, 5cqw, 5em);
             }
         }
     }

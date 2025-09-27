@@ -310,12 +310,290 @@
         }
     }
 
+    #resume {
+        flex-direction: column;
+
+        & > header {
+            height: revert;
+            flex-direction: column;
+
+            & > nav {
+                & > ul {
+                    flex-direction: row;
+
+                    & li {
+                        padding: 0.5em 0;
+                        font-size: clamp(1.25rem, 2cqh, 2rem);
+                        writing-mode: revert;
+                        border-width: 2px;
+                        transform: none;
+
+                        &.selected-tab {
+                            border-bottom: none;
+                        }
+
+                        &:first-child {
+                            border-left: none;
+                        }
+
+                        &:last-child {
+                            border-right: none;
+                        }
+
+                        &#summary-tab {
+                            border-bottom-width: 2px;
+
+                            &.selected-tab {
+                                border-bottom: none;
+                            }
+                        }
+
+                        &#professional-experience-tab {
+                            border-top-width: 2px;
+                        }
+
+                        & .tab-icon {
+                            transform: none;
+                        }
+                    }
+                }
+            }
+
+            & > h1 {
+                width: revert;
+                height: 2.25em;
+                font-size: clamp(1em, 1.5em, 2em);
+                white-space: nowrap;
+                writing-mode: revert;
+                border: none;
+                transform: none;
+
+                &:has(span) {
+                    flex-direction: column;
+                }
+
+                &.display-professional-experience {
+                    letter-spacing: 0.35em;
+                }
+            }
+        }
+
+        & > main {
+            & .resume-section {
+                &#summary {
+                    flex-direction: column;
+                    font-size: clamp(1.5rem, 3.5cqw, 3rem);
+
+                    & p {
+                        width: 100%;
+                        padding: 1em;
+                        line-height: clamp(1.5em, 2em, 2.5em);
+                    }
+
+                    & .web-technology-logos {
+                        flex-direction: row;
+                        padding: 2.25em 0;
+
+                        & .logos-list {
+                            flex-direction: row;
+                            animation: logos-ticker-horizontal 15s linear infinite;
+
+                            & > li {
+                                & img {
+                                    height: 2.75em;
+                                    padding: 0 1.4em;
+
+                                    &.featured {
+                                        transform: scale(1.5);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#education {
+                    padding-top: 0.75em;
+                    font-size: clamp(2rem, 6cqh, 2.5rem);
+
+                    & > ul {
+                        font-size: clamp(0.35em, 0.6em, 0.85em);
+
+                        & > li.academics {
+                            margin-bottom: clamp(1em, 3em, 5em);
+
+                            & > details {
+                                & > summary {
+                                    white-space: nowrap;
+
+                                    & > .college {
+                                        & > .college-name {
+                                            margin-right: 0.5em;
+                                            font-size: clamp(1em, 1.125em, 1.25em);
+                                            font-size: 1.25em;
+                                        }
+
+                                        & > .college-location {
+                                            font-size: clamp(0.45em, 0.85em, 1em);
+                                            font-weight: 300;
+                                        }
+                                    }
+
+                                    & > .graduation {
+                                        font-size: clamp(0.25em, 1em, 1.25em);
+                                        font-weight: 500;
+                                    }
+                                }
+
+                                & > ul.education-details {
+                                    & > li {
+                                        margin-top: clamp(0.2em, 0.35em, 0.5em);
+
+                                        &.academic-credential {
+                                            grid-column: 1 / 3;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            font-size: clamp(1em, 1.175em, 1.5em);
+                                            font-size: 1.25em;
+                                        }
+
+                                        &.major {
+                                            margin-top: 0.1em;
+                                            font-size: clamp(1em, 1.25em, 1.5em);
+                                        }
+
+                                        &.gpa {
+                                            grid-row: 1;
+                                            grid-column: 3;
+                                            font-size: clamp(1em, 1.25em, 1.5em);
+                                        }
+
+                                        &.honors {
+                                            grid-column: 2 / 4;
+                                            font-size: clamp(1em, 1.125em, 1.5em);
+                                            text-align: right;
+                                        }
+
+                                        &.membership {
+                                            grid-column: 2 / 4;
+                                            font-size: clamp(1em, 1.125em, 1.5em);
+                                            text-align: right;
+                                        }
+
+                                        &.college-logo {
+                                            width: 200%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#relevant-experience {
+                    & > ul {
+                        flex-wrap: nowrap;
+                        align-items: flex-start;
+                        width: 100%;
+
+                        & > li {
+                            width: 100%;
+                            margin-bottom: clamp(0.5em, 0.75em, 1em);
+
+                            & details {
+                                & summary {
+                                    color: var(--creativity-color);
+                                    font-size: clamp(0.75em, 1em, 1.25em);
+
+                                    & span {
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                & .project-details {
+                                    & ul.web-technologies-used {
+                                        & li img {
+                                            height: 1.5em;
+                                        }
+                                    }
+
+                                    & p {
+                                        font-size: clamp(0.75em, 0.9em, 1.15em);
+                                        /* font-size: 1em; */
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#professional-experience {
+                    & > ul {
+                        flex-wrap: nowrap;
+                        align-items: flex-start;
+                        width: 100%;
+
+                        & > li.job {
+                            width: 100%;
+
+                            &:has(details[open]) {
+                                padding-bottom: clamp(0.25em, 0.4em, 0.65em);
+                            }
+
+                            & > details {
+                                & > summary {
+                                    color: var(--empathy-color);
+                                    font-size: clamp(0.75em, 1em, 1.25em);
+                                    white-space: nowrap;
+
+                                    & > span.employment-dates {
+                                        display: flex;
+                                        align-items: flex-end;
+                                        color: var(--empathy-color);
+                                        font-size: clamp(0.5em, 0.65em, 0.85em);
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                & > ul.job-details {
+                                    font-size: clamp(0.25em, 0.5em, 0.9em);
+
+                                    & > li {
+                                        &.employer {
+                                            font-size: clamp(1.25em, 1.5em, 1.65em);
+                                        }
+
+                                        &.job-duties {
+                                            & > ul {
+                                                column-count: 1;
+
+                                                & > li {
+                                                    font-size: clamp(0.85em, 1.25em, 1.5em);
+                                                    line-height: clamp(1.5, 1.75, 2);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            & > img {
+                                width: 15%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     #email {
         & form {
             width: 100%;
 
             & h2 {
                 margin-bottom: clamp(2rem, 18cqh, 6rem);
+                white-space: nowrap;
             }
 
             & fieldset {

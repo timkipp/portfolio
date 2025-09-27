@@ -1,5 +1,5 @@
 /* For tablets in landscape orientations */
-@media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) and (orientation: landscape) {
+@media (min-width: 600px) and (max-width: 1280px) /*and (min-height: 600px) */ and (orientation: landscape) {
     .debug #tablets-landscape {
         display: flex;
         background-color: orange;
@@ -106,18 +106,215 @@
         }
     }
 
+    #resume {
+        & > header {
+            & > nav {
+                & > ul {
+                    & li {
+                        font-size: clamp(1rem, 1.5cqh, 2rem);
+                    }
+                }
+            }
+
+            & h1 {
+                font-size: clamp(1.5rem, 5cqh, 2rem);
+            }
+        }
+
+        & > main {
+            & .resume-section {
+                padding: clamp(0.35em, 0.5em, 0.75em);
+
+                &#summary {
+                    padding: clamp(0.25em, 0.5em, 1em);
+                    font-size: clamp(0.75rem, 2.5cqw, 1.75rem);
+                }
+
+                &#education {
+                    & > ul > li.academics {
+                        & > details {
+                            & > summary {
+                                font-size: clamp(0.45em, 0.6em, 0.85em);
+
+                                & span.college-location {
+                                    font-size: clamp(0.65em, 0.9em, 1.15em);
+                                }
+                            }
+
+                            & > ul.education-details {
+                                font-size: clamp(0.25em, 0.5em, 0.75em);
+
+                                & > li {
+                                    &.academic-credential {
+                                        font-size: 1em;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#relevant-experience {
+                    padding: clamp(0.125em, 0.25em, 0.75em);
+
+                    & > ul {
+                        flex-wrap: nowrap;
+                        align-items: flex-start;
+                        width: 100%;
+
+                        & > li {
+                            width: 100%;
+                            margin-bottom: clamp(0.125em, 0.25em, 0.4em);
+
+                            & details {
+                                & summary {
+                                    justify-content: space-between;
+                                    color: var(--creativity-color);
+                                    font-size: clamp(0.5em, 0.75em, 1.25em);
+
+                                    & > span:first-child {
+                                        font-weight: 800;
+                                    }
+
+                                    & > span:last-child {
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                & .project-details {
+                                    & ul.web-technologies-used {
+                                        display: grid;
+                                        grid-template-rows: repeat(2, 1fr);
+                                        grid-template-columns: repeat(2, 1fr);
+                                        column-gap: 0.5em;
+
+                                        &.game {
+                                            display: grid;
+                                            grid-template-rows: repeat(3, 1fr);
+                                            grid-template-columns: repeat(2, 1fr);
+                                            column-gap: 0.5em;
+                                        }
+
+                                        & li img {
+                                            height: 1em;
+                                        }
+                                    }
+
+                                    & p {
+                                        font-size: clamp(0.45em, 0.6em, 0.85em);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#professional-experience {
+                    font-size: 8.5cqmin;
+                    padding: clamp(0.125em, 0.35em, 0.75em);
+
+                    & > ul {
+                        flex-wrap: nowrap;
+                        align-items: flex-start;
+                        width: 100%;
+
+                        & > li.job {
+                            grid-template-columns: repeat(5, 1fr);
+                            width: 100%;
+                            margin-bottom: clamp(0.125em, 0.25em, 0.4em);
+
+                            &:has(details[open]) {
+                                padding-bottom: clamp(0.25em, 0.4em, 0.65em);
+                            }
+
+                            & > details {
+                                & > summary {
+                                    font-size: clamp(0.25em, 0.65em, 0.9em);
+
+                                    & span.job-title {
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                &[name][open] > summary {
+                                    & > span.job-title {
+                                        font-weight: 800;
+                                    }
+
+                                    & > span.employment-dates {
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                /* &[name]:not([open]) summary {
+                                    color: var(--light-background);
+                                    border-bottom: none;
+                                    pointer-events: all;
+
+                                    &:hover {
+                                        color: var(--empathy-color);
+                                    }
+
+                                    & > span.job-title::before {
+                                        content: "\25B6\FE0E";
+                                    }
+                                } */
+
+                                & > ul.job-details {
+                                    font-size: clamp(0.25em, 0.5em, 0.9em);
+
+                                    & > li {
+                                        &.employer {
+                                            grid-column: 1 / 5;
+                                        }
+
+                                        &.employment-dates {
+                                            grid-column: 3 / 6;
+                                            color: var(--empathy-color);
+                                        }
+
+                                        &.job-duties {
+                                            grid-column: 1 / 5;
+
+                                            & > ul > li {
+                                                font-size: clamp(0.45em, 0.7em, 0.95em);
+                                                line-height: clamp(1.5, 1.75, 2);
+                                            }
+                                        }
+
+                                        &.employer-logo {
+                                            grid-row: 2 /4;
+                                            grid-column: 5;
+
+                                            & > img {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     #email {
         & form {
             width: 100%;
 
             & h2 {
                 margin-top: 0;
+                white-space: nowrap;
             }
 
             & fieldset {
                 flex-direction: row;
                 flex-wrap: wrap;
                 column-gap: 1rem;
+                justify-content: space-between;
 
                 & label {
                     &:nth-last-of-type(2) {
@@ -133,6 +330,7 @@
 
                     & button {
                         width: 6ch;
+                        margin-top: clamp(0.5rem, 2cqh, 1rem);
                     }
                 }
             }

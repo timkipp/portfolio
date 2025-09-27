@@ -14,7 +14,7 @@ $uri .= $_SERVER['HTTP_HOST'];
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="styles/reset.css" type="text/css" rel="stylesheet">
-    <link href="styles/resume.css" type="text/css" rel="stylesheet">
+    <link href="styles/resume_old.css" type="text/css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<script src="scripts/index.js" defer></script>
 	<title>Portfolio</title>
@@ -40,14 +40,14 @@ $uri .= $_SERVER['HTTP_HOST'];
                 <li>
                     <span>Towson University, Baltimore, MD</span><span><em>Graduated </em>May 2025</span>
                     <ul>
-                        <li><span class="degree">Bachelor of Sciece, Information Technology</span><span class="grade">GPA: 3.8</span></li>                        
+                        <li><span class="academic-credential">Bachelor of Sciece, Information Technology</span><span class="grade">GPA: 3.8</span></li>                        
                         <li class="achievements">Dean's List: Fall 2023, Spring 2024, Fall 2024</li>
                     </ul>
                 </li>
                 <li>
                     <span>Harford Community College, Bel Air, MD</span><span>Graduated 2023</span>
                     <ul>
-                        <li><span class="degree">Associate in Applied Sciences, Computer Information Systems</span><span class="grade">GPA: 3.8</span>
+                        <li><span class="academic-credential">Associate in Applied Sciences, Computer Information Systems</span><span class="grade">GPA: 3.8</span>
                         <br><span>Certificate, Computer Information Systems Programming</span></li>
                         <li>Dean's List: Spring 2022</li>
                     </ul>

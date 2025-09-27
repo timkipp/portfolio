@@ -50,6 +50,7 @@
             & h3 {
                 width: 100%;
                 font-size: clamp(2rem, min(6.5cqw, 5.5cqh), 6rem);
+                font-weight: bold;
                 line-height: clamp(2.5rem, min(5.69cqw, 5.31cqh), 7rem);
                 text-align: center;
             }
@@ -111,7 +112,6 @@
         & #creativity {
             & h3 {
                 color: var(--creativity-color);
-                /* font-family: Syncopate; */
                 font-family: Griffy;
                 font-family: "Bigelow Rules";
                 font-family: "Fontdiner Swanky";

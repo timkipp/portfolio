@@ -7,6 +7,7 @@
     --french-vanilla-color: #ede0be;
     --light-background: #ffffeb;
     --dark-background: #412f30;
+    --featured-web-tech-color: #f16529;
     --angle: 45deg;
     --opacity: 0.5;
 }
@@ -17,13 +18,7 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: 0.75fr 6.5fr 0.75fr;
-    grid-template-columns:
-        minmax(1rem, 0.75fr)
-        minmax(1rem, 1fr)
-        minmax(300px, 900px)
-        minmax(1rem, 1fr)
-        minmax(1rem, 0.75fr);
+    grid-template-rows: 0.5fr 7fr 0.5fr;
     width: 100vw;
     max-width: 100vw;
     overflow: hidden;
@@ -46,16 +41,97 @@ body {
     & > header,
     & > footer {
         grid-column: 1 / 6;
-        display: flex;
+        /* display: flex; */
         z-index: 100;
+
+        & > nav {
+            width: 100%;
+            height: 100%;
+            padding-left: clamp(1em, 2cqi, 3em);
+            padding-right: clamp(1em, 2cqi, 3em);
+
+            & > ul {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+
+                & li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 10ch;
+                    font-size: clamp(1rem, 2cqw, 2rem);
+                    text-transform: lowercase;
+                    white-space: nowrap;
+
+                    &.current-section {
+                        color: var(--light-background);
+                        background-color: var(--creativity-color);
+                        border-radius: 9999px;
+                        pointer-events: none;
+                        transition: background-color 0.5s ease, color 0.5s ease;
+
+                        & > a {
+                            padding-top: 0.3rem;
+                            color: var(--light-background);
+                        }
+                    }
+
+                    & a {
+                        display: inline-block;
+                        position: relative;
+                        padding: 0.5rem 0;
+                        /* font-size: clamp(1rem, 2cqw, 2rem); */
+                        text-align: center;
+                        text-decoration: none;
+                        transition: border 0.2s ease;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 5px;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            transform-origin: left;
+                            transform: scaleX(0);
+                            transition: transform 0.4s ease;
+                        }
+
+                        &::after {
+                            top: auto;
+                            bottom: 0;
+                        }
+
+                        &:hover::before,
+                        &:hover::after {
+                            transform: scaleX(1);
+                        }
+
+                        & > svg {
+                            display: none;
+                            width: clamp(1.5rem, 2cqmin, 2.25rem);
+                            height: auto;
+                        }
+
+                        & > span {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     & > header {
         container-type: size;
         container-name: header;
         grid-row: 1;
-        justify-content: space-between;
-        align-items: flex-end;
+        /* justify-content: flex-end;
+        align-items: flex-end; */
         border-bottom: 1cqh solid var(--empathy-color);
 
         & > h1 {
@@ -97,15 +173,18 @@ body {
         }
 
         & nav {
-            margin-left: clamp(0.25em, 2.5cqi, 3em);
-            padding-top: clamp(0.5em, 5cqb, 3em);
-            background-color: var(--empathy-color);
-            border-top-left-radius: clamp(0.5rem, 5cqw, 1.5rem) clamp(1.5rem, 10cqh, 3rem);
-            border-top-right-radius: clamp(0.75rem, 5cqw, 1.5rem) clamp(1.5rem, 10cqh, 3rem);
-            box-shadow: -10px -10px 8px rgb(255 255 255 / 60%), inset 6px 6px 0 rgb(255 255 255 / 30%), inset -6px 0 0 rgb(0 0 0 / 20%);
+            & ul {
+                /* &:not(:has(li.current-section)) {
+                    align-items: flex-end;
+                } */
+                & li a {
+                    color: var(--creativity-color);
 
-            & ul li a {
-                color: var(--light-background);
+                    &::before,
+                    &::after {
+                        background-color: var(--creativity-color);
+                    }
+                }
             }
         }
     }
@@ -114,76 +193,34 @@ body {
         container-type: size;
         container-name: footer;
         grid-row: 3;
-        justify-content: flex-start;
-        align-items: flex-start;
+        /* justify-content: flex-start;
+        align-items: flex-start; */
         border-top: 1cqh solid var(--curiosity-color);
         border-bottom-left-radius: 2.5% 40%;
         border-bottom-right-radius: 2.5% 40%;
 
         & nav {
-            padding-bottom: clamp(0.5em, 5cqb, 3em);
-            background-color: var(--curiosity-color);
-            border-bottom-left-radius: clamp(0.75rem, 5cqw, 1.5rem) clamp(1.5rem, 10cqh, 3rem);
-            border-bottom-right-radius: clamp(0.75rem, 5cqw, 1.5rem) clamp(1.5rem, 10cqh, 3rem);
-            box-shadow: inset 6px -6px 0 rgb(255 255 255 / 30%), inset -6px 0 0 rgb(0 0 0 / 20%);
+            padding-top: clamp(0.25cqb, 0.5cqb, 0.75cqb);
 
             & ul li a {
-                color: var(--dark-background);
-            }
-        }
-    }
+                color: var(--creativity-color);
 
-    & header nav,
-    & footer nav {
-        /* width: min(25%, 60ch); */
-        width: fit-content;
-        padding-left: clamp(1em, 2cqi, 3em);
-        padding-right: clamp(1em, 2cqi, 3em);
-
-        & ul {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-around;
-
-            & li {
-                text-transform: lowercase;
-                white-space: nowrap;
-
-                & + li {
-                    margin-left: clamp(1em, 2cqw, 2em);
-                }
-
-                & a {
-                    position: relative;
-                    padding: 0.5rem 0;
-                    font-size: clamp(1rem, 2cqw, 2rem);
-                    text-align: center;
-                    text-decoration: none;
-                    transition: border 0.2s ease;
-
-                    & > svg {
-                        width: clamp(1.5rem, 2cqmin, 2.25rem);
-                        height: auto;
-                    }
-
-                    & > span {
-                        display: none;
-                    }
+                &::before,
+                &::after {
+                    background-color: var(--creativity-color);
                 }
             }
         }
     }
 
     & div.sidebar {
-        grid-row: 2;
+        position: fixed;
+        z-index: -999;
+        height: 100vh;
         background-color: var(--dark-background);
 
-        &:first-of-type {
-            grid-column: 1;
-        }
-
         &:last-of-type {
-            grid-column: 5;
+            right: 0;
         }
 
         & svg {
@@ -196,7 +233,7 @@ body {
 
     & > main {
         grid-row: 2;
-        grid-column: 2 / 5;
+        grid-column: 1 / 6;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -213,9 +250,9 @@ body {
             display: none;
         }
 
-        & section {
+        & > section {
             flex: 0 0 100%;
-            width: 100%;
+            width: 80%;
             max-height: 100%;
             display: flex;
             flex-direction: column;
@@ -249,6 +286,9 @@ body {
 }
 
 #debug-media-queries {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     align-self: flex-end;
     display: flex;
     margin-left: auto;

@@ -37,13 +37,12 @@
                     justify-content: center;
                     align-items: center;
                     padding: 0 0.5em;
-                    /* font-size: clamp(1.5rem, 3cqh, 3rem); */
                     text-align: center;
                     letter-spacing: 0.15em;
                     writing-mode: vertical-rl;
                     text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.1), 2px 2px 2px rgba(0, 0, 0, 0.5);
                     border: 2.5px solid var(--dark-background);
-                    border-left: 5px solid var(--dark-background);
+                    border-left: 2px solid var(--dark-background);
                     transform: rotate(180deg);
                     cursor: pointer;
 
@@ -60,7 +59,7 @@
 
                     &#summary-tab {
                         background-color: var(--purpose-color);
-                        border-bottom: 5px solid var(--dark-background);
+                        border-bottom: 2px solid var(--dark-background);
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
@@ -85,7 +84,7 @@
                     }
                     &#professional-experience-tab {
                         background-color: var(--empathy-color);
-                        border-top: 5px solid var(--dark-background);
+                        border-top: 2px solid var(--dark-background);
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
@@ -119,8 +118,8 @@
             text-transform: uppercase;
             writing-mode: vertical-rl;
             text-shadow: -2px -2px 2px rgba(255, 255, 255, 0.1), 2px 2px 2px rgba(0, 0, 0, 0.5);
-            border-top: 5px solid var(--dark-background);
-            border-bottom: 5px solid var(--dark-background);
+            border-top: 2px solid var(--dark-background);
+            border-bottom: 2px solid var(--dark-background);
             transform: rotate(180deg);
 
             &:has(span) {
@@ -197,24 +196,6 @@
                     font-weight: 200;
 
                     & span {
-                        /* &.design-words,
-                        &.curiosity-words {
-                            color: var(--curiosity-color);
-                        }
-
-                        &.development-words,
-                        &.empathy-words {
-                            color: var(--empathy-color);
-                        }
-
-                        &.purpose-words {
-                            color: var(--purpose-color);
-                        }
-
-                        &.creativity-words {
-                            color: var(--creativity-color);
-                        } */
-
                         & em {
                             font-weight: 600;
                         }
@@ -543,7 +524,7 @@
                 & > ul {
                     display: flex;
                     flex-flow: column wrap;
-                    justify-content: space-between;
+                    height: 100%;
 
                     & > li.job {
                         display: flex;

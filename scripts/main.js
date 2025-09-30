@@ -186,16 +186,32 @@ window.addEventListener("resize", () => {
     currentViewport = new BrowserViewport(currentDevice);
 
     // Debounce to avoid flooding during resize
-    clearTimeout(window.wrapTimeout);
-    window.wrapTimeout = setTimeout(checkWrap, 100);
+    // clearTimeout(window.wrapTimeout);
+    // window.wrapTimeout = setTimeout(checkWrap, 100);
 
-    setProjectsInteraction(currentViewport);
-    updateTabDisplayMode(currentViewport);
-    setLogoObserver();
+    // setProjectsInteraction(currentViewport);
+    // updateTabDisplayMode(currentViewport);
+    // setLogoObserver();
 
-    if (currentDevice == DeviceType.PHONE) {
-        updateCaptionHeight();
-    }
+    // if (currentDevice == DeviceType.PHONE) {
+    //     updateCaptionHeight();
+    // }
+
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(() => {
+        currentDevice = getDevice();
+        currentViewport = new BrowserViewport(currentDevice);
+
+        checkWrap();
+        setProjectsInteraction(currentViewport);
+        updateTabDisplayMode(currentViewport);
+        setLogoObserver();
+        setRealVH();
+
+        if (currentDevice === DeviceType.PHONE) {
+            updateCaptionHeight();
+        }
+    }, 200); // enough delay for maximize/minimize to settle
 });
 
 window.addEventListener("load", checkWrap);

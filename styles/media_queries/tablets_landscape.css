@@ -1,8 +1,13 @@
 /* For tablets in landscape orientations */
-@media (min-width: 600px) and (max-width: 1280px) /*and (min-height: 600px) */ and (orientation: landscape) {
+@media (min-width: 600px) and (max-width: 1280px) and (min-height: 600px) and (orientation: landscape) {
     .debug #tablets-landscape {
         display: flex;
         background-color: orange;
+    }
+
+    body > header,
+    body > footer {
+        height: 3.5em;
     }
 
     #about > main {
@@ -160,6 +165,7 @@
 
                     & > ul {
                         flex-wrap: nowrap;
+                        justify-content: space-between;
                         align-items: flex-start;
                         width: 100%;
 
@@ -178,7 +184,45 @@
                                     }
 
                                     & > span:last-child {
-                                        font-weight: 400;
+                                        font-weight: 600;
+                                        font-variation-settings: "wght" 600;
+                                    }
+                                }
+
+                                &:not([open]) > summary {
+                                    justify-content: flex-start;
+
+                                    &::before {
+                                        content: "\25B6\FE0E";
+                                        margin-right: 0.5em;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        width: 10cqh;
+                                        height: 10cqh;
+                                        margin-top: -2cqh;
+                                        margin-left: 1em;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                    }
+
+                                    &.liberty::after {
+                                        background-image: url("/images/resume/projects/statue_of_liberty.png");
+                                    }
+
+                                    &.calendar::after {
+                                        background-image: url("/images/resume/projects/calendar.png");
+                                    }
+                                    &.flight::after {
+                                        background-image: url("/images/resume/projects/airplane.png");
+                                    }
+
+                                    &.wordpress::after {
+                                        background-image: url("/images/resume/projects/wordpress_plugin.png");
+                                    }
+                                    &.pirate::after {
+                                        background-image: url("/images/resume/projects/pirate_ship_and_map.png");
                                     }
                                 }
 
@@ -211,11 +255,16 @@
                 }
 
                 &#professional-experience {
-                    font-size: 8.5cqmin;
+                    font-size: 3cqw;
                     padding: clamp(0.125em, 0.35em, 0.75em);
+
+                    @media (min-height: 700px) {
+                        font-size: 4cqw;
+                    }
 
                     & > ul {
                         flex-wrap: nowrap;
+                        justify-content: space-between;
                         align-items: flex-start;
                         width: 100%;
 
@@ -226,6 +275,10 @@
 
                             &:has(details[open]) {
                                 padding-bottom: clamp(0.25em, 0.4em, 0.65em);
+                            }
+
+                            &:has(details[name]:not([open])) > img {
+                                visibility: visible;
                             }
 
                             & > details {
@@ -244,54 +297,38 @@
 
                                     & > span.employment-dates {
                                         font-weight: 400;
+                                        font-variation-settings: "wght" 500;
                                     }
                                 }
-
-                                /* &[name]:not([open]) summary {
-                                    color: var(--light-background);
-                                    border-bottom: none;
-                                    pointer-events: all;
-
-                                    &:hover {
-                                        color: var(--empathy-color);
-                                    }
-
-                                    & > span.job-title::before {
-                                        content: "\25B6\FE0E";
-                                    }
-                                } */
 
                                 & > ul.job-details {
                                     font-size: clamp(0.25em, 0.5em, 0.9em);
 
                                     & > li {
                                         &.employer {
-                                            grid-column: 1 / 5;
+                                            border-bottom: 1px solid var(--empathy-color);
                                         }
 
                                         &.employment-dates {
-                                            grid-column: 3 / 6;
                                             color: var(--empathy-color);
                                         }
 
                                         &.job-duties {
-                                            grid-column: 1 / 5;
-
                                             & > ul > li {
                                                 font-size: clamp(0.45em, 0.7em, 0.95em);
                                                 line-height: clamp(1.5, 1.75, 2);
                                             }
                                         }
-
-                                        &.employer-logo {
-                                            grid-row: 2 /4;
-                                            grid-column: 5;
-
-                                            & > img {
-                                                width: 100%;
-                                            }
-                                        }
                                     }
+                                }
+                            }
+
+                            & > img {
+                                width: auto;
+                                height: 10cqh;
+
+                                &[src$="kimpton_palomar_logo.png"] {
+                                    height: 15cqh;
                                 }
                             }
                         }

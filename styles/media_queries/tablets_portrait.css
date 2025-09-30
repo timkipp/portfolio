@@ -7,7 +7,11 @@
     }
 
     body {
-        nav ul li a {
+        > header,
+        > footer {
+            & > nav > ul > li {
+                font-size: 1.5em;
+            }
         }
     }
 
@@ -46,6 +50,9 @@
     }
 
     #about {
+        width: 100%;
+        padding: 1em;
+
         & > header {
             & h1 {
                 flex-direction: column;
@@ -154,7 +161,6 @@
                         padding: 0.5rem 0;
                         font-variation-settings: "wght" 300;
                         font-size: clamp(3rem, 7.38cqh, 5rem);
-                        /* font-size: 80px; */
                         letter-spacing: 2rem;
                         writing-mode: revert;
 
@@ -406,7 +412,8 @@
 
                 &#education {
                     padding-top: 0.75em;
-                    font-size: clamp(2rem, 6cqh, 2.5rem);
+                    /* font-size: clamp(2rem, 6cqw, 2.5rem); */
+                    font-size: 4cqw;
 
                     & > ul {
                         font-size: clamp(0.35em, 0.6em, 0.85em);
@@ -485,6 +492,7 @@
                 &#relevant-experience {
                     & > ul {
                         flex-wrap: nowrap;
+                        justify-content: space-between;
                         align-items: flex-start;
                         width: 100%;
 
@@ -510,8 +518,46 @@
                                     }
 
                                     & p {
-                                        font-size: clamp(0.75em, 0.9em, 1.15em);
-                                        /* font-size: 1em; */
+                                        max-height: 50cqh;
+                                        overflow-y: auto;
+                                        font-size: clamp(0.75em, 0.8em, 1.15em);
+                                    }
+                                }
+
+                                &:not([open]) > summary {
+                                    justify-content: flex-start;
+
+                                    &::before {
+                                        content: "\25B6\FE0E";
+                                        margin-right: 0.5em;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        width: 10cqh;
+                                        height: 10cqh;
+                                        margin-top: -3cqh;
+                                        margin-left: 1em;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                    }
+
+                                    &.liberty::after {
+                                        background-image: url("/images/resume/projects/statue_of_liberty.png");
+                                    }
+
+                                    &.calendar::after {
+                                        background-image: url("/images/resume/projects/calendar.png");
+                                    }
+                                    &.flight::after {
+                                        background-image: url("/images/resume/projects/airplane.png");
+                                    }
+
+                                    &.wordpress::after {
+                                        background-image: url("/images/resume/projects/wordpress_plugin.png");
+                                    }
+                                    &.pirate::after {
+                                        background-image: url("/images/resume/projects/pirate_ship_and_map.png");
                                     }
                                 }
                             }
@@ -520,19 +566,28 @@
                 }
 
                 &#professional-experience {
+                    font-size: 3.75cqw;
+
                     & > ul {
                         flex-wrap: nowrap;
-                        align-items: flex-start;
-                        width: 100%;
+                        justify-content: space-between;
 
                         & > li.job {
                             width: 100%;
+                            height: min-content;
+                            overflow-y: clip;
 
                             &:has(details[open]) {
                                 padding-bottom: clamp(0.25em, 0.4em, 0.65em);
                             }
 
+                            &:has(details[name]:not([open])) > img {
+                                visibility: visible;
+                            }
+
                             & > details {
+                                height: min-content;
+
                                 & > summary {
                                     color: var(--empathy-color);
                                     font-size: clamp(0.75em, 1em, 1.25em);
@@ -544,19 +599,29 @@
                                         color: var(--empathy-color);
                                         font-size: clamp(0.5em, 0.65em, 0.85em);
                                         font-weight: 400;
+                                        font-variation-settings: "wght" 300;
                                     }
                                 }
 
                                 & > ul.job-details {
+                                    height: 100%;
                                     font-size: clamp(0.25em, 0.5em, 0.9em);
 
                                     & > li {
                                         &.employer {
                                             font-size: clamp(1.25em, 1.5em, 1.65em);
+                                            border-bottom: 1px solid var(--empathy-color);
                                         }
 
                                         &.job-duties {
+                                            align-items: flex-start;
+                                            max-height: 40cqh;
+                                            overflow-y: auto;
+
                                             & > ul {
+                                                display: flex;
+                                                flex-direction: column;
+                                                height: 100%;
                                                 column-count: 1;
 
                                                 & > li {
@@ -570,7 +635,12 @@
                             }
 
                             & > img {
-                                width: 15%;
+                                display: block;
+                                align-self: flex-start;
+                                object-fit: contain;
+                                width: 20%;
+                                max-width: 100%;
+                                height: auto;
                             }
                         }
                     }

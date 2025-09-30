@@ -654,6 +654,7 @@
                         flex-wrap: nowrap;
                         align-items: flex-start;
                         position: relative;
+                        width: 100%;
 
                         & > li:has(details[open]) {
                             & summary {
@@ -661,7 +662,6 @@
                                 padding: 0.4em 0;
                                 color: var(--creativity-color);
                                 border-top: 2px solid var(--creativity-color);
-                                border-bottom-color: var(--creativity-color);
                             }
                         }
 
@@ -674,8 +674,7 @@
 
                                 & > summary {
                                     justify-content: flex-start;
-                                    width: 40%;
-                                    width: 9ch;
+                                    width: 20cqw;
                                     font-size: 1em;
 
                                     & > span.project-name {
@@ -693,6 +692,7 @@
 
                                 &:not([open]) > summary {
                                     padding-bottom: 1em;
+                                    padding-right: 0.5em;
                                     font-weight: normal;
                                     font-variation-settings: "wght" 400;
                                     border-right: 1.5px solid var(--creativity-color);
@@ -730,7 +730,7 @@
                                             position: absolute;
                                             top: 0;
                                             right: 0;
-                                            width: 79cqw;
+                                            width: 80cqw;
                                             height: 100cqh;
                                             overflow-y: auto;
                                             font-size: 0.9em;
@@ -764,6 +764,7 @@
                             display: block;
                             box-sizing: content-box;
                             margin-bottom: 0;
+                            /* padding-bottom: 0.15em; */
 
                             & > details {
                                 display: flex;
@@ -777,7 +778,7 @@
 
                                 & > summary {
                                     flex-direction: column;
-                                    width: 17.5ch;
+                                    width: 19ch;
                                     font-size: 0.7em;
                                     white-space: nowrap;
                                 }
@@ -801,6 +802,7 @@
                                     display: block;
                                     height: 100%;
                                     box-sizing: content-box;
+                                    padding-top: 0.5em;
                                     padding-bottom: 0.5em;
                                     border-right: 1.5px solid var(--empathy-color);
                                     border-bottom: none;
@@ -843,9 +845,10 @@
                                             align-items: flex-start;
                                             position: absolute;
                                             top: 0;
-                                            left: 17.5ch;
+                                            left: 19ch;
                                             max-height: 100cqh;
                                             overflow-y: auto;
+                                            padding-left: 0.25em;
 
                                             & > ul {
                                                 column-count: revert;
@@ -855,12 +858,17 @@
                                 }
                             }
 
+                            &:first-child > details > summary {
+                                padding-top: 0;
+                            }
+
                             & img {
                                 display: none;
                             }
 
                             &:has(details[open]) + li summary {
                                 padding-top: 0.25em;
+                                padding-top: 5cqh;
                                 border-top: 1.5px solid var(--empathy-color);
                             }
                         }

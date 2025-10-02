@@ -34,6 +34,10 @@ export function initializeSectionObserver() {
                     linkListItem.classList.add("current-section");
                 }
 
+                if (window.location.hash !== `#${targetId}`) {
+                    history.replaceState(null, "", `#${targetId}`);
+                }
+
                 const updateSection = () => {
                     switch (targetId) {
                         case "home":

@@ -3,11 +3,18 @@ import { flipCardOnClick, flipCardOnKeydown } from "./image_flip.js";
 export const projectCards = Array.from(document.querySelectorAll(".project-card:not(.project-card-clone)"));
 const projectImages = Array.from(document.querySelectorAll("#projects main .project-card:not(.project-card-clone) img"));
 
+// let positionStack = [
+//     { top: "110px", left: "175px", z: 10 },
+//     { top: "58.33px", left: "116.6666667px", z: 8 },
+//     { top: "6.67px", left: "58.33333333px", z: 6 },
+//     { top: "-45px", left: "0px", z: 4 },
+// ];
+
 let positionStack = [
-    { top: "50px", left: "50px", z: 10 },
-    { top: "15px", left: "15px", z: 8 },
-    { top: "-20px", left: "-20px", z: 6 },
-    { top: "-55px", left: "-55px", z: 4 },
+    { top: "9.44cqh", left: "17.86cqw", z: 10 },
+    { top: "5.00cqh", left: "11.90cqw", z: 8 },
+    { top: "0.57cqh", left: "5.95cqw", z: 6 },
+    { top: "-3.86cqh", left: "0.00cqw", z: 4 },
 ];
 
 // Add rotate mode listeners

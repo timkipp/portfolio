@@ -121,12 +121,15 @@
         & > main {
             container-type: size;
             container-name: projects-main;
-            display: revert;
+            display: flex;
+            justify-content: center;
             width: 100%;
             height: 100%;
             position: relative;
 
             & > .project-card {
+                width: 90%;
+
                 &:not(.project-card-clone) {
                     display: revert;
                     position: absolute;
@@ -206,15 +209,18 @@
 
                     & figure {
                         display: revert;
-                        /* position: revert; */
                         width: revert;
                         height: 100%;
                         transform: none;
                         transition: none;
                         transform-style: unset;
 
+                        &::after {
+                            display: none;
+                        }
+
                         & > * {
-                            position: revert;
+                            position: static;
                             width: revert;
                             height: revert;
                             -webkit-backface-visibility: revert;
@@ -223,36 +229,31 @@
                         }
 
                         & img {
-                            z-index: revert;
-                            object-fit: revert;
+                            z-index: 0;
                             width: 80%;
                             height: auto;
                             transition: top 0.5s ease, left 0.5s ease, z-index 0.5s ease;
                         }
 
                         & figcaption {
-                            display: revert;
+                            display: block;
                             position: relative;
-                            z-index: revert;
-                            width: 95%;
+                            z-index: auto;
+                            width: 100%;
                             height: auto;
-                            margin-top: 5rem; /* auto 0 auto;*/
+                            margin-top: 12cqh;
                             color: var(--curiosity-color);
-                            font-size: 1.5rem;
-                            /* font-size: clamp(1rem, 2.25cqh, 2rem); */
+                            font-size: clamp(1rem, 2.25cqh, 2rem);
+                            line-height: clamp(2cqh, 3.5cqh, 5cqh);
                             background-color: revert;
                             interpolate-size: allow-keywords;
                             transform: none;
-                            transition: height 5s ease;
+                            transition: opacity 1s ease, height 5s ease;
                         }
                     }
 
                     &.flipped figure {
                         transform: none;
-                    }
-
-                    & svg {
-                        display: none;
                     }
                 }
             }
@@ -265,8 +266,8 @@
 
             & img {
                 position: relative;
-                top: 50px;
-                left: 50px;
+                top: 9.44cqh;
+                left: 17.86cqw;
                 z-index: 10;
             }
         }
@@ -277,8 +278,8 @@
 
             & img {
                 position: relative;
-                top: 15px;
-                left: 15px;
+                top: 5cqh;
+                left: 11.9cqw;
                 z-index: 8;
             }
         }
@@ -289,8 +290,8 @@
 
             & img {
                 position: relative;
-                top: -20px;
-                left: -20px;
+                top: 0.57cqh;
+                left: 5.95cqw;
                 z-index: 6;
             }
         }
@@ -301,8 +302,8 @@
 
             & img {
                 position: relative;
-                top: -55px;
-                left: -55px;
+                top: -3.86cqh;
+                left: 0cqw;
                 z-index: 4;
             }
         }

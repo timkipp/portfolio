@@ -58,7 +58,7 @@
                 }
 
                 &.icon-tabler-circle-chevron-right {
-                    right: 5px;
+                    right: 1cqw;
                 }
 
                 &.visible {
@@ -289,6 +289,7 @@
                             margin-top: clamp(1em, 5cqb, 2em);
 
                             & a {
+                                display: inline-block;
                                 width: revert;
                                 padding: 0.25em 0;
                                 font-size: clamp(1.75rem, 10cqh, 3rem);
@@ -297,7 +298,7 @@
                                 filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 1));
                                 transform: revert;
 
-                                & &::before,
+                                &::before,
                                 &::after {
                                     top: auto;
                                     bottom: 0;
@@ -343,37 +344,29 @@
                             container-name: figure-card;
                             width: 95%;
                             height: 50%;
-                            /* aspect-ratio: revert; */
                             position: relative;
 
                             & figure {
+                                &::after {
+                                    width: 20cqw;
+                                    height: 20cqw;
+                                }
+
                                 & > * {
-                                    /* height: revert; */
                                     width: 100%;
-                                    height: 100%;
                                 }
 
                                 & img {
-                                    /* height: auto; */
                                     width: 95%;
-                                    height: auto;
                                 }
 
                                 & figcaption {
+                                    align-items: flex-start;
                                     padding: 0.5rem;
-                                    width: revert;
                                     overflow-y: auto;
                                     font-size: clamp(0.875rem, 6cqh, 3rem);
-                                    line-height: clamp(1rem, 7cqh, 4rem);
                                     text-align: left;
                                 }
-                            }
-
-                            & svg {
-                                right: 2.5cqw;
-                                bottom: 9.5cqh;
-                                width: 42px;
-                                padding: 0.25cqw;
                             }
                         }
                     }

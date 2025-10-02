@@ -28,18 +28,6 @@
                 & figure figcaption {
                     padding: 0.5rem;
                 }
-
-                & svg {
-                    bottom: 0.5cqh;
-                    width: 4cqw !important;
-                    padding: 0.25cqw;
-                }
-            }
-            &:nth-child(even) .figure-card svg {
-                left: 1cqw;
-            }
-            &:nth-child(odd) .figure-card svg {
-                right: 1cqw;
             }
         }
     }

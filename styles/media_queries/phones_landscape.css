@@ -72,7 +72,7 @@
         } */
 
         & div.sidebar {
-            z-index: revert;
+            z-index: 1000;
 
             & svg {
                 &.side-arrow {
@@ -348,25 +348,16 @@
                     }
 
                     & figure {
-                        & img {
-                            height: auto;
-                            width: 53cqw;
+                        &::after {
+                            width: 10cqw;
+                            height: 10cqw;
                         }
 
                         & figcaption {
-                            width: 53cqw;
-                            height: 27cqw;
                             padding: 0.5rem;
                             font-size: clamp(0.875rem, 6cqh, 3rem);
                             line-height: clamp(1rem, 7cqh, 4rem);
                         }
-                    }
-
-                    & svg {
-                        right: 7cqw;
-                        bottom: 11cqh;
-                        width: 9.5cqw !important;
-                        padding: 0.25cqw;
                     }
                 }
             }

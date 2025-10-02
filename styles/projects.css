@@ -28,7 +28,10 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 75%;
+    width: 95%;
+
+    /* Style from working file */
+    /* width: 75%; */
     min-height: 100%;
 
     & > main {
@@ -126,47 +129,84 @@
                     position: relative;
                     width: 100%;
                     height: 100%;
-                    text-align: center;
                     transform: rotateY(0deg);
                     transition: transform 0.6s;
                     transform-style: preserve-3d;
+                    pointer-events: auto;
 
                     & > * {
                         position: absolute;
                         width: 90%;
                         height: 90%;
                         backface-visibility: hidden;
-                        box-sizing: content-box;
                         border: 5px solid var(--creativity-color);
                         border-radius: 1em;
+                        background-color: var(--light-background);
                         pointer-events: auto;
                         transition: border-radius 0.5s ease;
                     }
 
                     & img {
                         z-index: 1;
-                        box-sizing: content-box;
-                        object-fit: cover;
-                        background-color: var(--dark-background);
+                        object-fit: fill;
+
+                        &[src*="liberty"] {
+                            background-color: #d7ebe1;
+                        }
+                        &[src*="calendar"] {
+                            background-color: #10ccbc;
+                        }
+                        &[src*="travel"] {
+                            background-color: #378bd1;
+                        }
+                        &[src*="pirates"] {
+                            background-color: #aa8372;
+                        }
                     }
 
                     & figcaption {
                         display: flex;
                         align-items: center;
                         z-index: 2;
-                        width: fit-content;
+                        overflow: auto;
+                        -webkit-overflow-scrolling: touch;
                         padding: 1rem;
                         color: var(--creativity-color);
-                        font-size: clamp(1rem, 1.094vw, 2.25rem);
-                        line-height: clamp(1.25rem, 3vh, 3.75rem);
-                        text-align: justify;
-                        background-color: var(--light-background);
-                        transform: rotateY(180deg);
+                        font-size: clamp(1rem, 1.094cqw, 2.25rem);
+                        line-height: clamp(1.25rem, 10cqh, 3.75rem);
+                        transform: rotateY(180deg) translateZ(0);
+                    }
+
+                    &::after {
+                        content: "";
+                        z-index: 10;
+                        width: 4cqw;
+                        height: 4cqw;
+                        padding: 1cqw;
+                        background-color: rgba(255, 255, 235, 0.75);
+                        background-image: url("/images/icons/flip_arrows.png");
+                        background-repeat: no-repeat;
+                        background-size: 75%;
+                        background-position: center;
+                        border: 0.25cqw solid var(--empathy-color);
+                        border-radius: 50%;
+                        opacity: 1;
+                        transition: opacity 0.3s ease;
+                        pointer-events: none;
                     }
                 }
 
                 &.flipped figure {
                     transform: rotateY(180deg);
+
+                    &::after {
+                        opacity: 0;
+                    }
+                }
+
+                &:not(.flipped) figure::after {
+                    opacity: 1;
+                    transition: opacity 0.3s ease 0.4s;
                 }
 
                 & figure > *:hover,
@@ -184,25 +224,6 @@
                     --opacity: 1;
 
                     border-bottom-right-radius: 1rem;
-                }
-
-                & svg {
-                    position: absolute;
-                    right: 1.5cqw;
-                    bottom: 0.85cqh;
-                    height: auto;
-                    width: 54px;
-                    padding: 0.25cqw;
-                    stroke: var(--empathy-color);
-                    background-color: rgb(255 255 255);
-                    border: 10px solid var(--dark-background);
-                    border-radius: 50%;
-                    pointer-events: none;
-                    transition: opacity 1s ease;
-                }
-
-                &.flipped svg {
-                    opacity: 0;
                 }
             }
         }
@@ -242,21 +263,6 @@
         }
     }
 }
-
-/* @container projects (max-height: 960px) {
-    #projects > main .project-card .figure-card figure img {
-        width: auto;
-        height: 35cqmin;
-    }
-
-    #projects > main .project-card .figure-card svg {
-        position: absolute;
-        right: 1.5cqw;
-        bottom: 2.5cqh;
-        height: auto;
-        width: 1.5cqw;
-    }
-} */
 
 #projects > main .project-card .figure-card figure > *:hover,
 #projects > main .project-card .figure-card.flipped figure > * {

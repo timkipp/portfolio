@@ -32,13 +32,19 @@
                 padding-bottom: clamp(0.125em, 1cqb, 1em);
                 box-shadow: -6px -6px 8px rgb(255 255 255 / 60%), inset 3px 3px 0 rgb(255 255 255 / 30%), inset -3px 0 0 rgb(0 0 0 / 20%);
 
-                & > ul > li > a {
-                    padding-top: 0.5rem;
-                    padding-bottom: 0.3rem;
+                & > ul > li {
+                    &.current-section {
+                        border-width: 1.5px;
+                    }
 
-                    &::before,
-                    &::after {
-                        height: 2px;
+                    & > a {
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.3rem;
+
+                        &::before,
+                        &::after {
+                            height: 2px;
+                        }
                     }
                 }
             }
@@ -53,13 +59,19 @@
                 padding-bottom: clamp(0.125em, 1cqb, 1em);
                 box-shadow: inset 3px -3px 0 rgb(255 255 255 / 30%), inset -3px 0 0 rgb(0 0 0 / 20%);
 
-                & > ul > li > a {
-                    padding-top: 0.5rem;
-                    padding-bottom: 0.3rem;
+                & > ul > li {
+                    &.current-section {
+                        border-width: 1.5px;
+                    }
 
-                    &::before,
-                    &::after {
-                        height: 2px;
+                    & > a {
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.3rem;
+
+                        &::before,
+                        &::after {
+                            height: 2px;
+                        }
                     }
                 }
             }
@@ -871,6 +883,7 @@
 
     #email {
         grid-template-columns: 1fr;
+        width: 95%;
 
         & form {
             grid-column: 1;
@@ -884,23 +897,51 @@
             }
 
             & fieldset {
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                column-gap: clamp(0.5rem, 2cqw, 2rem);
-                height: 75%;
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: 2fr 2fr 1fr;
+                column-gap: clamp(0.25rem, 1cqw, 2rem);
+                margin: 0 0;
 
                 & label {
-                    width: clamp(20ch, 40cqw, 275px);
                     margin-bottom: clamp(1rem, 6cqh, 2rem);
-                    font-size: clamp(0.5rem, 2.5cqw, 1rem);
+                    font-size: clamp(0.5rem, 2.5cqw, 1.25rem);
+                    font-size: 3.25cqw;
+
+                    &[for="name"] {
+                        grid-row: 1;
+                        grid-column: 1;
+                    }
+
+                    &[for="email"] {
+                        grid-row: 2;
+                        grid-column: 1;
+                    }
+
+                    &[for="message"] {
+                        grid-row: 1 / 3;
+                        grid-column: 2;
+                    }
+
+                    &:has(button) {
+                        grid-row: 2;
+                        grid-column: 3;
+                        width: revert;
+                        margin-top: auto;
+                    }
 
                     & input,
                     & textarea {
                         font-size: clamp(0.75rem, 2.5cqw, 1rem);
                     }
 
-                    & button {
-                        width: 6em;
+                    & > span {
+                        display: none;
+                    }
+
+                    & > button {
+                        width: 100%;
+                        /* margin-top: auto; */
                         font-size: clamp(0.5rem, 2cqw, 1rem);
                     }
                 }

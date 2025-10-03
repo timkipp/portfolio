@@ -68,6 +68,7 @@ body {
                     &.current-section {
                         color: var(--light-background);
                         background-color: var(--creativity-color);
+                        border: 2cqh solid var(--dark-background);
                         border-radius: 9999px;
                         pointer-events: none;
                         transition: background-color 0.5s ease, color 0.5s ease;
@@ -82,6 +83,8 @@ body {
                         display: inline-block;
                         position: relative;
                         padding: 0.5rem 0;
+                        font-weight: 600;
+                        font-variation-settings: "wght" 600;
                         text-align: center;
                         text-decoration: none;
                         transition: border 0.2s ease;

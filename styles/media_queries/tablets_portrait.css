@@ -651,6 +651,8 @@
     }
 
     #email {
+        width: 100%;
+
         & form {
             width: 100%;
 
@@ -660,13 +662,17 @@
             }
 
             & fieldset {
+                width: 90%;
+
                 & label {
+                    width: 100%;
+
                     & span {
                         display: none;
                     }
 
-                    & button {
-                        box-shadow: -2px -2px 2px rgb(255 255 255 / 60%), inset 6px 6px 0 rgb(255 255 255 / 30%), inset -6px 0 0 rgb(0 0 0 / 20%);
+                    & textarea {
+                        height: 20cqh;
                     }
                 }
             }

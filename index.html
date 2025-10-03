@@ -688,14 +688,14 @@
                     
                 </ul>
             </nav>
-            <!-- <div id="debug-media-queries" class="debug">
+            <div id="debug-media-queries" class="debug">
                 <div id="not-phones">NP</div>
                 <div id="phones-landscape">PL</div>
                 <div id="phones-portrait">PP</div>
                 <div id="tablets-landscape">TL</div>
                 <div id="tablets-portrait">TP</div>
                 <div id="tall-screens">TS</div>
-            </div> -->
+            </div>
         </footer>
 
         <!-- <div id="debug-overlay"></div> -->
@@ -705,8 +705,11 @@
             eruda.init();
         </script>
         <script>
+            label = document.querySelector("#email label");
+            fontSize = window.getComputedStyle(label).fontSize;
             console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
             console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
+            console.log("Font-Size: ", fontSize);
 
             // const aboutMain = document.querySelector("#about > main");
             // property = getComputedStyle(aboutMain).height;

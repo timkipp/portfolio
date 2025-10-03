@@ -3,7 +3,7 @@
     container-name: email;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     width: 50%;
 
     & form {
@@ -11,14 +11,14 @@
         align-self: start;
         display: flex;
         flex-direction: column;
-        width: 50cqw;
+        width: 100cqw;
         height: 100cqh;
         margin: 0 auto;
         padding: clamp(0.5rem, 4cqh, 2rem) 0;
 
         & h2 {
             grid-column: 2;
-            color: var(--empathy-color);
+            color: var(--curiosity-color);
             font-weight: 400;
             font-size: clamp(1.5rem, 6cqw, 10rem);
             margin-top: clamp(1rem, 10cqh, 5rem);
@@ -30,14 +30,22 @@
         & fieldset {
             display: flex;
             flex-direction: column;
+            margin: 0 auto;
 
             & label {
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
+                width: 40cqw;
                 margin-bottom: clamp(0.75rem, 4cqh, 2rem);
-                color: var(--curiosity-color);
+                color: var(--empathy-color);
                 font-size: clamp(0.75rem, 4cqw, 2rem);
+                transition: color 0.3s ease;
+
+                &:has(input:focus),
+                &:has(textarea:focus) {
+                    color: var(--curiosity-color);
+                }
 
                 & input,
                 & textarea {
@@ -45,7 +53,7 @@
                     margin-top: clamp(0.125rem, 2cqh, 0.5rem);
                     padding: clamp(0.25rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
                     font-size: clamp(0.75rem, 4cqw, 1.5rem);
-                    border: 2px solid var(--creativity-color);
+                    border: 2px solid var(--empathy-color);
                     border-radius: 8px;
                     background-color: #fff;
                     color: var(--dark-background);
@@ -53,8 +61,10 @@
                     resize: vertical;
 
                     &:focus {
-                        border-color: var(--empathy-color);
-                        box-shadow: 0 0 8px var(--empathy-color);
+                        /* border-color: var(--empathy-color);
+                        box-shadow: 0 0 8px var(--empathy-color); */
+                        border-color: var(--curiosity-color);
+                        box-shadow: 0 0 8px var(--curiosity-color);
                         outline: none;
                     }
                 }
@@ -62,19 +72,27 @@
                 & button {
                     margin-top: clamp(0.5rem, 3cqh, 1rem);
                     padding: clamp(0.5rem, 1cqh, 0.5rem) clamp(0.25rem, 1cqw, 0.5rem);
-                    color: #fff;
+                    color: var(--light-background);
                     font-weight: 700;
                     font-size: clamp(0.75rem, 4cqw, 2rem);
                     background-color: var(--creativity-color);
-                    border: none;
+                    /* background: linear-gradient(45deg, #db4b33, #e26d5a); */
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* depth */
                     border-radius: 10px;
                     cursor: pointer;
                     transition: background-color 0.3s ease;
 
                     &:hover,
                     &:focus {
-                        background-color: var(--empathy-color);
+                        color: white;
+                        background-color: #db4b33;
+                        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+                        box-shadow: 0 0 10px var(--light-background);
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border: none;
                         outline: none;
+                        transform: translateY(-1px);
                     }
                 }
             }

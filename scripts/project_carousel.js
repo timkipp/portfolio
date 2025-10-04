@@ -20,9 +20,19 @@ export function initializeProjectCarousel() {
     currentProjectCard = projectCards[0];
     currentProgressIndicator = progressIndicators[0];
 
-    // Clone first and last cards
-    const firstCardClone = projectCards[0].cloneNode(true);
-    const lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
+    let firstCard = document.querySelector("#projects > main").firstElementChild;
+    let lastCard = document.querySelector("#projects > main").lastElementChild;
+    let firstCardClone = null;
+    let lastCardClone = null;
+
+    // Clone first and last cards if clone cards don't already exist
+    if (!firstCard.classList.contains("project-card-clone")) {
+        firstCardClone = projectCards[0].cloneNode(true);
+    }
+
+    if (!lastCard.classList.contains("project-card-clone")) {
+        lastCardClone = projectCards[projectCards.length - 1].cloneNode(true);
+    }
 
     [firstCardClone, lastCardClone].forEach((cardClone) => {
         cardClone.removeAttribute("id");

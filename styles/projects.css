@@ -166,14 +166,13 @@
 
                     & figcaption {
                         display: flex;
-                        align-items: center;
                         z-index: 2;
                         overflow: auto;
                         -webkit-overflow-scrolling: touch;
                         padding: 1rem;
                         color: var(--creativity-color);
                         font-size: clamp(1rem, 1.094cqw, 2.25rem);
-                        line-height: clamp(1.25rem, 10cqh, 3.75rem);
+                        line-height: clamp(1.25rem, 4cqh, 2.75rem);
                         transform: rotateY(180deg) translateZ(0);
                     }
 

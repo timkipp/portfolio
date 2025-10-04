@@ -515,7 +515,8 @@
             }
 
             &#professional-experience {
-                font-size: clamp(2rem, 5cqmin, 3rem);
+                font-size: clamp(2rem, 4.5cqmin, 3rem);
+                font-size: clamp(3cqmin, 4cqmin, 4.5cqmin);
 
                 @container (max-width: 1830px) {
                     font-size: clamp(2rem, 3.5cqmin, 3rem);
@@ -523,16 +524,20 @@
 
                 & > ul {
                     display: flex;
-                    flex-flow: column wrap;
+                    flex-direction: column;
+                    /* flex-wrap: wrap; */
                     height: 100%;
 
                     & > li.job {
                         display: flex;
                         justify-content: space-between;
+                        flex: 1 1 auto;
+                        min-height: 0;
                         margin-bottom: clamp(0.5em, 0.65em, 1em);
 
                         & > details {
                             width: 90cqw;
+                            height: 100%;
 
                             &[name][open] {
                                 border-bottom: 2px solid var(--empathy-color);
@@ -591,6 +596,7 @@
 
                             & > ul.job-details {
                                 font-size: clamp(0.5em, 0.6em, 1em);
+                                height: 100%;
 
                                 & > li {
                                     line-height: 1.4;
@@ -644,7 +650,8 @@
                             display: block;
                             margin-left: clamp(0.5em, 1em, 2em);
                             width: 10%;
-                            height: 10%;
+                            height: auto;
+                            object-fit: contain;
 
                             &[src*="semihandmade"] {
                                 border-radius: 15%;

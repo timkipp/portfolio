@@ -23,13 +23,13 @@
         }
 
         & div.sidebar {
-            z-index: revert;
+            z-index: 100;
 
             & svg.side-arrow {
                 display: block;
                 position: fixed;
                 top: 47.5cqh;
-                z-index: 10;
+                z-index: 1000;
                 width: 2rem;
                 height: auto;
                 opacity: 0;
@@ -326,14 +326,16 @@
                         & > .figure-card {
                             container-type: size;
                             container-name: figure-card;
-                            position: relative;
+                            position: absolute;
+                            top: 0;
                             width: 95%;
-                            height: 50%;
-
-                            /* UPDATED */
-                            /* height: 100%; */
+                            height: 100%;
 
                             & figure {
+                                position: absolute;
+                                top: 0;
+                                height: 100%;
+
                                 &::after {
                                     width: 20cqw;
                                     height: 20cqw;
@@ -344,7 +346,8 @@
                                 }
 
                                 & img {
-                                    width: 95%;
+                                    z-index: -999;
+                                    width: 105%;
                                     height: auto;
                                 }
 
@@ -355,7 +358,7 @@
                                     aspect-ratio: 16/9;
                                     padding: 0.5rem;
                                     overflow-y: auto;
-                                    font-size: clamp(0.875rem, 6cqh, 3rem);
+                                    font-size: clamp(0.75rem, 3.5cqh, 3rem);
                                     text-align: left;
                                 }
                             }

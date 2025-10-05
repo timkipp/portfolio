@@ -13,6 +13,7 @@
 }
 
 html {
+    -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
 
@@ -28,6 +29,12 @@ body {
     font-size: 16px;
     background-color: var(--light-background);
 
+    @media (min-width: 2561) {
+        body {
+            /* font-size: clamp(16px, 0.625vw, 18px); */
+        }
+    }
+
     &.loading {
         opacity: 0;
         transition: opacity 1s ease;
@@ -36,6 +43,10 @@ body {
     &:not(.loading) {
         opacity: 1;
         transition: opacity 1s ease;
+    }
+
+    & > * {
+        user-select: none;
     }
 
     & > header,

@@ -116,8 +116,10 @@
                     & h1 {
                         flex-direction: column;
                         justify-content: space-between;
-                        font-size: clamp(1.25rem, 6cqh, 5rem);
-                        line-height: clamp(1.5rem, 7cqh, 6.5rem);
+                        position: relative;
+                        z-index: 10;
+                        font-size: clamp(1.25rem, 8cqh, 5rem);
+                        line-height: clamp(1.4rem, 8.15cqh, 5.15rem);
 
                         font-variation-settings: "wght" 300;
 

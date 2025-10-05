@@ -92,7 +92,6 @@
 
         & #curiosity {
             & h3 {
-                font-family: Margarine;
                 font-family: Schoolbell;
                 color: var(--curiosity-color);
             }
@@ -103,7 +102,6 @@
 
                     &.value-word {
                         color: var(--curiosity-color);
-                        /* font-family: "Margarine"; */
                     }
                 }
             }
@@ -112,10 +110,6 @@
         & #creativity {
             & h3 {
                 color: var(--creativity-color);
-                font-family: Griffy;
-                font-family: "Bigelow Rules";
-                font-family: "Fontdiner Swanky";
-                font-family: "Henny Penny";
                 font-family: "Fredericka the Great";
             }
 
@@ -136,9 +130,6 @@
                 color: var(--empathy-color);
                 font-size: clamp(2.5rem, min(5.5cqw, 5.15cqh), 8rem);
                 font-family: "Clicker Script";
-                /* font-family: "Italianno";
-                font-family: "MonteCarlo";
-                font-family: "Mea Culpa"; */
                 font-weight: bold;
             }
 

@@ -1,6 +1,6 @@
 import { initializeDebugging } from "./debug.js";
 import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
-import { setProjectsInteraction } from "./interaction.js";
+import { setInteraction } from "./interaction.js";
 import { updateCaptionHeight } from "./project_carousel.js";
 import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
 
@@ -140,15 +140,17 @@ export class BrowserViewport {
 
 function getDevice() {
     const inLandscapeOrientation = window.matchMedia("(orientation: landscape)").matches;
-    let userDeviceType = DeviceType.COMPUTER;
+    const usesTouchOnly = window.matchMedia("(pointer: coarse)").matches;
+    const limitedPointer = window.matchMedia("(pointer: coarse)").matches;
+    const noHover = window.matchMedia("(hover: none").matches;
     let device = null;
 
     if (inLandscapeOrientation) {
         if (window.innerHeight <= 430) {
             device = phoneLandscape;
-        } else if (window.innerWidth >= 600 && window.innerWidth <= 1280) {
+        } else if (window.innerWidth >= 600 && window.innerWidth <= 1280 && usesTouchOnly) {
             device = tabletLandscape;
-        } else if (window.innerWidth >= 1024 && window.innerWidth <= 3840) {
+        } else if (window.innerWidth >= 901 && window.innerWidth <= 1280 && window.innerHeight >= 600) {
             device = laptopLandscape;
         } else {
             device = desktopLandscape;
@@ -164,6 +166,17 @@ function getDevice() {
             device = desktopPortrait;
         }
     }
+    console.log("Device Type", device);
+    const typeOfDevice = device.type;
+    const deviceIcons = document.querySelectorAll("#debug-device-types div");
+    deviceIcons.forEach((icon) => {
+        const idOfIcon = icon.id;
+        if (typeOfDevice === idOfIcon) {
+            icon.classList.add("current-device");
+        } else {
+            icon.classList.remove("current-device");
+        }
+    });
 
     return device;
 }
@@ -185,25 +198,13 @@ window.addEventListener("resize", () => {
     currentDevice = getDevice();
     currentViewport = new BrowserViewport(currentDevice);
 
-    // Debounce to avoid flooding during resize
-    // clearTimeout(window.wrapTimeout);
-    // window.wrapTimeout = setTimeout(checkWrap, 100);
-
-    // setProjectsInteraction(currentViewport);
-    // updateTabDisplayMode(currentViewport);
-    // setLogoObserver();
-
-    // if (currentDevice == DeviceType.PHONE) {
-    //     updateCaptionHeight();
-    // }
-
     clearTimeout(window.resizeTimer);
     window.resizeTimer = setTimeout(() => {
         currentDevice = getDevice();
         currentViewport = new BrowserViewport(currentDevice);
 
         checkWrap();
-        setProjectsInteraction(currentViewport);
+        setInteraction(currentViewport);
         updateTabDisplayMode(currentViewport);
         setLogoObserver();
         setRealVH();
@@ -211,7 +212,7 @@ window.addEventListener("resize", () => {
         if (currentDevice === DeviceType.PHONE) {
             updateCaptionHeight();
         }
-    }, 200); // enough delay for maximize/minimize to settle
+    }, 200);
 });
 
 window.addEventListener("load", checkWrap);
@@ -220,10 +221,8 @@ setRealVH();
 
 initializeSectionObserver();
 
-setProjectsInteraction(currentViewport);
+setInteraction(currentViewport);
 
 initializeResumeTabs();
 
 updateTabDisplayMode(currentViewport);
-
-// updateCaptionHeight();

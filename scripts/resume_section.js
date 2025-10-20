@@ -57,8 +57,8 @@ function toggleResumeTab(event) {
         section.classList.toggle("visible", sectionId === resumeSection);
 
         const isPhoneInLandscape = currentViewport.deviceType === DeviceType.PHONE && currentViewport.orientation === Orientation.LANDSCAPE;
-        console.log(currentViewport.deviceType, currentViewport.orientation);
-        console.log("Is phone in landscape?", isPhoneInLandscape);
+        // console.log(currentViewport.deviceType, currentViewport.orientation);
+        // console.log("Is phone in landscape?", isPhoneInLandscape);
 
         if (isClickedTab) {
             resumeNavigation.className = displaySection;
@@ -76,18 +76,22 @@ function toggleResumeTab(event) {
 export function updateTabDisplayMode(viewport) {
     const isPhoneDevice = viewport.deviceType === DeviceType.PHONE;
     const isTabletDevice = viewport.deviceType === DeviceType.TABLET;
-    const isLandscapeOrientation = viewport.Orientation === Orientation.LANDSCAPE;
+    const isLaptopDevice = viewport.deviceType === DeviceType.LAPTOP;
+    const isDesktopDevice = viewport.deviceType === DeviceType.DESKTOP;
+    const isLandscapeOrientation = viewport.orientation === Orientation.LANDSCAPE;
 
     allResumeDetails.forEach((sectionDetails, index) => {
         const sectionName = sectionDetails[0].parentElement.className;
         const isNotEducationSection = sectionName !== "academics";
-        const displayDetailsAccordianStyle = isPhoneDevice || (isTabletDevice && isNotEducationSection);
+        const isShortLandscapeTablet = isLandscapeOrientation && viewport.actualHeight < 800;
+        // const displayDetailsAccordionStyle = !isDesktopDevice && !isLaptopDevice && (isPhoneDevice || (isTabletDevice && ((!isLandscapeOrientation && isNotEducationSection) || (isNotEducationSection && isShortLandscapeTablet))));
+        const displayDetailsAccordionStyle = false;
         const record = detailsNames[index];
 
         sectionDetails.forEach((details, index) => {
             let displayDetailsOpen = true;
 
-            if (displayDetailsAccordianStyle) {
+            if (displayDetailsAccordionStyle) {
                 details.setAttribute("name", record);
                 displayDetailsOpen = index === 0;
             } else {

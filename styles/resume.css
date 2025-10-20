@@ -3,6 +3,7 @@
     container-name: resume;
     flex-direction: row;
     width: 100%;
+    height: 100%;
     color: var(--light-background);
 
     & > header {
@@ -63,7 +64,7 @@
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
-                            background-color: #74a491;
+                            background-color: var(--purpose-accent);
                         }
                     }
                     &#education-tab {
@@ -71,7 +72,7 @@
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
-                            background-color: #ec9a2c;
+                            background-color: var(--curiosity-accent);
                         }
                     }
                     &#relevant-experience-tab {
@@ -79,7 +80,7 @@
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
-                            background-color: #db4b33;
+                            background-color: var(--creativity-accent);
                         }
                     }
                     &#professional-experience-tab {
@@ -88,7 +89,7 @@
 
                         &:hover:not(li.selected-tab) {
                             font-weight: bold;
-                            background-color: #3c818c;
+                            background-color: var(--empathy-accent);
                         }
                     }
 
@@ -96,7 +97,8 @@
                         transform: rotate(180deg);
 
                         & img {
-                            width: clamp(2cqw, 5cqw, 10cqw);
+                            /* width: clamp(2cqw, 5cqw, 10cqw); */
+                            width: calc((5cqw + 7.55cqh) / 2);
                             height: auto;
                         }
                     }
@@ -112,7 +114,7 @@
             height: 100%;
             padding: 0 clamp(1rem, 2cqw, 2rem);
             color: var(--light-background);
-            font-size: clamp(2rem, 8cqmin, 4rem);
+            font-size: calc((3cqw + 5.91cqh) / 2);
             letter-spacing: clamp(0.125em, 0.35em, 0.5em);
             text-align: center;
             text-transform: uppercase;
@@ -138,12 +140,13 @@
     }
 
     & > main {
+        container-type: size;
+        container-name: resume-main;
         flex: 5;
         height: 100%;
         font-family: "Petrona";
 
         & .resume-section {
-            container-type: size;
             display: none;
             height: 100%;
             padding: clamp(0.25em, 0.5em, 1em);
@@ -182,7 +185,8 @@
                 height: 100%;
                 padding: 0;
                 overflow-y: hidden;
-                font-size: clamp(1.5rem, 4cqmin, 3.5rem);
+                font-size: calc((3.5cqw + 4cqh) / 2);
+
                 line-height: clamp(1.25em, 1.5em, 2em);
 
                 &.visible {
@@ -193,6 +197,7 @@
                 & p {
                     align-self: center;
                     width: 60cqw;
+                    padding-left: calc((1.5cqw + 2cqh) / 2);
                     font-weight: 200;
 
                     & span {
@@ -235,7 +240,7 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    overflow-y: hidden;
+                    overflow: hidden;
                     padding: 0 2.25em;
 
                     & .logos-list {
@@ -273,7 +278,7 @@
             }
 
             &#education {
-                font-size: clamp(2rem, 3cqw, 3.5em);
+                font-size: calc((3cqw + 4cqh) / 2);
                 line-height: clamp(1.25em, 1.75em, 2em);
 
                 & > ul {
@@ -294,23 +299,28 @@
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: flex-end;
-                                line-height: 0.75em;
+                                column-gap: calc((1cqw + 2cqh) / 2);
+                                line-height: 1.15;
 
                                 border-bottom: 2px solid var(--curiosity-color);
 
                                 & .college {
                                     display: flex;
+                                    flex-wrap: wrap;
                                     align-items: flex-end;
                                     font-weight: 800;
 
                                     & > .college-name {
                                         margin-right: 0.5em;
                                         font-weight: 900;
+                                        white-space: nowrap;
                                     }
 
                                     & > .college-location {
                                         font-size: 0.75em;
-                                        font-weight: 200;
+                                        font-weight: 400;
+                                        font-variation-settings: "wght" 400;
+                                        white-space: nowrap;
                                     }
                                 }
 
@@ -320,8 +330,9 @@
                                     align-items: flex-end;
                                     padding-bottom: clamp(0.075em, 0.125em, 0.25em);
                                     font-size: 0.75em;
-                                    line-height: 0.75em;
+                                    line-height: 0.9em;
                                     text-align: right;
+                                    white-space: nowrap;
                                 }
                             }
 
@@ -391,7 +402,7 @@
                         }
 
                         & > img {
-                            margin-left: clamp(0.5em, 1em, 2em);
+                            margin-left: calc((1cqw + 2cqh) / 2);
                             width: 10%;
                             height: 10%;
                         }
@@ -409,15 +420,16 @@
             &#relevant-experience {
                 container-type: size;
                 height: 100%;
-                font-size: clamp(2rem, 5cqw, 3rem);
+                padding: calc((1cqw + 1.97cqh) / 2);
 
                 & > ul {
-                    display: flex;
-                    flex-flow: column wrap;
-                    align-items: center;
-                    column-gap: clamp(1em, 2em, 3em);
-                    width: clamp(15em, 25em, 20em);
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-template-rows: repeat(3, min-content);
+                    row-gap: 1cqh;
+                    column-gap: 4cqw;
                     height: 100cqh;
+                    font-size: calc((2cqw + 3.96cqh) / 2);
 
                     & > li {
                         margin-bottom: clamp(0.5em, 0.65em, 0.85em);
@@ -429,6 +441,7 @@
                             & summary {
                                 display: flex;
                                 justify-content: space-between;
+                                align-items: flex-start;
                                 font-size: clamp(1em, 1.125em, 1.25em);
                                 border-bottom: 2px solid var(--creativity-color);
 
@@ -444,6 +457,7 @@
                                     font-size: 0.75em;
                                     font-weight: 300;
                                     font-style: italic;
+                                    vertical-align: bottom;
                                 }
                             }
 
@@ -457,17 +471,12 @@
                                     cursor: pointer;
                                 }
 
-                                /* & > span:first-child::before {
-                                    content: "\25B6\FE0E";
-                                    margin-right: 0.5em;
-                                } */
-
                                 & > span:last-child {
                                     display: none;
                                 }
                             }
 
-                            & > div {
+                            & > div.project-details {
                                 display: flex;
 
                                 & ul {
@@ -482,6 +491,7 @@
                                 }
 
                                 & p {
+                                    overflow-y: auto;
                                     margin-top: clamp(0.25em, 0.5em, 0.75em);
                                     padding-left: clamp(0.25em, 0.5em, 0.75em);
                                     font-size: 0.8em;
@@ -489,22 +499,21 @@
                                     line-height: clamp(1.5em, 1.75em, 2em);
                                     border-left: 2px solid var(--creativity-color);
 
-                                    & img {
-                                        &.project-logo {
-                                            float: right;
-                                            width: clamp(2.5em, 6.5em, 8.5em);
-                                            margin-left: 0.5em;
-                                        }
+                                    & img.project-logo {
+                                        float: right;
+                                        width: clamp(2.5em, 6.5em, 8.5em);
+                                        margin-left: 0.5em;
                                     }
 
                                     & a {
-                                        color: var(--light-background);
+                                        color: var(--creativity-color);
                                         text-decoration-thickness: 2px;
                                         text-decoration-color: var(--creativity-color);
 
                                         &:hover,
                                         &:focus-within {
-                                            color: var(--creativity-color);
+                                            color: #eda599;
+                                            animation: glow 1s ease-in-out infinite alternate;
                                         }
                                     }
                                 }
@@ -515,25 +524,26 @@
             }
 
             &#professional-experience {
-                font-size: clamp(2rem, 4.5cqmin, 3rem);
-                font-size: clamp(3cqmin, 4cqmin, 4.5cqmin);
+                flex-direction: column;
+                font-size: calc((2.5cqw + 4cqh) / 2);
 
-                @container (max-width: 1830px) {
-                    font-size: clamp(2rem, 3.5cqmin, 3rem);
+                &.visible {
+                    display: flex;
                 }
 
                 & > ul {
                     display: flex;
                     flex-direction: column;
-                    /* flex-wrap: wrap; */
+                    justify-content: space-between;
                     height: 100%;
 
                     & > li.job {
                         display: flex;
                         justify-content: space-between;
+                        align-items: flex-start;
                         flex: 1 1 auto;
-                        min-height: 0;
-                        margin-bottom: clamp(0.5em, 0.65em, 1em);
+                        height: fit-content;
+                        margin-bottom: calc((1.5cqw + 2cqh) / 2);
 
                         & > details {
                             width: 90cqw;
@@ -549,6 +559,8 @@
                             }
 
                             &[name]:not([open]) {
+                                height: max-content;
+
                                 & > summary {
                                     color: var(--light-background);
                                     border-bottom: none;
@@ -574,7 +586,7 @@
                                 display: flex;
                                 justify-content: space-between;
                                 font-size: clamp(0.5em, 0.65em, 1em);
-                                border-bottom: 2px solid var(--empathy-color);
+                                border-bottom: calc((0.25cqw + 0.49cqh) / 2) solid var(--empathy-color);
 
                                 & > span.job-title {
                                     font-weight: 700;
@@ -587,6 +599,7 @@
                                     vertical-align: bottom;
                                     font-size: 0.75em;
                                     font-weight: 300;
+                                    font-variation-settings: "wght" 300;
 
                                     & > abbr {
                                         display: none;
@@ -633,6 +646,7 @@
 
                                     &.job-duties {
                                         & > ul {
+                                            overflow-y: auto;
                                             column-count: 2;
 
                                             & > li {
@@ -692,5 +706,14 @@
     }
     100% {
         background-position: -100% 0;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--light-background), 0 0 20px var(--light-background), 0 0 30px #aa321e, 0 0 40px #aa321e, 0 0 50px #aa321e, 0 0 60px #aa321e, 0 0 70px #aa321e;
+    }
+    to {
+        text-shadow: 0 0 20px var(--light-background), 0 0 30px #d53e25, 0 0 40px #d53e25, 0 0 50px #d53e25, 0 0 60px #d53e25, 0 0 70px #d53e25, 0 0 80px #d53e25;
     }
 }

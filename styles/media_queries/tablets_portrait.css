@@ -92,6 +92,7 @@
                     margin-bottom: 2rem;
                     font-size: clamp(1.125rem, 1.05vw, 1.625rem);
                     line-height: 1.5;
+                    hyphens: auto;
                 }
 
                 & img {
@@ -99,16 +100,22 @@
                 }
             }
 
-            & #creativity h3 {
-                font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
+            & #curiosity h3 {
+                font-size: clamp(2.5rem, 5vw, 7.5rem);
+            }
+
+            & #creativity {
+                & h3 {
+                    font-size: clamp(2.0675rem, 3.85vw, 6.125rem);
+                }
+
+                & img {
+                    width: 90%;
+                }
             }
 
             & #empathy h3 {
                 font-size: clamp(2.75rem, 5vw, 7.5rem);
-            }
-
-            & #creativity img {
-                width: 90%;
             }
         }
     }
@@ -152,29 +159,59 @@
                 }
 
                 & h2 {
-                    display: revert;
-                    height: revert;
-                    padding-top: 1.25rem;
-                    padding-bottom: 5rem;
+                    width: max-content;
+                    margin: 0 auto;
+                    margin-top: 1.25rem;
+                    margin-bottom: 5rem;
                     text-align: center;
+
+                    &::before,
+                    &::after {
+                        width: 3px;
+                        height: 100%;
+                        transform: scaleY(0);
+                    }
+
+                    &::before {
+                        right: 0;
+                        transform-origin: top;
+                        transition-delay: 0s;
+                    }
+
+                    &::after {
+                        transform-origin: bottom;
+                        transition-delay: 0.4s;
+                    }
+
+                    &:hover::before {
+                        transform: scaleY(1);
+                        transition-delay: 0.4s;
+                    }
+
+                    &:hover::after {
+                        transform: scaleY(1);
+                        transition-delay: 0s;
+                    }
 
                     & a {
                         display: inline-block;
                         width: revert;
-                        padding: 0.5rem 0;
+                        padding: 1.25cqh 0 1cqh;
                         font-variation-settings: "wght" 300;
                         font-size: clamp(3rem, 7.38cqh, 5rem);
-                        letter-spacing: 2rem;
+                        letter-spacing: 3cqw;
                         writing-mode: revert;
+                        transition: padding-left 0.2s ease 0.4s, padding-right 0.2s ease;
 
                         &::before,
                         &::after {
                             top: auto;
                             bottom: 0;
-                            height: 2px;
+                            height: 3px;
                             width: 100%;
                             transform-origin: right;
                             transform: scaleX(1);
+                            transition-delay: 0.2s;
                         }
 
                         &::before {
@@ -185,12 +222,13 @@
                         }
 
                         &:hover {
+                            padding-top: 1.25cqh;
+                            padding-right: 1.25cqw;
+                            padding-left: 2cqw;
+                            transition-delay: 0s;
+
                             &::before {
                                 transform: scaleX(1);
-                            }
-
-                            &::after {
-                                transform: scaleX(0);
                             }
                         }
                     }
@@ -313,16 +351,17 @@
         flex-direction: column;
 
         & > header {
-            height: revert;
             flex-direction: column;
+            height: revert;
+            font-size: calc((3.99cqw + 3cqh) / 2);
 
             & > nav {
                 & > ul {
                     flex-direction: row;
 
                     & li {
-                        padding: 0.5em 0;
-                        font-size: clamp(1.25rem, 2cqh, 2rem);
+                        padding: 0.125em 0;
+                        font-size: clamp(0.35em, 0.5em, 0.85em);
                         writing-mode: revert;
                         border-width: 2px;
                         transform: none;
@@ -353,6 +392,10 @@
 
                         & .tab-icon {
                             transform: none;
+
+                            & > img {
+                                width: 20%;
+                            }
                         }
                     }
                 }
@@ -360,15 +403,19 @@
 
             & > h1 {
                 width: revert;
-                height: 2.25em;
-                font-size: clamp(1em, 1.5em, 2em);
+                height: 2em;
+                font-size: clamp(0.5em, 0.85em, 1.5em);
                 white-space: nowrap;
                 writing-mode: revert;
                 border: none;
                 transform: none;
 
                 &:has(span) {
-                    flex-direction: column;
+                    flex-direction: row;
+
+                    & > span:first-child {
+                        margin-right: 1em;
+                    }
                 }
 
                 &.display-professional-experience {
@@ -492,10 +539,13 @@
 
                 &#relevant-experience {
                     & > ul {
+                        display: flex;
+                        flex-direction: column;
                         flex-wrap: nowrap;
                         justify-content: space-between;
                         align-items: flex-start;
                         width: 100%;
+                        font-size: calc((3.99cqw + 3cqh) / 2);
 
                         & > li {
                             width: 100%;
@@ -503,7 +553,6 @@
 
                             & details {
                                 & summary {
-                                    color: var(--creativity-color);
                                     font-size: clamp(0.75em, 1em, 1.25em);
 
                                     & span {
@@ -512,16 +561,26 @@
                                 }
 
                                 & .project-details {
+                                    height: fit-content;
+
                                     & ul.web-technologies-used {
+                                        display: grid;
+                                        grid-template-rows: repeat(2, 1fr);
+                                        grid-template-columns: repeat(2, 1fr);
+
                                         & li img {
                                             height: 1.5em;
                                         }
                                     }
 
                                     & p {
-                                        max-height: 50cqh;
+                                        height: max-content;
                                         overflow-y: auto;
                                         font-size: clamp(0.75em, 0.8em, 1.15em);
+
+                                        & > img {
+                                            display: none;
+                                        }
                                     }
                                 }
 
@@ -567,16 +626,20 @@
                 }
 
                 &#professional-experience {
-                    font-size: 3.75cqw;
+                    container-type: size;
+                    font-size: calc((2.99cqw + 2.25cqh) / 2);
 
                     & > ul {
                         flex-wrap: nowrap;
                         justify-content: space-between;
 
                         & > li.job {
+                            flex: 0 0 auto;
                             width: 100%;
-                            height: min-content;
-                            overflow-y: clip;
+                            height: fit-content;
+                            max-height: 25cqh;
+                            overflow-y: auto;
+                            margin-bottom: 0;
 
                             &:has(details[open]) {
                                 padding-bottom: clamp(0.25em, 0.4em, 0.65em);
@@ -587,36 +650,62 @@
                             }
 
                             & > details {
-                                height: min-content;
+                                width: 100cqw;
+                                height: 100%;
+                                overflow: auto;
 
                                 & > summary {
-                                    color: var(--empathy-color);
+                                    position: sticky;
+                                    top: 0;
+                                    z-index: 100;
+                                    margin-top: -5px;
+                                    /* color: var(--empathy-color); */
                                     font-size: clamp(0.75em, 1em, 1.25em);
                                     white-space: nowrap;
+                                    background-color: var(--dark-background);
+                                    box-shadow: 0px 5px 0px 0px var(--dark-background);
 
                                     & > span.employment-dates {
                                         display: flex;
                                         align-items: flex-end;
-                                        color: var(--empathy-color);
-                                        font-size: clamp(0.5em, 0.65em, 0.85em);
-                                        font-weight: 400;
-                                        font-variation-settings: "wght" 300;
+                                        /* color: var(--empathy-color); */
+                                        font-size: clamp(0.65em, 0.8em, 0.95em);
+                                        font-weight: 200;
+                                        font-variation-settings: "wght" 200;
                                     }
                                 }
 
                                 & > ul.job-details {
-                                    height: 100%;
+                                    position: relative;
+                                    height: revert;
+                                    overflow-y: visible;
                                     font-size: clamp(0.25em, 0.5em, 0.9em);
+                                    background-color: var(--dark-background);
 
                                     & > li {
                                         &.employer {
+                                            position: sticky;
+                                            top: 1.75em;
+                                            z-index: 100;
+                                            height: 1.75em;
                                             font-size: clamp(1.25em, 1.5em, 1.65em);
+                                            background-color: var(--dark-background);
                                             border-bottom: 1px solid var(--empathy-color);
+
+                                            & span.employer-name {
+                                                flex-direction: row;
+
+                                                & span.parent-company::before {
+                                                    content: ", ";
+                                                }
+                                            }
                                         }
 
                                         &.job-duties {
+                                            flex: 1 1 auto;
+                                            min-height: 0;
                                             align-items: flex-start;
-                                            max-height: 40cqh;
+                                            height: 100%;
                                             overflow-y: auto;
 
                                             & > ul {
@@ -626,8 +715,8 @@
                                                 column-count: 1;
 
                                                 & > li {
-                                                    font-size: clamp(0.85em, 1.25em, 1.5em);
-                                                    line-height: clamp(1.5, 1.75, 2);
+                                                    font-size: clamp(1rem, 1.25em, 1.5em);
+                                                    line-height: clamp(1.3, 1.65, 1.9);
                                                 }
                                             }
                                         }
@@ -636,7 +725,7 @@
                             }
 
                             & > img {
-                                display: block;
+                                display: none;
                                 align-self: flex-start;
                                 object-fit: contain;
                                 width: 20%;

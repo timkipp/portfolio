@@ -29,9 +29,6 @@
     flex-direction: row;
     position: relative;
     width: 95%;
-
-    /* Style from working file */
-    /* width: 75%; */
     min-height: 100%;
 
     & > main {
@@ -56,14 +53,47 @@
             }
 
             & h2 {
-                display: flex;
-                align-items: center;
-                height: 100%;
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    background-color: var(--empathy-color);
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease;
+                }
+
+                &::before {
+                    bottom: 0;
+                    transform-origin: right;
+                    transition-delay: 0.4s;
+                }
+
+                &::after {
+                    top: 0;
+                    left: 0;
+                    transform-origin: left;
+                    transform: scaleX(0);
+                    transition-delay: 0s;
+                }
+
+                &:hover::before {
+                    transform: scaleX(1);
+                    transition-delay: 0s;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                    transition-delay: 0.4s;
+                }
 
                 & a {
                     position: relative;
                     width: 100%;
-                    padding: 0 1rem;
+                    padding: 0 1cqw 0 1.25cqw;
                     color: var(--empathy-color);
                     font-size: clamp(1.5rem, 3vw, 4.5rem);
                     letter-spacing: 1cqi;
@@ -71,6 +101,7 @@
                     text-decoration: none;
                     writing-mode: vertical-rl;
                     filter: drop-shadow(8px -8px 4px rgb(0 0 0 / 100%));
+                    transition: padding-top 0.2s ease 0.4s, padding-bottom 0.2s ease;
 
                     &::before,
                     &::after {
@@ -81,29 +112,33 @@
                         height: 100%;
                         background-color: currentcolor;
                         transform-origin: top;
-                        transition: transform 0.4s ease;
+                        transition: transform 0.3s ease;
                     }
 
-                    /* Top border (visually right side, hidden by default) */
                     &::before {
-                        right: 0; /* right side of vertical text */
+                        right: 0;
                         transform: scaleY(0);
+                        transition-delay: 0.2s;
                     }
 
-                    /* Bottom border (visually left side, shown by default) */
                     &::after {
-                        left: 0; /* left side of vertical text */
+                        left: 0;
                         transform: scaleY(1);
+                        transition-delay: 0.4s;
                     }
-
-                    /* On hover: top border draws in, bottom border erases out */
                     &:hover {
+                        padding-top: 2cqh;
+                        padding-bottom: 1.25cqh;
+                        transition-delay: 0s;
+
                         &::before {
                             transform: scaleY(1);
+                            transition-delay: 0.2s;
                         }
 
                         &::after {
-                            transform: scaleY(0);
+                            transform: scaleY(1);
+                            transition-delay: 0s;
                         }
                     }
                 }
@@ -111,6 +146,25 @@
 
             &:nth-child(odd) h2 a {
                 transform: rotate(180deg);
+            }
+
+            &:nth-child(even) {
+                & h2 {
+                    &::before {
+                        transition-delay: 0s;
+                    }
+                    &::after {
+                        transition-delay: 0.4s;
+                    }
+
+                    &:hover::before {
+                        transition-delay: 0.4s;
+                    }
+
+                    &:hover::after {
+                        transition-delay: 0s;
+                    }
+                }
             }
 
             & .figure-card {
@@ -139,29 +193,30 @@
                         width: 90%;
                         height: 90%;
                         backface-visibility: hidden;
-                        border: 5px solid var(--creativity-color);
                         border-radius: 1em;
-                        background-color: var(--light-background);
+                        /* background-color: var(--light-background); */
+                        box-shadow: 10px 10px 10px 0px #000000;
                         pointer-events: auto;
-                        transition: border-radius 0.5s ease;
+                        transition: border-width 0.5s ease;
                     }
 
                     & img {
+                        /* box-sizing: content-box; */
                         z-index: 1;
                         object-fit: fill;
 
-                        &[src*="liberty"] {
+                        /* &[src*="liberty"] {
                             background-color: #d7ebe1;
                         }
                         &[src*="calendar"] {
                             background-color: #10ccbc;
                         }
                         &[src*="travel"] {
-                            background-color: #378bd1;
+                            background-color: #1c5a90;
                         }
                         &[src*="pirates"] {
-                            background-color: #aa8372;
-                        }
+                            background-color: #8e7769;
+                        } */
                     }
 
                     & figcaption {
@@ -173,6 +228,7 @@
                         color: var(--creativity-color);
                         font-size: clamp(1rem, 1.094cqw, 2.25rem);
                         line-height: clamp(1.25rem, 4cqh, 2.75rem);
+                        background-color: var(--light-background);
                         transform: rotateY(180deg) translateZ(0);
                     }
 
@@ -203,26 +259,35 @@
                     }
                 }
 
-                &:not(.flipped) figure::after {
-                    opacity: 1;
-                    transition: opacity 0.3s ease 0.4s;
+                &:not(.flipped) figure {
+                    &::after {
+                        opacity: 1;
+                        transition: opacity 0.3s ease 0.4s;
+                    }
+
+                    > img {
+                        /* border: calc((0.375cqw + 0.74cqh) / 2) solid transparent; */
+                    }
                 }
 
                 & figure > *:hover,
                 &.flipped figure > * {
-                    --border-size: 5px;
-
+                    --border-size: calc((0.375cqw + 0.74cqh) / 2);
                     border: var(--border-size) dotted transparent;
-                    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--opal-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
+                    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--purpose-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
                     background-origin: border-box;
                     background-clip: padding-box, border-box;
                     animation: rotate 4s linear infinite;
                 }
 
-                &.flipped figure > figcaption {
-                    --opacity: 1;
+                &.flipped figure {
+                    & > img {
+                        opacity: 0;
+                    }
 
-                    border-bottom-right-radius: 1rem;
+                    & > figcaption {
+                        --opacity: 1;
+                    }
                 }
             }
         }
@@ -263,13 +328,26 @@
     }
 }
 
-#projects > main .project-card .figure-card figure > *:hover,
-#projects > main .project-card .figure-card.flipped figure > * {
-    --border-size: 5px;
+/* Draw animations */
+@keyframes draw-horizontal {
+    to {
+        transform: scaleX(1);
+    }
+}
+@keyframes draw-vertical {
+    to {
+        transform: scaleY(1);
+    }
+}
 
-    border: var(--border-size) dotted transparent;
-    background-image: linear-gradient(to right, var(--light-background), var(--light-background)), conic-gradient(from var(--angle), var(--creativity-color) 0deg, #e9b56c 45deg, var(--curiosity-color) 90deg, #a7c49c 135deg, var(--empathy-color) 180deg, #89c2b8 225deg, var(--purpose-color) 270deg, #d49a8b 315deg, var(--creativity-color) 360deg);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    animation: rotate 4s linear infinite;
+/* Undraw animations (reverse order visually) */
+@keyframes undraw-horizontal {
+    to {
+        transform: scaleX(0);
+    }
+}
+@keyframes undraw-vertical {
+    to {
+        transform: scaleY(0);
+    }
 }

@@ -1,7 +1,7 @@
 /* For phones, portrait orientation */
 @media (max-width: 599px) and (orientation: portrait) {
     body {
-        grid-template-rows: 0.75fr 6.5fr 0.75fr;
+        /* grid-template-rows: 0.75fr 6.5fr 0.75fr; */
         /* grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr; */
 
         .debug #phones-portrait {
@@ -11,8 +11,6 @@
 
         & > header,
         & > footer {
-            border-radius: revert;
-
             & > nav {
                 padding: 0 0.5em;
 
@@ -27,13 +25,9 @@
 
             & svg.side-arrow {
                 display: block;
-                position: fixed;
                 top: 47.5cqh;
-                z-index: 1000;
                 width: 2rem;
-                height: auto;
                 opacity: 0;
-                fill: var(--curiosity-color);
                 transition: opacity 0.5s ease;
                 pointer-events: none;
 
@@ -104,9 +98,10 @@
                 container-type: size;
                 container-name: about;
                 flex: 1 1 auto;
+                width: 100%;
                 height: 100%;
                 min-height: 100%;
-                padding: 0.5em;
+                padding: calc((2cqw + 1cqh) / 2) calc((2cqw + 1cqh) / 2);
 
                 & > header {
                     position: sticky;
@@ -118,8 +113,8 @@
                         justify-content: space-between;
                         position: relative;
                         z-index: 10;
-                        font-size: clamp(1.25rem, 8cqh, 5rem);
-                        line-height: clamp(1.4rem, 8.15cqh, 5.15rem);
+                        font-size: calc((9cqw + 7cqh) / 2);
+                        line-height: 1.2;
 
                         font-variation-settings: "wght" 300;
 
@@ -136,17 +131,16 @@
                         color: #f8e3bb;
                         font-family: "Praise";
                         font-size: clamp(1rem, 5cqh, 3.25rem);
+                        font-size: calc((8cqw + 5cqh) / 2);
                         text-align: center;
                     }
                 }
 
                 & > main {
-                    height: 100%;
-                    flex: 1 1 auto;
                     display: flex;
-                    flex-direction: column;
-                    overflow-y: auto;
-                    scroll-snap-type: y mandatory;
+                    flex-direction: row;
+                    overflow-y: hidden;
+                    scroll-snap-type: x mandatory;
                     scroll-behavior: smooth;
                     scrollbar-width: none;
                     -ms-overflow-style: none;
@@ -158,13 +152,73 @@
 
                     & .value-panel {
                         flex: 0 0 100%;
-                        height: 100%;
                         scroll-snap-align: start;
 
                         & h3 {
+                            display: flex;
                             font-size: clamp(1.25rem, 8cqh, 3.25rem);
                             text-align: center !important;
                             line-height: 1.25;
+
+                            & > svg {
+                                display: inline;
+
+                                & > text {
+                                    position: relative;
+                                    z-index: 100;
+                                    opacity: 0;
+                                    stroke: none;
+                                    transition: opacity 0.6s ease;
+                                }
+
+                                &:hover text {
+                                    opacity: 1;
+                                }
+
+                                & > path {
+                                    vector-effect: non-scaling-stroke;
+                                }
+
+                                &.go-to-purpose {
+                                    fill: var(--purpose-color);
+                                    stroke: var(--purpose-accent);
+
+                                    & > text {
+                                        fill: var(--purpose-color);
+                                        font-family: "Nothing You Could Do";
+                                    }
+                                }
+
+                                &.go-to-curiosity {
+                                    fill: var(--curiosity-color);
+                                    stroke: var(--curiosity-accent);
+
+                                    & > text {
+                                        fill: var(--curiosity-color);
+                                        font-family: Schoolbell;
+                                    }
+                                }
+
+                                &.go-to-creativity {
+                                    fill: var(--creativity-color);
+                                    stroke: var(--creativity-accent);
+
+                                    & > text {
+                                        fill: var(--creativity-color);
+                                        font-family: "Fredericka the Great";
+                                    }
+                                }
+
+                                &.go-to-empathy {
+                                    fill: var(--empathy-color);
+                                    stroke: var(--empathy-accent);
+
+                                    & > text {
+                                        fill: var(--empathy-color);
+                                        font-family: "Clicker Script";
+                                    }
+                                }
+                            }
                         }
 
                         & h3,
@@ -175,26 +229,34 @@
                         & p {
                             margin-top: 0;
                             margin-bottom: 0.5rem;
-                            font-size: clamp(1rem, 3.75cqh, 1.25rem);
-                            line-height: clamp(1.4rem, 6cqh, 1.8rem);
+                            font-size: calc((6cqw + 3cqh) / 2);
+                            line-height: 1.625;
                             text-align: left;
                             text-align-last: auto !important;
-                            /* text-wrap: pretty; */
                         }
 
                         & img {
-                            max-height: 27.5cqh;
-                            margin: auto 0;
+                            width: calc((35cqw + 25cqh) / 2);
+                            margin: 0;
                             object-fit: contain;
                         }
                     }
 
                     & #purpose img {
-                        height: 22.5cqh;
+                        width: calc((45cqw + 30cqh) / 2);
+                        height: auto;
                     }
 
-                    & #creativity h3 {
-                        font-weight: bold;
+                    & #creativity {
+                        & h3 {
+                            font-weight: bold;
+                        }
+
+                        @media (max-height: 500px) {
+                            & img {
+                                margin-top: calc((-6cqw + -4cqh) / 2);
+                            }
+                        }
                     }
 
                     & #empathy {
@@ -211,7 +273,7 @@
 
             & > #projects {
                 display: revert;
-                width: 85%;
+                width: 90%;
 
                 & > main {
                     container-type: size;
@@ -246,7 +308,7 @@
                         justify-content: flex-start;
                         align-items: center;
                         row-gap: 1.5em;
-                        width: 100%;
+                        width: 110%;
                         scroll-snap-align: start;
 
                         &:nth-child(odd) {
@@ -270,19 +332,48 @@
                         & h2 {
                             justify-content: center;
                             align-items: revert;
+                            z-index: 100;
                             height: revert;
-                            width: 100%;
                             margin-top: clamp(1em, 5cqb, 2em);
+
+                            &::before,
+                            &::after {
+                                width: 3px;
+                                height: 100%;
+                                transform: scaleY(0);
+                            }
+
+                            &::before {
+                                right: 0;
+                                transform-origin: top;
+                                transition-delay: 0s;
+                            }
+
+                            &::after {
+                                transform-origin: bottom;
+                                transition-delay: 0.4s;
+                            }
+
+                            &:hover::before {
+                                transform: scaleY(1);
+                                transition-delay: 0.4s;
+                            }
+
+                            &:hover::after {
+                                transform: scaleY(1);
+                                transition-delay: 0s;
+                            }
 
                             & a {
                                 display: inline-block;
                                 width: revert;
-                                padding: 0.25em 0;
+                                padding: 2cqh 0 4cqh;
                                 font-size: clamp(1.75rem, 10cqh, 3rem);
                                 letter-spacing: 5cqw;
                                 writing-mode: revert;
                                 filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 1));
                                 transform: revert;
+                                transition: padding-left 0.2s ease 0.4s, padding-right 0.2s ease;
 
                                 &::before,
                                 &::after {
@@ -302,12 +393,13 @@
                                 }
 
                                 &:hover {
+                                    padding-right: 1.75cqw;
+                                    padding-bottom: 4cqh;
+                                    padding-left: 3.5cqw;
+                                    transition-delay: 0s;
+
                                     &::before {
                                         transform: scaleX(1);
-                                    }
-
-                                    &::after {
-                                        transform: scaleX(0);
                                     }
                                 }
                             }
@@ -330,13 +422,13 @@
                             container-name: figure-card;
                             position: absolute;
                             top: 0;
-                            width: 95%;
+                            overflow-x: visible;
+                            width: 90%;
                             height: 100%;
 
                             & figure {
                                 position: absolute;
                                 top: 0;
-                                height: 100%;
 
                                 &::after {
                                     width: 20cqw;
@@ -344,25 +436,29 @@
                                 }
 
                                 & > * {
-                                    width: 100%;
+                                    width: 105%;
+                                    height: auto;
                                 }
 
                                 & img {
                                     z-index: -999;
-                                    width: 105%;
                                     height: auto;
                                 }
 
                                 & figcaption {
                                     align-items: flex-start;
-                                    width: revert;
-                                    height: revert;
                                     aspect-ratio: 16/9;
                                     padding: 0.5rem;
                                     overflow-y: auto;
-                                    font-size: clamp(0.75rem, 3.5cqh, 3rem);
+                                    font-size: calc((4.96cqw + 4cqh) / 2);
+                                    line-height: 1.4;
                                     text-align: left;
                                 }
+                            }
+
+                            & figure > *:hover,
+                            &.flipped figure > * {
+                                border-width: calc((1.625cqw + 1.25cqh) / 2);
                             }
                         }
                     }
@@ -491,12 +587,14 @@
                             & p {
                                 width: 100%;
                                 padding: 0.5em;
+                                font-size: calc((6cqw + 4cqh) / 2);
+                                line-height: 1.3;
                             }
 
                             & .web-technology-logos {
                                 flex-direction: row;
                                 overflow-x: hidden;
-                                margin: 1em 0;
+                                margin: 0 0;
 
                                 & .logos-list {
                                     flex-direction: row;
@@ -504,6 +602,8 @@
 
                                     & > li {
                                         & img {
+                                            width: auto;
+                                            height: calc((15cqw + 10cqh) / 2);
                                             padding: 0.5em 1.5em;
 
                                             &.featured {
@@ -518,14 +618,38 @@
                         &#education {
                             padding: 0.25em;
                             font-size: 1.25em;
+                            font-size: calc((7.56cqw + 4.5cqh) / 2);
 
                             & > ul {
+                                height: 100%;
+                                justify-content: flex-start;
+                                row-gap: calc((3.36cqw + 2cqh) / 2);
+
                                 & > li.academics {
+                                    flex-direction: column;
+
+                                    &:has(img[src*="tu_logo"]) {
+                                        & > details[open] {
+                                            background-image: linear-gradient(rgba(65, 47, 48, 0.85), rgba(65, 47, 48, 0.85)), url("/images/resume/college_logos/tu_logo.png");
+                                        }
+                                    }
+
+                                    &:has(img[src*="hcc_logo"]) {
+                                        & > details[open] {
+                                            background-image: linear-gradient(rgba(65, 47, 48, 0.85), rgba(65, 47, 48, 0.85)), url("/images/resume/college_logos/hcc_logo.png");
+                                        }
+                                    }
+
                                     & > details {
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-position: center;
+
                                         &:not([open]) > summary {
                                             pointer-events: all;
                                             flex-direction: row;
                                             justify-content: flex-start;
+                                            align-items: flex-start;
                                             border-bottom: none;
 
                                             &:hover {
@@ -536,6 +660,10 @@
                                                 content: "\25B6\FE0E";
                                                 margin-right: 0.5em;
                                                 font-size: 0.75em;
+                                            }
+
+                                            & .college-name {
+                                                white-space: normal;
                                             }
 
                                             & .college-location,
@@ -558,7 +686,7 @@
 
                                                     & > .college-name {
                                                         color: var(--curiosity-color);
-                                                        white-space: nowrap;
+                                                        white-space: normal;
                                                     }
                                                 }
 
@@ -567,6 +695,10 @@
                                                     line-height: 1.25em;
                                                 }
                                             }
+                                        }
+
+                                        & > summary .college-name {
+                                            white-space: normal;
                                         }
 
                                         & > ul.education-details {
@@ -580,12 +712,14 @@
 
                                             & li.major {
                                                 font-size: 1.05em;
+                                                text-align: right;
                                             }
 
                                             & li.gpa,
                                             & li.honors {
                                                 justify-content: flex-start;
                                                 font-size: 1em;
+                                                text-align: left;
                                             }
 
                                             & li.membership {
@@ -609,15 +743,19 @@
                         &#relevant-experience {
                             width: 100%;
                             padding: 0.15em;
-                            font-size: 1.5em;
 
                             & > ul {
-                                width: 100%;
-                                flex-flow: column nowrap;
+                                display: flex;
+                                flex-direction: column;
+                                flex-wrap: nowrap;
                                 align-items: flex-start;
+                                justify-content: space-evenly;
+                                width: 100%;
                                 padding-top: 0.25em;
+                                font-size: clamp(0.75rem, 7.5cqmin, 2rem);
 
                                 & > li {
+                                    height: max-content;
                                     margin-bottom: clamp(0.1em, 0.25em, 0.5em);
 
                                     & > details {
@@ -647,7 +785,7 @@
                                             }
 
                                             & p {
-                                                height: 40cqh;
+                                                max-height: 40cqh;
                                                 overflow-y: auto;
                                                 padding-left: 0;
                                                 border-left: none;
@@ -666,7 +804,7 @@
                         &#professional-experience {
                             overflow: hidden;
                             padding: 0.5em 0.15em 0.15em;
-                            font-size: 1.5em;
+                            font-size: calc((6.72cqw + 4cqh) / 2);
 
                             & > ul {
                                 flex-wrap: nowrap;
@@ -680,7 +818,14 @@
                                         & > summary {
                                             align-items: flex-end;
 
+                                            & > .job-title {
+                                                font-size: 1.25em;
+                                            }
+
                                             & > .employment-dates {
+                                                padding-bottom: 0;
+                                                white-space: nowrap;
+
                                                 & > .month {
                                                     display: none;
                                                 }
@@ -690,21 +835,35 @@
                                             }
                                         }
                                         & > ul.job-details {
+                                            height: 100%;
+                                            padding-bottom: calc((5.04cqw + 3cqh) / 2);
+                                            border-bottom: 2px solid var(--empathy-color);
+
                                             & > li {
                                                 &.employer {
-                                                    border-bottom: 1px solid var(--empathy-color);
+                                                    font-size: 1.35em;
+                                                    border-bottom: calc((0.42cqw + 0.25cqh) / 2) solid var(--empathy-color);
+
+                                                    & > .employer-name {
+                                                        flex: 2 1 0;
+                                                    }
+                                                    & > .employer-location {
+                                                        flex: 1 1 0;
+                                                        font-size: 0.85em;
+                                                        text-align: right;
+                                                    }
                                                 }
 
                                                 &.job-duties {
                                                     align-items: flex-start;
                                                     overflow-y: auto;
-                                                    height: 40cqh;
+                                                    max-height: 40cqh;
 
                                                     & > ul {
                                                         column-count: 1;
 
                                                         & > li {
-                                                            font-size: 1em;
+                                                            font-size: 1.15em;
                                                         }
                                                     }
                                                 }
@@ -712,14 +871,27 @@
                                         }
 
                                         &[open] > summary {
+                                            /* flex-wrap: wrap; */
+                                            border-bottom: calc((0.84cqw + 0.5cqh) / 2) solid var(--empathy-color);
+
                                             & > .job-title {
-                                                font-size: 1.05em;
+                                                font-size: 1.25em;
                                             }
 
                                             & > .employment-dates {
-                                                font-size: 0.7em;
+                                                font-size: calc((4.62cqw + 2.75cqh) / 2);
                                                 font-weight: 400;
                                                 font-variation-settings: "wght", 200;
+                                            }
+                                        }
+
+                                        &[name][open] {
+                                            border-bottom: 0 none transparent;
+                                        }
+
+                                        &[name]:not([open]) {
+                                            & > summary > span.job-title::before {
+                                                font-size: 0.75em;
                                             }
                                         }
                                     }

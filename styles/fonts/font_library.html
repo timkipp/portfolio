@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/styles/reset.css" type="text/css" />
+        <link rel="stylesheet" href="fonts.css" type="text/css" />
+        <title>Fonts</title>
+
+        <style>
+            :root {
+                --sunset-orange: #ec6e45;
+                --lemon-chiffon: #fff5c2;
+                --spring-green: #d3e398;
+                --robins-egg: #8dccc1;
+                --limed-ash: #7c796a;
+            }
+            body {
+                color: #7c796a;
+                font-family: "Nunito Sans", sans-serif;
+                font-size: 16px;
+
+                & > header {
+                    color: var(--robins-egg);
+                    font-size: calc(1.5vw + 2vh);
+                    text-align: center;
+                    /* background-color: var(--limed-ash); */
+                }
+
+                & > main {
+                    container-type: size;
+                    display: flex;
+                    margin: 1cqh 1cqw;
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 1cqh;
+                        width: 35cqw;
+                        font-size: clamp(12px, calc(1cqw + 1.33cqh), 16px);
+
+                        & fieldset.form-field {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+
+                            & legend {
+                                grid-column: 1 / -1;
+                                font-size: 1.75em;
+                            }
+                        }
+
+                        & fieldset.form-section {
+                            & > legend {
+                                color: var(--sunset-orange);
+                                font-size: 2.25em;
+                            }
+                        }
+
+                        & fieldset.form-field legend,
+                        & label {
+                            font-size: 1.375em;
+                        }
+
+                        & input {
+                            height: 2.5em;
+                            border: 2.5px solid var(--robins-egg);
+
+                            &[type="number"] {
+                                width: 4em;
+                                text-align: right;
+                                border-radius: 10px;
+                            }
+
+                            &[type="text"] {
+                                border-radius: 25px;
+                            }
+                        }
+
+                        & fieldset#font-properties {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+
+                            & legend {
+                                grid-column: 1 / -1;
+                            }
+                        }
+
+                        & fieldset#preview {
+                            & > div.form-field {
+                                & input {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>Portfolio Font Manager</header>
+        <main>
+            <form>
+                <fieldset id="font-properties" class="form-section">
+                    <legend id="">Font Properties</legend>
+                    <fieldset id="font-size" class="form-field">
+                        <legend>Font Size</legend>
+                        <input type="range" id="font-size-range" name="font_size_range" min="6" max="144" value="12" />
+                        <input type="number" id="font-size-_number" name="font_size_number" min="6" max="144" value="12" />
+                    </fieldset>
+                    <fieldset id="font-weight" class="form-field">
+                        <legend>Font Weight</legend>
+                        <input type="range" id="font-weight-range" name="font_weight_range" min="100" max="900" valueWeight400">
+                        <input type="number" id="font-weight-_number" name="font_weight_number" min="100" max="900" value="400" />
+                    </fieldset>
+                </fieldset>
+                <fieldset id="preview" class="form-section">
+                    <legend>Preview</legend>
+                    <div class="form-field">
+                        <label for="sample_text">Sample Text</label>
+                        <input type="text" id="sample-text" name="sample_text" default="Enter some sample text" />
+                    </div>
+                    <fieldset id="letter-case" class="form-field">
+                        <legend>Letter Case</legend>
+                        <div class="form-field">
+                            <input type="radio" id="lowercase" name="letter-case" />
+                            <label>Lowercase</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="radio" id="uppercase" name="letter-case" />
+                            <label>Uppercase</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="radio" id="proper-case" name="letter-case" />
+                            <label>Proper Case</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="radio" id="small-caps" name="letter-case" />
+                            <label>Small Caps</label>
+                        </div>
+                    </fieldset>
+                </fieldset>
+            </form>
+            <section>
+                <div id="uppercase">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+                <div id="lowercase">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+                <div id="numbers">0 1 2 3 4 5 6 7 8 9</div>
+                <div id="symbols">. : , ; ' " ! ? ( ) [ ] { } < > | / \ * & @ $ # + - = $ %</div>
+            </section>
+        </main>
+    </body>
+</html>

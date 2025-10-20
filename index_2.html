@@ -36,7 +36,8 @@
 
         <link rel="stylesheet" href="styles/home.css" type="text/css" />
         <link rel="stylesheet" href="styles/about.css" type="text/css" />
-        <link rel="stylesheet" href="styles/projects.css" type="text/css" />
+        <!-- <link rel="stylesheet" href="styles/projects.css" type="text/css" /> -->
+        <link rel="stylesheet" href="styles/projects_2.css" type="text/css" />
         <link rel="stylesheet" href="styles/resume.css?v=2" type="text/css" />
         <link rel="stylesheet" href="styles/email.css" type="text/css" />
 
@@ -46,11 +47,14 @@
         <link rel="stylesheet" href="styles/media_queries/phones_landscape.css" />
         <link rel="stylesheet" href="styles/media_queries/tablets_landscape.css" />
         <link rel="stylesheet" href="styles/media_queries/tablets_portrait.css" />
-        <link rel="stylesheet" href="styles/media_queries/laptops_landscape.css" />        
-        <link rel="stylesheet" href="styles/media_queries/desktops_portrait.css" />
+        <link rel="stylesheet" href="styles/media_queries/tall_screens.css" />
+
+        <style>
+            
+        </style>
 
         <!-- Scripts -->
-        <script src="/scripts/main.js" type="module" defer></script>
+        <script src="/scripts/main.js" type="module" defer></script>        
     </head>
 
     <body class="loading">
@@ -262,78 +266,22 @@
                 </header>
                 <main>
                     <div id="purpose" class="value-panel">
-                        <h3>
-                            <svg id="prev-value-empathy" class="go-to-empathy" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 58 14">
-                                <path d="M19 12a1 1 0 0 1-1 1H8.414l1.293 1.293a1 1 0 0 1-1.414 1.414l-3-3a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L8.414 11H18a1 1 0 0 1 1 1z"/>
-                                <text x="22" y="12" dy="2" font-size="10.5" alignment-baseline="middle" text-anchor="start">
-                                    Empathy
-                                </text>
-                            </svg>
-                            Purpose
-                            <svg id="next-value-curiosity" class="go-to-curiosity" xmlns="http://www.w3.org/2000/svg" viewBox="-46 4 68 14">
-                                <path d="m18.707 12.707-3 3a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 0 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414z"/>                                
-                                <text x="0" y="12" dy="2" font-size="10" alignment-baseline="middle" text-anchor="end">
-                                    Curiosity
-                                </text>
-                            </svg>
-                        </h3>
+                        <h3>Purpose</h3>
                         <p>My journey to find my <em class="value-word">purpose</em> led me back to college, where I dis&shy;covered a <em>passion</em> for <em>design and coding</em>. As a recent IT graduate, I’m eager to bring classroom ex&shy;per&shy;i&shy;ence with <em>modern web tech&shy;nol&shy;o&shy;gies</em> to a workplace where I can <em>con&shy;trib&shy;ute, learn, and grow.</em></p>
                         <img src="images/about/purpose.png" alt="An icon symbolizing purpose, such as a flag on a mountain peak or a compass pointing toward a goal" />
                     </div>
                     <div id="curiosity" class="value-panel">
-                        <h3>
-                            <svg  id="prev-value-purpose" class="go-to-purpose" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 64 14">
-                                <path d="M19 12a1 1 0 0 1-1 1H8.414l1.293 1.293a1 1 0 0 1-1.414 1.414l-3-3a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L8.414 11H18a1 1 0 0 1 1 1z" data-name="Left"/>
-                                <text x="22" y="12" dy="2" font-size="10" alignment-baseline="middle" text-anchor="start">
-                                    Purpose
-                                </text>
-                            </svg>                            
-                            Curiosity                            
-                            <svg  id="next-value-creativity"  class="go-to-creativity" xmlns="http://www.w3.org/2000/svg" viewBox="-52 4 72 14">
-                                <path d="m18.707 12.707-3 3a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 0 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414z" data-name="Right"/>
-                                <text x="0" y="12" dy="2" font-size="10.5" alignment-baseline="middle" text-anchor="end">
-                                    Creativity
-                                </text>
-                            </svg>
-                        </h3>
+                        <h3>Curiosity</h3>
                         <p><em class="value-word">Curiosity</em> drives me to <em>ask ques&shy;tions</em>, <em>explore</em> new tech&shy;nol&shy;o&shy;gies, and never stop <em>learning</em>. It's the engine behind every bug I debug, every tutorial I take, and every challenge I embrace with a “<em>what if?</em>” mindset.</p>
                         <img src="images/about/curiosity_lighter_silhouette.png" alt="Profile silhouette of a man with a question mark inside his head, surrounded by a circle of icons that symbolize ideas, objects, subjects that have stimulated man's curiosity (icons are Earth, an atom, a scroll with quill pen, a rocket ship, a book, a magnifying glass, a lightening cloud, a compass, and two interlocking gears)" />
                     </div>
                     <div id="creativity" class="value-panel">
-                        <h3>
-                            <svg id="prev-value-curiosity" class="go-to-curiosity" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 58 14">
-                                <path d="M19 12a1 1 0 0 1-1 1H8.414l1.293 1.293a1 1 0 0 1-1.414 1.414l-3-3a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L8.414 11H18a1 1 0 0 1 1 1z" data-name="Left"/>
-                                <text x="22" y="12" dy="2" font-size="9" alignment-baseline="middle" text-anchor="start">
-                                    Curiosity
-                                </text>
-                            </svg>
-                            Creativity
-                            <svg id="next-value-empathy" class="go-to-empathy" xmlns="http://www.w3.org/2000/svg" viewBox="-46 4 68 14">
-                                <path d="m18.707 12.707-3 3a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 0 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414z" data-name="Right"/>
-                                <text x="0" y="12" dy="2" font-size="12.5" alignment-baseline="middle" text-anchor="end">
-                                    Empathy
-                                </text>
-                            </svg>
-                        </h3>
+                        <h3>Creativity</h3>
                         <p><em class="value-word">Creativity</em> is where <em>logic</em> and <em>imagination</em> meet. Whether sketch&shy;ing UI ideas or solving problems in code, I bring an <em>artistic sensibility</em> to every&shy;thing I build—always striving to make digital ex&shy;per&shy;i&shy;ences both <em>intuitive</em> and <em>beautiful</em>.</p>
                         <img src="images/about/light_bulb.png" alt="Light bulb" />
                     </div>
                     <div id="empathy" class="value-panel">
-                        <h3>
-                            <svg id="prev-value-creativity" class="go-to-creativity" xmlns="http://www.w3.org/2000/svg" viewBox="4 4 62 14">
-                                <path d="M19 12a1 1 0 0 1-1 1H8.414l1.293 1.293a1 1 0 0 1-1.414 1.414l-3-3a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L8.414 11H18a1 1 0 0 1 1 1z" data-name="Left"/>
-                                <text x="22" y="12" dy="2" font-size="9" alignment-baseline="middle" text-anchor="start">
-                                    Creativity
-                                </text>
-                            </svg>
-                            Empathy
-                            <svg id="next-value-purpose" class="go-to-purpose" xmlns="http://www.w3.org/2000/svg" viewBox="-46 4 68 14">
-                                <path d="m18.707 12.707-3 3a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 0 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414z" data-name="Right"/>
-                                <text x="0" y="12" dy="2" font-size="10.5" alignment-baseline="middle" text-anchor="end">
-                                    Purpose
-                                </text>
-                            </svg>                        
-                        </h3>
+                        <h3>Empathy</h3>
                         <p>Technology should be <em>inclusive</em>, <em>ac&shy;ces&shy;si&shy;ble</em>, and <em>em&shy;pow&shy;er&shy;ing</em>. <em class="value-word">Empathy</em> guides how I design to communicate with users, and seek out work that supports <em>social re&shy;spon&shy;si&shy;bil&shy;i&shy;ty</em> and makes a <em>positive impact</em>.</p>
                         <img src="images/about/empathy.png" alt="Empathy" />
                     </div>
@@ -342,57 +290,47 @@
 
             <section id="projects">
                 <main>
-                    <div id="project-1" class="project-card active" data-index="1">
-                        <h2>
-                            <a href="liberty/index.html" data-text="Liberty" title="Click link to visit web page">Liberty</a>
-                        </h2>
-                        <div class="figure-card" tabindex="0" role="button" aria-pressed="false">
-                            <figure>
-                                <img src="images/projects/liberty_webpage_screenshot_1920x1080.png" alt="screenshot of Statue of Liberty project web page" title="Click to see a description of the project" />
-                                <figcaption>Developed a responsive informational web page about the Statue of Liberty to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes.</figcaption>
-                            </figure>
+                    <figure>
+                        <div class="project-screenshot">
+                            <img src='/images/projects/liberty_webpage_screenshot_1920x1080.png' alt=''>
                         </div>
-                    </div>
-                    <div id="project-2" class="project-card" data-index="2">
-                        <h2>
-                            <a href="calendar_generator/index.html" data-text="Calendar" title="Click link to visit web page">Calendar</a>
-                        </h2>
-                        <div class="figure-card" tabindex="1" role="button" aria-pressed="false">
-                            <figure>
-                                <img src="images/projects/calendar_webpage_screenshot_1920x1080.png" alt="screenshot of calendar project web page" title="Click to see a description of the project" />
-                                <figcaption>Developed a dynamic web page using HTML5, CSS3, and JavaScript to generate a monthly calendar. Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.</figcaption>
-                            </figure>
+    
+                        <figcaption class="project-title">
+                            <span>Liberty</span>
+                        </figcaption>
+                        <p class="project-description">Developed a responsive informational web page about the Statue of Liberty to demonstrate proficiency in HTML5 and CSS3 skills. Utilized responsive design techniques such as media queries, CSS Grid, CSS Flexbox, and responsive layout and typography elements to ensure a polished and professional user experience across all device and screen sizes.</p> 
+                    </figure>
+                    <figure>    
+                        <div class="project-screenshot">
+                            <img src='/images/projects/calendar_webpage_screenshot_1920x1080.png' alt=''>
                         </div>
-                    </div>
-                    <div id="project-3" class="project-card" data-index="3">
-                        <h2>
-                            <a href="travel/index.html" data-text="Travel" title="Click link to visit web page">Travel </a>
-                        </h2>
-                        <div class="figure-card" tabindex="2" role="button" aria-pressed="false">
-                            <figure>
-                                <img src="images/projects/travel_webpage_screenshot_1920x1080.png" alt="screenshot of travel project web page" title="Click to see a description of the project" />
-                                <figcaption>Developed a mockup of a flight lookup web page using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div id="project-4" class="project-card" data-index="4">
-                        <h2>
-                            <a href="https://pirate-game-chi.vercel.app" target="_blank" rel="noopener noreferrer" data-text="Pirates" title="Click link to visit web page">Game</a>
-                        </h2>
-                        <div class="figure-card" tabindex="3" role="button" aria-pressed="false">
-                            <figure>
-                                <img src="images/projects/pirates_webpage_screenshot_1920x1080.png" alt="screenshot of pirates game project web page" title="Click to see a description of the project" />
-                                <figcaption>Collaborated with a small team to build a pirate-themed, card-drawing roguelike game using the MERN stack. Personally contributed to setting up and managing the MongoDB database, designing Mongoose schemas and models, and creating modular Express route files. Implemented account creation and login functionality, developed the interactive Run Screen, and added custom CSS to improve the game’s UI/UX.</figcaption>
-                            </figure>
-                        </div>
-                    </div>
+    
+                        <figcaption class="project-title">
+                            <span>Calendar</span>
+                        </figcaption>
+                        <p class="project-description">Developed a dynamic web page using HTML5, CSS3, and JavaScript to generate a monthly calendar. Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.</p>
+                    </figure>
+                    <figure>
+    
+                        <div class="project-screenshot">
+                            <img src='/images/projects/travel_webpage_screenshot_1920x1080.png' alt=''>
+                        </div>    
+                        <figcaption class="project-title">
+                            <span>Travel</span>
+                        </figcaption>
+                        <p class="project-description">Developed a mockup of a flight lookup web page using HTML5, CSS3, and JavaScript. Integrated programming-driven custom form controls with standard HTML form controls to provide a user interface for inputting travel details and providing summary feedback.</p>
+                    </figure>
+                    <figure>
+    
+                        <div class="project-screenshot">
+                            <img src='/images/projects/pirates_webpage_screenshot_1920x1080.png' alt=''>
+                        </div>    
+                        <figcaption class="project-title">
+                            <span>Game</span>
+                        </figcaption>
+                        <p class="project-description">Collaborated with a small team to build a pirate-themed, card-drawing roguelike game using the MERN stack. Personally contributed to setting up and managing the MongoDB database, designing Mongoose schemas and models, and creating modular Express route files. Implemented account creation and login functionality, developed the interactive Run Screen, and added custom CSS to improve the game’s UI/UX.</p>
+                    </figure>
                 </main>
-                <div id="carousel-progress">
-                    <span data-index="1" class="progress-indicator current" aria-label="Project-1"></span>
-                    <span data-index="2" class="progress-indicator" aria-label="Project-2"></span>
-                    <span data-index="3" class="progress-indicator" aria-label="Project-3"></span>
-                    <span data-index="4" class="progress-indicator" aria-label="Project-4"></span>
-                </div>
             </section>
 
             <section id="resume">                
@@ -709,7 +647,6 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -20 0c0 -5.523 4.477 -10 10 -10m-.293 6.293a1 1 0 0 0 -1.414 0l-.083 .094a1 1 0 0 0 .083 1.32l2.292 2.293l-2.292 2.293a1 1 0 0 0 1.414 1.414l3 -3a1 1 0 0 0 0 -1.414z" />
             </svg>
-
         </div>
 
         <footer>
@@ -750,6 +687,23 @@
                     
                 </ul>
             </nav>
+            <div id="debug-media-queries" class="debug">
+                <div id="not-phones">NP</div>
+                <div id="phones-landscape">PL</div>
+                <div id="phones-portrait">PP</div>
+                <div id="tablets-landscape">TL</div>
+                <div id="tablets-portrait">TP</div>
+                <div id="desktops-portrait">CP</div>
+                <div id="laptops-landscape">LL</div>
+            </div>
         </footer>
+
+        <script>
+            document.querySelectorAll('#projects figure').forEach(figure => {
+                figure.addEventListener('click', () => {
+                    figure.classList.toggle('flipped');
+                });
+            });
+        </script>
     </body>
 </html>

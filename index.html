@@ -681,7 +681,7 @@
             </section>
 
             <section id="email">
-                <form id="contact-form" novalidate>
+                <form id="contact-form" action="/backend/contact_submit.php" method="POST" novalidate>
                     <h2>Tell me about yourself!</h2>
                     <fieldset>
                         <label for="name"
@@ -698,9 +698,11 @@
                             >Message
                             <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
                         </label>
+                        <input type="hidden" id="sent" name="sent">
                         <label><span>&nbsp;</span><button type="submit">Send</button></label>
                     </fieldset>
                 </form>
+                <div id="confirmation-message"></div>                
             </section>
         </main>
 
@@ -750,6 +752,57 @@
                     
                 </ul>
             </nav>
+            <div id="debug-device-types" class="debug">
+                <div id="phone" title="Categorized as a Phone Device"><span>P</span></div>
+                <div id="tablet" title="Categorized as a Tablet Device"><span>T</span></div>
+                <div id="laptop" title="Categorized as a Laptop Device"><span>L</span></div>
+                <div id="desktop" title="Categorized as a Desktop Device"><span>D</span></div>
+            </div>
+            <div id="debug-media-queries" class="debug">
+                <div id="not-phones">NP</div>
+                <div id="phones-landscape" title="Phones in Landscape Orientation">PL</div>
+                <div id="phones-portrait" title="Phones in Portrait Orientation">PP</div>
+                <div id="tablets-landscape" title="Tablets in Landscape Orientation">TL</div>
+                <div id="tablets-portrait" title="Tablets in Portrait Orientation">TP</div>
+                <div id="laptops-landscape" title="Laptops in Landscape Orientation">LL</div>
+                <div id="desktops-portrait" title="Desktops in Portrait Orientation">DP</div>
+            </div>
         </footer>
+
+        <!-- <div id="debug-overlay"></div> -->
+
+        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script>
+            eruda.init();
+            
+        </script>
+        <script>            
+            // console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
+            // console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
+            
+            const valuePanels = document.querySelectorAll("#about .value-panel");
+            valuePanels.forEach(panel => {
+                panelLeft = panel.getBoundingClientRect().left;
+                panelId = panel.id;
+                console.log("Panel Id:", panelId, "at", panelLeft);
+                // const panelChildren = panel.children
+                // const imageName = panelChildren[0].textContent;
+                // const image = panelChildren[2];
+                // const imageWidth = getComputedStyle(image).width;
+                // const imageHeight = getComputedStyle(image).height;
+                // console.log(`${imageName}: ${imageWidth} x ${imageHeight}`);
+            })            
+
+            // const h3 = document.querySelector("#about > main h3");
+            // property = getComputedStyle(h3).fontSize;
+            // console.log("#about > main h3 { font-size:", property, "; }");
+
+            // const p = document.querySelector("#about > main p");
+            // property = getComputedStyle(p).fontSize;
+            // console.log("#about > main p { font-size:", property, "; }");
+
+            // property = getComputedStyle(p).lineHeight;
+            // console.log("#about > main p { line-height:", property, "; }");
+        </script>
     </body>
 </html>

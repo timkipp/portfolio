@@ -1,0 +1,81 @@
+:root {
+    --calm-ocean: #7f9393;
+    --autumn: #8f625c;
+    --soft-gold: #c5b28d;
+    --reflection: #e0dedc;
+    --powder-blue: #a7c1d6;
+    --calm-ocean-shade: #627474;
+    --autumn-shade: #6b4a45;
+    --soft-gold-shade: #b19865;
+    --reflection-shade: #c4c0bc;
+    --powder-blue-shade: #7fa4c3;
+    --calm-ocean-tint: #9fafaf;
+    --autumn-tint: #ab827d;
+    --soft-gold-tint: #d9cdb5;
+    --reflection-tint: #fcfcfc;
+    --powder-blue-tint: #d1dee9;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 6fr 1fr;
+    height: 100vh;
+    background-color: var(--reflection);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: clamp(16px, calc(0.5vw + 0.67vh), 96px);
+
+    & header {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0.25em 5em;
+        color: var(--calm-ocean-shade);
+        font-size: 3em;
+        background-color: var(--calm-ocean-tint);
+
+        & h2 {
+            font-size: 0.75em;
+        }
+    }
+
+    & main {
+        grid-row: 2;
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+
+        section {
+            border: 2px solid var(--autumn-shade);
+
+            &#message-list {
+                table {
+                    width: 100%;
+
+                    & caption {
+                        padding: 0.125em 0;
+                        color: var(--autumn-tint);
+                        font-size: 2em;
+                        background-color: var(--autumn-shade);
+                    }
+
+                    & thead {
+                        color: var(--reflection);
+                        background-color: var(--autumn);
+
+                        & tr {
+                            & th {
+                                padding: 0.25em 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#reading-pane {
+            }
+        }
+    }
+}

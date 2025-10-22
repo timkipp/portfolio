@@ -3,6 +3,7 @@ import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
 import { setInteraction } from "./interaction.js";
 import { updateCaptionHeight } from "./project_carousel.js";
 import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
+import { initializeForm } from "./email_section.js";
 
 initializeDebugging();
 
@@ -226,3 +227,5 @@ setInteraction(currentViewport);
 initializeResumeTabs();
 
 updateTabDisplayMode(currentViewport);
+
+initializeForm();

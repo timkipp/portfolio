@@ -1,20 +1,5 @@
-:root {
-    --calm-ocean: #7f9393;
-    --autumn: #8f625c;
-    --soft-gold: #c5b28d;
-    --reflection: #e0dedc;
-    --powder-blue: #a7c1d6;
-    --calm-ocean-shade: #627474;
-    --autumn-shade: #6b4a45;
-    --soft-gold-shade: #b19865;
-    --reflection-shade: #c4c0bc;
-    --powder-blue-shade: #7fa4c3;
-    --calm-ocean-tint: #9fafaf;
-    --autumn-tint: #ab827d;
-    --soft-gold-tint: #d9cdb5;
-    --reflection-tint: #fcfcfc;
-    --powder-blue-tint: #d1dee9;
-}
+@import url(/backend/color.css);
+@import url(../styles/fonts/fonts.css);
 
 body {
     display: grid;
@@ -31,13 +16,34 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        position: relative;
+        z-index: 100;
         padding: 0.25em 5em;
         color: var(--calm-ocean-shade);
         font-size: 3em;
         background-color: var(--calm-ocean-tint);
+        -webkit-box-shadow: 5px 5px 15px 5px #000000;
+        box-shadow: 3px 3px 3px 3px #000000;
 
         & h2 {
             font-size: 0.75em;
+        }
+
+        & button {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            padding: 0.5em 1em;
+            background-color: var(--powder-blue-tint);
+            border: 2px solid var(--powder-blue-shade);
+            border-radius: 10px;
+
+            &:hover,
+            &:focus,
+            &:focus-within {
+                background-color: var(--powder-blue-shade);
+                border: 2px solid var(--powder-blue-tint);
+            }
         }
     }
 
@@ -51,8 +57,12 @@ body {
             border: 2px solid var(--autumn-shade);
 
             &#message-list {
+                min-height: 20vh;
+
                 table {
+                    table-layout: fixed;
                     width: 100%;
+                    border-radius: 50px;
 
                     & caption {
                         padding: 0.125em 0;
@@ -68,6 +78,69 @@ body {
                         & tr {
                             & th {
                                 padding: 0.25em 0;
+                                text-align: center;
+
+                                &.id {
+                                    width: 2.5em;
+                                }
+
+                                &.new {
+                                    width: 2em;
+                                }
+
+                                &.sent {
+                                    width: 10em;
+                                }
+
+                                &.name {
+                                    width: 15em;
+                                }
+
+                                &.email {
+                                    width: 20em;
+                                }
+
+                                &.message {
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+                            }
+                        }
+                    }
+
+                    & tbody {
+                        & tr {
+                            &.new-message {
+                                font-weight: 600;
+                                font-variation-settings: "wght" 600;
+                            }
+
+                            & td {
+                                padding: 0.25em 0.5em;
+                                border: 1px solid var(--autumn-tint);
+
+                                &.id {
+                                    text-align: right;
+                                }
+
+                                &.new {
+                                    text-align: center;
+                                }
+
+                                &.sent {
+                                    text-align: right;
+                                }
+
+                                &.name {
+                                }
+
+                                &.email {
+                                }
+
+                                &.message {
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
                             }
                         }
                     }
@@ -75,6 +148,51 @@ body {
             }
 
             &#reading-pane {
+                height: 75%;
+
+                & form {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    /* display: none; */
+
+                    & #message-header {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        row-gap: 0.5em;
+                        background-color: white;
+
+                        & .form-field {
+                            display: flex;
+                            align-items: flex-end;
+
+                            & label {
+                                width: 6ch;
+                            }
+
+                            & input {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    & hr {
+                        /* flex: 0 0 100%; */
+                        border: 1px solid var(--autumn-shade);
+                        margin: 0.125em 0;
+                    }
+
+                    & #message-body {
+                        height: 100%;
+
+                        & textarea {
+                            resize: none;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
             }
         }
     }

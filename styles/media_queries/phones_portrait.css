@@ -16,6 +16,17 @@
 
                 & > ul > li {
                     font-size: clamp(1rem, 5cqw, 1.5rem);
+
+                    & > a[href="#resume"] > span {
+                        &:first-child {
+                            padding-right: 0;
+                            border-right: none;
+                        }
+
+                        &:last-child {
+                            display: none;
+                        }
+                    }
                 }
             }
         }

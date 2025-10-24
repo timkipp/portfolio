@@ -58,46 +58,27 @@
             <nav>
                 <ul>
                     <li>
-                        <a data-text="Home" href="#home">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-home">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z" />
-                                <title>Home</title>
-                            </svg>
+                        <a data-text="Home" href="#home">                            
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a data-text="About" href="#about">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-user">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-                                <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
-                                <title>About me</title>
-                            </svg>
+                        <a data-text="About" href="#about">                            
                             <span>About</span>
                         </a>
                     </li>
                     <li>
-                        <a data-text="Sites" href="#projects" title="View samples of my work">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-app-window">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M19 4a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm-12.99 3l-.127 .007a1 1 0 0 0 .117 1.993l.127 -.007a1 1 0 0 0 -.117 -1.993zm3 0l-.127 .007a1 1 0 0 0 .117 1.993l.127 -.007a1 1 0 0 0 -.117 -1.993z" />
-                                <title>Websites I've designed</title>
-                            </svg>
+                        <a data-text="Sites" href="#projects" title="View samples of my work">                            
                             <span>Projects</span>
                         </a>
                     </li>
                     <li>
-                        <a data-text="Résumé" href="#resume" title="View my résumé">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-file-cv">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-2.5 8a2.5 2.5 0 0 0 -2.5 2.5v3a2.5 2.5 0 1 0 5 0a1 1 0 0 0 -2 0a.5 .5 0 1 1 -1 0v-3a.5 .5 0 1 1 1 0a1 1 0 0 0 2 0a2.5 2.5 0 0 0 -2.5 -2.5m6.743 .03a1 1 0 0 0 -1.213 .727l-.53 2.119l-.53 -2.119a1 1 0 1 0 -1.94 .486l1.5 6c.252 1.01 1.688 1.01 1.94 0l1.5 -6a1 1 0 0 0 -.727 -1.213m-1.244 -7.031l4.001 4.001h-4z"
-                                />
-                                <title>My résumé</title>
-                            </svg>
-                            <span>Résumé</span>
+                        <a data-text="Résumé" href="#resume">
+                            <span title="View my résumé">Résumé</span>
+                            <span>
+                                <img src="images/icons/download_resume_color.svg" alt="Download resume" title="View my résumé as a PDF for downloading">
+                                <img src="images/icons/download_resume.svg" alt="Download resume" title="View my résumé as a PDF for downloading">
+                            </span>
                         </a>
                     </li>
                 </ul>
@@ -682,7 +663,7 @@
 
             <section id="email">
                 <form id="contact-form" action="/backend/contact_submit.php" method="POST" novalidate>
-                    <h2>Tell me about yourself!</h2>
+                    <h2>Send me a message!</h2>
                     <fieldset>
                         <label for="name"
                             >Name
@@ -702,7 +683,10 @@
                         <label><span>&nbsp;</span><button type="submit">Send</button></label>
                     </fieldset>
                 </form>
-                <div id="confirmation-message"></div>                
+                <div id="confirmation-message">
+                    <output>Message sent successfully!</output>
+                    <button type="button">Send another message</button>
+                </div>
             </section>
         </main>
 
@@ -718,40 +702,28 @@
             <nav>
                 <ul>
                     <li>
-                        <a data-text="Email" href="#email" title="Email me">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
-                                <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
-                                <title>Send an email to me</title>
-                            </svg>
+                        <a data-text="Email" href="#email" title="Email me">                            
                             <span>Email</span>
                         </a>
                     </li>                    
                     <li>
                         <a data-text="LinkedIn" href="https://www.linkedin.com/in/tim-kipp-91461b2/" title="View my LinkedIn profile">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" />
-                                <title>My LinkedIn profile</title>
-                            </svg>
                             <span>LinkedIn</span>
                         </a>
                     </li>
                     <li>
                         <a data-text="GitHub" href="https://github.com/timkipp" title="View my GitHub profile">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z"
-                                />
-                            </svg>
-                            <span>GitHub</span>
+                           <span>GitHub</span>
                         </a>
                     </li>
                     
                 </ul>
             </nav>
+
+            <div id="admin-trigger">
+                <img src="images/icons/message.svg">
+            </div>
+
             <div id="debug-device-types" class="debug">
                 <div id="phone" title="Categorized as a Phone Device"><span>P</span></div>
                 <div id="tablet" title="Categorized as a Tablet Device"><span>T</span></div>
@@ -767,42 +739,15 @@
                 <div id="laptops-landscape" title="Laptops in Landscape Orientation">LL</div>
                 <div id="desktops-portrait" title="Desktops in Portrait Orientation">DP</div>
             </div>
-        </footer>
+        </footer>        
 
-        <!-- <div id="debug-overlay"></div> -->
-
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>
-            eruda.init();
-            
-        </script>
+            eruda.init();            
+        </script> -->
         <script>            
             // console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
             // console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
-            
-            const valuePanels = document.querySelectorAll("#about .value-panel");
-            valuePanels.forEach(panel => {
-                panelLeft = panel.getBoundingClientRect().left;
-                panelId = panel.id;
-                console.log("Panel Id:", panelId, "at", panelLeft);
-                // const panelChildren = panel.children
-                // const imageName = panelChildren[0].textContent;
-                // const image = panelChildren[2];
-                // const imageWidth = getComputedStyle(image).width;
-                // const imageHeight = getComputedStyle(image).height;
-                // console.log(`${imageName}: ${imageWidth} x ${imageHeight}`);
-            })            
-
-            // const h3 = document.querySelector("#about > main h3");
-            // property = getComputedStyle(h3).fontSize;
-            // console.log("#about > main h3 { font-size:", property, "; }");
-
-            // const p = document.querySelector("#about > main p");
-            // property = getComputedStyle(p).fontSize;
-            // console.log("#about > main p { font-size:", property, "; }");
-
-            // property = getComputedStyle(p).lineHeight;
-            // console.log("#about > main p { line-height:", property, "; }");
         </script>
     </body>
 </html>

@@ -1,9 +1,10 @@
 import { initializeDebugging } from "./debug.js";
 import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
-import { setInteraction } from "./interaction.js";
+import { enableResumeDownload, setInteraction } from "./interaction.js";
 import { updateCaptionHeight } from "./project_carousel.js";
 import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
 import { initializeForm } from "./email_section.js";
+import { intializeAdministrative } from "./admin.js";
 
 initializeDebugging();
 
@@ -222,6 +223,8 @@ setRealVH();
 
 initializeSectionObserver();
 
+enableResumeDownload();
+
 setInteraction(currentViewport);
 
 initializeResumeTabs();
@@ -229,3 +232,5 @@ initializeResumeTabs();
 updateTabDisplayMode(currentViewport);
 
 initializeForm();
+
+intializeAdministrative();

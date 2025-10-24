@@ -1,0 +1,84 @@
+@import url(/backend/color.css);
+@import url(../styles/fonts/fonts.css);
+
+body {
+    height: 100vh;
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-rows: 1fr auto minmax(200px, 50%) 1fr;
+    grid-template-columns: 1fr minmax(300px, 25%) 1fr;
+    row-gap: 1em;
+    place-content: center center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: clamp(16px, calc(0.5vw + 0.67vh), 96px);
+
+    & header {
+        grid-row: 2;
+        grid-column: 2;
+
+        & h1 {
+            color: #5b8089;
+            font-size: clamp(24px, calc(2vw + 2.66vh), 64px);
+            text-align: center;
+        }
+    }
+
+    & main {
+        grid-row: 3;
+        grid-column: 2;
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 0.75em;
+            width: 80%;
+            margin: 0 auto;
+            padding: calc(1vw + 1.33vh);
+            background-color: #e9f7f8;
+            border: 3px solid #5b8089;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px 5px #000000;
+
+            & .form-field {
+                display: flex;
+                align-items: center;
+
+                & label {
+                    flex: 0 0 10ch;
+                    font-size: 1em;
+                }
+
+                & input {
+                    flex: 1 1 auto;
+                    height: 2em;
+                    padding: 0.25em 0.5em;
+                    border: 2px solid #5b8089;
+                    border-radius: 10px;
+
+                    &:focus {
+                        outline: none;
+                        border: 2px solid #9ddce3;
+                    }
+                }
+            }
+
+            & button {
+                width: 50%;
+                height: 2em;
+                margin: 1em auto 0;
+                color: #5b8089;
+                font-size: 1em;
+                background-color: #9ddce3;
+                border: 2px solid #5b8089;
+                border-radius: 10px;
+
+                &:hover {
+                    color: #def3f5;
+                    background-color: #5b8089;
+                    border: 2px solid #9ddce3;
+                }
+            }
+        }
+    }
+}

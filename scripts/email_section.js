@@ -1,4 +1,6 @@
 const contactForm = document.querySelector("#contact-form");
+const confirmationOutput = document.querySelector("#email #confirmation-message output");
+const sendAnotherMessage = document.querySelector("#confirmation-message button");
 const dateTimeSent = document.querySelector("#contact-form #sent");
 
 export function initializeForm() {
@@ -23,8 +25,12 @@ export function initializeForm() {
         contactForm.classList.add("result-received");
         contactForm.reset();
 
-        const confirmationMessage = document.querySelector("#email #confirmation-message");
-        confirmationMessage.textContent = await response.text();
-        confirmationMessage.classList.add("result-confirmed");
+        confirmationOutput.textContent = await response.text();
+        confirmationOutput.classList.add("result-confirmed");
+    });
+
+    sendAnotherMessage.addEventListener("click", () => {
+        confirmationOutput.classList.remove("result-confirmed");
+        contactForm.classList.remove("result-received");
     });
 }

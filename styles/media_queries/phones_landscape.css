@@ -38,6 +38,17 @@
                         &::after {
                             height: 2px;
                         }
+
+                        &[href="#resume"] > span {
+                            &:first-child {
+                                padding-right: 0;
+                                border-right: none;
+                            }
+
+                            &:last-child {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }

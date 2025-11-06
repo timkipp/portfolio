@@ -1,0 +1,14 @@
+# IDE settings
+.vscode/
+
+# OS-specific files
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# Logs
+*.log
+
+# Node stuff
+node_modules/
+package-lock.json

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/styles/reset.css" type="text/css" />
+        <link rel="stylesheet" href="fonts.css" type="text/css" />
+        <link rel="stylesheet" href="fonts_preview.css" type="text/css" />
+        <script src="fonts.js" type="module" defer></script>
+        <title>Fonts</title>
+
+        <style></style>
+    </head>
+    <body>
+        <header>
+            <h1>Portfolio Font Manager</h1>
+            <menu>
+                <button type="button" id="add-font">Add Font</button>
+                <button type="button" id="toggle-options">Hide Options</button>
+            </menu>
+        </header>
+        <main>
+            <form>
+                <fieldset id="font-properties-section" class="form-section">
+                    <legend id="">Font Properties</legend>
+                    <div id="font-family-field" class="form-field">
+                        <label for="font-family-name">Font Family</label>
+                        <select id="font-family-name">
+                            <option>Adlam</option>
+                            <option>Aharoni</option>
+                            <option>Al Fresco</option>
+                            <option>Alasassy Caps</option>
+                            <option>Amasis</option>
+                            <option>Bebas Neue Regular</option>
+                            <option>Bradley Hand</option>
+                            <option>Caviar Dreams</option>
+                            <option>Cavolini</option>
+                            <option>Charmonman</option>
+                            <option>Clicker Script</option>
+                            <option>Congenial</option>
+                            <option>Dreaming Outloud</option>
+                            <option>Fredericka the Great</option>
+                            <option>Gabriola</option>
+                            <option>Gungsuh</option>
+                            <option>Hammersmith One</option>
+                            <option>Ink Free</option>
+                            <option>Jumble</option>
+                            <option>Lato</option>
+                            <option>Nordique</option>
+                            <option>Nothing You Could Do</option>
+                            <option>Nunito Sans</option>
+                            <option>Petrona</option>
+                            <option>Poppins</option>
+                            <option>Praise</option>
+                            <option>Rastantly Cortez</option>
+                            <option>Sagona</option>
+                            <option>Seitu</option>
+                            <option>Skeena</option>
+                            <option>The Hand</option>
+                            <option>Trade Gothic</option>
+                        </select>
+                    </div>
+                    <div id="italic-field" class="form-field">
+                        <label for="italic">Italic</label>
+                        <input type="checkbox" id="italic" name="italic" />
+                    </div>
+                    <fieldset id="font-size-field" class="form-field">
+                        <legend>Font Size</legend>
+                        <input type="range" id="font-size-range" name="font_size_range" min="6" max="144" value="12" />
+                        <input type="number" id="font-size-number" name="font_size_number" min="6" max="144" value="12" />
+                    </fieldset>
+                    <fieldset id="font-weight-field" class="form-field">
+                        <legend>Font Weight</legend>
+                        <input type="range" id="font-weight-range" name="font_weight_range" min="100" max="900" step="100" value="400" />
+                        <input type="number" id="font-weight-number" name="font_weight_number" min="100" max="900" step="100" value="400" />
+                    </fieldset>
+                </fieldset>
+                <fieldset id="preview-section" class="form-section">
+                    <legend>Preview</legend>
+                    <div id="sample-text-field" class="form-field">
+                        <label for="sample_text">Sample Text</label>
+                        <input type="text" id="sample-text" name="sample_text" default="Enter some sample text" />
+                    </div>
+                    <fieldset id="letter-case-field" class="form-field">
+                        <legend>Letter Case</legend>
+                        <div class="form-field letter-case-option">
+                            <input type="radio" id="lowercase" name="letter-case" value="lowercase" />
+                            <label>Lowercase</label>
+                        </div>
+                        <div class="form-field letter-case-option">
+                            <input type="radio" id="uppercase" name="letter-case" value="uppercase" />
+                            <label>Uppercase</label>
+                        </div>
+                        <div class="form-field letter-case-option">
+                            <input type="radio" id="proper-case" name="letter-case" value="capitalize" />
+                            <label>Proper Case</label>
+                        </div>
+                        <div class="form-field letter-case-option">
+                            <input type="radio" id="small-caps" name="letter-case" value="small-caps" />
+                            <label>Small Caps</label>
+                        </div>
+                        <button type="button" id="reset-letter-case">Reset</button>
+                    </fieldset>
+                </fieldset>
+            </form>
+            <section>
+                <div id="font-1" class="font-display">
+                    <input type="checkbox" checked />
+                    <figure id="character-set" class="font-preview">
+                        <h2>Character Set</h2>
+                        <div id="uppercase" class="updateable">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+                        <div id="lowercase" class="updateable">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+                        <div id="numbers" class="updateable">0 1 2 3 4 5 6 7 8 9</div>
+                        <div id="symbols" class="updateable">. : , ; ' " ! ? ( ) [ ] { } < > | / \ * & @ $ # + - = $ %</div>
+                    </figure>
+                    <figure id="sample-text-display" class="font-preview">
+                        <h2>Sample</h2>
+                        <p class="updateable"></p>
+                    </figure>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+# Disable directory listing
+Options -Indexes
+
+# Allow PHP, CSS, and JS files
+<FilesMatch "\.(php|css|js)$">
+    Require all granted
+</FilesMatch>

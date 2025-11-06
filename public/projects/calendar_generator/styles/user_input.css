@@ -1,0 +1,113 @@
+a {
+    text-decoration: none;
+  }
+  
+section:first-of-type {
+    font-family: 'Baloo Thambi 2', san-serif;
+    font-size: 1.5rem;
+  }
+  
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #FD8A5E;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 75%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 2rem;
+    margin: 0;
+    font-family: 'Baloo Thambi 2', san-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    
+}
+
+li, button {
+    color: #fff;
+    background: #FD8A5E;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    transition-duration: 0.5s;
+  }
+
+  li a, button {
+      color: #fff;
+  }
+
+  ul li.custom_select:hover,
+  ul li.custom_select ul li:hover,
+  button:hover {
+    background: #FD588D;
+    cursor: pointer;
+  }
+
+  ul li ul {
+    background: #FD8A5E;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+    z-index: 2;
+  }
+
+  li#century_list:hover ul, 
+  li#century_list:focus-within ul,
+  li#century_list ul:hover {
+     visibility: visible;
+     opacity: 1;
+     display: block;
+   }
+
+  li#month_list:hover ul, 
+  li#month_list:focus-within ul,
+  li#month_list ul:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+
+  li#year_list:hover ul, 
+  li#year_list:focus-within ul,
+  li#year_list ul:hover {
+     visibility: visible;
+     opacity: 1;
+     display: flex;
+     width: 30rem;
+   }
+
+  li#century_list ul li,
+  li#month_list ul li {
+    width: 100%;
+  }
+
+  li#year_list ul li {
+    width: 15%;
+  }
+
+  #user_input ul div {
+      display: flex;
+      flex-direction: column;
+  }
+
+  #user_input ul div:last-of-type {
+      justify-content: space-around;
+      align-content: space-around;
+  }

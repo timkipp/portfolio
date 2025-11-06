@@ -1,0 +1,487 @@
+/* 
+FONTS
+
+SloopScriptPro Bold
+font-family: sloop-script-pro, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+SloopScriptPro Regular
+font-family: sloop-script-pro, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Sloop ScriptBoldThree
+font-family: sloop-script-three, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Sloop ScriptThree
+font-family: sloop-script-three, sans-serif;
+font-weight: 400;
+font-style: normal;
+—————————————————————————————————————————————
+Mostra Nuova 
+font-family: mostra-nuova, sans-serif;
+font-weight: 200;
+font-style: normal;
+
+font-family: mostra-nuova, sans-serif;
+font-weight: 300;
+font-style: normal;
+
+font-family: mostra-nuova, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+font-family: mostra-nuova, sans-serif;
+font-weight: 700;
+font-style: normal;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: Poppins;
+    font-size: 16px;
+}
+
+header img[alt="Pan Am Logo"] {
+    width: 5%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+header h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    padding-bottom: 0px;
+    color: #2B88D9;
+    font-family: mostra-nuova, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 1px 1px 1.5px #B7D9ED;
+    background-color: #1C5A90;
+    border-bottom: solid 4px #077F8C;
+}
+
+header h1 span {
+    display: inline;
+    vertical-align: top;
+}
+
+header h1 span:first-child {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+header h1 span:nth-child(2) {
+    align-self: flex-end;
+}
+
+header h1 span:last-child {
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+form {
+    background: rgb(242, 235, 220);
+}
+
+form div {
+    position: relative;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    width: 100%;
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-top: -10px;
+    padding-left: 6px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    background-color: #D9961A;
+    opacity: 100%;
+    -webkit-box-shadow: 0px 4px 4px 0px #5F5F5F;
+    box-shadow: 0px 4px 4px 0px #5F5F5F;
+}
+
+section#travel_type {
+    margin-top: 10px;
+}
+
+section#trip_needs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+section#travelers {
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+}
+
+div.ctrlgrp_radio,
+div.ctrlgrp_checkbox {
+    margin: 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+div.ctrlgrp_text, 
+div.ctrlgrp_date,
+div.ctrlgrp_select {
+    width: 48%; 
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    margin: 10px auto;
+}
+
+div.ctrlgrp_number {
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.spin_control {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+label, th {
+    height: 24px;
+    color: #3D9DD9;
+    font-size: 12px;
+    font-size: .825rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 24px;
+}
+
+div.ctrlgrp_checkbox label,
+div.ctrlgrp_radio label {
+    margin: 0 5px;
+}
+
+div.ctrlgrp_text label, 
+div.ctrlgrp_date label,
+div.ctrlgrp_select label {
+    position: absolute;
+    left: 0;
+    padding: 0px 10px;
+}
+
+div.ctrlgrp_number span {
+    font-size: .75rem;
+    text-transform: lowercase;
+    line-height: 1.25rem;
+}
+
+div#btngrp_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+    margin: 10px 0;
+}
+
+input, select {
+    height: 50px;
+    padding: 20px 15px 0;
+    color: #191a1e;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.025rem;
+    background-color: #fff;
+    border-left: 1px solid #5FAAD9;
+    border-right: 1px solid #5FAAD9;
+    border-top: 1.5px solid #5FAAD9;
+    border-bottom: 1.5px solid #5FAAD9;
+    border-radius: 6px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #2B88D9;
+}
+
+input[type="radio"] {
+    height: 40px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    outline: none;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    display: inline-block;
+    width: 50px;
+    padding-top: 0;
+    font-size: 1.25rem;
+    text-align: center;
+    border-radius: 0;
+}
+
+button {
+    background-color: #D9E0E5;
+    border: none;
+}
+
+div.spin_control button {
+    width: 30px;
+    color: #3D9DD9;
+    font-size: 2rem;
+    border-top: 1.5px solid #5FAAD9;
+    border-bottom: 1.5px solid #5FAAD9;
+    }
+
+div.spin_control button:enabled:hover {
+    color: #D9E0E5;
+    background-color: #3D9DD9;
+}
+
+button.spin_down {
+    border-left: 1px solid #5FAAD9;
+    border-radius: 6px 0 0 6px;
+}
+
+button.spin_up {
+    border-right: 1px solid #5FAAD9;
+    border-radius: 0 6px 6px 0;
+}
+
+div#btngrp_main button {
+    width: 75%;
+    height: 50px;
+    margin: 5px 0px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-shadow: 1px 1px 1px #5C5C5C;
+    -webkit-box-shadow: 5px 5px 5px 6px #5F5F5F;
+    box-shadow: 2.5px 2.5px 2.5px 0px #5F5F5F;
+}
+
+div#btngrp_main #submit_info {
+    color: #B7D9ED;
+    background-color: #1E82D9;
+}
+
+div#btngrp_main #submit_info:hover {
+    color: #1E82D9;
+    background-color: #94C6E5;
+}
+
+div#btngrp_main button[type="button"] {
+    color: #EAE0CA;
+    background-color: #D9961A;
+    
+}
+
+div#btngrp_main button[type="button"]:hover {
+    color: #B77E15;
+    background-color: #E5B966;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    pointer-events: none;
+}
+
+section#confirm_booking_details {
+    flex-direction: column;
+}
+
+section#confirm_booking_details p {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+section#confirm_booking_details p span {
+    font-weight: 700;
+}
+
+section.review_info table {
+    width: 98%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: .75rem;
+}
+
+section.review_info tbody {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+section.review_info table th:first-of-type {
+    background-color: none;
+}
+
+section.review_info tr:first-of-type th:nth-child(1n + 2) {
+    color: white;
+    background-color: #3D9DD9;
+}
+
+section.review_info tr:nth-child(1n + 2) th {
+    color: white;
+    background-color: #3D9DD9;
+}
+
+section.review_info td {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #191a1e;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 0.75rem;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 376px) {
+
+    header img[alt="Pan American World Airways"] {
+        display: none;
+    }
+
+    header h1 span:first-child {
+        font-size: 2.5rem;
+    }
+    header h1 span:last-child {
+        font-size: 2.5rem;
+    }
+    form {
+        width: 100%; 
+        margin: 0 auto;
+        /*background-color: antiquewhite*/
+    }
+    
+    fieldset {
+        width: 100%; 
+        margin: 0 auto;
+        /*background-color: aqua;*/
+    }
+    
+    section#travelers {
+        justify-content: space-between;
+        /*background-color: aquamarine;*/
+    }
+    
+    div.ctrlgrp_text, 
+    div.ctrlgrp_date,
+    div.ctrlgrp_select {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /*background-color: aqua;*/
+    }
+    
+    input[type="text"], input[type="date"],
+    select,
+    datalist {
+        width: 98%;
+    }
+}
+
+@media screen and (min-width: 377px) {
+    body {
+        /*background-color: #1E82D9;*/
+        background-image: url(../images/thailand_beachscape.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size: cover;
+    }
+    
+    header img[alt="Pan Am Logo"] {
+        display: inline-block;
+    }
+    header img[alt="Pan Am"] {
+        display: none;        
+    }
+    header img[alt="Pan American World Airways"] {
+        width: 75%;
+    }
+
+    header img[alt="Pan American World Airways"] {
+        width: 100%;
+    }
+    
+    header h1 {
+        justify-content: center;
+    }
+    
+    header h1 span:nth-child(odd) {
+        margin-left: 0px;
+        font-size: 3rem;
+    }
+    
+    form {
+        /*height: 100vh;*/
+        width: 600px;
+        height: 600px;
+        margin: auto;        
+        background: rgb(242, 235, 220, 0.9);
+        background: -webkit-linear-gradient(rgba(242,235,220,0.9) 0%, rgba(242,235,220,0.85) 75%, rgba(242,235,220,0.5) 100%);
+        background: -o-linear-gradient(rgba(242,235,220,0.9) 0%, rgba(242,235,220,0.85) 75%, rgba(242,235,220,0.5) 100%);
+        background: linear-gradient(rgba(242,235,220,0.9) 0%, rgba(242,235,220,0.85) 75%, rgba(242,235,220,0.5) 100%);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    section {
+        width: 500px;
+        display: flex;
+        margin: auto;
+    }
+    
+    section#travel_type {
+        justify-content: space-between;
+    }
+    section#travelers {
+        justify-content: space-around;
+    }
+
+    div.spin_control button {
+        width: 40px;
+    }
+
+    section.review_info {
+        width: 100%;
+    }
+
+    section#confirm_booking_details p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

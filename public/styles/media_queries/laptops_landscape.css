@@ -1,0 +1,22 @@
+@media (min-height: 600px) and (max-height: 960px) and (orientation: landscape) and (pointer: fine) {
+    .debug #laptops-landscape {
+        display: flex;
+        background-color: chartreuse;
+    }
+
+    #resume {
+        & > header > h1 {
+            font-size: clamp(1.5rem, 5cqh, 2rem);
+        }
+
+        & > main {
+            & .resume-section {
+                &#relevant-experience {
+                    & > ul {
+                        font-size: calc((2.5cqw + 4.1cqh) / 2);
+                    }
+                }
+            }
+        }
+    }
+}

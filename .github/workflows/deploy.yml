@@ -13,16 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy public folder via SFTP
+      # Upload contents of public folder only
+      - name: Deploy public folder contents via SFTP
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          source: "./public/"
+          source: "./public/*"
           target: "/home/timkipp/timothyscottkipp.com"
 
+      # Upload backend, vendor, and composer files to root
       - name: Deploy backend, vendor, and composer files via SFTP
         uses: appleboy/scp-action@v0.1.6
         with:
@@ -31,8 +33,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           source: |
-            ./backend/
-            ./vendor/
-            ./composer.json
-            ./composer.lock
+            backend/
+            vendor/
+            composer.json
+            composer.lock
           target: "/home/timkipp"

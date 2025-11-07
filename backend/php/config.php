@@ -1,4 +1,7 @@
 <?php
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
     $local = false;
 
     // Automatically detect environment
@@ -18,15 +21,15 @@
     }
 
     if ($local) {
-        $DB_HOST = 'localhost';
-        $DB_USER = 'root';
-        $DB_PASS = 'MyC0^ntryT1$OfTh33';
-        $DB_NAME = 'timkipp_portfolio';
+        $DB_HOST = $_ENV['LOCAL_DB_HOST'];
+        $DB_USER = $_ENV['LOCAL_DB_USER'];
+        $DB_PASS = $_ENV['LOCAL_DB_PASS'];
+        $DB_NAME = $_ENV['LOCAL_DB_NAME'];
     } else {
-        $DB_HOST = 'db.timothyscottkipp.com';
-        $DB_USER = 'tims_portfolio';
-        $DB_PASS = '17P@^lR3v3r375';
-        $DB_NAME = 'timkipp_portfolio';
+        $DB_HOST = $_ENV['REMOTE_DB_HOST'];
+        $DB_USER = $_ENV['REMOTE_DB_USER'];
+        $DB_PASS = $_ENV['REMOTE_DB_PASS'];
+        $DB_NAME = $_ENV['REMOTE_DB_NAME'];
     }
 
     // Path to contact form log file

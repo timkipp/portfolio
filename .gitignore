@@ -12,3 +12,6 @@ Thumbs.db
 # Node stuff
 node_modules/
 package-lock.json
+
+# Credentials
+backend/.env

@@ -1,5 +1,8 @@
 <?php
-    require '../vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+    
+    require '../../vendor/autoload.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -15,8 +18,8 @@
         $mail->isSMTP();
         $mail->host = "smtp.dreamhost.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "me@timothyscottkipp.com";
-        $mail->Password = "Em@nc1p@t10n";
+        $mail->Username = $_ENV['SMTP_USER'];
+        $mail->Password = $_ENV['SMTP_PASSWORD'];
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
 
@@ -32,4 +35,3 @@
     } catch (Exception $e) {
         echo json_encode(['success' => false, 'error' => $mail->ErrorInfo]);
     }
-

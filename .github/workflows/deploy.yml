@@ -13,8 +13,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Deploy backend and supporting files (not public/)
-      - name: Deploy backend and root files
+      # Deploy everything except public/ and excluded folders to /home/timkipp
+      - name: Deploy root files via SFTP
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.FTP_HOST }}
@@ -22,15 +22,22 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           source: |
-            backend/**
+            backend/
             composer.json
             composer.lock
-            vendor/**
+            vendor/
+            *.php
+            *.txt
+            *.log
+          exclude: |
+            public/**
+            .git/**
+            .github/**
           target: /home/timkipp
-          overwrite: true
+          rm: true   # Remove extra files on the server that aren't in the source
 
-      # Deploy website (public/)
-      - name: Deploy public site files
+      # Deploy only public/ contents to /home/timkipp/timothyscottkipp.com
+      - name: Deploy public files via SFTP
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.FTP_HOST }}
@@ -39,4 +46,4 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           source: public/**
           target: /home/timkipp/timothyscottkipp.com
-          overwrite: true
+          rm: true   # Remove extra files on the server that aren't in the source

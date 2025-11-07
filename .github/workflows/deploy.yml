@@ -1,64 +1,76 @@
 name: Deploy Website via SFTP
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
-deploy:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout repository
-uses: actions/checkout@v3
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-  - name: Deploy public folder contents
-    uses: appleboy/scp-action@v0.1.6
-    with:
-      host: ${{ secrets.FTP_HOST }}
-      username: ${{ secrets.FTP_USERNAME }}
-      password: ${{ secrets.FTP_PASSWORD }}
-      port: ${{ secrets.FTP_PORT }}
-      source: "public/*"
-      target: "/home/timkipp/timothyscottkipp.com"
-      strip_components: 1
+      # Deploy contents of public folder only
+      - name: Deploy public folder contents
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: |
+            public/index.html
+            public/.htaccess
+            public/favicon.ico
+            public/documents/*
+            public/images/*
+            public/projects/*
+            public/scripts/*
+            public/styles/*
+          target: "/home/timkipp/timothyscottkipp.com"
 
-  - name: Deploy backend folder
-    uses: appleboy/scp-action@v0.1.6
-    with:
-      host: ${{ secrets.FTP_HOST }}
-      username: ${{ secrets.FTP_USERNAME }}
-      password: ${{ secrets.FTP_PASSWORD }}
-      port: ${{ secrets.FTP_PORT }}
-      source: "backend/*"
-      target: "/home/timkipp/backend"
+      # Deploy backend folder contents
+      - name: Deploy backend folder
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: "backend/*"
+          target: "/home/timkipp/backend"
 
-  - name: Deploy vendor folder
-    uses: appleboy/scp-action@v0.1.6
-    with:
-      host: ${{ secrets.FTP_HOST }}
-      username: ${{ secrets.FTP_USERNAME }}
-      password: ${{ secrets.FTP_PASSWORD }}
-      port: ${{ secrets.FTP_PORT }}
-      source: "vendor/*"
-      target: "/home/timkipp/vendor"
+      # Deploy vendor folder contents
+      - name: Deploy vendor folder
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: "vendor/*"
+          target: "/home/timkipp/vendor"
 
-  - name: Deploy composer.json
-    uses: appleboy/scp-action@v0.1.6
-    with:
-      host: ${{ secrets.FTP_HOST }}
-      username: ${{ secrets.FTP_USERNAME }}
-      password: ${{ secrets.FTP_PASSWORD }}
-      port: ${{ secrets.FTP_PORT }}
-      source: "composer.json"
-      target: "/home/timkipp"
+      # Deploy composer.json
+      - name: Deploy composer.json
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: "composer.json"
+          target: "/home/timkipp"
 
-  - name: Deploy composer.lock
-    uses: appleboy/scp-action@v0.1.6
-    with:
-      host: ${{ secrets.FTP_HOST }}
-      username: ${{ secrets.FTP_USERNAME }}
-      password: ${{ secrets.FTP_PASSWORD }}
-      port: ${{ secrets.FTP_PORT }}
-      source: "composer.lock"
-      target: "/home/timkipp"
+      # Deploy composer.lock
+      - name: Deploy composer.lock
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: "composer.lock"
+          target: "/home/timkipp"

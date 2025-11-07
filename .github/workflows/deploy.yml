@@ -13,8 +13,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Deploy everything except public/ and excluded folders to /home/timkipp
-      - name: Deploy root files via SFTP
+      - name: Deploy public folder via SFTP
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          source: "./public/"
+          target: "/home/timkipp/timothyscottkipp.com"
+
+      - name: Deploy backend, vendor, and composer files via SFTP
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.FTP_HOST }}
@@ -22,28 +31,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           source: |
-            backend/
-            composer.json
-            composer.lock
-            vendor/
-            *.php
-            *.txt
-            *.log
-          exclude: |
-            public/**
-            .git/**
-            .github/**
-          target: /home/timkipp
-          rm: true   # Remove extra files on the server that aren't in the source
-
-      # Deploy only public/ contents to /home/timkipp/timothyscottkipp.com
-      - name: Deploy public files via SFTP
-        uses: appleboy/scp-action@v0.1.6
-        with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          source: public/**
-          target: /home/timkipp/timothyscottkipp.com
-          rm: true   # Remove extra files on the server that aren't in the source
+            ./backend/
+            ./vendor/
+            ./composer.json
+            ./composer.lock
+          target: "/home/timkipp"

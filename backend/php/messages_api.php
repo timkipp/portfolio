@@ -119,11 +119,11 @@
             $orderBy = "${column} ${order}";
 
             $stmt = $conn->prepare("
-                SELECT messages.id, source, `read`, sent, messages.name, email, subject, body, folders.name AS 'folder_name', thread_id, parent_id, replied_to, forwarded
+                SELECT messages.id, source, `read`, sent, from_name, from_email, to_name, to_email, subject, body, folders.name AS 'folder_name', thread_id, parent_id, replied_to, forwarded
                 FROM messages 
                 JOIN folders ON messages.folder_id = folders.id
                 WHERE folder_id = ?
-                ORDER BY $orderBy;
+                ORDER BY $orderBy
             ");
             if (!$stmt) {
                 echo json_encode(['success' => false, 'error' => $conn->error]);

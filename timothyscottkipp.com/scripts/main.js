@@ -4,7 +4,7 @@ import { enableResumeDownload, setInteraction } from "./interaction.js";
 import { updateCaptionHeight } from "./project_carousel.js";
 import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
 import { initializeForm, updatePlaceholders } from "./email_section.js";
-import { intializeAdministrative } from "./admin.js";
+import { intializeAdministrative } from "../admin/admin.js";
 
 initializeDebugging();
 

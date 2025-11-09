@@ -1,3 +1,4 @@
 <?php
+require_once __DIR__ . '/../../vendor/autoload.php';
 
-phpinfo();
+var_dump(class_exists('Dotenv\Dotenv'));

@@ -1,6 +1,6 @@
-import { deleteMessages, handleMessageSelection, toggleDateGroupView } from "./ui.js";
-import { allMessages, allSelectedMessages, setAllMessages, setAllSelectedMessages } from "./state.js";
-import { formatDateString, getDateGroupLabel, escapeHTML } from "./utils.js";
+import { deleteMessages, handleMessageSelection, toggleDateGroupView } from "/admin/assets.php?page=js/ui.js";
+import { allMessages, allSelectedMessages, setAllMessages, setAllSelectedMessages } from "/admin/assets.php?page=js/state.js";
+import { formatDateString, getDateGroupLabel, escapeHTML } from "/admin/assets.php?page=js/utils.js";
 
 const moveToFolderSelect = document.getElementById("move-to-folder");
 
@@ -9,7 +9,7 @@ export function queryDbMessages(orderBy = "sent DESC") {
     const tbody = document.querySelector("#message-list table tbody");
     let lastDateGroupLabel = null;
 
-    fetch("../backend/php/messages_api.php", {
+    fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -22,6 +22,7 @@ export function queryDbMessages(orderBy = "sent DESC") {
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log("Raw response data:", data);
             const messages = data.messages;
             const messageCounts = data.messageCounts;
 
@@ -61,6 +62,12 @@ export function queryDbMessages(orderBy = "sent DESC") {
                 const tr = document.createElement("tr");
                 const classValue = "message-row";
                 const readStatus = msg.read ? "read-message" : "unread-message";
+                const fromName = msg.from_name;
+                const fromEmail = msg.from_email;
+                const from = fromName === "" ? fromEmail : fromName;
+                const toName = msg.to_name;
+                const toEmail = msg.to_email;
+                const to = toName === "" ? toEmail : toName;
                 tr.className = classValue.concat(" ", readStatus);
                 tr.dataset.id = msg.id;
                 tr.dataset.folder = msg.folder_name;
@@ -70,9 +77,10 @@ export function queryDbMessages(orderBy = "sent DESC") {
                     <td class="index">${index + 1}</td>
                     <td class="read">${msg.read ? "✔" : ""}</td>
                     <td class="sent">${sentFormatted}</td>
-                    <td class="name">${escapeHTML(msg.name)}</td>
-                    <td class="email">${escapeHTML(msg.email)}</td>
-                    <td class="message">${escapeHTML(msg.message)}</td>
+                    <td class="from" data-from-name='${fromName}' data-from-email='${fromEmail}'>${escapeHTML(from)}</td>
+                    <td class="to" data-to-name='${toName}' data-to-email='${toEmail}'>${escapeHTML(to)}</td>                    
+                    <td class="subject">${escapeHTML(msg.subject)}</td>
+                    <td class="body">${escapeHTML(msg.body)}</td>
                     <td class="delete-message"><img src="/images/icons/delete.png" alt="Delete this message"></td>
                 `;
                 tr.addEventListener("click", handleMessageSelection);
@@ -107,7 +115,7 @@ export function queryDbMessages(orderBy = "sent DESC") {
 }
 
 export function updateDbDeleteMessages(messageIds) {
-    fetch("../backend/php/messages_api.php", {
+    fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -126,7 +134,7 @@ export function updateDbDeleteMessages(messageIds) {
 }
 
 export function updateDbMessageFolder(folderId, messages) {
-    fetch("../backend/php/messages_api.php", {
+    fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -161,7 +169,7 @@ export function updateDbReadStatus(event, message) {
     messageRead.textContent = newReadStatus ? "✔" : "";
 
     // Send the update to the backend
-    fetch("../backend/php/messages_api.php", {
+    fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -179,7 +187,7 @@ export function updateDbReadStatus(event, message) {
 
 export function queryDbCustomFolders() {
     const folderViewTogglesContainer = document.getElementById("folder-view-toggle");
-    fetch("../backend/php/messages_api.php", {
+    fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -239,7 +247,7 @@ export function queryDbCustomFolders() {
 }
 
 export function updateDbAddFolder(folderToAdd) {
-    return fetch("../backend/php/messages_api.php", {
+    return fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -256,7 +264,7 @@ export function updateDbAddFolder(folderToAdd) {
 }
 
 export function updateDbDeleteFolder(folderId) {
-    return fetch("../backend/php/messages_api.php", {
+    return fetch("/admin/backend.php?page=messages_api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

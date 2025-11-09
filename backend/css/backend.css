@@ -1,5 +1,5 @@
-@import url(../backend/css/color.css);
-@import url(../styles/fonts/fonts.css);
+@import url('/admin/assets.php?page=css/color.css');
+@import url('/styles/fonts/fonts.css');
 
 body {
     display: grid;
@@ -218,17 +218,20 @@ body {
                                     width: 12.5em;
                                 }
 
-                                &.name {
+                                &.from {
                                     width: 15em;
                                 }
 
-                                &.email {
+                                &.to {
+                                    display: none;
+                                }
+
+                                &.subject {
                                     width: 20em;
                                 }
 
-                                &.message {
-                                    overflow: hidden;
-                                    white-space: nowrap;
+                                &.body {
+                                    width: 100%;
                                 }
 
                                 &.delete-message {
@@ -345,8 +348,17 @@ body {
                                 &.sent {
                                     text-align: right;
                                 }
+                                
+                                &.to {
+                                    display: none;
+                                }
 
-                                &.message {
+                                &.subject {
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &.body {
                                     overflow: hidden;
                                     white-space: nowrap;
                                 }
@@ -380,8 +392,13 @@ body {
             }
 
             &#reading-pane {
+                /* display: none; */
                 flex: 1 1 auto;
                 height: 100%;
+
+                /* &[data-id]:not([data-id=""]) form {
+                    display: flex;
+                } */
 
                 & form {
                     display: flex;
@@ -404,10 +421,6 @@ body {
                                 display: flex;
                                 align-items: baseline;
                                 font-size: 0.85em;
-
-                                &#subject-field {
-                                    display: none;
-                                }
 
                                 & label {
                                     width: 8ch;
@@ -436,6 +449,11 @@ body {
                                     &:focus {
                                         outline: none;
                                     }
+                                }
+
+                                &:has(span) input {
+                                    width: revert;
+                                    /* field-sizing: content; */
                                 }
                             }
                         }

@@ -2,13 +2,17 @@
     ob_start();
     // ini_set('display_errors', 1);
     // error_reporting(E_ALL);
+
+    error_log(__FILE__);
     
     set_error_handler(function($severity, $message, $file, $line) {
         echo json_encode(['error' => "$message in $file on line $line"]);
         exit;
     });
     require_once 'config.php';
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     header('Content-Type: application/json');
 
     $conn = get_connection();

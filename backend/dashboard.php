@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/styles/reset.css" type="text/css" />
-        <link rel="stylesheet" href="css/messages.css" type="text/css" />
-        <script src="js/backend.js" type="module"></script>
+        <link rel="stylesheet" href="../styles/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/admin/assets.php?page=css/backend.css" type="text/css" />
+        <script src="/admin/assets.php?page=js/backend.js" type="module"></script>
         <title>Messages</title>
     </head>
     <body>
@@ -56,9 +56,10 @@
                             <th class="message-header index"># <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
                             <th class="message-header read">Read <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
                             <th class="message-header sent">Sent <button class="sort-asc">▲</button><button class="sort-desc sort-on">▼</button></th>
-                            <th class="message-header name">Name <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
-                            <th class="message-header email">Email <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
-                            <th class="message-header message">Message <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header from">From <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header to">To <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header subject">Subject <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header body">Body <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
                             <th class="message-header delete-message"></th>
                         </tr>
                     </thead>
@@ -72,13 +73,19 @@
                 <form>
                     <div id="message-details">
                         <fieldset id="message-header">
-                            <div id="name-field" class="form-field">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" readonly/>
+                            <div id="from-field" class="form-field">
+                                <label>From:</label>
+                                <span>
+                                    <input type="text" id="from-name" name="from_name" readonly/>
+                                    <input type="text" id="from-email" name="from_email" readonly/>
+                                </span>
                             </div>
-                            <div id="email-field" class="form-field">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" readonly/>
+                            <div id="to-field" class="form-field">
+                                <label>To:</label>
+                                <span>
+                                    <input type="text" id="to-name" name="to_name" readonly/>
+                                    <input type="text" id="to-email" name="to_email" readonly/>
+                                </span>
                             </div>
                             <div id="sent-field" class="form-field">
                                 <label for="sent">Sent:</label>
@@ -86,7 +93,7 @@
                             </div>
                             <div id="subject-field" class="form-field">
                                 <label for="subject">Subject:</label>
-                                <input type="text" id="subject"/>
+                                <input type="text" id="subject" readonly/>
                             </div>
                         </fieldset>
                         <fieldset id="message-actions">

@@ -1,8 +1,8 @@
 import { 
     queryDbCustomFolders, 
     queryDbMessages,      
-} from "./messages.js";
-import { allMessages, allSelectedMessages, setAllMessages, setAllSelectedMessages } from "./state.js";
+} from "/admin/assets.php?page=js/messages.js";
+import { allMessages, allSelectedMessages, setAllMessages, setAllSelectedMessages } from "/admin/assets.php?page=js/state.js";
 
 import { 
     addCustomFolder,
@@ -18,7 +18,7 @@ import {
     toggleColumnSort, 
     updateDate, 
     updateFolderView
-} from "./ui.js";
+} from "/admin/assets.php?page=js/ui.js";
 
 export const dialog = document.getElementsByTagName("dialog")[0];
 export const sectionAddFolder = document.getElementById("add-new-folder");

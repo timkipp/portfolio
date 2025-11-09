@@ -1,4 +1,37 @@
-import { isToday, isYesterday, isThisWeek, isSameMonth, isSameYear, differenceInCalendarWeeks, differenceInMonths } from "https://esm.sh/date-fns";
+import { isToday } from "https://esm.sh/date-fns/isToday";
+import { isYesterday } from "https://esm.sh/date-fns/isYesterday";
+import { isThisWeek } from "https://esm.sh/date-fns/isThisWeek";
+import { isSameMonth } from "https://esm.sh/date-fns/isSameMonth";
+import { isSameYear } from "https://esm.sh/date-fns/isSameYear";
+import { differenceInCalendarWeeks } from "https://esm.sh/date-fns/differenceInCalendarWeeks";
+import { differenceInMonths } from "https://esm.sh/date-fns/differenceInMonths";
+
+export function textJoin(delimiter, ignoreEmpty, ...values) {
+  return values
+    .flat(Infinity) // handle arrays or nested arrays
+    .filter(v => !ignoreEmpty || (v !== null && v !== undefined && v !== "")) // skip empty if requested
+    .join(delimiter);
+}
+
+export function escapeHTML(text) {
+    if (text == null) text = "";
+
+    return text.replace(/[&<>'"]/g, (c) => {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            "'": "&#39;",
+            '"': "&quot;",
+        }[c];
+    });
+}
+
+export function formatAddress(name, email) {
+  return name
+    ? `${name} <${email}>`
+    : email;
+}
 
 export function formatDateString(dateText) {
     const date = new Date(dateText);
@@ -55,16 +88,4 @@ export function getDateGroupLabel(sentDate) {
     }
 
     return dateGroup;
-}
-
-export function escapeHTML(text) {
-    return text.replace(/[&<>'"]/g, (c) => {
-        return {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            "'": "&#39;",
-            '"': "&quot;",
-        }[c];
-    });
 }

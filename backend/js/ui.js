@@ -3,15 +3,16 @@ import {
     DialogAction, 
     DialogInteraction, 
     dialog,    
-} from "./backend.js";
+} from "/admin/assets.php?page=js/backend.js";
 
-import { queryDbMessages, 
+import { 
+    queryDbMessages, 
     updateDbAddFolder,
     updateDbDeleteFolder,
     updateDbDeleteMessages,
     updateDbMessageFolder,
     updateDbReadStatus 
-} from "./messages.js";
+} from "/admin/assets.php?page=js/messages.js";
 
 import { 
     allMessages,
@@ -19,7 +20,11 @@ import {
     getMessageIds, 
     setAllMessages, 
     setAllSelectedMessages 
-} from "./state.js";
+} from "/admin/assets.php?page=js/state.js";
+
+import {
+    formatAddress
+} from "/admin/assets.php?page=js/utils.js";
 
 const moveToFolderSelect = document.getElementById("move-to-folder");
 const moveToFolderButton = document.getElementById("move-selected");
@@ -496,37 +501,64 @@ export function deselectSelectedMessages() {
 
 export function populateReadingPane(selectedMessage) {
     const readingPane = document.getElementById("reading-pane");
-    const selectedMessagePopulated = readingPane.dataset.id === selectedMessage.dataset.id
+    const selectedMessagePopulated = readingPane.dataset.id === selectedMessage.dataset.id;
     const isInViewMode = readingPane.classList.contains("view-mode");
     if (selectedMessagePopulated && isInViewMode) return;
 
     readingPane.dataset.id = selectedMessage.dataset.id;
-    const messageCells = selectedMessage.querySelectorAll("td");
-    const messageData = new Map();
-    messageCells.forEach((td) => {
-        // console.log(`Adding <td class=${td.className}> to 'messageData' map.`);
-        messageData.set(td.className, td);
-    });
+    
+    const [
+        inputFromName, inputFromEmail, inputToName, inputToEmail, inputSent, inputSubject, textBody
+    ] = document.querySelectorAll("#from-name, #from-email, #to-name, #to-email, #sent, #subject, #body");
+    
+    const tdTo = selectedMessage.querySelector(".to");
+    const tdFrom = selectedMessage.querySelector(".from");
+    const tdSent = selectedMessage.querySelector(".sent");
+    const tdSubject = selectedMessage.querySelector(".subject");
+    const tdBody = selectedMessage.querySelector(".body");
+    
+    const fromName = tdFrom.dataset.fromName;
+    const fromNameIsEmpty = fromName === "";
+    let fromEmail = tdFrom.dataset.fromEmail;
+    fromEmail = (fromNameIsEmpty ? "" : "<") + fromEmail + (fromNameIsEmpty ? "" : ">");
+    const toName = tdTo.dataset.toName;
+    const toNameIsEmpty = toName === "";
+    let toEmail = tdTo.dataset.toEmail;
+    toEmail = (toNameIsEmpty ? "" : "<") + toEmail + (toNameIsEmpty ? "" : ">");
 
-    const readingPaneFields = readingPane.querySelectorAll("form input:not(#subject), form textarea:read-only");
-    readingPaneFields.forEach((field) => {        
-        const fieldId = field.id;
-            let fieldValue = "";
-            const td = messageData.get(fieldId);
-            const isMessageField = fieldId === "message";
-            if (isMessageField) {
-                fieldValue = td.innerHTML.replace(/<br\s*\/?>/gi, "\n");
-            } else {
-                fieldValue = td.textContent;
-            }
-            field.value = fieldValue;
-    });
+    // const fromValue = formatAddress(fromName, fromEmail);
+    // const toValue = formatAddress(toName, toEmail);
+    const sentValue = tdSent.textContent;
+    const subjectValue = tdSubject.textContent
+    const bodyValue = tdBody.innerHTML.replace(/<br\s*\/?>/gi, "\n")
+
+    const inputMapping = new Map([
+        [inputFromName, fromName], 
+        [inputFromEmail, fromEmail], 
+        [inputToName, toName], 
+        [inputToEmail, toEmail]
+    ]);
+
+    for (const [input, value] of inputMapping) {
+        const valueLength = value.length;
+        // input.size = valueLength;
+        if (valueLength === 0) {
+            input.style.display = "none"
+        } else {
+            input.style.width = `${Math.max(valueLength, 1)}ch`;
+            input.value = value;
+        }        
+    }
+
+    inputSent.value = sentValue;
+    inputSubject.value = subjectValue;
+    textBody.value = bodyValue;
 }
 
 export function clearReadingPane() {
     const readingPane = document.getElementById("reading-pane");
     readingPane.dataset.id = "";
-    const readingPaneFields = readingPane.querySelectorAll("form input:not(#subject), form textarea:read-only");
+    const readingPaneFields = readingPane.querySelectorAll("form input, form textarea:read-only");
     readingPaneFields.forEach(field => {
         field.value = "";
     })

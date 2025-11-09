@@ -27,7 +27,7 @@ export function intializeAdministrative() {
 
     messageIcon.addEventListener("click", () => {
         if (messageIcon.classList.contains("visible")) {
-            window.open("../backend/php/login.php", "_blank");
+            window.open("admin/backend.php", "_blank");
         }
     });
 

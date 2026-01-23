@@ -1,5 +1,12 @@
 /* For phones, portrait orientation */
 @media (max-width: 599px) and (orientation: portrait) {
+    @supports (-webkit-touch-callout: none) {
+        #about .value-panel h3 > svg {
+            width: 1.75em;
+            height: 1.75em;
+        }
+    }
+    
     body {
         /* grid-template-rows: 0.75fr 6.5fr 0.75fr; */
         /* grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr; */
@@ -167,8 +174,9 @@
 
                         & h3 {
                             display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             font-size: clamp(1.25rem, 8cqh, 3.25rem);
-                            text-align: center !important;
                             line-height: 1.25;
 
                             & > svg {
@@ -935,14 +943,14 @@
 
                     & fieldset {
                         justify-content: flex-start;
-                        align-items: center;
+                        /* align-items: center; */
                         width: 100%;
                         height: 75%;
 
                         & .form-field {
                             & label {
                                 width: 90%;
-                                margin-bottom: clamp(0.85rem, 2.75cqh, 2rem);
+                                /* margin-bottom: clamp(0.85rem, 2.75cqh, 2rem); */
                                 font-size: clamp(0.85rem, 5cqw, 1.5rem);
                                 font-weight: 500;
                                 font-variation-settings: "wght" 500;                                
@@ -954,7 +962,7 @@
                             }
 
                             &:has(textarea) label {
-                                margin-bottom: clamp(0.25rem, 1.75cqh, 0.75rem);
+                                /* margin-bottom: clamp(0.25rem, 1.75cqh, 0.75rem); */
                             }
 
                             & input,
@@ -964,11 +972,13 @@
                         }                        
 
                         & > span {
-                            width: 50%;
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
 
                             & button {
                                 width: 100%;
-                                margin-top: clamp(0.25rem, 2cqh, 1rem);
+                                margin-top: clamp(0.25rem, 6cqh, 2rem);
                                 font-size: clamp(1rem, 2cqw, 1.5rem);
                             }
                         }

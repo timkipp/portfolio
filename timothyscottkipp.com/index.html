@@ -312,7 +312,7 @@
                                 <path d="m18.707 12.707-3 3a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 0 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 1.414-1.414l3 3a1 1 0 0 1 0 1.414z" data-name="Right"/>
                                 <text x="0" y="12" dy="2" font-size="10.5" alignment-baseline="middle" text-anchor="end">
                                     Purpose
-                                </text>
+                                </text> 
                             </svg>                        
                         </h3>
                         <p>Technology should be <em>inclusive</em>, <em>ac&shy;ces&shy;si&shy;ble</em>, and <em>em&shy;pow&shy;er&shy;ing</em>. <em class="value-word">Empathy</em> guides how I design to communicate with users, and seek out work that supports <em>social re&shy;spon&shy;si&shy;bil&shy;i&shy;ty</em> and makes a <em>positive impact</em>.</p>
@@ -336,7 +336,7 @@
                     </div>
                     <div id="project-2" class="project-card" data-index="2">
                         <h2>
-                            <a href="calendar_generator/index.html" data-text="Calendar" title="Click link to visit web page">Calendar</a>
+                            <a href="calendar/index.html" data-text="Calendar" title="Click link to visit web page">Calendar</a>
                         </h2>
                         <div class="figure-card" tabindex="1" role="button" aria-pressed="false">
                             <figure>
@@ -506,7 +506,7 @@
                                         </ul>
                                         <p>
                                             <img src="images/resume/projects/calendar.png" class="project-logo" alt="monthly calendar clip art">
-                                            Developed a <a href="calendar_generator/index.html" title="Click to view web page">dynamic calendar web page</a> using HTML5, CSS3, and JavaScript to generate a monthly calendar . Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.
+                                            Developed a <a href="calendar/index.html" title="Click to view web page">dynamic calendar web page</a> using HTML5, CSS3, and JavaScript to generate a monthly calendar . Incorporated HTML form controls to facilitate user input for displaying the calendar based on a specific month and year.
                                         </p>         
                                     </div>                 
                                 </details>
@@ -662,7 +662,7 @@
             </section>
 
             <section id="email">
-                <form id="contact-form" action="../backend/php/contact_submit.php" method="POST" novalidate>
+                <form id="contact-form" action="/admin/backend.php?page=contact_submit" method="POST" novalidate>
                     <h2>Send me a message!</h2>
                     <fieldset>
                         <div class="form-field">
@@ -682,12 +682,12 @@
                             <textarea id="body" name="body" rows="5" placeholder="Write your message here..." required></textarea>
                         </div>
                         <input type="text" id="signup" name="signup">
-                        <input type="hidden" id="sent" name="sent">
+                        <input type="hidden" id="sent-date" name="sent-date">
                         <span><span>&nbsp;</span><button type="submit" disabled>Send</button></span>
                     </fieldset>
                 </form>
                 <div id="confirmation-message">
-                    <output>Message sent successfully!</output>
+                    <output>Message sent-date successfully!</output>
                     <button type="button">Send another message</button>
                 </div>
             </section>
@@ -744,13 +744,16 @@
             </div> -->
         </footer>        
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>
             eruda.init();            
-        </script> -->
+        </script>
         <script>            
-            // console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
-            // console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
+            console.log("Viewport Dimensions: " + window.innerWidth + "px x " + window.innerHeight + "px");
+            console.log("Device/Pixel Ratio: " + window.devicePixelRatio)
+            const svg = document.getElementById("next-value-curiosity");
+            const style = getComputedStyle(svg);
+            console.log("svg dimensions: " + style.width + " x " + style.height);
         </script>
     </body>
 </html>

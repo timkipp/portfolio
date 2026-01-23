@@ -1,10 +1,10 @@
 import { initializeDebugging } from "./debug.js";
-import { checkWrap, initializeSectionObserver, setRealVH } from "./view.js";
-import { enableResumeDownload, setInteraction } from "./interaction.js";
-import { updateCaptionHeight } from "./project_carousel.js";
-import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./resume_section.js";
-import { initializeForm, updatePlaceholders } from "./email_section.js";
-import { intializeAdministrative } from "../admin/admin.js";
+import { checkWrap, initializeSectionObserver, setRealVH } from "./ui/view.js";
+import { enableResumeDownload, setInteraction } from "./ui/interaction.js";
+import { updateCaptionHeight } from "./features/project_carousel.js";
+import { initializeResumeTabs, updateTabDisplayMode, setLogoObserver } from "./sections/resume.js";
+import { initializeForm, updatePlaceholders } from "./sections/email.js";
+import { initializeAdministrative } from "../admin/admin.js";
 
 initializeDebugging();
 
@@ -230,4 +230,4 @@ updateTabDisplayMode(currentViewport);
 
 initializeForm();
 
-intializeAdministrative();
+initializeAdministrative();

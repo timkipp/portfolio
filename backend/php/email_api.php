@@ -2,7 +2,15 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
     
-    require '../../vendor/autoload.php';
+    $dir = __DIR__;
+    while (!file_exists($dir . '/vendor/autoload.php')) {
+        $parent = dirname($dir);
+        if ($parent === $dir) {
+            throw new Exception('Could not find vendor/autoload.php');
+        }
+        $dir = $parent;
+    }
+    require_once $dir . '/vendor/autoload.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -34,4 +42,4 @@
         echo json_encode(['success' => true]);        
     } catch (Exception $e) {
         echo json_encode(['success' => false, 'error' => $mail->ErrorInfo]);
-    }
+    }   

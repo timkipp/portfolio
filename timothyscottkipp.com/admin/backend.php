@@ -1,11 +1,6 @@
 <?php
     session_start();
 
-    // Clear any existing session data
-    // $_SESSION = [];
-    // session_destroy();
-    // session_start();
-
     // Pages that do not require login
     $publicPages = ['login'];
     $page = $_GET['page'] ?? 'login'; // default to login page
@@ -17,10 +12,16 @@
 
     // Map pages to backend files
     $allowedPages = [
-        'login' => __DIR__ . '/../../backend/php/login.php',
-        'dashboard' => __DIR__ . '/../../backend/dashboard.php',
-        'messages_api' => __DIR__ . '/../../backend/php/messages_api.php',
-        'test' => __DIR__ . '/../../backend/php/test.php'
+        'contact_submit' => __DIR__ . '/../../backend/php/api/contact_submit.php',
+        'login' => __DIR__ . '/../../backend/php/auth/login.php',
+        'logout' => __DIR__ . '/../../backend/php/auth/logout.php',
+        'dashboard' => __DIR__ . '/../../backend/dashboard.html',
+        'db_api' => __DIR__ . '/../../backend/php/db_api.php',
+        'email_api' => __DIR__ . '/../../backend/php/email_api.php',
+        'folders' => __DIR__ . '/../../backend/php/api/folders.php',
+        'messages' => __DIR__ . '/../../backend/php/api/messages.php',
+        'attachments' => __DIR__ . '/../../backend/php/api/attachments.php',
+        'test' => __DIR__ . '/../../backend/php/test.php'        
     ];
 
     if (!array_key_exists($page, $allowedPages)) {

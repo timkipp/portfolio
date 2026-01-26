@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../styles/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/admin/assets.php?page=css/dashboard.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="/admin/assets.php?page=js/dashboard.js" type="module"></script>
+        <title>Messages</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome, Tim!</h1>
+            <h2>
+                Today is
+                <time datetime=""></time>
+            </h2>
+            <menu>
+                <button type="button" id="refresh">Refresh</button>
+                <button type="button" id="logout">Log out</button>
+            </menu>
+        </header>
+        <main>
+            <section id="message-list">
+                <div id="messages-toolbar">
+                    <div id="folder-view-toggle" class="toolbar-control">
+                        <input type="radio" id="view-inbox" name="folder_view" class="default-folder" value="1" data-folder="Inbox" checked>
+                        <label for="view-inbox" class="toggle-button">Inbox <span class="message-count" data-folder="Inbox"></span></label>
+                        
+                        <input type="radio" id="view-drafts" name="folder_view" class="default-folder" value="8" data-folder="Drafts">
+                        <label for="view-drafts" class="toggle-button">Drafts <span class="message-count" data-folder="Drafts"></span></label>
+                        
+                        <input type="radio" id="view-sent-date" name="folder_view" class="default-folder" value="9" data-folder="Sent">
+                        <label for="view-sent-date" class="toggle-button">Sent <span class="message-count" data-folder="Sent"></span></label>
+
+                        <input type="radio" id="view-deleted" name="folder_view" class="default-folder" value="2" data-folder="Deleted">
+                        <label for="view-deleted" class="toggle-button">Deleted <span class="message-count" data-folder="Deleted"></span></label>
+
+                        <input type="radio" id="view-archived" name="folder_view" class="default-folder" value="3" data-folder="Archived">
+                        <label for="view-archived" class="toggle-button">Archived <span class="message-count" data-folder="Archived"></span></label>
+                    </div>
+                    <button type="button" id="new-folder">New Folder</button>
+                    <button type="button" id="empty-folder">Empty Folder</button>
+                    <button type="button" id="delete-folder" disabled>Delete Folder</button>
+
+                    <div id="folder-options" class="toolbar-control">
+                        <label for="move-to-folder">Move to Folder:</label>
+                        <select id="move-to-folder" name="move-to-folder">
+                            <option id="inbox" value="1" data-folder="Inbox" disabled>Inbox</option>
+                            <option id="drafts" value="8" data-folder="Drafts" disabled>Inbox</option>
+                            <option id="sent" value="9" data-folder="Sent" disabled>Inbox</option>
+                            <option id="deleted" value="2" data-folder="Deleted">Deleted Messages</option>
+                            <option id="archived" value="3" data-folder="Archived">Archived Messages</option>
+                        </select>
+                        <button type="button" id="move-selected" disabled>Move Selected</button>                                         
+                    </div>
+                </div>
+                <table>
+                    <caption>Messages: Inbox</caption>
+                    <thead>
+                        <tr>
+                            <th class="message-header index"># <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header source">Source <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header has-reply"><img src="/images/icons/has_reply_header.png" alt="Message has reply header icon"> <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header has-forward"><img src="/images/icons/has_forward_header.png" alt="Message has forward header icon"> <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header has-attachments"><img src="/images/icons/has_attachments_header.png" alt="Attachments header icon"> <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header is-read">Read <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header folder">Folder <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header sent-date">Sent <button class="sort-asc">▲</button><button class="sort-desc sort-on">▼</button></th>
+                            <th class="message-header from">From <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header to">To <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header subject">Subject <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header body">Body <button class="sort-asc">▲</button><button class="sort-desc">▼</button></th>
+                            <th class="message-header delete-message"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages" tabIndex="0">
+                        
+                    </tbody>
+                </table>
+            </section>
+            <div id="divider"></div>
+            <section id="message-pane" class="view-mode" data-message-id="">
+                <form id="message" enctype="multipart/form-data">
+                    <div id="message-details">
+                        <fieldset id="message-header">
+                            <div id="from-field" class="form-field">
+                                <label for="from-email">From:</label>
+                                <span>
+                                    <input type="text" id="from-name" name="from_name" tabindex="4" placeholder="Name(s)" readonly/>
+                                    <span class="display-email"></span><input type="text" id="from-email" name="from_email" class="email-field" tabindex="5" placeholder="Email Address(es)" required readonly/>
+                                </span>
+                            </div>
+                            <div id="to-field" class="form-field">
+                                <label for="to-email">To:</label>
+                                <span>
+                                    <input type="text" id="to-name" name="to_name" tabindex="6" placeholder="Name(s)" readonly/>
+                                    <span class="display-email"></span><input type="text" id="to-email" name="to_email" class="email-field" tabindex="7" placeholder="Email Address(es)" required readonly/>
+                                </span>
+                            </div>
+                            <div id="sent-date-field" class="form-field">
+                                <label for="sent-date">Sent:</label>
+                                <input type="text" id="sent-date" name="sent_date" readonly/>
+                            </div>
+                            <div id="subject-field" class="form-field">
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" name="subject" tabindex="8" readonly/>
+                            </div>                            
+                            <div id="attachments-field" class="form-field empty">
+                                <label for="attachments" tabindex="9"><span>Attach...</span><input type="file" id="attachments" name="attachments[]" multiple></input></label>
+                                <ul id="attachments-list">
+
+                                </ul>
+                            </div>
+                        </fieldset>
+                        <fieldset id="message-metadata">
+                            <div id="id-field" class="form-field">
+                                <label for="id">Id</label>
+                                <input type="text" id="id" name="id" size="3">
+                            </div>
+                            <div id="thread-id-field" class="form-field">
+                                <label for="thread-id">Thread Id</label>
+                                <input type="text" id="thread-id" name="thread_id" size="3">
+                            </div>
+                            <div id="parent-id-field" class="form-field">
+                                <label for="parent-id">Parent Id</label>
+                                <input type="text" id="parent-id" name="parent_id" size="3">
+                            </div>
+                            <div id="source-field" class="form-field">
+                                <label for="source">Source</label>
+                                <input type="text" id="source" name="source" size="7">
+                            </div>
+                            <div id="folder-id-field" class="form-field">
+                                <label for="folder-id">Folder Id</label>
+                                <input type="text" id="folder-id" name="folder_id" size="3">
+                            </div>
+                            <div id="is-read-field" class="form-field">
+                                <label for="is-read">Is Read?</label>
+                                <input type="text" id="is-read" name="is_read" value="1" size="1">
+                            </div>
+                            <div id="has-attachments-field" class="form-field">
+                                <label for="has-attachments">Has Attachments?</label>
+                                <input type="text" id="has-attachments" name="has_attachments" size="1">
+                            </div>
+                            <div id="has-reply-field" class="form-field">
+                                <label for="has-reply">Has Reply?</label>
+                                <input type="text" id="has-reply" name="has_reply" size="1">
+                            </div>
+                            <div id="has-forward-field" class="form-field">
+                                <label for="has-forward">Has Forward?</label>
+                                <input type="text" id="has-forward" name="has_forward" size="1">
+                            </div>
+                        </fieldset>
+                        <fieldset id="message-actions">
+                            <button type="button" id="new-message" class="primary-action" tabindex="1">New Message</button>
+                            <button type="button" id="reply-message" class="primary-action" tabindex="2" disabled>Reply</button>
+                            <button type="button" id="forward-message" class="primary-action" tabindex="3" disabled>Forward</button>
+                            <button type="button" id="send-message" class="secondary-action" tabindex="11" disabled>Send</button>
+                            <button type="button" id="save-draft" class="secondary-action" tabindex="12" disabled>Save</button>
+                            <button type="button" id="cancel-close-message" class="secondary-action" tabindex="13">Cancel</button>
+                        </fieldset>
+                    </div>
+                    <hr />
+                    <div id="message-body">
+                        <textarea id="body" name="body" class="form-field" tabindex="10" readonly></textarea>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <aside id="visitors">
+            <table>
+                <caption>Visitors</caption>
+                <thead>
+                    <tr>
+                        <th>IP Address</th>
+                        <th>Referrer</th>
+                        <th>Page Visited</th>
+                        <th>Date/Time Visited</th>
+                        <th>Country</th>
+                        <th>Device Type</th>
+                    </tr>
+                </thead>
+            </table>
+        </aside>
+        <dialog>
+            <form method="dialog">
+                <section id="add-new-folder">
+                    <div class="form-field">
+                        <label for="new-folder-name">New Folder Name:</label>
+                        <input type="text" id="new-folder-name" name="new-folder-name">
+                    </div>                    
+                </section>
+                <p id="dialog-prompt"></p>
+                <menu>
+                    <button type="submit" id="execute-dialog-action" value="add-folder" disabled>Add Folder</button>
+                    <button type="submit" id="cancel-dialog-action" value="cancel">Cancel</button>
+                </menu>
+            </form>
+        </dialog>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U. S. Presidents</title>
+    <style>
+        table {
+            border-collapse: collapse;
+
+            & td {
+                border: 1px solid gray;
+            }
+        }        
+    </style>
+</head>
+<body>
+    <script>
+        function toProperCase(str) {
+            return str
+                    .toLowerCase()
+                    .split(" ")
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ");
+        }
+
+        fetch('https://en.wikipedia.org/w/api.php?action=parse&page=List_of_presidents_of_the_United_States&format=json&origin=*')
+            .then(response => response.json())
+            .then(data => {
+                // The page content is in HTML inside data.parse.text["*"]
+                const htmlContent = data.parse.text["*"];
+                const body = document.querySelector("body");
+                const main = document.createElement("main");
+                const div = document.createElement("div");
+                div.innerHTML = htmlContent;
+                const presidents = div.querySelector("table");
+                const headers = presidents.querySelectorAll("thead th");
+                const columnNames = [];
+                headers.forEach(header => {
+                    headerContent = header.textContent;
+                    headerLabels = header.textContent.replace(/\[.*?\]|\n|\)/g, "").split(/[(–]/);
+                    headerLabels.forEach(label => {
+                        columnNames.push(toProperCase(label));
+                    })
+                })
+                console.log(columnNames);
+                dataRows = presidents.querySelectorAll("tbody tr");
+                dataCells = dataRows.children;
+                console.log(dataRows.length);
+                main.appendChild(presidents.cloneNode(true));
+                body.appendChild(main);
+            })
+            .catch(err => console.error(err));
+    </script>
+</body>
+</html>

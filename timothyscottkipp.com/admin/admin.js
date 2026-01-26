@@ -1,48 +1,52 @@
-export function intializeAdministrative() {
+export function initializeAdministrative() {
     const triggerArea = document.querySelector("#admin-trigger");
-    const messageIcon = triggerArea.firstElementChild;
+    const messageIcon = triggerArea?.firstElementChild;
 
+    if (!triggerArea || !messageIcon) return;
+
+    let adminMode = false;
     let hoverActive = false;
-    let keyComboActive = false;
 
-    function checkAccessConditions() {
-        if (hoverActive && keyComboActive) {
+    function showIcon() {
+        if (adminMode && hoverActive) {
             messageIcon.classList.add("visible");
         }
     }
 
-    function hideMessageIcon() {
+    function hideIcon() {
         messageIcon.classList.remove("visible");
     }
 
     triggerArea.addEventListener("mouseenter", () => {
-        console.log("Messages icon hover activated");
         hoverActive = true;
+        showIcon();
     });
 
     triggerArea.addEventListener("mouseleave", () => {
         hoverActive = false;
-        hideMessageIcon();
+        hideIcon();
+    });
+
+    // Shift+M only works if you're hovering
+    document.addEventListener("keydown", (e) => {
+        if (hoverActive && e.key === "M" && e.shiftKey) {
+            adminMode = !adminMode;
+            if (adminMode) {
+                showIcon();
+            } else {
+                hideIcon();
+            }
+        }
+
+        // Esc hides icon but doesn't disable adminMode
+        if (e.key === "Escape") {
+            hideIcon();
+        }
     });
 
     messageIcon.addEventListener("click", () => {
-        if (messageIcon.classList.contains("visible")) {
+        if (adminMode && hoverActive) {
             window.open("admin/backend.php", "_blank");
-        }
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.shiftKey && e.key === "M") {
-            console.log("Messages icon key combo activated");
-            keyComboActive = true;
-            checkAccessConditions();
-        }
-    });
-
-    document.addEventListener("keyup", (e) => {
-        if (e.key === "Shift" || e.key === "M") {
-            keyComboActive = false;
-            hideMessageIcon();
         }
     });
 }

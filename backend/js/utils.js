@@ -6,6 +6,9 @@ import { isSameYear } from "https://esm.sh/date-fns/isSameYear";
 import { differenceInCalendarWeeks } from "https://esm.sh/date-fns/differenceInCalendarWeeks";
 import { differenceInMonths } from "https://esm.sh/date-fns/differenceInMonths";
 
+const inputSubject = document.getElementById("subject");
+const textBody = document.getElementById("body");
+
 export function textJoin(delimiter, ignoreEmpty, ...values) {
   return values
     .flat(Infinity) // handle arrays or nested arrays
@@ -28,9 +31,12 @@ export function escapeHTML(text) {
 }
 
 export function formatAddress(name, email) {
-  return name
-    ? `${name} <${email}>`
+    email = email.charAt(0) === '<' ? email : `<${email}>`;
+    const addressFormatted = name
+    ? `${name} ${email}`
     : email;
+
+    return addressFormatted
 }
 
 export function formatDateString(dateText) {
@@ -88,4 +94,40 @@ export function getDateGroupLabel(sentDate) {
     }
 
     return dateGroup;
+}
+
+export function updateInputWidths(sizeToContent, ...inputs) {
+    if (sizeToContent) {
+        inputs.forEach(input => {
+            input.style.width = `${input.value.length + 2}ch`;
+        });
+    } else {
+        inputs.forEach(input => {
+            input.style.width = "100%";
+        });
+    }
+}
+
+export function getSubject(action) {
+    const prefix = action === "reply-message" ? "RE" : "FW";
+    const subject = inputSubject.value;
+    const subjectLine = prefix.concat(": ", subject.replace(/^(RE:|FW:)\s*/i, ""));
+    return subjectLine;
+}
+
+export function setMessageBody(fromName, fromEmail, toName, toEmail, sent, subject) {
+    const from = formatAddress(fromName, fromEmail);
+    const fromLine = "From:  " + from;
+    const to = formatAddress(toName, toEmail);
+    const toLine = "To:  " + to;
+    const sentLine = "Sent:  " + sent;
+    const subjectLine = "Subject:  " + subject;
+    let body = textBody.value;
+
+    const messageHeaderData = ["\n", "—————————— Original Message ——————————", fromLine, toLine, sentLine, subjectLine, "", body];
+    const origMsgMessageHeader = messageHeaderData.join("\n");
+
+    textBody.value = origMsgMessageHeader;
+    textBody.focus();
+    textBody.setSelectionRange(0, 0);
 }

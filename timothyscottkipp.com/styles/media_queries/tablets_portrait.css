@@ -627,19 +627,18 @@
 
                 &#professional-experience {
                     container-type: size;
-                    font-size: calc((2.99cqw + 2.25cqh) / 2);
+                    font-size: calc((3.99cqw + 3cqh) / 2);
 
                     & > ul {
                         flex-wrap: nowrap;
-                        justify-content: space-between;
+                        justify-content: flex-start;
 
                         & > li.job {
                             flex: 0 0 auto;
                             width: 100%;
                             height: fit-content;
-                            max-height: 25cqh;
                             overflow-y: auto;
-                            margin-bottom: 0;
+                            margin-top: calc((3.99cqw + 3cqh) / 2);
 
                             &:has(details[open]) {
                                 padding-bottom: clamp(0.25em, 0.4em, 0.65em);

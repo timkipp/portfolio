@@ -8,9 +8,6 @@
     }
     
     body {
-        /* grid-template-rows: 0.75fr 6.5fr 0.75fr; */
-        /* grid-template-columns: 0.095fr 1.6fr 1.7fr 1.6fr 0.095fr; */
-
         .debug #phones-portrait {
             display: flex;
             background-color: aqua;

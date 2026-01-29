@@ -138,6 +138,8 @@
             }
             serve_attachment($attachment);
             break;
+        
+        // —————————— VISITOR ACTIONS ——————————
 
         default:
             http_response_code(400);

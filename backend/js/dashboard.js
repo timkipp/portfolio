@@ -169,6 +169,10 @@ function initializeBackend() {
     thMessageHeaders.forEach((th) => {
         th.addEventListener("click", toggleColumnSort);
     });
+    
+    // -----------------------
+    //    VISITOR HANDLING
+    // -----------------------
 
     // -----------------------
     //       UI HANDLING 

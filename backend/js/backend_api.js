@@ -239,3 +239,11 @@ export async function queryServerDownloadAttachment(file) {
         alert("Failed to download attachment. Please try again");
     }
 }
+
+export async function updateDbLogVisitor() {
+
+}
+
+export async function queryDbVisitors() {
+    
+}
